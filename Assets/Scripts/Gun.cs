@@ -12,9 +12,11 @@ public class Gun : MonoBehaviour
 
 	private Vector3 hitPos;
 	private bool isDashing;
+	private LineRenderer lr;
 
 	void Start()
 	{
+		lr = this.GetComponent<LineRenderer>();
 		isDashing = false;
 	}
 
@@ -60,6 +62,13 @@ public class Gun : MonoBehaviour
 
 		if (Input.GetButtonUp("Fire1")) {
 			isDashing = false;
+			lr.enabled = false;
+		}
+
+		if (isDashing) {
+			lr.SetPosition(0,transform.position);
+			lr.SetPosition(1,hitPos);
+			lr.enabled = true;
 		}
 	}
 
@@ -73,7 +82,7 @@ public class Gun : MonoBehaviour
 		//while (Input.GetMouseButtonDown(0))
 		{
 			if (isDashing) {
-				transform.position = Vector3.Lerp(startPos, pos, deltaTime/dashSpeed);
+				transform.position = Vector3.Lerp(transform.position, pos, deltaTime/dashSpeed);
 			}
 			deltaTime += Time.deltaTime;
 			yield return 0;
