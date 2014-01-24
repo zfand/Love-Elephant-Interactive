@@ -11,13 +11,14 @@ public class Gun : MonoBehaviour
 	private Animator anim;					// Reference to the Animator component.
 
 	private Vector3 hitPos;
-	private bool isDashing;
+	private Vector3 dirPos;
+	private bool isSwinging;
 	private LineRenderer lr;
 
 	void Start()
 	{
 		lr = this.GetComponent<LineRenderer>();
-		isDashing = false;
+		isSwinging = false;
 	}
 
 	void Awake()
@@ -28,17 +29,27 @@ public class Gun : MonoBehaviour
 	}
 
 	void OnDrawGizmos() {
-		if (hitPos != null) {
+		if (hitPos != null && hitPos != Vector3.zero) {
 			//Gizmos.DrawSphere(hitPos, 1);
 			//Gizmos.DrawRay(transform.position, (hitPos - transform.position)*10);
+			Gizmos.color = Color.white;
 			Gizmos.DrawLine(transform.position, hitPos);
+		}
+		if (dirPos != null && dirPos != Vector3.zero) {
+			Gizmos.color = Color.green;
+			Gizmos.DrawRay(transform.position, dirPos*5);
+			Gizmos.color = Color.black;
+			Gizmos.DrawRay(transform.position, Vector3.up*5);
+			Gizmos.DrawRay(transform.position, Vector3.down*5);
+			Gizmos.DrawRay(transform.position, Vector3.right*5);
+			Gizmos.DrawRay(transform.position, Vector3.left*5);
 		}
 	}
 
 	void Update ()
 	{
 		// If the fire button is pressed...
-		if(Input.GetButtonDown("Fire1") && !isDashing)
+		if(Input.GetButtonDown("Fire1") && !isSwinging)
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
@@ -53,7 +64,7 @@ public class Gun : MonoBehaviour
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, hitPos - transform.position, 100, layermask);
 			if (hit.collider) {
 				hitPos = new Vector3(hit.point.x,hit.point.y,-1);
-				StartCoroutine(Dash(hitPos));
+				StartCoroutine(Swing(hitPos));
 			} else {
 				Debug.Log("MISS");
 			}
@@ -61,34 +72,47 @@ public class Gun : MonoBehaviour
 		}
 
 		if (Input.GetButtonUp("Fire1")) {
-			isDashing = false;
+			isSwinging = false;
 			lr.enabled = false;
 		}
 
-		if (isDashing) {
+		if (isSwinging) {
 			lr.SetPosition(0,transform.position);
 			lr.SetPosition(1,hitPos);
 			lr.enabled = true;
 		}
 	}
 
-	IEnumerator Dash(Vector3 pos)
+	IEnumerator Swing(Vector3 pos)
 	{
 		float deltaTime = 0;
 		float dashSpeed = 0.5f;
-		Vector3 startPos = transform.position;
-		isDashing = true;
+		isSwinging = true;
+		Vector3 dir = (pos - transform.position).normalized;;
+
+		Vector3 perp = Vector3.Cross(transform.forward, dir);
+		bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
+
+
 		while (deltaTime < dashSpeed)
-		//while (Input.GetMouseButtonDown(0))
 		{
-			if (isDashing) {
+			if (isSwinging) {
+
 				transform.position = Vector3.Lerp(transform.position, pos, deltaTime/dashSpeed);
+
+				dir = (pos - transform.position).normalized;
+				//make up be pos
+				transform.rotation = Quaternion.LookRotation( transform.forward, dir );
+
+				if (swingingRight) {
+					dirPos = transform.right;
+				} else {
+					dirPos = transform.right*-1;
+				}
+				transform.position += dirPos;
+
 			}
 			deltaTime += Time.deltaTime;
-			yield return 0;
-		}
-		while (isDashing) {
-			transform.position = pos;
 			yield return 0;
 		}
 	}
