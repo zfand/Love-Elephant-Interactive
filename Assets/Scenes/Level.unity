@@ -4139,7 +4139,6 @@ GameObject:
   - 4: {fileID: 1453469576}
   - 212: {fileID: 1453469578}
   - 60: {fileID: 1453469577}
-  - 50: {fileID: 1453469579}
   m_Layer: 12
   m_Name: Ceiling
   m_TagString: ground
@@ -4228,21 +4227,6 @@ SpriteRenderer:
   m_SortingLayerID: 1024582385
   m_Sprite: {fileID: 21300000, guid: f8540bea7b77f4952adc2b7974912096, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!50 &1453469579
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1453469575}
-  m_Mass: 1e+06
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!1 &1510170527
 GameObject:
   m_ObjectHideFlags: 0
@@ -4471,7 +4455,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5000000, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
       propertyPath: m_Mass
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5000000, guid: 6aa187bc6339843479c03fdfd71404a3, type: 2}
       propertyPath: m_IsKinematic
@@ -5123,7 +5107,7 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 1744304060}
   m_GameObject: {fileID: 2086931158}
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -5295,12 +5279,12 @@ SpringJoint2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2086931158}
   m_Enabled: 0
-  m_CollideConnected: 0
+  m_CollideConnected: 1
   m_ConnectedRigidBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_Distance: 5
-  m_DampingRatio: .5
+  m_DampingRatio: .800000012
   m_Frequency: 5
 --- !u!1 &2110395647
 GameObject:

@@ -72,17 +72,18 @@ public class Gun : MonoBehaviour
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, hitPos - transform.position, 100, layermask);
 			if (hit.collider) {
 				hitPos = new Vector3(hit.point.x,hit.point.y,-1);
-				StartCoroutine(Swing(hitPos));
+				StartCoroutine("Swing", hitPos);
 			} else {
 				Debug.Log("MISS");
 			}
 			//Debug.Break();
 		}
 
-		if (Input.GetButtonUp("Fire1")) {
+		if (!Input.GetButton("Fire1")) {
 			isSwinging = false;
 			lr.enabled = false;
 			spring.enabled = false;
+			StopCoroutine("Swing");
 		}
 
 		if (isSwinging) {
@@ -100,6 +101,9 @@ public class Gun : MonoBehaviour
 		Vector3 dashPos = transform.position + dir*ropeLen;
 		Vector3 startPos = transform.position;
 		float dist = Vector3.Distance(startPos, dashPos);
+		Vector3 perp = Vector3.Cross(transform.forward, dir);
+		bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
+
 
 		for (float i = 0f; i < 1f; i += (dashSpeed * Time.deltaTime) / dist)
 		{
@@ -111,11 +115,12 @@ public class Gun : MonoBehaviour
 			}
 			yield return 0;
 		}
-		while (isSwinging) {
-			spring.connectedAnchor = pos;
-			spring.distance = ropeLen;
-			spring.enabled = true;
-			yield return 0;
-		}
+		spring.connectedAnchor = pos;
+		spring.distance = ropeLen;
+		spring.enabled = true;
+
+		//REMOVE ALL FORCE
+		rigidbody2D.velocity = Vector3.zero;
+		rigidbody2D.angularVelocity = 0f; 
 	}
 }
