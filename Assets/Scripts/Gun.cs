@@ -4,7 +4,11 @@ using System.Collections;
 public class Gun : MonoBehaviour
 {
 	public Rigidbody2D rocket;				// Prefab of the rocket.
-	public float speed = 20f;				// The speed the rocket will fire at.
+	public float speed = 20f;			// The speed the rocket will fire at.
+
+
+	public float ropeLen = 0f;
+	public float dashSpeed = 0f;
 
 
 	private PlayerControl playerCtrl;		// Reference to the PlayerControl script.
@@ -14,9 +18,12 @@ public class Gun : MonoBehaviour
 	private Vector3 dirPos;
 	private bool isSwinging;
 	private LineRenderer lr;
+	SpringJoint2D spring;
 
+	
 	void Start()
 	{
+		spring = this.GetComponent<SpringJoint2D>();
 		lr = this.GetComponent<LineRenderer>();
 		isSwinging = false;
 	}
@@ -49,7 +56,8 @@ public class Gun : MonoBehaviour
 	void Update ()
 	{
 		// If the fire button is pressed...
-		if(Input.GetButtonDown("Fire1") && !isSwinging)
+		//if(Input.GetButtonDown("Fire1") && !isSwinging)
+		if(Input.GetButtonDown("Fire1"))
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 			anim.SetTrigger("Shoot");
@@ -74,6 +82,7 @@ public class Gun : MonoBehaviour
 		if (Input.GetButtonUp("Fire1")) {
 			isSwinging = false;
 			lr.enabled = false;
+			spring.enabled = false;
 		}
 
 		if (isSwinging) {
@@ -86,33 +95,26 @@ public class Gun : MonoBehaviour
 	IEnumerator Swing(Vector3 pos)
 	{
 		float deltaTime = 0;
-		float dashSpeed = 0.5f;
 		isSwinging = true;
-		Vector3 dir = (pos - transform.position).normalized;;
+		Vector3 dir = (pos - transform.position).normalized;
+		Vector3 dashPos = transform.position + dir*ropeLen;
+		Vector3 startPos = transform.position;
+		float dist = Vector3.Distance(startPos, dashPos);
 
-		Vector3 perp = Vector3.Cross(transform.forward, dir);
-		bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
-
-
-		while (deltaTime < dashSpeed)
+		for (float i = 0f; i < 1f; i += (dashSpeed * Time.deltaTime) / dist)
 		{
 			if (isSwinging) {
-
-				transform.position = Vector3.Lerp(transform.position, pos, deltaTime/dashSpeed);
-
+				transform.position = Vector3.Lerp(startPos, dashPos, i);
 				dir = (pos - transform.position).normalized;
 				//make up be pos
 				transform.rotation = Quaternion.LookRotation( transform.forward, dir );
-
-				if (swingingRight) {
-					dirPos = transform.right;
-				} else {
-					dirPos = transform.right*-1;
-				}
-				transform.position += dirPos;
-
 			}
-			deltaTime += Time.deltaTime;
+			yield return 0;
+		}
+		while (isSwinging) {
+			spring.connectedAnchor = pos;
+			spring.distance = ropeLen;
+			spring.enabled = true;
 			yield return 0;
 		}
 	}
