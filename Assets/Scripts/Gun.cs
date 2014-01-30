@@ -14,6 +14,8 @@ public class Gun : MonoBehaviour
 	private PlayerControl playerCtrl;		// Reference to the PlayerControl script.
 	private Animator anim;					// Reference to the Animator component.
 
+	private Vector3 lastHit;
+
 	private Vector3 hitPos;
 	private Vector3 dirPos;
 	private bool isSwinging;
@@ -66,24 +68,28 @@ public class Gun : MonoBehaviour
 			Vector3 clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			hitPos = clickedPosition;
 			hitPos.z = 0;
-			Debug.Log(hitPos);
+			//Debug.Log(hitPos);
 
 			LayerMask layermask = ~(1 << LayerMask.NameToLayer("Player"));
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, hitPos - transform.position, 100, layermask);
 			if (hit.collider) {
+				lastHit = hitPos;
 				hitPos = new Vector3(hit.point.x,hit.point.y,-1);
-				StartCoroutine("Swing", hitPos);
+				Swing();
 			} else {
 				Debug.Log("MISS");
 			}
 			//Debug.Break();
 		}
 
-		if (!Input.GetButton("Fire1")) {
+		if (!Input.GetButton("Fire1") && isSwinging) {
 			isSwinging = false;
 			lr.enabled = false;
 			spring.enabled = false;
-			StopCoroutine("Swing");
+			Debug.Log ("LastHit: " + lastHit);
+			Debug.Log ("Pos: " + transform.position);
+			Debug.Log ("Dist2D: " + (lastHit.x - transform.position.x) + ", " + (lastHit.y - transform.position.y));
+			rigidbody2D.AddForce((lastHit - transform.position) * 200);
 		}
 
 		if (isSwinging) {
@@ -93,34 +99,13 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	IEnumerator Swing(Vector3 pos)
+	void Swing()
 	{
-		float deltaTime = 0;
 		isSwinging = true;
-		Vector3 dir = (pos - transform.position).normalized;
-		Vector3 dashPos = transform.position + dir*ropeLen;
-		Vector3 startPos = transform.position;
-		float dist = Vector3.Distance(startPos, dashPos);
-		Vector3 perp = Vector3.Cross(transform.forward, dir);
-		bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
-
-
-		for (float i = 0f; i < 1f; i += (dashSpeed * Time.deltaTime) / dist)
-		{
-			if (isSwinging) {
-				transform.position = Vector3.Lerp(startPos, dashPos, i);
-				dir = (pos - transform.position).normalized;
-				//make up be pos
-				transform.rotation = Quaternion.LookRotation( transform.forward, dir );
-			}
-			yield return 0;
-		}
-		spring.connectedAnchor = pos;
-		spring.distance = ropeLen;
+		spring.connectedAnchor = lastHit;
+		spring.distance = Vector3.Distance (transform.position, lastHit)/3;
 		spring.enabled = true;
-
-		//REMOVE ALL FORCE
 		rigidbody2D.velocity = Vector3.zero;
-		rigidbody2D.angularVelocity = 0f; 
+		rigidbody2D.angularVelocity = 0f;
 	}
 }
