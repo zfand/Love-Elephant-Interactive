@@ -22,16 +22,20 @@ public class Parallax : MonoBehaviour {
 	public int width;
 	public int height;
 
+	public bool hideWalls;
+
 	// Use this for initialization
 	void Start () {
 
 		//Get player's Z to dynamically place backgrounds
 		float startDepth = GameObject.FindGameObjectWithTag("Player").transform.position.z;
 
-		//Find existing walls and make them invisible if desired
-		GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
-		foreach (GameObject w in walls) {
-			w.renderer.enabled = false;
+		if (hideWalls) {
+			//Find existing walls and make them invisible if desired
+			GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
+			foreach (GameObject w in walls) {
+				w.renderer.enabled = false;
+			}
 		}
 
 		//Create a shader based on the given type
