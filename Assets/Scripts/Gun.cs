@@ -93,34 +93,5 @@ public class Gun : MonoBehaviour
 		}
 	}
 
-	IEnumerator Swing(Vector3 pos)
-	{
-		float deltaTime = 0;
-		isSwinging = true;
-		Vector3 dir = (pos - transform.position).normalized;
-		Vector3 dashPos = transform.position + dir*ropeLen;
-		Vector3 startPos = transform.position;
-		float dist = Vector3.Distance(startPos, dashPos);
-		Vector3 perp = Vector3.Cross(transform.forward, dir);
-		bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
 
-
-		for (float i = 0f; i < 1f; i += (dashSpeed * Time.deltaTime) / dist)
-		{
-			if (isSwinging) {
-				transform.position = Vector3.Lerp(startPos, dashPos, i);
-				dir = (pos - transform.position).normalized;
-				//make up be pos
-				transform.rotation = Quaternion.LookRotation( transform.forward, dir );
-			}
-			yield return 0;
-		}
-		spring.connectedAnchor = pos;
-		spring.distance = ropeLen;
-		spring.enabled = true;
-
-		//REMOVE ALL FORCE
-		rigidbody2D.velocity = Vector3.zero;
-		rigidbody2D.angularVelocity = 0f; 
-	}
 }

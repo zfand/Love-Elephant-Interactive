@@ -65,13 +65,12 @@ public class PlayerController : MonoBehaviour
 		// The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
 		bool grounded = Physics.Linecast(transform.position, groundCheck.position);
 		//.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
+
+		anim.SetBool("Grounded", grounded);
 		
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;
-		else {
-			Debug.Log("NO JUMPING");
-		}
     }
 
     private void FixedUpdate ()
@@ -101,7 +100,7 @@ public class PlayerController : MonoBehaviour
 		{
 			// Set the Jump animator trigger parameter.
 			anim.SetTrigger("Jump");
-			
+
 			// Add a vertical force to the player.
 			rigidbody.AddForce(new Vector3(0f, jumpForce, 0));
 			
