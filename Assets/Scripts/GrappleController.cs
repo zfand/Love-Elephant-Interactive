@@ -18,17 +18,18 @@ public class GrappleController : MonoBehaviour
 	/// <summary>
 	/// Reference to the SpringJoint
 	/// </summary>
-	private ConfigurableJoint spring;
+	private SpringJoint spring;
+	private HingeJoint hinge;
 	/// <summary>
 	/// Whether the player is swinging
 	/// </summary>
 	private bool isSwinging;
 
-
 	public float ropeLen = 0f;
 	public float dashSpeed = 0f;
 	private Transform ropePos;
 
+	public GameObject grapplePivot;
 
 	void Start ()
 	{
@@ -54,6 +55,7 @@ public class GrappleController : MonoBehaviour
 			RaycastHit hit;
 			Physics.Raycast(transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
 			if (hit.collider) {
+				grapplePivot.transform.position = hitPos;
 				hitPos = new Vector3(hit.point.x,hit.point.y,0);
 				Swing();
 			} else {
@@ -66,7 +68,10 @@ public class GrappleController : MonoBehaviour
 			lr.enabled = false;
 			StopCoroutine("Swing");
 			anim.SetBool("Swing",false);
-			Destroy(spring);
+			//Destroy(spring);
+			Destroy(hinge);
+			Vector3 aftershock = hitPos - transform.position;
+			rigidbody.AddForce(aftershock * 20);
 
 		}
 		
@@ -94,21 +99,36 @@ public class GrappleController : MonoBehaviour
 	{
 		anim.SetBool("Swing",true);
 		isSwinging = true;
-		ropeLen = Vector3.Distance(transform.position, hitPos)/3;
+		ropeLen = Vector3.Distance(transform.position, grapplePivot.transform.position)/3;
 
-		spring = gameObject.AddComponent<ConfigurableJoint>();
-		//spring.anchor = new Vector3(0,0.5f,0);
-		spring.connectedAnchor = hitPos;
-		spring.autoConfigureConnectedAnchor =false;
-		spring.xMotion = ConfigurableJointMotion.Limited;
-		spring.yMotion = ConfigurableJointMotion.Limited;
-		spring.zMotion = ConfigurableJointMotion.Locked;
-		spring.angularZMotion = ConfigurableJointMotion.Locked;
-		SoftJointLimit limits = new SoftJointLimit();
-		limits.limit = ropeLen;
-		limits.damper = 0.2f;
-		spring.linearLimit = limits;
-		//Debug.Break();
+		//spring = gameObject.AddComponent<SpringJoint>();
+		//spring.minDistance = Vector3.Distance(transform.position, hitPos)/5;
+
+		hinge = gameObject.AddComponent<HingeJoint>();
+		hinge.anchor = grapplePivot.transform.position;
+		hinge.axis = new Vector3(1,1,0);
+		hinge.useSpring = true;
+		JointSpring jsTemp = hinge.spring;
+		jsTemp.spring = 0.1f;
+		jsTemp.damper = 0f;
+		jsTemp.targetPosition = 270;
+		hinge.spring = jsTemp;
+
+
+		/*
+			spring = gameObject.AddComponent<ConfigurableJoint>();
+			//spring.anchor = new Vector3(0,0.5f,0);
+			spring.connectedAnchor = hitPos;
+			spring.autoConfigureConnectedAnchor =false;
+			spring.xMotion = ConfigurableJointMotion.Limited;
+			spring.yMotion = ConfigurableJointMotion.Limited;
+			spring.zMotion = ConfigurableJointMotion.Locked;
+			spring.angularZMotion = ConfigurableJointMotion.Locked;
+			SoftJointLimit limits = new SoftJointLimit();
+			limits.limit = ropeLen;
+			limits.damper = 0.2f;
+			spring.linearLimit = limits;
+		*/
 	}
 }
 

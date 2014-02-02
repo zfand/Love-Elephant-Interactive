@@ -71,6 +71,11 @@ public class PlayerController : MonoBehaviour
 		// If the jump button is pressed and the player is grounded then the player should jump.
 		if(Input.GetButtonDown("Jump") && grounded)
 			jump = true;
+
+		if (rigidbody.velocity.magnitude > 50) {
+			rigidbody.velocity /= 2;
+		}
+
     }
 
     private void FixedUpdate ()
