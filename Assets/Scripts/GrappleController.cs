@@ -108,7 +108,7 @@ public class GrappleController : MonoBehaviour
 		limits.limit = ropeLen;
 		limits.damper = 0.2f;
 		spring.linearLimit = limits;
-		Debug.Break();
+		//Debug.Break();
 	}
 }
 
