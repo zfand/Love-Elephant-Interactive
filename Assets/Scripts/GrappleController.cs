@@ -18,23 +18,26 @@ public class GrappleController : MonoBehaviour
 	/// <summary>
 	/// Reference to the SpringJoint
 	/// </summary>
-	private SpringJoint spring;
 	private HingeJoint hinge;
 	/// <summary>
 	/// Whether the player is swinging
 	/// </summary>
 	private bool isSwinging;
+	private bool isYanking;
 
-	public float ropeLen = 0f;
-	public float dashSpeed = 0f;
-	private Transform ropePos;
-
+	private Vector3 startPos;
+	private float startGrappleTime;
+	private float ropeLen = 0f;
+	public float dashSpeed = 100f;
 	public GameObject grapplePivot;
+
+	private Transform ropePos;
 
 	void Start ()
 	{
 		lr = this.GetComponent<LineRenderer>();
 		isSwinging = false;
+		isYanking = false;
 	}
 
 	void OnDrawGizmos() {
@@ -44,41 +47,54 @@ public class GrappleController : MonoBehaviour
 		}
 	}
 
-	private void Update ()
-	{
-		if(Input.GetButtonDown("Fire1") && !isSwinging)
-		{
+	private void Update() {
+
+		if (Input.GetButton ("Fire1") && isYanking) {
+			float distanceTraveled = (Time.time - startGrappleTime) * dashSpeed;
+			float percentDone = distanceTraveled/ropeLen;
+			transform.position = Vector3.Lerp(startPos,grapplePivot.transform.position,percentDone);
+
+			if (percentDone > .6f) {
+				isYanking = false;
+				isSwinging = true;
+				hinge = gameObject.AddComponent<HingeJoint>();
+
+				hinge.useLimits = false;
+				hinge.axis = new Vector3(1,1,0);
+			}
+
+		} else if (!Input.GetButtonDown ("Fire1") && isYanking) {
+			isYanking = false;
+			Vector3 aftershock = hitPos - transform.position;
+			rigidbody.AddForce(aftershock * (dashSpeed * 5));
+		} else if (Input.GetButtonDown ("Fire1") && !isYanking) {
 			Vector3 clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			clickedPosition.z = 0;
-			hitPos = clickedPosition;
 			LayerMask layermask = ~(1 << LayerMask.NameToLayer("Player"));
 			RaycastHit hit;
 			Physics.Raycast(transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
 			if (hit.collider) {
-				grapplePivot.transform.position = hitPos;
+				startGrappleTime = Time.time;
 				hitPos = new Vector3(hit.point.x,hit.point.y,0);
-				Swing();
-			} else {
-				Debug.Log("MISS");
+				grapplePivot.transform.position = hitPos;
+				isYanking = true;
+				startPos = transform.position;
+				rigidbody.velocity = Vector3.zero;
+				rigidbody.angularVelocity = Vector3.zero;
+				ropeLen = Vector3.Distance (startPos, grapplePivot.transform.position);
 			}
-		}
-
-		if (!Input.GetButton("Fire1") && isSwinging) {
+		} else if (Input.GetButtonDown ("Fire1") && isSwinging) {
+		} else if (!Input.GetButton ("Fire1") && isSwinging) {
 			isSwinging = false;
-			lr.enabled = false;
-			StopCoroutine("Swing");
-			anim.SetBool("Swing",false);
-			//Destroy(spring);
-			Destroy(hinge);
-			Vector3 aftershock = hitPos - transform.position;
-			rigidbody.AddForce(aftershock * 20);
-
+			Destroy (hinge);
 		}
-		
-		if (isSwinging) {
-			lr.SetPosition(0,ropePos.position);
+
+		if (isYanking || isSwinging) {
+			lr.SetPosition(0,transform.position);
 			lr.SetPosition(1,hitPos);
 			lr.enabled = true;
+		} else {
+			lr.enabled = false;
 		}
 	}
 
@@ -95,40 +111,5 @@ public class GrappleController : MonoBehaviour
 		}
 	}
 
-	void Swing()
-	{
-		anim.SetBool("Swing",true);
-		isSwinging = true;
-		ropeLen = Vector3.Distance(transform.position, grapplePivot.transform.position)/3;
-
-		//spring = gameObject.AddComponent<SpringJoint>();
-		//spring.minDistance = Vector3.Distance(transform.position, hitPos)/5;
-
-		hinge = gameObject.AddComponent<HingeJoint>();
-		hinge.anchor = grapplePivot.transform.position;
-		hinge.axis = new Vector3(1,1,0);
-		hinge.useSpring = true;
-		JointSpring jsTemp = hinge.spring;
-		jsTemp.spring = 0.1f;
-		jsTemp.damper = 0f;
-		jsTemp.targetPosition = 270;
-		hinge.spring = jsTemp;
-
-
-		/*
-			spring = gameObject.AddComponent<ConfigurableJoint>();
-			//spring.anchor = new Vector3(0,0.5f,0);
-			spring.connectedAnchor = hitPos;
-			spring.autoConfigureConnectedAnchor =false;
-			spring.xMotion = ConfigurableJointMotion.Limited;
-			spring.yMotion = ConfigurableJointMotion.Limited;
-			spring.zMotion = ConfigurableJointMotion.Locked;
-			spring.angularZMotion = ConfigurableJointMotion.Locked;
-			SoftJointLimit limits = new SoftJointLimit();
-			limits.limit = ropeLen;
-			limits.damper = 0.2f;
-			spring.linearLimit = limits;
-		*/
-	}
 }
 
