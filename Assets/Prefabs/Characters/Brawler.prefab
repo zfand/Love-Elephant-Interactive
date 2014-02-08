@@ -13,6 +13,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 65: {fileID: 6500000}
   - 120: {fileID: 12000000}
+  - 114: {fileID: 11400004}
   m_Layer: 9
   m_Name: Brawler
   m_TagString: Player
@@ -139,9 +140,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .56951046, y: .226289436, z: 0}
-  m_LocalScale: {x: .666666687, y: .166666672, z: .5}
+  m_LocalRotation: {x: 0, y: 0, z: -.382683486, w: .923879564}
+  m_LocalPosition: {x: -.61368072, y: .591481388, z: 0}
+  m_LocalScale: {x: .859096766, y: .166666672, z: .5}
   m_Children: []
   m_Father: {fileID: 400000}
 --- !u!23 &2300000
@@ -206,7 +207,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: .25, z: .5}
@@ -254,6 +255,21 @@ MonoBehaviour:
   moveForce: 30
   maxSpeed: 20
   jumpForce: 500
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8511f0e2622fe494995e46ddca189d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 100008}
+  speed: 20
+  totaldegrees: 80
+  degreesperframe: 5
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

@@ -6,7 +6,9 @@ public class Sword : MonoBehaviour
 	public GameObject sword;				// Prefab of the rocket.
 	public float speed = 20f;			// The speed the rocket will fire at.
 
-
+	
+	public float totaldegrees = 80;
+	public float degreesperframe = 5;
 	private PlayerController playerCtrl;		// Reference to the PlayerControl script.
 	//private Animator anim;					// Reference to the Animator component.
 
@@ -15,11 +17,15 @@ public class Sword : MonoBehaviour
 	private Vector3 hitPos;
 	private Vector3 dirPos;
 	private bool isSwinging;
-
+	private Vector3 OriginalSwordPosition;
+	private Quaternion OriginalSwordRotation; 
 	
 	void Start()
 	{
 		isSwinging = false;
+		OriginalSwordPosition = sword.transform.localPosition;
+		OriginalSwordRotation = sword.transform.localRotation;
+
 		sword.SetActive(false);
 	}
 
@@ -81,6 +87,7 @@ public class Sword : MonoBehaviour
 		Vector3 diff = this.transform.root.position - sword.transform.position;
 		Quaternion start = _start;
 		Quaternion end = _end;
+		/**
 		while(swingTime < totalSwingTime){
 			if(!playerCtrl.facingRight)
 			{
@@ -91,14 +98,30 @@ public class Sword : MonoBehaviour
 				start = _start;
 			}
 			swingTime++;
+			sword.transform.RotateAround(
 			//sword.transform.position = sword.transform.position - diff;
 			sword.transform.rotation = Quaternion.Slerp(start, end, swingTime/totalSwingTime);
 			//sword.transform.position = sword.transform.position + diff;
 			yield return 0; 
 
 		}
+		*/
+		float degrees = 0;
+		while(degrees < totaldegrees){
+			degrees += degreesperframe;
+			if(!playerCtrl.facingRight)
+			{
+				sword.transform.RotateAround(playerCtrl.transform.position, new Vector3(0, 0, 1), degreesperframe);
+			} 
+			else 
+			{
+				sword.transform.RotateAround(playerCtrl.transform.position, new Vector3(0, 0, 1), -degreesperframe);
+			}
+			yield return 0;
+		}
 		isSwinging = false;
-		sword.transform.rotation = Quaternion.Euler(0, 0, 0);
-		//sword.SetActive(false);
+		sword.transform.localPosition = OriginalSwordPosition;
+		sword.transform.localRotation = OriginalSwordRotation;
+		sword.SetActive(false);
 	}
 }
