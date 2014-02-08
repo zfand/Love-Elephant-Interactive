@@ -9,6 +9,7 @@ public class Sword : MonoBehaviour
 	
 	public float totaldegrees = 80;
 	public float degreesperframe = 5;
+	public float Damage = 10;
 	private PlayerController playerCtrl;		// Reference to the PlayerControl script.
 	//private Animator anim;					// Reference to the Animator component.
 
@@ -108,7 +109,7 @@ public class Sword : MonoBehaviour
 		*/
 		float degrees = 0;
 		while(degrees < totaldegrees){
-			degrees += degreesperframe;
+			degrees += degreesperframe	;
 			if(!playerCtrl.facingRight)
 			{
 				sword.transform.RotateAround(playerCtrl.transform.position, new Vector3(0, 0, 1), degreesperframe);
@@ -124,4 +125,8 @@ public class Sword : MonoBehaviour
 		sword.transform.localRotation = OriginalSwordRotation;
 		sword.SetActive(false);
 	}
+	public void Hit(){
+		sword.particleSystem.Play();
+	}
+
 }

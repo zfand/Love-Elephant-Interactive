@@ -6,10 +6,12 @@ public class SlothAI : MonoBehaviour {
 	public GameObject player;
 	private Animation anim;
 
+	public float Health = 100;
+
 	private bool faceLeft;
 
 	// Use this for initialization
-	void Start () {
+	void Start	 () {
 		anim = GetComponent<Animation>();
 		faceLeft = true;
 	}
@@ -19,7 +21,7 @@ public class SlothAI : MonoBehaviour {
 
 		if (!anim.IsPlaying ("Sloth_Charge"))
 			facePlayer();
-
+		/*
 		if (sameLevel()) {
 			if (anim.IsPlaying("Sloth_BeginCharge")) {
 				anim.PlayQueued ("Sloth_Charge", QueueMode.CompleteOthers);
@@ -36,6 +38,7 @@ public class SlothAI : MonoBehaviour {
 				anim.PlayQueued ("Sloth_Idle", QueueMode.PlayNow);
 			}
 		}
+		*/
 	}
 
 	void charge(bool lookL) {
@@ -55,7 +58,15 @@ public class SlothAI : MonoBehaviour {
 			anim.PlayQueued("Sloth_EndCharge", QueueMode.PlayNow);
 		}
 	}
+	void OnTriggerEnter(Collider other){
+		if(other.gameObject.tag == "Sword"){
+			Sword sword = player.GetComponent<Sword>();
+			Health -= sword.Damage;
+			sword.Hit();
 
+
+		}
+	}
 	//Face the player
 	void facePlayer() {
 
