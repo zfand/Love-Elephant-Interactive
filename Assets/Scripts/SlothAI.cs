@@ -21,7 +21,7 @@ public class SlothAI : MonoBehaviour {
 
 		if (!anim.IsPlaying ("Sloth_Charge"))
 			facePlayer();
-		/*
+
 		if (sameLevel()) {
 			if (anim.IsPlaying("Sloth_BeginCharge")) {
 				anim.PlayQueued ("Sloth_Charge", QueueMode.CompleteOthers);
@@ -38,7 +38,7 @@ public class SlothAI : MonoBehaviour {
 				anim.PlayQueued ("Sloth_Idle", QueueMode.PlayNow);
 			}
 		}
-		*/
+
 	}
 
 	void charge(bool lookL) {
@@ -60,10 +60,13 @@ public class SlothAI : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "Sword"){
+			float starthealth = Health;
 			Sword sword = player.GetComponent<Sword>();
 			Health -= sword.Damage;
 			sword.Hit();
-
+			if(starthealth >= 50 && Health <= 50){
+				this.transform.Find ("Smoke1").particleSystem.Play ();
+			}
 
 		}
 	}
