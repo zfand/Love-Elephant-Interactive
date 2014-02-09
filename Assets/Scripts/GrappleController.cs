@@ -84,6 +84,10 @@ public class GrappleController : MonoBehaviour
 			RaycastHit hit;
 			Physics.Raycast(transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
 			if (hit.collider) {
+				if (hit.collider.gameObject.tag == "Untagged") {
+					return;
+				}
+
 				hitGrappleObj = hit.collider.gameObject;
 				startGrappleTime = Time.time;
 				hitPos = new Vector3(hit.point.x,hit.point.y,0);
