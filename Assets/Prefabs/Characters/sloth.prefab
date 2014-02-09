@@ -2717,6 +2717,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100358
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400358}
+  m_Layer: 0
+  m_Name: death_pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -4758,6 +4773,7 @@ Transform:
   m_Children:
   - {fileID: 400006}
   - {fileID: 400350}
+  - {fileID: 400358}
   m_Father: {fileID: 400348}
 --- !u!4 &400342
 Transform:
@@ -4864,6 +4880,17 @@ Transform:
   m_LocalScale: {x: .506249905, y: .507499993, z: 2}
   m_Children: []
   m_Father: {fileID: 400348}
+--- !u!4 &400358
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100358}
+  m_LocalRotation: {x: 0, y: -.70710665, z: 0, w: -.707107008}
+  m_LocalPosition: {x: .400388867, y: .979496002, z: 6.38039112}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 400340}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -4978,6 +5005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  deathPos: {fileID: 400358}
   Health: 100
 --- !u!114 &11400004
 MonoBehaviour:

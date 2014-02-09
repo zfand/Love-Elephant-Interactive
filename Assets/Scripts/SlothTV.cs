@@ -4,6 +4,7 @@ using System.Collections;
 public class SlothTV : MonoBehaviour {
 	
 	public GameObject player;
+	public Transform deathPos;
 	private Color origColor;
 	private Color flashColor;
 	
@@ -61,7 +62,7 @@ public class SlothTV : MonoBehaviour {
 			currtime += Time.deltaTime;
 			yield return 0;
 		}
-		boom.localPosition = this.transform.FindChild ("body 1").transform.position - this.transform.parent.position;
+		boom.position = deathPos.position;
 		boom.particleSystem.Play ();
 		this.gameObject.SetActive(false);
 	}
