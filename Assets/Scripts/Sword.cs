@@ -63,7 +63,7 @@ public class Sword : MonoBehaviour
 		{
 			// ... set the animator Shoot trigger parameter and play the audioclip.
 //			anim.SetTrigger("Shoot");
-//			audio.Play();
+			//			audio.Play();
 
 			Vector3 clickedPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			hitPos = clickedPosition;
@@ -126,7 +126,7 @@ public class Sword : MonoBehaviour
 		sword.SetActive(false);
 	}
 	public void Hit(){
-		sword.particleSystem.Play();
+		//sword.light.intensity = 10;//sword.particleSystem.Play();
 	}
 
 }
