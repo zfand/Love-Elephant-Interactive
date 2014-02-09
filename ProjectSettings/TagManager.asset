@@ -13,6 +13,8 @@ TagManager:
   - ExplosionFX
   - HealthBar
   - Pivot
+  - Ceiling
+  - Floor
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

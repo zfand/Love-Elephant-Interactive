@@ -38,6 +38,8 @@ public class GrappleController : MonoBehaviour
 
 	private Transform ropePos;
 
+	private GameObject hitGrappleObj;
+
 	void Start ()
 	{
 		startDashSpeed = dashSpeed;
@@ -50,6 +52,8 @@ public class GrappleController : MonoBehaviour
 		if (hitPos != null && hitPos != Vector3.zero) {
 			Gizmos.color = Color.white;
 			Gizmos.DrawLine(transform.position, hitPos);
+			Gizmos.DrawSphere (grapplePivot.transform.position, .3f);
+			Gizmos.DrawSphere (transform.position, .3f);
 		}
 	}
 
@@ -60,7 +64,6 @@ public class GrappleController : MonoBehaviour
 			float percentDone = distanceTraveled/ropeLen;
 			lastPercentDone = percentDone;
 			transform.position = Vector3.Lerp(startPos,swingPos,percentDone);
-			Debug.Log (percentDone + ", " + yankLength);
 			if (percentDone >= yankLength) {
 				isYanking = false;
 				isSwinging = true;
@@ -71,7 +74,7 @@ public class GrappleController : MonoBehaviour
 			rigidbody.velocity = Vector3.zero;
 			rigidbody.angularVelocity = Vector3.zero;
 			Vector3 aftershock = hitPos - transform.position;
-			rigidbody.AddForce(aftershock * (5 * dashSpeed));
+			rigidbody.AddForce(aftershock * dashSpeed);
 			dashSpeed = startDashSpeed;
 
 		} else if (Input.GetButtonDown ("Fire1") && !isYanking) {
@@ -81,6 +84,7 @@ public class GrappleController : MonoBehaviour
 			RaycastHit hit;
 			Physics.Raycast(transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
 			if (hit.collider) {
+				hitGrappleObj = hit.collider.gameObject;
 				startGrappleTime = Time.time;
 				hitPos = new Vector3(hit.point.x,hit.point.y,0);
 				grapplePivot.transform.position = hitPos;
@@ -92,34 +96,7 @@ public class GrappleController : MonoBehaviour
 				swingPos = Vector3.Lerp (startPos, grapplePivot.transform.position, .6f);
 			}
 		} else if (Input.GetButton ("Fire1") && isSwinging) {
-
-			//All this should probably be in its own function
-
-			//GrapplePivot on ceiling
-			if (grapplePivot.transform.position.y > transform.position.y) {
-				if (Input.GetKey ("a")) {
-					transform.RotateAround(grapplePivot.transform.position, Vector3.back, 70 * Time.deltaTime);
-				} else if (Input.GetKey ("d")) {
-					transform.RotateAround(grapplePivot.transform.position, Vector3.back, -70 * Time.deltaTime);
-				} else {
-					if (Mathf.Abs(transform.position.x - grapplePivot.transform.position.x) > .1) {
-						if (transform.position.x < grapplePivot.transform.position.x) {
-							transform.RotateAround(grapplePivot.transform.position, Vector3.back, -40 * Time.deltaTime);
-						} else {
-							transform.RotateAround(grapplePivot.transform.position, Vector3.back, 40 * Time.deltaTime);
-						}
-					}
-				}
-			} else if (grapplePivot.transform.position.y < transform.position.y) {
-				//GrapplePivot on floor
-			} else {
-				//GrapplePivot on wall
-			}
-
-			//TODO: Get vector3 of player arc tangent to add to the player after releasing from swing
-
-			transform.rotation = Quaternion.Euler(Vector3.zero);
-
+			SwingMech();
 		} else if (!Input.GetButton ("Fire1") && isSwinging) {
 			isSwinging = false;
 			Destroy (hinge);
@@ -135,6 +112,7 @@ public class GrappleController : MonoBehaviour
 			lr.enabled = true;
 		} else {
 			lr.enabled = false;
+			hitGrappleObj = null;
 		}
 	}
 
@@ -149,6 +127,60 @@ public class GrappleController : MonoBehaviour
 		if (ropePos == null) {
 			Debug.LogError("There is no RopePos transform on the Player");
 		}
+	}
+
+	private void SwingMech() {
+
+		float distFromNatTop = Mathf.Abs (transform.position.x - grapplePivot.transform.position.x);
+		float distFromNatSide = Mathf.Abs (transform.position.y - grapplePivot.transform.position.y);
+		float moveSpeedTop = 70 * distFromNatTop + 1;
+		float moveSpeedSide =  70 * distFromNatSide + 1;
+
+		//GrapplePivot on ceiling
+		if (hitGrappleObj.tag == "Ceiling") {
+			if (Input.GetKey ("a")) {
+				transform.RotateAround(grapplePivot.transform.position, Vector3.back, moveSpeedTop * Time.deltaTime);
+			} else if (Input.GetKey ("d")) {
+				transform.RotateAround(grapplePivot.transform.position, Vector3.back, -moveSpeedTop * Time.deltaTime);
+			} else {
+				if (Mathf.Abs(transform.position.x - grapplePivot.transform.position.x) > .1) {
+					if (transform.position.x < grapplePivot.transform.position.x) {
+						transform.RotateAround(grapplePivot.transform.position, Vector3.back, -moveSpeedTop/2 * Time.deltaTime);
+					} else {
+						transform.RotateAround(grapplePivot.transform.position, Vector3.back, moveSpeedTop/2 * Time.deltaTime);
+					}
+				}
+			}
+		} else if (hitGrappleObj.tag == "Floor") {
+			//GrapplePivot on floor
+			//Iunno lol
+		} else if (hitGrappleObj.tag == "Wall") {
+			if (grapplePivot.transform.position.x > transform.position.x) {
+				if (Input.GetKey ("w")) {
+					transform.RotateAround(grapplePivot.transform.position, Vector3.back, moveSpeedSide * Time.deltaTime);
+				} else if (Input.GetKey ("s")) {
+					transform.RotateAround(grapplePivot.transform.position, Vector3.back, -moveSpeedSide * Time.deltaTime);
+				} else {
+					if (Mathf.Abs(transform.position.x - grapplePivot.transform.position.x) > .1) {
+						transform.RotateAround (grapplePivot.transform.position, Vector3.back, -moveSpeedSide/2 * Time.deltaTime);
+					}
+				}
+			} else {
+				if (Input.GetKey ("w")) {
+					transform.RotateAround(grapplePivot.transform.position, Vector3.back, -moveSpeedSide * Time.deltaTime);
+				} else if (Input.GetKey ("s")) {
+					transform.RotateAround(grapplePivot.transform.position, Vector3.back, moveSpeedSide * Time.deltaTime);
+				} else {
+					if (Mathf.Abs(transform.position.x - grapplePivot.transform.position.x) > .1) {
+						transform.RotateAround (grapplePivot.transform.position, Vector3.back, moveSpeedSide/2 * Time.deltaTime);
+					}
+				}
+			}
+		}
+		
+		//TODO: Get vector3 of player arc tangent to add to the player after releasing from swing
+		
+		transform.rotation = Quaternion.Euler(Vector3.zero);
 	}
 
 }
