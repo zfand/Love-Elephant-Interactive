@@ -38,7 +38,7 @@ public class SlothBody : MonoBehaviour {
 				
 				float endperc = Health/fullHealth; 
 				if(startperc >= 0.50 && endperc <= 0.50){
-					this.transform.Find ("Smoke1").particleSystem.Play ();
+					this.transform.Find ("BodyFire").particleSystem.Play ();
 				}
 				StartCoroutine(FlashRed());
 				if(Health <= 0) {

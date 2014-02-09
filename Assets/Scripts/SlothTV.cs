@@ -37,9 +37,9 @@ public class SlothTV : MonoBehaviour {
 			float endhealth = Health / OriginalHealth;
 
 			if(starthealth >= 0.50 && endhealth <= 0.50){
-				this.transform.Find ("TVSmoke").particleSystem.Play ();
+				this.transform.Find ("TVFire").particleSystem.Play ();
 			} else if(starthealth >= 0.20 && endhealth <= 0.20){
-				this.transform.Find ("TVSmoke").particleSystem.emissionRate *= 2;
+				this.transform.Find ("TVFire").particleSystem.emissionRate *= 2;
 			}
 			StartCoroutine(FlashRed());
 			if(Health <= 0){
@@ -50,7 +50,7 @@ public class SlothTV : MonoBehaviour {
 	}
 
 	public void Explode(){
-		StartCoroutine (BlowUpTV());
+		//StartCoroutine (BlowUpTV());
 	}
 
 	IEnumerator BlowUpTV(){
