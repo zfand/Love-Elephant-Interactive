@@ -26,9 +26,7 @@ public class SlothBody : MonoBehaviour
   
   // Update is called once per frame
   void Update()
-  {		
-    if (exploding && !transform.Find("TVFire").particleSystem.isAlive())
-	  Destroy(transform.Find("TVFire"));
+  {
   }
 	
   void OnTriggerEnter(Collider other)
@@ -46,7 +44,7 @@ public class SlothBody : MonoBehaviour
           this.transform.Find ("BodyFire").particleSystem.Play ();
         }
         StartCoroutine (FlashRed ());
-        if (Health <= 0) {
+        if (Health <= 0 && !exploding) {
           StartCoroutine (SlothDying ());
         }
       }

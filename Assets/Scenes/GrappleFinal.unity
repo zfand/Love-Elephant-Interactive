@@ -137,6 +137,10 @@ Prefab:
       propertyPath: InitialModule.startLifetime.maxCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
   m_RootGameObject: {fileID: 259918414}
@@ -513,7 +517,7 @@ ParticleSystem:
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 0
@@ -3119,6 +3123,10 @@ Prefab:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
   m_RootGameObject: {fileID: 552969273}
@@ -3281,7 +3289,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400348, guid: a8c47a7f8045c497da24047a2b144d8b, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 351986258}
-  m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
+  m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
   m_LocalPosition: {x: 11.2748127, y: -6.17453003, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
@@ -9951,7 +9959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8334b7b2ce1e5427ab4ce5fdb729f21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDashSpeed: 20
+  maxDashSpeed: 10
   grapplePivot: {fileID: 696176543}
   yankLength: .899999976
   swingForce: 1000
@@ -12343,7 +12351,7 @@ ParticleSystem:
   startDelay: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   moveWithTransform: 0
@@ -13922,7 +13930,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400346, guid: a8c47a7f8045c497da24047a2b144d8b, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1984503713}
-  m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
+  m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

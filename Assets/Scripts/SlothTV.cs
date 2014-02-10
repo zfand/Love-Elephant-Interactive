@@ -26,8 +26,6 @@ public class SlothTV : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (exploding && !transform.Find("TVFire").particleSystem.isAlive())
-  	  Destroy(transform.Find("TVFire"));
   }
   
   void OnTriggerEnter(Collider other)
@@ -47,9 +45,9 @@ public class SlothTV : MonoBehaviour
         this.transform.Find ("TVFire").particleSystem.emissionRate *= 2;
       }
       StartCoroutine (FlashRed());
-      if (Health <= 0) {
+      if (Health <= 0 && !exploding) {
 		exploding = true;
-        transform.parent.Find ("TVExplosion").particleSystem.Play ();
+        transform.parent.Find ("TVExplosion").particleSystem.Play();
         this.gameObject.SetActive (false);
       }
     }
