@@ -12,6 +12,7 @@ public class SlothBody : MonoBehaviour
   private float fullHealth;
   private bool faceLeft;
   private Material mat;
+  private bool exploding = false;
   // Use this for initialization
   void Start()
   {
@@ -25,10 +26,11 @@ public class SlothBody : MonoBehaviour
   
   // Update is called once per frame
   void Update()
-  {
-  
+  {		
+    if (exploding && !transform.Find("TVFire").particleSystem.isAlive())
+	  Destroy(transform.Find("TVFire"));
   }
-  
+	
   void OnTriggerEnter(Collider other)
   {
     if (!dying) {
@@ -81,6 +83,8 @@ public class SlothBody : MonoBehaviour
     while (anim.isPlaying) {
       yield return 0;
     }
+	
+	exploding = true;
     this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
     
     Transform tv = this.transform.parent.Find ("tv");

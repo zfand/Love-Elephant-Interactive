@@ -12,6 +12,8 @@ public class SlothTV : MonoBehaviour
   private float OriginalHealth;
   private bool faceLeft;
   private Material mat;
+  private bool exploding = false;
+
   // Use this for initialization
   void Start()
   {
@@ -24,7 +26,8 @@ public class SlothTV : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-  
+    if (exploding && !transform.Find("TVFire").particleSystem.isAlive())
+  	  Destroy(transform.Find("TVFire"));
   }
   
   void OnTriggerEnter(Collider other)
@@ -43,8 +46,9 @@ public class SlothTV : MonoBehaviour
       } else if (starthealth >= 0.20 && endhealth <= 0.20) {
         this.transform.Find ("TVFire").particleSystem.emissionRate *= 2;
       }
-      StartCoroutine (FlashRed ());
+      StartCoroutine (FlashRed());
       if (Health <= 0) {
+		exploding = true;
         transform.parent.Find ("TVExplosion").particleSystem.Play ();
         this.gameObject.SetActive (false);
       }
@@ -53,7 +57,7 @@ public class SlothTV : MonoBehaviour
 
   public void Explode()
   {
-    //StartCoroutine (BlowUpTV());
+    StartCoroutine (BlowUpTV());
   }
 
   IEnumerator BlowUpTV()
@@ -70,6 +74,7 @@ public class SlothTV : MonoBehaviour
     boom.particleSystem.Play ();
     this.gameObject.SetActive (false);
   }
+
   //flash red on hit 
   IEnumerator FlashRed()
   {

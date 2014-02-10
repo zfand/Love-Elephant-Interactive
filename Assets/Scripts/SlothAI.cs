@@ -31,7 +31,7 @@ public class SlothAI : MonoBehaviour
     if (!dying) {
       if (!anim.IsPlaying ("Sloth_Charge"))
         facePlayer ();
-      /*
+
       if (sameLevel () && false) {
         if (anim.IsPlaying ("Sloth_BeginCharge")) {
           anim.PlayQueued ("Sloth_Charge", QueueMode.CompleteOthers);
@@ -42,11 +42,12 @@ public class SlothAI : MonoBehaviour
         } else if (anim.IsPlaying ("Sloth_Idle")) {
           anim.PlayQueued ("Sloth_BeginCharge", QueueMode.PlayNow);
         }
-      } else { */
-      if (!anim.IsPlaying ("Sloth_Idle") && !anim.IsPlaying ("Sloth_Charge")) {
-        anim.Stop ();
-        anim.PlayQueued ("Sloth_Idle", QueueMode.PlayNow);
-      }
+      } else {
+        if (!anim.IsPlaying ("Sloth_Idle") && !anim.IsPlaying ("Sloth_Charge")) {
+          anim.Stop ();
+          anim.PlayQueued ("Sloth_Idle", QueueMode.PlayNow);
+      	}
+	  }
     }
   }
 
