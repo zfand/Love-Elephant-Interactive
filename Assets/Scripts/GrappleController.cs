@@ -78,10 +78,10 @@ public class GrappleController : MonoBehaviour
     if (Input.GetButton ("Fire1") && isYanking) {
       dashSpeed = Mathf.Lerp (startDashSpeed, 10f, lastPercentDone);
       float distanceTraveled = (Time.time - startGrappleTime) * dashSpeed;
-      float percentDone = distanceTraveled / ropeLen;
+      float percentDone = distanceTraveled / (ropeLen * yankLength);
       lastPercentDone = percentDone;
       transform.position = Vector3.Lerp (startPos, swingPos, percentDone);
-      if (percentDone >= yankLength) {
+      if (percentDone >= 1f) {
         isYanking = false;
         isSwinging = true;
         rigidbody.constraints = RigidbodyConstraints.FreezeAll;
