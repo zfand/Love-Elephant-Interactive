@@ -53,16 +53,17 @@ public class GrappleController : MonoBehaviour
   private void Update()
   {
     YankingUpdate ();
-
     SwingingUpdate ();
 
     //Draw Rope
     if (isYanking || isSwinging) {
-      lr.SetPosition (0, transform.position);
+      lr.SetPosition (0, ropePos.position);
       lr.SetPosition (1, hitPos);
       lr.enabled = true;
+      anim.SetBool("Swing", true);
     } else {
       lr.enabled = false;
+      anim.SetBool("Swing", false);
       hitGrappleObj = null;
     }
   }
@@ -81,13 +82,12 @@ public class GrappleController : MonoBehaviour
       lastPercentDone = percentDone;
       transform.position = Vector3.Lerp (startPos, swingPos, percentDone);
       if (percentDone >= yankLength) {
-        Debug.Break();
         isYanking = false;
         isSwinging = true;
         rigidbody.constraints = RigidbodyConstraints.FreezeAll;
       }
       //if let go of the button
-    } else if (!Input.GetButtonDown ("Fire1") && isYanking) {
+    } else if (!Input.GetButtonDown ("Fire1") && isYanking) {     
       isYanking = false;
       rigidbody.velocity = Vector3.zero;
       rigidbody.angularVelocity = Vector3.zero;
