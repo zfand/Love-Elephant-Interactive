@@ -125,6 +125,18 @@ Prefab:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: .550000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
+      propertyPath: InitialModule.startLifetime.minCurve.m_Curve.Array.data[0].value
+      value: .454545438
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800002, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
+      propertyPath: InitialModule.startLifetime.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f527e6aea0ac92147b31a4b6a30579ca, type: 2}
   m_RootGameObject: {fileID: 259918414}
