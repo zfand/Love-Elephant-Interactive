@@ -40,15 +40,20 @@ public class SlothAI : MonoBehaviour
         } else if (anim.IsPlaying ("Sloth_EndCharge")) {
           anim.PlayQueued ("Sloth_Idle", QueueMode.CompleteOthers);
         } else if (anim.IsPlaying ("Sloth_Idle")) {
+		  StartCoroutine(WaitForSecs(2f));
           anim.PlayQueued ("Sloth_BeginCharge", QueueMode.PlayNow);
         }
       } else {
         if (!anim.IsPlaying ("Sloth_Idle") && !anim.IsPlaying ("Sloth_Charge")) {
           anim.Stop ();
           anim.PlayQueued ("Sloth_Idle", QueueMode.PlayNow);
-      	}
+	    }
 	  }
     }
+  }
+
+  IEnumerator WaitForSecs(float secs) {
+	yield return new WaitForSeconds(secs);
   }
 
   void charge(bool lookL)
@@ -57,9 +62,9 @@ public class SlothAI : MonoBehaviour
     float yPos = transform.position.y;
 
     if (faceLeft) {
-      transform.position = new Vector3 (xPos - 0.5f, yPos, 0f);
+      transform.position = new Vector3 (xPos - 0.1f, yPos, 0f);
     } else {
-      transform.position = new Vector3 (xPos + 0.5f, yPos, 0f);
+      transform.position = new Vector3 (xPos + 0.1f, yPos, 0f);
     }
   }
 
@@ -80,10 +85,12 @@ public class SlothAI : MonoBehaviour
     float currentX = this.transform.eulerAngles.x;
     float currentY = this.transform.eulerAngles.y;
     if (!turning) {
-      if (player.transform.position.x < this.transform.position.x && !faceLeft) {
+			if (player.transform.position.x < this.transform.position.x && !faceLeft) {
+				Debug.Log ("turnleft");
         faceLeft = true;
         StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
-      } else if (player.transform.position.x > this.transform.position.x && faceLeft) {       
+      } else if (player.transform.position.x > this.transform.position.x && faceLeft) {
+				Debug.Log ("turnright");
         faceLeft = false;
         StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
       }

@@ -103,7 +103,7 @@ public class GrappleController : MonoBehaviour
       rigidbody.velocity = Vector3.zero;
       rigidbody.angularVelocity = Vector3.zero;
       Vector3 aftershock = hitPos - transform.position;
-      rigidbody.AddForce (aftershock * dashSpeed);
+      rigidbody.AddForce (aftershock * (30 * dashSpeed));
       dashSpeed = startDashSpeed;
     }
   }
@@ -144,7 +144,6 @@ public class GrappleController : MonoBehaviour
 
   private void Awake()
   {
-    Debug.Log(transform.parent);
     anim = transform.root.gameObject.GetComponentInChildren<Animator> ();
     if (anim == null) {
       Debug.LogError ("The Player's Animator is NULL!");
