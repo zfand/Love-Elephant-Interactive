@@ -15,7 +15,6 @@ public class Sword : MonoBehaviour
 
   private Vector3 lastHit;
   private Vector3 hitPos;
-  private Vector3 dirPos;
   private bool isSwinging;
   private Vector3 OriginalSwordPosition;
   private Quaternion OriginalSwordRotation;
@@ -38,20 +37,11 @@ public class Sword : MonoBehaviour
 
   void OnDrawGizmos()
   {
-    if (hitPos != null && hitPos != Vector3.zero) {
+    if (hitPos != Vector3.zero) {
       //Gizmos.DrawSphere(hitPos, 1);
       //Gizmos.DrawRay(transform.position, (hitPos - transform.position)*10);
       Gizmos.color = Color.white;
       Gizmos.DrawLine (transform.position, hitPos);
-    }
-    if (dirPos != null && dirPos != Vector3.zero) {
-      Gizmos.color = Color.green;
-      Gizmos.DrawRay (transform.position, dirPos * 5);
-      Gizmos.color = Color.black;
-      Gizmos.DrawRay (transform.position, Vector3.up * 5);
-      Gizmos.DrawRay (transform.position, Vector3.down * 5);
-      Gizmos.DrawRay (transform.position, Vector3.right * 5);
-      Gizmos.DrawRay (transform.position, Vector3.left * 5);
     }
   }
 
@@ -68,10 +58,9 @@ public class Sword : MonoBehaviour
       hitPos = clickedPosition;
       hitPos.z = 0;
       hitPos.Normalize ();
-      //Debug.Log(hitPos);
-        
-      LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));
-      Quaternion q = Quaternion.LookRotation (hitPos);
+
+      //LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));
+      //Quaternion q = Quaternion.LookRotation (hitPos);
       Quaternion start = Quaternion.Euler (new Vector3 (0, 0, 60));
       Quaternion end = Quaternion.Euler (new Vector3 (0, 0, -60));
       this.StartCoroutine (SwingSword (start, end));
@@ -82,12 +71,12 @@ public class Sword : MonoBehaviour
   {
     isSwinging = true;
     sword.SetActive (true);
+    /**
     float swingTime = 0;
     float totalSwingTime = 10;
     Vector3 diff = this.transform.root.position - sword.transform.position;
     Quaternion start = _start;
     Quaternion end = _end;
-    /**
     while(swingTime < totalSwingTime){
       if(!playerCtrl.facingRight)
       {
@@ -103,7 +92,6 @@ public class Sword : MonoBehaviour
       sword.transform.rotation = Quaternion.Slerp(start, end, swingTime/totalSwingTime);
       //sword.transform.position = sword.transform.position + diff;
       yield return 0; 
-
     }
     */
     float degrees = 0;

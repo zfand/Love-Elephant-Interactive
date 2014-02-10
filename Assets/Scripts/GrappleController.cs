@@ -16,10 +16,6 @@ public class GrappleController : MonoBehaviour
   /// </summary>
   private Vector3 hitPos;
   /// <summary>
-  /// Reference to the SpringJoint
-  /// </summary>
-  private HingeJoint hinge;
-  /// <summary>
   /// Whether the player is swinging
   /// </summary>
   private bool isSwinging;
@@ -46,7 +42,7 @@ public class GrappleController : MonoBehaviour
 
   void OnDrawGizmos()
   {
-    if (hitPos != null && hitPos != Vector3.zero) {
+    if (hitPos != Vector3.zero) {
       Gizmos.color = Color.white;
       Gizmos.DrawLine (transform.position, hitPos);
       Gizmos.DrawSphere (grapplePivot.transform.position, .3f);
@@ -85,6 +81,7 @@ public class GrappleController : MonoBehaviour
       lastPercentDone = percentDone;
       transform.position = Vector3.Lerp (startPos, swingPos, percentDone);
       if (percentDone >= yankLength) {
+        Debug.Break();
         isYanking = false;
         isSwinging = true;
         rigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -128,7 +125,6 @@ public class GrappleController : MonoBehaviour
       SwingMech ();
     } else if (!Input.GetButton ("Fire1") && isSwinging) {
       isSwinging = false;
-      Destroy (hinge);
       dashSpeed = startDashSpeed;
       rigidbody.useGravity = true;
       transform.parent = null;

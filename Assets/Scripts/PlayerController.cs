@@ -5,12 +5,10 @@ public class PlayerController : MonoBehaviour
 {
   [HideInInspector]
   /** Determines if the player is currently facing Right**/
-    public bool
-    facingRight = false;
+    public bool facingRight = false;
   [HideInInspector]
   //replace this with a list of inputs to be done
-  public bool
-    jump = false;
+  public bool jump = false;
   
   /// <summary>
   /// Amount of Force added to move the player left or right.
