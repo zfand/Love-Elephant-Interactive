@@ -47,6 +47,13 @@ public class GrappleController : MonoBehaviour
       Gizmos.DrawLine (transform.position, hitPos);
       Gizmos.DrawSphere (grapplePivot.transform.position, .3f);
       Gizmos.DrawSphere (transform.position, .3f);
+    } else {
+      if (lr == null) {
+        lr = this.GetComponent<LineRenderer> ();
+      }
+      lr.SetPosition(0,transform.position);
+      lr.SetPosition(1,transform.position);
+
     }
   }
 
