@@ -17,6 +17,7 @@ public class GrappleController : MonoBehaviour
   public float maxDashSpeed = 10f;
   public float yankLen;
   public float yankTime;
+  public float yankForce;
   public float swingForce;
 
   /////////////////////////////////////////////////////////////////////////
@@ -36,7 +37,6 @@ public class GrappleController : MonoBehaviour
   /// The position the Grappling hook hit
   /// </summary>
   private Vector3 hitPos;
-  /// <summary>
   /// The Current state of Grappling
   /// </summary>
   private GrappleState state;
@@ -61,6 +61,7 @@ public class GrappleController : MonoBehaviour
   /// </summary>
   private enum GrappleState {
     Off,
+    Failed,
     Extending,
     Attached,
     Swinging
@@ -83,7 +84,7 @@ public class GrappleController : MonoBehaviour
   }
 
   void Start()
-  {
+  {    
     state = GrappleState.Off;
     lr = this.GetComponent<LineRenderer> ();
   }
@@ -108,18 +109,29 @@ public class GrappleController : MonoBehaviour
 
   private void Update()
   {
+    //Shoot out rope
     if (Input.GetButtonDown("Fire1") && state == GrappleState.Off) {
       Shoot();
     }
 
+    //Attached
+    if (state == GrappleState.Attached) {
+      if (Vector3.Distance(hitPos, transform.position) > maxLength) {
+        StopSwing();
+      }
+    }
+
+    //Let go
     if (Input.GetButtonUp("Fire1") && state != GrappleState.Off) {
       StopSwing();
     }
 
+    //Yank!
     if (Input.GetButtonDown("Up") && state != GrappleState.Off) {
       StartCoroutine("Yank");
     }
 
+    //Hit the Ground
     if (state == GrappleState.Swinging) {
       if (pController.grounded) {
         StopSwing();
@@ -147,17 +159,24 @@ public class GrappleController : MonoBehaviour
     clickedPosition.z = 0;
     LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));      
     RaycastHit hit;
-    Physics.Raycast (transform.position, clickedPosition - transform.position, out hit, maxLength, layermask);
+    Physics.Raycast (transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
+    var distance = Vector3.Distance(hit.point,transform.position);
+   
     if (hit.collider && !(hit.collider.gameObject.tag == "Untagged")) {
-      hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
-      anchor.transform.position = hitPos;
-      anchor.transform.rotation = Quaternion.identity;
-      state = GrappleState.Extending;
-      if (!pController.grounded) {
-        StartCoroutine("ExtendRope",GrappleState.Swinging);
-      } else {
-        StartCoroutine("ExtendRope",GrappleState.Attached);
-      }
+        hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
+        anchor.transform.position = hitPos;
+        anchor.transform.rotation = Quaternion.identity;
+        if (distance <= maxLength) {
+          state = GrappleState.Extending;
+          if (!pController.grounded) {
+            StartCoroutine("ExtendRope",GrappleState.Swinging);
+          } else {
+            StartCoroutine("ExtendRope",GrappleState.Attached);
+          }
+        } else {
+          state = GrappleState.Failed;
+          StartCoroutine("ExtendRope",GrappleState.Off);
+        } 
     }
   }
 
@@ -173,6 +192,11 @@ public class GrappleController : MonoBehaviour
     lr.SetPosition (1, ropePos.position);
     lr.enabled = true;
 
+    //shorten rope
+    if (state == GrappleState.Failed) {
+      hitPos = transform.position + (hitPos - transform.position).normalized * maxLength;
+    }
+
     while (deltaTime < extendTime) {
       lr.SetPosition (0, ropePos.position);
       lr.SetPosition(1, Vector3.Lerp(ropePos.position,hitPos, deltaTime/extendTime));
@@ -180,7 +204,7 @@ public class GrappleController : MonoBehaviour
       yield return 0;
     }
     state = completeState;
-    if (state == GrappleState.Swinging) {
+    if (Input.GetButton("Fire1") && state == GrappleState.Swinging) {
       StartSwing();
     }
   }
@@ -205,7 +229,11 @@ public class GrappleController : MonoBehaviour
     if (state == GrappleState.Swinging) {
       StopSwing();
     }
-    StartSwing();
+    if (Input.GetButton("Fire1")) {
+      StartSwing();
+    } else {
+      rigidbody.AddForce(yankPos.normalized*yankForce);
+    }
     rigidbody.velocity = Vector3.zero;
     rigidbody.angularVelocity = Vector3.zero;
   }
@@ -216,6 +244,7 @@ public class GrappleController : MonoBehaviour
   private void StartSwing()
   {
     state = GrappleState.Swinging;
+
     //Create Joints
     joint = gameObject.AddComponent<HingeJoint>();
     joint.axis = Vector3.back;

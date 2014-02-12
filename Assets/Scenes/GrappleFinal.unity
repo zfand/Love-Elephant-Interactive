@@ -2943,7 +2943,7 @@ Prefab:
       objectReference: {fileID: 696176543}
     - target: {fileID: 11400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
       propertyPath: maxLength
-      value: 1000
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
       propertyPath: m_Enabled
@@ -2960,6 +2960,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
       propertyPath: yankLen
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: yankForce
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
@@ -9954,11 +9958,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: {fileID: 696176543}
-  maxLength: 1000
+  maxLength: 15
   extendTime: .200000003
   maxDashSpeed: 20
   yankLen: 2
   yankTime: .25
+  yankForce: 1000
   swingForce: 1000
 --- !u!114 &1405183197
 MonoBehaviour:
