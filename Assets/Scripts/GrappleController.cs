@@ -4,6 +4,27 @@ using System.Collections;
 public class GrappleController : MonoBehaviour
 {
   /// <summary>
+  /// Represents the point where the player swings from
+  /// </summary>
+  public GameObject anchor;
+  /// <summary>
+  /// The max length of Rope
+  /// </summary>
+  public float maxLength = 1f;
+
+  public float extendTime = 1f;
+
+  public float maxDashSpeed = 10f;
+  public float yankLen;
+  public float yankTime;
+  public float swingForce;
+
+  /////////////////////////////////////////////////////////////////////////
+  ///                     Private                                       ///
+  /////////////////////////////////////////////////////////////////////////
+
+
+  /// <summary>
   ///  Reference to the Animator component.
   /// </summary>
   private Animator anim;
@@ -16,130 +37,33 @@ public class GrappleController : MonoBehaviour
   /// </summary>
   private Vector3 hitPos;
   /// <summary>
-  /// Whether the player is swinging
+  /// The Current state of Grappling
   /// </summary>
-  private bool isSwinging;
-  private bool isYanking;
-  private Vector3 startPos;
-  private float startGrappleTime;
-  private float ropeLen = 0f;
-  public float maxDashSpeed = 10f;
-  private float startDashSpeed;
-  private float dashSpeed;
-  public GameObject grapplePivot;
-  private float lastPercentDone;
-  public float yankLength;
-  public float swingForce;
-  private Vector3 swingPos;
-  private Transform ropePos;
-  private HingeJoint hinge;
-  private HingeJoint pivotHinge;
-
-  void Start()
-  {
-    startDashSpeed = maxDashSpeed/5;
-    lr = this.GetComponent<LineRenderer> ();
-    isSwinging = false;
-    isYanking = false;
-  }
-
-  void OnDrawGizmos()
-  {
-    if (hitPos != Vector3.zero) {
-      Gizmos.color = Color.white;
-      Gizmos.DrawLine (transform.position, hitPos);
-      Gizmos.DrawSphere (grapplePivot.transform.position, .3f);
-      Gizmos.DrawSphere (transform.position, .3f);
-    } else {
-      if (lr == null) {
-        lr = this.GetComponent<LineRenderer> ();
-      }
-      lr.SetPosition(0,transform.position);
-      lr.SetPosition(1,transform.position);
-
-    }
-  }
-
-  private void Update()
-  {
-    YankingUpdate ();
-    SwingingUpdate ();
-
-    //Draw Rope
-    if (isYanking || isSwinging) {
-      lr.SetPosition (0, ropePos.position);
-      lr.SetPosition (1, hitPos);
-      lr.enabled = true;
-      anim.SetBool("Swing", true);
-      //rigidbody.useGravity = false;
-
-    } else {
-      lr.enabled = false;
-      anim.SetBool("Swing", false);
-    }
-  }
-
+  private GrappleState state;
   /// <summary>
-  /// Update function for checking/updating the yanking
-  ///  Returns True if yanking
+  /// Reference to the player's Controller
   /// </summary>
-  private void YankingUpdate()
-  {
-    // if Button pressed and in Yanking state
-    if (Input.GetButton ("Fire1") && isYanking) {
-      dashSpeed = Mathf.Lerp (startDashSpeed, maxDashSpeed, lastPercentDone);
-      float distanceTraveled = (Time.time - startGrappleTime) * dashSpeed;
-      float percentDone = distanceTraveled / (ropeLen * yankLength);
-      lastPercentDone = percentDone;
-      transform.position = Vector3.Lerp (startPos, swingPos, percentDone);
-      if (percentDone >= 1f) {
-        isYanking = false;
-        isSwinging = true;
-        StartSwing();
-      }
-      //if let go of the button
-    } else if (!Input.GetButtonDown ("Fire1") && isYanking) {     
-      isYanking = false;
-      rigidbody.velocity = Vector3.zero;
-      rigidbody.angularVelocity = Vector3.zero;
-      Vector3 aftershock = hitPos - transform.position;
-      rigidbody.AddForce (aftershock * (30 * dashSpeed));
-      dashSpeed = startDashSpeed;
-    }
-  }
-
-  private void SwingingUpdate()
-  {
-    if (Input.GetButtonDown ("Fire1") && !isYanking) {
-      Vector3 clickedPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-      clickedPosition.z = 0;
-      LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));
-      RaycastHit hit;
-      Physics.Raycast (transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
-      if (hit.collider) {
-        if (hit.collider.gameObject.tag == "Untagged") {
-          return;
-        }
-        
-        startGrappleTime = Time.time;
-        hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
-        grapplePivot.transform.position = hitPos;
-        grapplePivot.transform.rotation = Quaternion.identity;
-        isYanking = true;
-        startPos = transform.position;
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
-        ropeLen = Vector3.Distance (startPos, grapplePivot.transform.position);
-        swingPos = Vector3.Lerp (startPos, grapplePivot.transform.position, .6f);
-      }
-    } else if (!Input.GetButton ("Fire1") && isSwinging) {
-      isSwinging = false;
-      dashSpeed = startDashSpeed;
-      transform.parent = null;
-      Destroy(hinge);
-      Destroy(pivotHinge);
-    }
-
+  private PlayerController pController;
+  /// <summary>
+  /// Reference to the Player's HingeJoint
+  /// </summary>
+  private HingeJoint joint;
+  /// <summary>
+  /// Reference to the Anchor's HingeJoint
+  /// </summary>
+  private HingeJoint anchorJoint;
+  /// <summary>
+  /// The position the rope is displayed from
+  /// </summary>
+  private Transform ropePos;
+  /// <summary>
+  /// The Different States of Grappling
+  /// </summary>
+  private enum GrappleState {
+    Off,
+    Extending,
+    Attached,
+    Swinging
   }
 
   private void Awake()
@@ -152,19 +76,158 @@ public class GrappleController : MonoBehaviour
     if (ropePos == null) {
       Debug.LogError ("There is no RopePos transform on the Player");
     }
+    pController = this.GetComponent<PlayerController>();
+    if (pController == null) {
+      Debug.LogError ("The Player's PlayerController is NULL!");
+    }
   }
 
+  void Start()
+  {
+    state = GrappleState.Off;
+    lr = this.GetComponent<LineRenderer> ();
+  }
+
+  void OnDrawGizmos()
+  {
+    if (hitPos != Vector3.zero) {
+      Gizmos.color = Color.white;
+      Gizmos.DrawLine (transform.position, hitPos);
+      Gizmos.DrawWireSphere (anchor.transform.position, .3f);
+      Gizmos.DrawWireSphere (transform.position, .3f);
+    } else {
+      //fix the center of the Object
+      if (lr == null) {
+        lr = this.GetComponent<LineRenderer> ();
+      }
+      lr.SetPosition(0,transform.position);
+      lr.SetPosition(1,transform.position);
+
+    }
+  }
+
+  private void Update()
+  {
+    if (Input.GetButtonDown("Fire1") && state == GrappleState.Off) {
+      Shoot();
+    }
+
+    if (Input.GetButtonUp("Fire1") && state != GrappleState.Off) {
+      StopSwing();
+    }
+
+    if (Input.GetButtonDown("Up") && state != GrappleState.Off) {
+      StartCoroutine("Yank");
+    }
+
+    if (state == GrappleState.Swinging) {
+      if (pController.grounded) {
+        StopSwing();
+      }
+    }
+
+    //Draw Rope
+    if (state == GrappleState.Swinging || state == GrappleState.Attached) {
+      lr.SetPosition (0, ropePos.position);
+      lr.SetPosition (1, hitPos);
+      lr.enabled = true;
+      anim.SetBool("Swing", true);
+    } else if (state == GrappleState.Off) {
+      lr.enabled = false;
+      anim.SetBool("Swing", false);
+    }
+  }
+
+  /// <summary>
+  /// Called when shoot button is clicked
+  /// </summary>
+  private void Shoot() 
+  {
+    Vector3 clickedPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+    clickedPosition.z = 0;
+    LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));      
+    RaycastHit hit;
+    Physics.Raycast (transform.position, clickedPosition - transform.position, out hit, maxLength, layermask);
+    if (hit.collider && !(hit.collider.gameObject.tag == "Untagged")) {
+      hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
+      anchor.transform.position = hitPos;
+      anchor.transform.rotation = Quaternion.identity;
+      state = GrappleState.Extending;
+      if (!pController.grounded) {
+        StartCoroutine("ExtendRope",GrappleState.Swinging);
+      } else {
+        StartCoroutine("ExtendRope",GrappleState.Attached);
+      }
+    }
+  }
+
+  /// <summary>
+  /// Extends the rope out of the player
+  /// </summary>
+  /// <returns>The rope.</returns>
+  private IEnumerator ExtendRope(GrappleState completeState) 
+  {
+    float deltaTime = 0f;
+
+    lr.SetPosition (0, ropePos.position);
+    lr.SetPosition (1, ropePos.position);
+    lr.enabled = true;
+
+    while (deltaTime < extendTime) {
+      lr.SetPosition (0, ropePos.position);
+      lr.SetPosition(1, Vector3.Lerp(ropePos.position,hitPos, deltaTime/extendTime));
+      deltaTime += Time.deltaTime;
+      yield return 0;
+    }
+    state = completeState;
+    if (state == GrappleState.Swinging) {
+      StartSwing();
+    }
+  }
+
+  /// <summary>
+  /// Update function for checking/updating the yanking
+  ///  Returns True if yanking
+  /// </summary>
+  private IEnumerator Yank()
+  {
+    Vector3 startPos = transform.position;
+    Vector3 yankPos = transform.position + (hitPos - transform.position).normalized * yankLen;
+    float detlaTime = 0f;
+
+    while (transform.position != yankPos)
+    {
+      transform.position = Vector3.Lerp(startPos, yankPos, detlaTime/yankTime);
+      lr.SetPosition(0,ropePos.position);
+      detlaTime += Time.deltaTime;
+      yield return 0;
+    }
+    if (state == GrappleState.Swinging) {
+      StopSwing();
+    }
+    StartSwing();
+    rigidbody.velocity = Vector3.zero;
+    rigidbody.angularVelocity = Vector3.zero;
+  }
+ 
+  /// <summary>
+  /// Starts the swinging process (creates Joints)
+  /// </summary>
   private void StartSwing()
   {
-    hinge = gameObject.AddComponent<HingeJoint>();
-    hinge.axis = Vector3.back;
-    hinge.anchor = Vector3.zero;
-    hinge.connectedBody = grapplePivot.rigidbody;
-    pivotHinge  = grapplePivot.AddComponent<HingeJoint>();
-    pivotHinge.axis = Vector3.back;
-    pivotHinge.anchor = Vector3.zero;
+    state = GrappleState.Swinging;
+    //Create Joints
+    joint = gameObject.AddComponent<HingeJoint>();
+    joint.axis = Vector3.back;
+    joint.anchor = Vector3.zero;
+    joint.connectedBody = anchor.rigidbody;
+    anchorJoint  = anchor.AddComponent<HingeJoint>();
+    anchorJoint.axis = Vector3.back;
+    anchorJoint.anchor = Vector3.zero;
 
-    Vector3 dir = (grapplePivot.transform.position - transform.position).normalized;
+    //Add Force
+    /*
+    Vector3 dir = (anchor.transform.position - transform.position).normalized;
     Vector3 perp = Vector3.Cross(transform.forward, dir);
     bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
 
@@ -173,6 +236,17 @@ public class GrappleController : MonoBehaviour
     } else {
       rigidbody.AddForce(Vector3.right*-swingForce);
     }
+    */
+  }
+
+  /// <summary>
+  /// Resets the player from swinging (deletes Joints)
+  /// </summary>
+  public void StopSwing()
+  {
+    state = GrappleState.Off;
+    DestroyImmediate(joint, true);
+    DestroyImmediate(anchorJoint, true);
   }
 }
 

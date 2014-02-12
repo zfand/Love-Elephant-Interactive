@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
   [HideInInspector]
   //replace this with a list of inputs to be done
   public bool jump = false;
+  [HideInInspector]
+  /// <summary>
+  /// Determines if the player is currently touching the ground
+  /// </summary>
+  public bool grounded = false;
   
   /// <summary>
   /// Amount of Force added to move the player left or right.
@@ -60,7 +65,7 @@ public class PlayerController : MonoBehaviour
   {
   
     // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-    bool grounded = Physics.Linecast (transform.position, groundCheck.position);
+    grounded = Physics.Linecast (transform.position, groundCheck.position);
     //.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
     anim.SetBool ("Grounded", grounded);
