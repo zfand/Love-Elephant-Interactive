@@ -6747,7 +6747,7 @@ ParticleSystem:
         rgba: 4278255615
       minMaxState: 2
     startSize:
-      scalar: 2.2750001
+      scalar: .750000238
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6762,7 +6762,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .283516467
+          value: .666666448
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -14519,6 +14519,18 @@ Prefab:
     - target: {fileID: 19800000, guid: d3dd41aa42197454e8c957bcbabd5c17, type: 2}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: d3dd41aa42197454e8c957bcbabd5c17, type: 2}
+      propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
+      value: .666666448
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: d3dd41aa42197454e8c957bcbabd5c17, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .750000238
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: d3dd41aa42197454e8c957bcbabd5c17, type: 2}
+      propertyPath: InitialModule.startSize.maxCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3dd41aa42197454e8c957bcbabd5c17, type: 2}
