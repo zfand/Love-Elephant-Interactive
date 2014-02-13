@@ -121,13 +121,13 @@ public class GrappleController : MonoBehaviour
       }
     }
 
-    //Let go
-    if (Input.GetButtonUp("Fire1") && state != GrappleState.Off) {
+    //Let go while swinging
+    if (!Input.GetButton("Fire1") && state == GrappleState.Swinging) {
       StopSwing();
     }
 
     //Yank!
-    if (Input.GetButtonDown("Up") && state != GrappleState.Off) {
+    if (Input.GetButtonDown("Up") && (state == GrappleState.Attached || state == GrappleState.Swinging)) {
       StartCoroutine("Yank");
     }
 
@@ -187,6 +187,7 @@ public class GrappleController : MonoBehaviour
   private IEnumerator ExtendRope(GrappleState completeState) 
   {
     float deltaTime = 0f;
+    Vector3 startPos = ropePos.position;
 
     lr.SetPosition (0, ropePos.position);
     lr.SetPosition (1, ropePos.position);
@@ -199,14 +200,35 @@ public class GrappleController : MonoBehaviour
 
     while (deltaTime < extendTime) {
       lr.SetPosition (0, ropePos.position);
-      lr.SetPosition(1, Vector3.Lerp(ropePos.position,hitPos, deltaTime/extendTime));
+      lr.SetPosition(1, Vector3.Lerp(startPos, hitPos, deltaTime/extendTime));
       deltaTime += Time.deltaTime;
       yield return 0;
     }
-    state = completeState;
-    if (Input.GetButton("Fire1") && state == GrappleState.Swinging) {
-      StartSwing();
+    if (state == GrappleState.Failed) {
+      StopSwing();
+    } else {
+      state = completeState;     
+      if (Input.GetButton("Fire1") && state == GrappleState.Swinging) {
+        StartSwing();
+      }
     }
+  }
+
+  private IEnumerator RetractRope(float retractTime)
+  {
+    float deltaTime = 0f;
+    lr.enabled = true;
+    if (Vector3.Distance(transform.position, hitPos) > maxLength) {
+      hitPos = transform.position + (hitPos - transform.position).normalized * maxLength;
+    }
+    while (deltaTime < retractTime) {
+      lr.SetPosition (0, ropePos.position);
+      lr.SetPosition(1, Vector3.Lerp(hitPos, ropePos.position, deltaTime/retractTime));
+      deltaTime += Time.deltaTime;
+      yield return 0;
+    }
+    lr.enabled = false;
+    state = GrappleState.Off;
   }
 
   /// <summary>
@@ -227,12 +249,14 @@ public class GrappleController : MonoBehaviour
       yield return 0;
     }
     if (state == GrappleState.Swinging) {
-      StopSwing();
+      StopSwing(false);
     }
     if (Input.GetButton("Fire1")) {
       StartSwing();
     } else {
-      rigidbody.AddForce(yankPos.normalized*yankForce);
+      state = GrappleState.Failed;
+      StartCoroutine("RetractRope", extendTime*1.5f);
+      rigidbody.AddForce(transform.position + (hitPos - transform.position).normalized * yankForce);
     }
     rigidbody.velocity = Vector3.zero;
     rigidbody.angularVelocity = Vector3.zero;
@@ -271,9 +295,13 @@ public class GrappleController : MonoBehaviour
   /// <summary>
   /// Resets the player from swinging (deletes Joints)
   /// </summary>
-  public void StopSwing()
+  public void StopSwing(bool retract = true)
   {
-    state = GrappleState.Off;
+    if (retract) {
+      state = GrappleState.Failed;
+      StartCoroutine("RetractRope", extendTime*0.8f);
+    }
+
     DestroyImmediate(joint, true);
     DestroyImmediate(anchorJoint, true);
   }
