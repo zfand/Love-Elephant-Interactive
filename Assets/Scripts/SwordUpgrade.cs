@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class SwordUpgrade : MonoBehaviour {
-	public GameObject Upgrade;
+	public string Upgrade;
 	public float PickupTimer = 15f;
 	private bool can_pickup = false;
 	// Use this for initialization

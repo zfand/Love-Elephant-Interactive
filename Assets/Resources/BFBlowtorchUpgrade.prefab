@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f166102b95f01c94fa2fc3738b50f7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Upgrade: {fileID: 100000, guid: 3a275e88e623e454daced37a739f3f5a, type: 2}
-  PickupTimer: 300
+  Upgrade: BFSword
+  PickupTimer: 30
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
