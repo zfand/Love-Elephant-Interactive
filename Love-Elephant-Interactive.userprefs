@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SlothAI.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SlothTV.cs">
     <Files>
-      <File FileName="Assets/Scripts/SlothAI.cs" Line="12" Column="25" />
-      <File FileName="Assets/Scripts/GrappleController.cs" Line="99" Column="1" />
-      <File FileName="Assets/Scripts/SlothTV.cs" Line="29" Column="72" />
-      <File FileName="Assets/Scripts/SlothBody.cs" Line="21" Column="28" />
+      <File FileName="Assets\Scripts\SlothAI.cs" Line="64" Column="20" />
+      <File FileName="Assets\Scripts\SlothTV.cs" Line="55" Column="79" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
