@@ -54,6 +54,14 @@ public class SlothTV : MonoBehaviour
 				
 				upgrade.transform.position = new Vector3 (upgrade.transform.position.x - 1f , upgrade.transform.position.y + 1f, 0f);
 				upgrade.rigidbody.AddExplosionForce(500, expl.transform.position, 10);
+
+				GameObject shrapnel = (GameObject)Instantiate (Resources.Load ("Shrapnel"));
+				shrapnel.transform.position = expl.transform.position;
+				foreach(Transform t in shrapnel.transform){
+					
+					t.gameObject.rigidbody.AddExplosionForce(500, expl.transform.position, 10);
+				}
+
         this.gameObject.SetActive (false);
       }
     }
