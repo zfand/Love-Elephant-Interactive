@@ -144,5 +144,20 @@ public class PlayerController : MonoBehaviour
 
 
 	}
+
+	
+	public void EquipBoots(string boot){
+		Transform boot_parent = this.transform.FindChild ("Boots");
+		if(boot_parent.childCount > 0){
+			Transform oldboots = boot_parent.GetChild(0);
+
+			if(oldboots != null){
+				DestroyObject(oldboots.gameObject);
+			}
+		}
+		GameObject newBoots = (GameObject)Instantiate(Resources.Load (boot), boot_parent.position, boot_parent.rotation);
+
+		newBoots.transform.parent = boot_parent;
+	}
 }
 

@@ -25,7 +25,7 @@ public class Sword : MonoBehaviour
     OriginalSwordPosition = sword.transform.localPosition;
     OriginalSwordRotation = sword.transform.localRotation;
 
-    //sword.SetActive (false);
+    sword.SetActive (false);
   }
 
   void Awake()
@@ -107,7 +107,7 @@ public class Sword : MonoBehaviour
     isSwinging = false;
     sword.transform.localPosition = OriginalSwordPosition;
     sword.transform.localRotation = OriginalSwordRotation;
-   // sword.SetActive (false);
+    sword.SetActive (false);
   }
 
   public void Hit()
