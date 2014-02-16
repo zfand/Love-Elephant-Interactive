@@ -23,11 +23,12 @@ public class PlayerController : MonoBehaviour
   /// The fastest the player can travel in the x axis.
   /// </summary>
   public float maxSpeed = 5f;
-
+	private float originalspeed;
   /// <summary>
   /// Amount of force added when the player jumps.
   /// </summary>
   public float jumpForce = 1000f;
+	private float originalJumpForce;
 
   /// <summary>
   /// Reference to the player's Animator
@@ -57,7 +58,8 @@ public class PlayerController : MonoBehaviour
   // Use this for initialization
   private void Start()
   {
-  
+		originalspeed = maxSpeed;
+		originalJumpForce = jumpForce;
   }
   
   // Update is called once per frame
@@ -158,6 +160,12 @@ public class PlayerController : MonoBehaviour
 		GameObject newBoots = (GameObject)Instantiate(Resources.Load (boot), boot_parent.position, boot_parent.rotation);
 
 		newBoots.transform.parent = boot_parent;
+
+		BootStats stats = newBoots.GetComponent<BootStats>();
+		maxSpeed = originalspeed;
+		maxSpeed += stats.SpeedMod;
+		jumpForce = originalJumpForce;
+		jumpForce *= stats.JumpMod;
 	}
 }
 
