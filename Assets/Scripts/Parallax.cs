@@ -17,22 +17,18 @@ public class Parallax : MonoBehaviour
   public string shaderType;
   public float width;
   public float height;
+
+  public bool enabled;
   
   // Use this for initialization
   void Start()
   {
+
+    enabled = true;
     
     //Get player's Z to dynamically place backgrounds
     float startDepth = GameObject.FindGameObjectWithTag ("Player").transform.position.z;
-
-    /*
-    //Find existing walls and make them invisible if desired
-    GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
-    foreach (GameObject w in walls) {
-      w.renderer.enabled = false;
-    }
-    */
-    
+	
     //Create a shader based on the given type
     backShader = new Shader ();
     backShader = Shader.Find (shaderType);
@@ -78,28 +74,37 @@ public class Parallax : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
-    float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
+	if (enabled) {
+      float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
+      float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
     
-    firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
-    secondBackground.transform.position = new Vector3 (0, 0, secondBackground.transform.position.z);
-    thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);
+      firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
+      secondBackground.transform.position = new Vector3 (0, 0, secondBackground.transform.position.z);
+      thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);
     
-    Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - playerX / 5,
-                                      firstBackground.transform.position.y - playerY / 10,
-                                      firstBackground.transform.position.z);
+      Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - playerX / 5,
+                                        firstBackground.transform.position.y - playerY / 10,
+                                        firstBackground.transform.position.z);
     
-    Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - playerX / 8,
-                                       secondBackground.transform.position.y - playerY / 12,
-                                       secondBackground.transform.position.z);
+      Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - playerX / 8,
+                                         secondBackground.transform.position.y - playerY / 12,
+                                         secondBackground.transform.position.z);
     
-    Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - playerX / 10,
-                                      thirdBackground.transform.position.y - playerY / 15,
-                                      thirdBackground.transform.position.z);
+      Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - playerX / 10,
+                                        thirdBackground.transform.position.y - playerY / 15,
+                                        thirdBackground.transform.position.z);
     
-    firstBackground.transform.position = newFirstPos;
-    secondBackground.transform.position = newSecondPos;
-    thirdBackground.transform.position = newThirdPos;
-    
+      firstBackground.transform.position = newFirstPos;
+      secondBackground.transform.position = newSecondPos;
+      thirdBackground.transform.position = newThirdPos;
+	}
   }
+
+	public void disable() {
+		enabled = false;
+	}
+
+	public void enable() {
+		enabled = true;
+	}
 }

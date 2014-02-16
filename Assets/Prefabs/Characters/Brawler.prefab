@@ -14,6 +14,8 @@ GameObject:
   - 65: {fileID: 6500000}
   - 120: {fileID: 12000000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400010}
   m_Layer: 9
   m_Name: Brawler
   m_TagString: Player
@@ -118,6 +120,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400014}
+  - 65: {fileID: 6500004}
+  - 114: {fileID: 11400008}
+  m_Layer: 0
+  m_Name: PickupCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -125,13 +144,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.63236284, y: -.44205907, z: 0}
+  m_LocalPosition: {x: -6.0999999, y: -6.24749994, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400008}
   - {fileID: 400006}
   - {fileID: 400002}
+  - {fileID: 400014}
   m_Father: {fileID: 0}
 --- !u!4 &400002
 Transform:
@@ -201,6 +221,17 @@ Transform:
   m_LocalScale: {x: 2.38800478, y: 2.38800406, z: 2}
   m_Children: []
   m_Father: {fileID: 400008}
+--- !u!4 &400014
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -267,6 +298,18 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: .25, z: .5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6500004
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .589999974, y: 1.02999997, z: .5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9500000
 Animator:
@@ -363,9 +406,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8334b7b2ce1e5427ab4ce5fdb729f21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchor: {fileID: 0}
+  maxLength: 15
+  extendTime: .200000003
   maxDashSpeed: 20
-  grapplePivot: {fileID: 0}
-  yankLength: .899999976
+  yankLen: 2
+  yankTime: .25
+  yankForce: 1000
+  swingForce: 1000
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -379,6 +427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 0
   jump: 0
+  grounded: 0
   moveForce: 30
   maxSpeed: 20
   jumpForce: 500
@@ -398,6 +447,48 @@ MonoBehaviour:
   totaldegrees: 80
   degreesperframe: 5
   Damage: 10
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df86ce8658bab55449b4962452f250ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  w: 0
+  g: 0
+  y: 0
+  p: 0
+  r: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704d9d66b22a6c043819856461cbe75a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 100000}
+  roomManager: {fileID: 0}
+  rightRoom: 
+  leftRoom: 
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd090b8843b03824f993edb43f999e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -420,8 +511,8 @@ LineRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Positions:
-  - {x: -7.63236284, y: -.44205907, z: 0}
-  - {x: -7.63236284, y: -.44205907, z: 0}
+  - {x: -6.0999999, y: -6.24749994, z: 0}
+  - {x: -6.0999999, y: -6.24749994, z: 0}
   m_Parameters:
     startWidth: .100000001
     endWidth: .100000001

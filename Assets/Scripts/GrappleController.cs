@@ -81,12 +81,19 @@ public class GrappleController : MonoBehaviour
     if (pController == null) {
       Debug.LogError ("The Player's PlayerController is NULL!");
     }
+
   }
 
   void Start()
   {    
     state = GrappleState.Off;
     lr = this.GetComponent<LineRenderer> ();
+  }
+
+  void setAnchor() {
+    if (anchor == null) {
+			anchor = GameObject.FindGameObjectWithTag ("Pivot");
+	}
   }
 
   void OnDrawGizmos()
@@ -155,6 +162,7 @@ public class GrappleController : MonoBehaviour
   /// </summary>
   private void Shoot() 
   {
+	setAnchor();
     Vector3 clickedPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
     clickedPosition.z = 0;
     LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));      

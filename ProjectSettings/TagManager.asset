@@ -4,22 +4,20 @@
 TagManager:
   tags:
   - ground
-  - Crate
-  - Enemy
   - Wall
   - Obstacle
-  - Bullet
-  - BombPickup
-  - ExplosionFX
-  - HealthBar
   - Pivot
   - Sword
-  - 
   - Floor
   - Ceiling
   - RoomExitRight
   - RoomExitLeft
   - RoomKey
+  - SceneManager
+  - RoomManager
+  - Parallax
+  - RoomExitMidB
+  - RoomExitMidT
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

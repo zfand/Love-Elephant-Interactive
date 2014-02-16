@@ -13,11 +13,14 @@ public class SlothAI : MonoBehaviour
   private bool turning = false;
   private Material mat;
 
+  public GameObject keyDrop;
+
   // Use this for initialization
   void Start()
   {
     anim = GetComponent<Animation> ();
     faceLeft = true;
+		player = GameObject.FindGameObjectWithTag("Player");
     /*
     mat = GetComponent<MeshRenderer>().material;
     origColor = mat.color;
@@ -128,5 +131,6 @@ public class SlothAI : MonoBehaviour
   public void Dying()
   {
     dying = true;
+	Instantiate(keyDrop, transform.position, Quaternion.identity);
   }
 }
