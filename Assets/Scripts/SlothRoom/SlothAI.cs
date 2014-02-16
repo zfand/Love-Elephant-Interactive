@@ -131,7 +131,7 @@ public class SlothAI : MonoBehaviour
   public void Dying()
   {
     dying = true;
-	Vector3 keyPos = new Vector3(transform.position.x, transform.position.y + 1.2f, 0f);
+	Vector3 keyPos = new Vector3(transform.position.x, transform.position.y + 2f, 0f);
 	Instantiate(keyDrop, keyPos, Quaternion.identity);
   }
 }
