@@ -167,5 +167,9 @@ public class PlayerController : MonoBehaviour
 		jumpForce = originalJumpForce;
 		jumpForce *= stats.JumpMod;
 	}
+	
+	public void EquipHookshot(string hookshot){
+
+	}
 }
 
