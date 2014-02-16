@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/StartHallTwo.unity
   - enabled: 1
     path: Assets/Scenes/SlothRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/TheHubOne.unity
