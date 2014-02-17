@@ -169,29 +169,44 @@ public class GrappleController : MonoBehaviour
     RaycastHit hit;
     Physics.Raycast (transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
     var distance = Vector3.Distance(hit.point,transform.position);
-   
-    if (hit.collider && !(hit.collider.gameObject.tag == "Untagged")) {
-        hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
-        anchor.transform.position = hitPos;
-        anchor.transform.rotation = Quaternion.identity;
-        if (distance <= maxLength) {
-          state = GrappleState.Extending;
-          if (!pController.grounded) {
-            StartCoroutine("ExtendRope",GrappleState.Swinging);
-          } else {
-            StartCoroutine("ExtendRope",GrappleState.Attached);
-          }
+    //Hit!
+    if (hit.collider) {
+      //If the Object isn't grapplable
+      if ((hit.collider.gameObject.tag == "Untagged")) {
+        return;
+      }
+      //If the angle is too low
+      float dot = Vector3.Dot(Vector3.up, (clickedPosition - transform.position).normalized);
+      Debug.Log(dot);
+      if(dot < 0f) { // 0 is 90 degrees to the left or right
+        Debug.Log ("fuck this");
+        return;
+      }
+
+      //Ok we're good create the point
+      hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
+      anchor.transform.position = hitPos;
+      anchor.transform.rotation = Quaternion.identity;
+      //if the grapple point isn't too far away
+      if (distance <= maxLength) {
+        state = GrappleState.Extending;
+        //if we're in the air start swinging
+        if (!pController.grounded) {
+          StartCoroutine("ExtendRope",GrappleState.Swinging);
         } else {
-          state = GrappleState.Failed;
-          StartCoroutine("ExtendRope",GrappleState.Off);
-        } 
+          StartCoroutine("ExtendRope",GrappleState.Attached);
+        }
+      //the grapple point is too far away
+      } else {
+        state = GrappleState.Failed;
+        StartCoroutine("ExtendRope",GrappleState.Off);
+      } 
     }
   }
 
   /// <summary>
   /// Extends the rope out of the player
   /// </summary>
-  /// <returns>The rope.</returns>
   private IEnumerator ExtendRope(GrappleState completeState) 
   {
     float deltaTime = 0f;
@@ -222,6 +237,9 @@ public class GrappleController : MonoBehaviour
     }
   }
 
+  /// <summary>
+  /// Retracts the rope to the player
+  /// </summary>
   private IEnumerator RetractRope(float retractTime)
   {
     float deltaTime = 0f;
