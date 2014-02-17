@@ -12,23 +12,46 @@ public class Inventory : MonoBehaviour
 {
   //public string itemInfo;
   /// <summary>
-  /// All the Items in the Inventory
+  /// All the Items in the Inventory stored as names of prefabs
   /// </summary>
-  private List<GameObject> items;
+  private Dictionary<string, List<string>> items;
   /// <summary>
   /// The accepted item tags to be put in Inventory
   /// </summary>
-  private string[] acceptedItemTags  = {"Weapon", "Boot", "HookShot","Item"};
+  private string[] acceptedItemTags = {"Weapon", "Boot", "HookShot","Item"};
 
-  public void Start() {
-    items = new List<GameObject>();
+  public void Start()
+  {
+    items = new Dictionary<string, List<string>> ();
+    foreach(string key in acceptedItemTags) {
+      items.Add(key, new List<string>());
+    }
   }
+
+  /// <summary>
+  /// Adds the name of the Item to the inventory
+  /// </summary>
+  private void Add(GameObject item)
+  {
+    items[item.tag].Add(item.name);
+    DestroyImmediate(item);
+  }
+
+  /// <summary>
+  /// Returns a new instance of the Item
+  /// </summary>
+  private GameObject Create(string name)
+  {
+    return Instantiate(Resources.Load<GameObject>("Items/"+name)) as GameObject;
+  }
+
   /// <summary>
   /// Adds the Given item to the Inventory. Returns whether if the Item was Acceptable
   /// </summary>
-  public bool AddItem(GameObject item) {
-    if (Array.Exists(acceptedItemTags, element => element == item.tag)) {
-      items.Add(item);
+  public bool AddItem(GameObject item)
+  {
+    if (Array.Exists (acceptedItemTags, element => element == item.tag)) {
+      this.Add (item);
       return true;
     }
     return false;
@@ -37,10 +60,13 @@ public class Inventory : MonoBehaviour
   /// <summary>
   /// Takes the item of the given name out of the Inventory
   /// </summary>
-  public GameObject TakeItem(string name) {
-    foreach (GameObject item in items.Where(item => item.name == name)) {
-      items.Remove(item);
-      return item;
+  public GameObject TakeItem(string name)
+  {
+    foreach (string key in items.Keys) {
+      foreach (string item in items[key].Where(item => item == name)) {
+        items[key].Remove (item);
+        return Create(item);
+      }
     }
     return null;
   }
@@ -48,20 +74,18 @@ public class Inventory : MonoBehaviour
   /// <summary>
   /// Returns a list of all the items with the given tag
   /// </summary>
-  public List<GameObject> GetItemsByTag(string tag) {
-    List<GameObject> list = new List<GameObject>();
-    foreach (GameObject item in items.Where(item => item.tag == tag)) {
-      list.Add(item);
-    }
-    return list;
+  public List<string> GetItemsByTag(string tag)
+  {
+    return items[tag];
   }
 
   /// <summary>
   /// Swaps the two items in and out of the 
   /// </summary>
-  public GameObject SwapItems(GameObject itemIn, GameObject itemOut) {
-    AddItem(itemIn);
-    return TakeItem(itemOut.name);
+  public GameObject SwapItems(GameObject itemIn, string itemOut)
+  {
+    AddItem (itemIn);
+    return TakeItem (itemOut);
   }
 
 
