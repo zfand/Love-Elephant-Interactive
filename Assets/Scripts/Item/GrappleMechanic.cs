@@ -101,8 +101,10 @@ namespace Item
       if (hitPos != Vector3.zero) {
         Gizmos.color = Color.white;
         Gizmos.DrawLine (transform.parent.position, hitPos);
-        Gizmos.DrawWireSphere (anchor.transform.parent.position, .3f);
-        Gizmos.DrawWireSphere (transform.parent.position, .3f);
+        if (anchor != null) {
+          Gizmos.DrawWireSphere (anchor.transform.parent.position, .3f);
+          Gizmos.DrawWireSphere (transform.parent.position, .3f);
+        }
       } else {
         //fix the center of the Object
         if (lr == null) {

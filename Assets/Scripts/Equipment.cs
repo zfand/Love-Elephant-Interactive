@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 using Item;
 
 namespace LoveElephant
@@ -12,20 +13,48 @@ namespace LoveElephant
     public GameObject boot;
 
     private Inventory box;
+    private MovementStats bootStats;
+    private PlayerController playerCrtl;
+
+    private void Awake() {
+      hookShot = null;
+      weapon = null;
+      boot = null;
+
+      playerCrtl = this.GetComponent<PlayerController>();
+
+      this.transform.Cast<Transform>().ToList().ForEach(child => Equip(child.gameObject));
+    }
 
     public void Equip(GameObject item) {
-      if (item.tag == "Hookshot") {
+      if (item.tag == "HookShot") {
+        if (hookShot != null) {
+          Unequip(hookShot);
+        }
         hookShot = item;
         hookShot.transform.parent = this.transform;
       }
       else if (item.tag == "Weapon") {
+        if (weapon != null) {
+          Unequip(weapon);
+        }
         weapon = item;
         weapon.transform.parent = this.transform;
       }
       else if (item.tag == "Boot") {
+        if (boot != null) {
+          Unequip(boot);
+        }
         boot = item;
         boot.transform.parent = this.transform;
+        playerCrtl.movementStats = boot.GetComponent<Boot>().stats;
       }
+    }
+
+    private void Unequip(GameObject item) {
+      item.transform.parent = null;
+      //For now
+      Destroy(item);
     }
 
     /*

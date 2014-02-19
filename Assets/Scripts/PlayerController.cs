@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Item;
 
 namespace LoveElephant
 {
@@ -19,24 +20,11 @@ namespace LoveElephant
   /// </summary>
   public bool
       grounded = false;
-  
-    /// <summary>
-    /// Amount of Force added to move the player left or right.
-    /// </summary>
-    public float moveForce = 365f;
-    /// <summary>
-    /// The fastest the player can travel in the x axis.
-    /// </summary>
-    public float maxSpeed = 5f;  
-    //TODO remove
-    private float originalspeed;
-    /// <summary>
-    /// Amount of force added when the player jumps.
-    /// </summary>
-    public float jumpForce = 1000f;
-    //TODO remove
-    private float originalJumpForce;
-
+    private MovementStats mStats;
+    public MovementStats movementStats {
+      set { this.mStats =  value;}
+    }
+    
     /// <summary>
     /// Reference to the player's Animator
     /// </summary>
@@ -45,11 +33,14 @@ namespace LoveElephant
     /// A point at the bottom of the player
     /// </summary>
     private Transform groundCheck;
+
+    private Equipment equip;
   
     private void Awake()
     {
       anim = this.GetComponentInChildren<Animator> ();
       groundCheck = transform.Find ("GroundCheck");
+      equip = this.GetComponent<Equipment>();
 
       if (anim == null) {
         Debug.LogError ("The Player's Animator is NULL!");
@@ -58,14 +49,17 @@ namespace LoveElephant
       if (groundCheck == null) {
         Debug.LogError ("There is no GroundCheck transform on the Player");
       }
+
+      if (equip == null) {
+        Debug.LogError ("There is no Equipment component on the Player");
+      }
     }
   
 
     // Use this for initialization
     private void Start()
     {
-      originalspeed = maxSpeed;
-      originalJumpForce = jumpForce;
+      mStats = equip.boot.GetComponent<Boot>().stats;
     }
   
     // Update is called once per frame
@@ -100,11 +94,11 @@ namespace LoveElephant
       }
 
       //Add force
-      if (h * rigidbody.velocity.x < maxSpeed) {
-        rigidbody.AddForce (Vector2.right * h * moveForce);
+      if (h * rigidbody.velocity.x < mStats.maxSpeed) {
+        rigidbody.AddForce (Vector2.right * h * mStats.moveForce);
       }
-      if (Mathf.Abs (rigidbody.velocity.x) > maxSpeed) {
-        rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * maxSpeed, rigidbody.velocity.y, 0);
+      if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxSpeed) {
+        rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxSpeed, rigidbody.velocity.y, 0);
       }
 
       // If the player should jump...
@@ -113,7 +107,7 @@ namespace LoveElephant
         anim.SetTrigger ("Jump");
 
         // Add a vertical force to the player.
-        rigidbody.AddForce (new Vector3 (0f, jumpForce, 0));
+        rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0));
       
         jump = false;
       }
