@@ -1,14 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using LoveElephant;
 
-namespace LoveElephant
+namespace Item
 {
-  public class GrappleController : MonoBehaviour
+  public class GrappleMechanic : MonoBehaviour
   {
     /// <summary>
     /// Represents the point where the player swings from
     /// </summary>
-    public GameObject anchor;
+    public GameObject anchorPrefab;
+    private GameObject anchor;
     /// <summary>
     /// The max length of Rope
     /// </summary>
@@ -29,6 +31,10 @@ namespace LoveElephant
     ///  Reference to the Animator component.
     /// </summary>
     private Animator anim;
+    /// <summary>
+    /// Reference to the Equipment Component on the Player
+    /// </summary>
+    private Equipment equip;
     /// <summary>
     /// Draws the line for the grappling rope
     /// </summary>
@@ -70,48 +76,40 @@ namespace LoveElephant
 
     private void Awake()
     {
-      anim = transform.root.gameObject.GetComponentInChildren<Animator> ();
+      anim = transform.parent.GetComponentInChildren<Animator> ();
       if (anim == null) {
         Debug.LogError ("The Player's Animator is NULL!");
       }
-      ropePos = transform.Find ("RopePos");
+      ropePos = transform.parent.Find ("RopePos");
       if (ropePos == null) {
         Debug.LogError ("There is no RopePos transform on the Player");
       }
-      pController = this.GetComponent<PlayerController> ();
+      pController = transform.parent.GetComponent<PlayerController> ();
       if (pController == null) {
         Debug.LogError ("The Player's PlayerController is NULL!");
       }
-
     }
 
-    void Start()
+    private void Start()
     {    
       state = GrappleState.Off;
       lr = this.GetComponent<LineRenderer> ();
     }
 
-    void setAnchor()
-    {
-      if (anchor == null) {
-        anchor = GameObject.FindGameObjectWithTag ("Pivot");
-      }
-    }
-
-    void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
       if (hitPos != Vector3.zero) {
         Gizmos.color = Color.white;
-        Gizmos.DrawLine (transform.position, hitPos);
-        Gizmos.DrawWireSphere (anchor.transform.position, .3f);
-        Gizmos.DrawWireSphere (transform.position, .3f);
+        Gizmos.DrawLine (transform.parent.position, hitPos);
+        Gizmos.DrawWireSphere (anchor.transform.parent.position, .3f);
+        Gizmos.DrawWireSphere (transform.parent.position, .3f);
       } else {
         //fix the center of the Object
         if (lr == null) {
           lr = this.GetComponent<LineRenderer> ();
         }
-        lr.SetPosition (0, transform.position);
-        lr.SetPosition (1, transform.position);
+        lr.SetPosition (0, transform.parent.position);
+        lr.SetPosition (1, transform.parent.position);
 
       }
     }
@@ -125,7 +123,7 @@ namespace LoveElephant
 
       //Attached
       if (state == GrappleState.Attached) {
-        if (Vector3.Distance (hitPos, transform.position) > maxLength) {
+        if (Vector3.Distance (hitPos, transform.parent.position) > maxLength) {
           StopSwing (true);
         }
       }
@@ -164,13 +162,12 @@ namespace LoveElephant
     /// </summary>
     private void Shoot()
     {
-      setAnchor ();
       Vector3 clickedPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
       clickedPosition.z = 0;
       LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));      
       RaycastHit hit;
-      Physics.Raycast (transform.position, clickedPosition - transform.position, out hit, 1000, layermask);
-      var distance = Vector3.Distance (hit.point, transform.position);
+      Physics.Raycast (transform.parent.position, clickedPosition - transform.parent.position, out hit, 1000, layermask);
+      var distance = Vector3.Distance (hit.point, transform.parent.position);
       //Hit!
       if (hit.collider) {
         //If the Object isn't grapplable
@@ -178,17 +175,11 @@ namespace LoveElephant
           return;
         }
         //If the angle is too low
-        float dot = Vector3.Dot (Vector3.up, (clickedPosition - transform.position).normalized);
-        Debug.Log (dot);
-        if (dot < 0f) { // 0 is 90 degrees to the left or right
-          Debug.Log ("fuck this");
-          return;
-        }
+        float dot = Vector3.Dot (Vector3.up, (clickedPosition - transform.parent.position).normalized);
 
         //Ok we're good create the point
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
-        anchor.transform.position = hitPos;
-        anchor.transform.rotation = Quaternion.identity;
+        SetAnchorPos(hitPos);
         //if the grapple point isn't too far away
         if (distance <= maxLength) {
           state = GrappleState.Extending;
@@ -206,6 +197,15 @@ namespace LoveElephant
       }
     }
 
+    private void SetAnchorPos(Vector3 pos) 
+    {
+      if (anchor == null) {
+        anchor = Instantiate(anchorPrefab) as GameObject;
+      }
+      anchor.transform.position = hitPos;
+      anchor.transform.rotation = Quaternion.identity;
+    }
+
     /// <summary>
     /// Extends the rope out of the player
     /// </summary>
@@ -220,7 +220,7 @@ namespace LoveElephant
 
       //shorten rope
       if (state == GrappleState.Failed) {
-        hitPos = transform.position + (hitPos - transform.position).normalized * maxLength;
+        hitPos = transform.parent.position + (hitPos - transform.parent.position).normalized * maxLength;
       }
 
       while (deltaTime < extendTime) {
@@ -246,8 +246,8 @@ namespace LoveElephant
     {
       float deltaTime = 0f;
       lr.enabled = true;
-      if (Vector3.Distance (transform.position, hitPos) > maxLength) {
-        hitPos = transform.position + (hitPos - transform.position).normalized * maxLength;
+      if (Vector3.Distance (transform.parent.position, hitPos) > maxLength) {
+        hitPos = transform.parent.position + (hitPos - transform.parent.position).normalized * maxLength;
       }
       while (deltaTime < retractTime) {
         lr.SetPosition (0, ropePos.position);
@@ -265,12 +265,12 @@ namespace LoveElephant
     /// </summary>
     private IEnumerator Yank()
     {
-      Vector3 startPos = transform.position;
-      Vector3 yankPos = transform.position + (hitPos - transform.position).normalized * yankLen;
+      Vector3 startPos = transform.parent.position;
+      Vector3 yankPos = transform.parent.position + (hitPos - transform.parent.position).normalized * yankLen;
       float detlaTime = 0f;
 
-      while (transform.position != yankPos) {
-        transform.position = Vector3.Lerp (startPos, yankPos, detlaTime / yankTime);
+      while (transform.parent.position != yankPos) {
+        transform.parent.position = Vector3.Lerp (startPos, yankPos, detlaTime / yankTime);
         lr.SetPosition (0, ropePos.position);
         detlaTime += Time.deltaTime;
         yield return 0;
@@ -283,10 +283,10 @@ namespace LoveElephant
       } else {
         state = GrappleState.Failed;
         StartCoroutine ("RetractRope", extendTime * 1.5f);
-        rigidbody.AddForce (transform.position + (hitPos - transform.position).normalized * yankForce);
+        transform.parent.rigidbody.AddForce (transform.parent.position + (hitPos - transform.parent.position).normalized * yankForce);
       }
-      rigidbody.velocity = Vector3.zero;
-      rigidbody.angularVelocity = Vector3.zero;
+      transform.parent.rigidbody.velocity = Vector3.zero;
+      transform.parent.rigidbody.angularVelocity = Vector3.zero;
     }
  
     /// <summary>
@@ -297,7 +297,7 @@ namespace LoveElephant
       state = GrappleState.Swinging;
 
       //Create Joints
-      joint = gameObject.AddComponent<HingeJoint> ();
+      joint = transform.parent.gameObject.AddComponent<HingeJoint> ();
       joint.axis = Vector3.back;
       joint.anchor = Vector3.zero;
       joint.connectedBody = anchor.rigidbody;
@@ -307,8 +307,8 @@ namespace LoveElephant
 
       //Add Force
       /*
-    Vector3 dir = (anchor.transform.position - transform.position).normalized;
-    Vector3 perp = Vector3.Cross(transform.forward, dir);
+    Vector3 dir = (anchor.transform.parent.position - transform.parent.position).normalized;
+    Vector3 perp = Vector3.Cross(transform.parent.forward, dir);
     bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
 
     if (swingingRight) {

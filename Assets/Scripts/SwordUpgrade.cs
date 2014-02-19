@@ -31,7 +31,7 @@ namespace LoveElephant
     {
       if (c.gameObject.tag == "Player" && can_pickup) {
         PlayerController player = c.gameObject.GetComponent<PlayerController> ();
-        player.EquipWeapon (Upgrade);
+        //player.EquipWeapon (Upgrade);
         Destroy (this.gameObject);
       }
     }
