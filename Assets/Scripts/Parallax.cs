@@ -1,110 +1,113 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Parallax : MonoBehaviour
+namespace LoveElephant
 {
-  
-  private GameObject firstBackground;
-  private GameObject secondBackground;
-  private GameObject thirdBackground;
-  private Material firstMaterial;
-  private Material secondMaterial;
-  private Material thirdMaterial;
-  private Shader backShader;
-  public Texture firstTexture;
-  public Texture secondTexture;
-  public Texture thirdTexture;
-  public string shaderType;
-  public float width;
-  public float height;
-
-  public bool enabled;
-  
-  // Use this for initialization
-  void Start()
+  public class Parallax : MonoBehaviour
   {
-
-    enabled = true;
-    
-    //Get player's Z to dynamically place backgrounds
-    float startDepth = GameObject.FindGameObjectWithTag ("Player").transform.position.z;
-	
-    //Create a shader based on the given type
-    backShader = new Shader ();
-    backShader = Shader.Find (shaderType);
-    
-    //Create background materials
-    firstMaterial = new Material (backShader);
-    secondMaterial = new Material (backShader);
-    thirdMaterial = new Material (backShader);
-    
-    //Apply background textures
-    firstMaterial.mainTexture = firstTexture;
-    secondMaterial.mainTexture = secondTexture;
-    thirdMaterial.mainTexture = thirdTexture;
-
-    int intHeight = (int)Mathf.Ceil (height);
-    int intWidth = (int)Mathf.Ceil (width) + 5;
-
-    //Instantiate background 1
-    firstBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
-    firstBackground.renderer.material = firstMaterial;
-    firstBackground.transform.position = new Vector3 (0, 0, startDepth + 5);
-    firstBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
-    
-    //Instantiate background 2
-    secondBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
-    secondBackground.renderer.material = secondMaterial;
-    secondBackground.transform.position = new Vector3 (0, 0, startDepth + 10);
-    secondBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
-    
-    //Instantiate background 3
-    thirdBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
-    thirdBackground.renderer.material = thirdMaterial;
-    thirdBackground.transform.position = new Vector3 (0, 0, startDepth + 15);
-    thirdBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
-    
-    //Remove background colliders
-    firstBackground.collider.isTrigger = true;
-    secondBackground.collider.isTrigger = true;
-    thirdBackground.collider.isTrigger = true;
-    
-  }
   
-  // Update is called once per frame
-  void Update()
-  {
-	if (enabled) {
-      float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
-      float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
+    private GameObject firstBackground;
+    private GameObject secondBackground;
+    private GameObject thirdBackground;
+    private Material firstMaterial;
+    private Material secondMaterial;
+    private Material thirdMaterial;
+    private Shader backShader;
+    public Texture firstTexture;
+    public Texture secondTexture;
+    public Texture thirdTexture;
+    public string shaderType;
+    public float width;
+    public float height;
+
+    // Use this for initialization
+    void Start()
+    {
+
+      enabled = true;
     
-      firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
-      secondBackground.transform.position = new Vector3 (0, 0, secondBackground.transform.position.z);
-      thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);
+      //Get player's Z to dynamically place backgrounds
+      float startDepth = GameObject.FindGameObjectWithTag ("Player").transform.position.z;
+  
+      //Create a shader based on the given type
+      backShader = new Shader ();
+      backShader = Shader.Find (shaderType);
     
-      Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - playerX / 5,
+      //Create background materials
+      firstMaterial = new Material (backShader);
+      secondMaterial = new Material (backShader);
+      thirdMaterial = new Material (backShader);
+    
+      //Apply background textures
+      firstMaterial.mainTexture = firstTexture;
+      secondMaterial.mainTexture = secondTexture;
+      thirdMaterial.mainTexture = thirdTexture;
+
+      int intHeight = (int)Mathf.Ceil (height);
+      int intWidth = (int)Mathf.Ceil (width) + 5;
+
+      //Instantiate background 1
+      firstBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
+      firstBackground.renderer.material = firstMaterial;
+      firstBackground.transform.position = new Vector3 (0, 0, startDepth + 5);
+      firstBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+    
+      //Instantiate background 2
+      secondBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
+      secondBackground.renderer.material = secondMaterial;
+      secondBackground.transform.position = new Vector3 (0, 0, startDepth + 10);
+      secondBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+    
+      //Instantiate background 3
+      thirdBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
+      thirdBackground.renderer.material = thirdMaterial;
+      thirdBackground.transform.position = new Vector3 (0, 0, startDepth + 15);
+      thirdBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+    
+      //Remove background colliders
+      firstBackground.collider.isTrigger = true;
+      secondBackground.collider.isTrigger = true;
+      thirdBackground.collider.isTrigger = true;
+    
+    }
+  
+    // Update is called once per frame
+    void Update()
+    {
+      if (enabled) {
+        float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
+        float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
+    
+        firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
+        secondBackground.transform.position = new Vector3 (0, 0, secondBackground.transform.position.z);
+        thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);
+    
+        Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - playerX / 5,
                                         firstBackground.transform.position.y - playerY / 10,
                                         firstBackground.transform.position.z);
     
-      Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - playerX / 8,
+        Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - playerX / 8,
                                          secondBackground.transform.position.y - playerY / 12,
                                          secondBackground.transform.position.z);
     
-      Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - playerX / 10,
+        Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - playerX / 10,
                                         thirdBackground.transform.position.y - playerY / 15,
                                         thirdBackground.transform.position.z);
     
-      firstBackground.transform.position = newFirstPos;
-      secondBackground.transform.position = newSecondPos;
-      thirdBackground.transform.position = newThirdPos;
-	}
+        firstBackground.transform.position = newFirstPos;
+        secondBackground.transform.position = newSecondPos;
+        thirdBackground.transform.position = newThirdPos;
+      }
+    }
+
+    public void disable()
+    {
+      enabled = false;
+    }
+
+    public void enable()
+    {
+      enabled = true;
+    }
   }
-
-	public void disable() {
-		enabled = false;
-	}
-
-	public void enable() {
-		enabled = true;
-	}
 }

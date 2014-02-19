@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace LoveElephant
+{
 public class SlothBody : MonoBehaviour
 {
   
@@ -101,4 +103,5 @@ public class SlothBody : MonoBehaviour
     this.transform.parent.GetComponent<SlothAI> ().Dying ();
     dying = true;
   }
+}
 }

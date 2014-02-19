@@ -1,23 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BootStats : MonoBehaviour {
+namespace LoveElephant
+{
+  public class BootStats : MonoBehaviour
+  {
 
-	public float SpeedMod;
-	public float JumpMod;
-	// Use this for initialization
-	void Start () {
-		if(SpeedMod == null){
-			Debug.LogError("Damage not assigned to " + this.name);
-		}
-		if(JumpMod == null){
-			Debug.LogError("SwingAngle not assigned to " + this.name);
-		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+    public float SpeedMod = 0f;
+    public float JumpMod = 0f;
+    // Use this for initialization
+    void Start()
+    {
+      if (SpeedMod == 0f) {
+        Debug.LogError ("Damage not assigned to " + this.name);
+      }
+      if (JumpMod == 0f) {
+        Debug.LogError ("SwingAngle not assigned to " + this.name);
+      }
+    }
+  }
 }
