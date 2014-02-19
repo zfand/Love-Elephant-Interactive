@@ -18,6 +18,10 @@ TagManager:
   - Parallax
   - RoomExitMidB
   - RoomExitMidT
+  - HookShot
+  - Weapon
+  - Boot
+  - Item
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

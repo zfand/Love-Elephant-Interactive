@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using LoveElephant;
 
-namespace LoveElephant
+namespace Item
 {
   public class Sword : MonoBehaviour
   {
-    public GameObject sword;        // Prefab of the rocket.
+    public GameObject sword;
     public float speed = 20f;     // The speed the rocket will fire at.
 
   
@@ -33,8 +34,7 @@ namespace LoveElephant
     void Awake()
     {
       // Setting up the references.
-//    anim = transform.root.gameObject.GetComponent<Animator>();
-      playerCtrl = transform.root.gameObject.GetComponent<PlayerController> ();
+      playerCtrl = transform.parent.gameObject.GetComponent<PlayerController> ();
     }
 
     void OnDrawGizmos()

@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/GrappleMechanic.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Sword.cs">
     <Files>
-      <File FileName="Assets/Scripts/Item/GrappleMechanic.cs" Line="195" Column="54" />
+      <File FileName="Assets/Scripts/Item/GrappleMechanic.cs" Line="178" Column="104" />
+      <File FileName="Assets/Scripts/Item/Sword.cs" Line="112" Column="23" />
+      <File FileName="Assets/Scripts/SlothRoom/SlothBody.cs" Line="42" Column="1" />
+      <File FileName="Assets/Scripts/SlothRoom/SlothTV.cs" Line="3" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

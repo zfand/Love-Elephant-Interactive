@@ -12,7 +12,7 @@ GameObject:
   - 120: {fileID: 12000000}
   m_Layer: 0
   m_Name: BasicHookshoot
-  m_TagString: Untagged
+  m_TagString: HookShot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .195498571, y: -.160108328, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -36,10 +36,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8334b7b2ce1e5427ab4ce5fdb729f21d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f7e9382e2455499c8841d48b4924095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchor: {fileID: 0}
+  anchorPrefab: {fileID: 100000, guid: 21b78e180053f446bb9c62c7dd3f3aad, type: 2}
   maxLength: 15
   extendTime: .200000003
   maxDashSpeed: 20
@@ -69,8 +69,8 @@ LineRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Positions:
-  - {x: .293247849, y: -1.24016249, z: 0}
-  - {x: .293247849, y: -1.24016249, z: 0}
+  - {x: 0, y: -1, z: 0}
+  - {x: 0, y: -1, z: 0}
   m_Parameters:
     startWidth: .100000001
     endWidth: .100000001

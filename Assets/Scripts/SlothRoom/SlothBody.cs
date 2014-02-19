@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Item;
 
 namespace LoveElephant
 {
@@ -37,7 +38,8 @@ public class SlothBody : MonoBehaviour
       if (other.gameObject.tag == "Sword") {
         //Debug.Break();
         float startperc = Health / fullHealth;
-        Sword sword = player.GetComponent<Sword> ();
+        Debug.Log("change this");
+        Sword sword = player.GetComponentInChildren<Sword> ();
         Health -= sword.Damage;
         sword.Hit ();
         

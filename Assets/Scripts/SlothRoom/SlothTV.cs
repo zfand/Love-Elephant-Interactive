@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Item;
 
 namespace LoveElephant
 {
@@ -36,7 +37,8 @@ namespace LoveElephant
         //Debug.Break();
       
         float starthealth = Health / OriginalHealth;
-        Sword sword = player.GetComponent<Sword> ();
+        Sword sword = player.GetComponentInChildren<Sword> ();
+        Debug.Log("change this");
         Health -= sword.Damage;
         sword.Hit ();
         float endhealth = Health / OriginalHealth;
