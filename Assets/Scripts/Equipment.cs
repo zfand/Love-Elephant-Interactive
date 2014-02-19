@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Item;
 
 namespace LoveElephant
 {
@@ -11,18 +12,6 @@ namespace LoveElephant
     public GameObject boot;
 
     private Inventory box;
-
-    // Use this for initialization
-    void Start()
-    {
-  
-    }
-  
-    // Update is called once per frame
-    void Update()
-    {
-  
-    }
 
     public void Equip(GameObject item) {
       if (item.tag == "Hookshot") {
@@ -39,6 +28,7 @@ namespace LoveElephant
       }
     }
 
+    /*
     public void EquipWeapon(string weapon)
     {
       Transform weapon_parent = this.transform.FindChild ("Weapon");
@@ -77,17 +67,11 @@ namespace LoveElephant
       newBoots.transform.parent = boot_parent;
       
       BootStats stats = newBoots.GetComponent<BootStats> ();
-      /**
       maxSpeed = originalspeed;
       maxSpeed += stats.SpeedMod;
       jumpForce = originalJumpForce;
       jumpForce *= stats.JumpMod;
-      **/
     }
-    
-    public void EquipHookshot(string hookshot)
-    {
-      
-    }
+    **/
   }
 }

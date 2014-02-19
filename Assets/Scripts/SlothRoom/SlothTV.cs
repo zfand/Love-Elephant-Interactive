@@ -7,11 +7,11 @@ namespace LoveElephant
   public class SlothTV : MonoBehaviour
   {
   
-    public GameObject player;
+    public float health = 100f;
+    public float defense = 1f;
     public Transform deathPos;
     private Color origColor;
     private Color flashColor;
-    public float Health = 100;
     private float OriginalHealth;
     private bool faceLeft;
     private Material mat;
@@ -23,7 +23,7 @@ namespace LoveElephant
       mat = GetComponent<SkinnedMeshRenderer> ().material;
       origColor = mat.color;
       flashColor = Color.red;
-      OriginalHealth = Health;
+      OriginalHealth = health;
     }
   
     // Update is called once per frame
@@ -33,15 +33,13 @@ namespace LoveElephant
   
     void OnTriggerEnter(Collider other)
     {
-      if (other.gameObject.tag == "Sword") {
+      if (other.gameObject.tag == "Weapon") {
         //Debug.Break();
       
-        float starthealth = Health / OriginalHealth;
-        Sword sword = player.GetComponentInChildren<Sword> ();
-        Debug.Log("change this");
-        Health -= sword.Damage;
-        sword.Hit ();
-        float endhealth = Health / OriginalHealth;
+        float starthealth = health / OriginalHealth;
+        health = other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
+
+        float endhealth = health / OriginalHealth;
 
         if (starthealth >= 0.50 && endhealth <= 0.50) {
           this.transform.Find ("TVFire").particleSystem.Play ();
@@ -49,7 +47,7 @@ namespace LoveElephant
           this.transform.Find ("TVFire").particleSystem.emissionRate *= 2;
         }
         StartCoroutine (FlashRed ());
-        if (Health <= 0 && !exploding) {
+        if (health <= 0 && !exploding) {
           exploding = true;
           Transform expl = transform.parent.Find ("TVExplosion");
           expl.particleSystem.Play ();

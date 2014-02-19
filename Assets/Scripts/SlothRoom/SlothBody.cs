@@ -6,12 +6,12 @@ namespace LoveElephant
 {
 public class SlothBody : MonoBehaviour
 {
-  
-  public GameObject player;
+  public float health = 100f;
+  public float defense = 1f;
+
   private Color origColor;
   private Color flashColor;
   private bool dying;
-  public float Health = 100;
   private float fullHealth;
   private bool faceLeft;
   private Material mat;
@@ -22,7 +22,7 @@ public class SlothBody : MonoBehaviour
     mat = GetComponent<SkinnedMeshRenderer> ().material;
     origColor = mat.color;
     flashColor = Color.red;
-    fullHealth = Health;
+    fullHealth = health;
     dying = false;
 
   }
@@ -35,20 +35,18 @@ public class SlothBody : MonoBehaviour
   void OnTriggerEnter(Collider other)
   {
     if (!dying) {
-      if (other.gameObject.tag == "Sword") {
+      if (other.gameObject.tag == "Weapon") {
         //Debug.Break();
-        float startperc = Health / fullHealth;
-        Debug.Log("change this");
-        Sword sword = player.GetComponentInChildren<Sword> ();
-        Health -= sword.Damage;
-        sword.Hit ();
+        float startperc = health / fullHealth;
         
-        float endperc = Health / fullHealth; 
+        health = other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
+        
+        float endperc = health / fullHealth; 
         if (startperc >= 0.50 && endperc <= 0.50) {
           this.transform.Find ("BodyFire").particleSystem.Play ();
         }
         StartCoroutine (FlashRed ());
-        if (Health <= 0 && !exploding) {
+        if (health <= 0 && !exploding) {
           StartCoroutine (SlothDying ());
         }
       }

@@ -12,7 +12,6 @@ namespace Item
   
     public float totaldegrees = 80;
     public float degreesperframe = 5;
-    public float Damage = 10;
     private PlayerController playerCtrl;    // Reference to the PlayerControl script.
     //private Animator anim;          // Reference to the Animator component.
 
@@ -110,11 +109,6 @@ namespace Item
       sword.transform.localPosition = OriginalSwordPosition;
       sword.transform.localRotation = OriginalSwordRotation;
       sword.SetActive (false);
-    }
-
-    public void Hit()
-    {
-      //sword.light.intensity = 10;//sword.particleSystem.Play();
     }
   }
 }
