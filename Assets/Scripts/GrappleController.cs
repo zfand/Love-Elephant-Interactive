@@ -126,13 +126,13 @@ namespace LoveElephant
       //Attached
       if (state == GrappleState.Attached) {
         if (Vector3.Distance (hitPos, transform.position) > maxLength) {
-          StopSwing ();
+          StopSwing (true);
         }
       }
 
       //Let go while swinging
       if (!Input.GetButton ("Fire1") && state == GrappleState.Swinging) {
-        StopSwing ();
+        StopSwing (true);
       }
 
       //Yank!
@@ -143,7 +143,7 @@ namespace LoveElephant
       //Hit the Ground
       if (state == GrappleState.Swinging) {
         if (pController.grounded) {
-          StopSwing ();
+          StopSwing (true);
         }
       }
 
@@ -230,7 +230,7 @@ namespace LoveElephant
         yield return 0;
       }
       if (state == GrappleState.Failed) {
-        StopSwing ();
+        StopSwing (true);
       } else {
         state = completeState;     
         if (Input.GetButton ("Fire1") && state == GrappleState.Swinging) {
@@ -322,7 +322,7 @@ namespace LoveElephant
     /// <summary>
     /// Resets the player from swinging (deletes Joints)
     /// </summary>
-    public void StopSwing(bool retract = true)
+    public void StopSwing(bool retract)
     {
       if (retract) {
         state = GrappleState.Failed;

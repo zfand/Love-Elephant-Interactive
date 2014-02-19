@@ -165,7 +165,7 @@ namespace LoveElephant
           DestroyObject (oldboots.gameObject);
         }
       }
-      GameObject newBoots = (GameObject)Instantiate (Resources.Load (boot), boot_parent.position, boot_parent.rotation);
+      GameObject newBoots = (GameObject)Instantiate (Resources.Load ("Items/"+boot), boot_parent.position, boot_parent.rotation);
 
       newBoots.transform.parent = boot_parent;
 
