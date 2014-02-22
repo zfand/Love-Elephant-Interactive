@@ -37,7 +37,7 @@ namespace LoveElephant
         //Debug.Break();
       
         float starthealth = health / OriginalHealth;
-        health = other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
+        health -= other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
 
         float endhealth = health / OriginalHealth;
 

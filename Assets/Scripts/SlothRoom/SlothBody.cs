@@ -39,7 +39,7 @@ public class SlothBody : MonoBehaviour
         //Debug.Break();
         float startperc = health / fullHealth;
         
-        health = other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
+        health -= other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
         
         float endperc = health / fullHealth; 
         if (startperc >= 0.50 && endperc <= 0.50) {
