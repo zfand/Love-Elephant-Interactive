@@ -54,7 +54,7 @@ namespace LoveElephant
     private void Add(GameObject item)
     {
       items [item.tag].Add (item.name);
-      DestroyImmediate (item);
+      Destroy (item);
     }
 
     /// <summary>
@@ -62,7 +62,10 @@ namespace LoveElephant
     /// </summary>
     private GameObject Create(string name)
     {
-      return Instantiate (Resources.Load<GameObject> ("Items/" + name)) as GameObject;
+      GameObject item = Instantiate (Resources.Load<GameObject> ("Items/" + name)) as GameObject;
+      item.transform.parent = this.transform;
+      item.name = name;
+      return item;
     }
 
     /// <summary>
@@ -75,6 +78,14 @@ namespace LoveElephant
         return true;
       }
       return false;
+    }
+
+    public void AddItem(string itemName)
+    {
+      GameObject item = Create(itemName);
+      if (item != null) {
+        AddItem(item);
+      }
     }
 
     /// <summary>

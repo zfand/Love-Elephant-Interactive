@@ -43,7 +43,7 @@ namespace LoveElephant
       if (playerCrtl == null) {
         Debug.LogError ("Could not find PlayerController on the Player!");
       }
-      box = this.GetComponent<PlayerController> ();
+      box = this.GetComponent<Inventory> ();
       if (box == null) {
         Debug.LogError ("Could not find Inventory on the Player!");
       }
@@ -57,6 +57,9 @@ namespace LoveElephant
     /// </summary>
     public void Equip(GameObject item)
     {
+      if (item == null) {
+        return;
+      }
       if (item.tag == "HookShot") {
         if (hookShot != null) {
           Unequip (hookShot);

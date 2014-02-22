@@ -74,26 +74,25 @@ namespace Item
       Swinging
     }
 
-    private void Awake()
-    {
-      anim = transform.parent.GetComponentInChildren<Animator> ();
-      if (anim == null) {
-        Debug.LogError ("The Player's Animator is NULL!");
-      }
-      ropePos = transform.parent.Find ("RopePos");
-      if (ropePos == null) {
-        Debug.LogError ("There is no RopePos transform on the Player");
-      }
-      pController = transform.parent.GetComponent<PlayerController> ();
-      if (pController == null) {
-        Debug.LogError ("The Player's PlayerController is NULL!");
-      }
-    }
-
     private void Start()
     {    
       state = GrappleState.Off;
       lr = this.GetComponent<LineRenderer> ();
+      if (lr == null) {
+        Debug.LogError("The Hookshot does not have a LineRenderer!");
+      }
+      anim = transform.parent.GetComponentInChildren<Animator> ();
+      if (anim == null) {
+        Debug.LogError ("The Parent does have an Animator!");
+      }
+      ropePos = transform.parent.Find ("RopePos");
+      if (ropePos == null) {
+        Debug.LogError ("There is no RopePos Transform on the Parent!");
+      }
+      pController = transform.parent.GetComponent<PlayerController> ();
+      if (pController == null) {
+        Debug.LogError ("There is no PlayerController Componenetnet on the Parent!");
+      }
     }
 
     private void OnDrawGizmos()
@@ -102,7 +101,7 @@ namespace Item
         Gizmos.color = Color.white;
         Gizmos.DrawLine (transform.parent.position, hitPos);
         if (anchor != null) {
-          Gizmos.DrawWireSphere (anchor.transform.parent.position, .3f);
+          Gizmos.DrawWireSphere (anchor.transform.position, .3f);
           Gizmos.DrawWireSphere (transform.parent.position, .3f);
         }
       } else {

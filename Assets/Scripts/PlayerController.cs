@@ -76,6 +76,11 @@ namespace LoveElephant
       if (Input.GetButtonDown ("Jump") && grounded)
         jump = true;
 
+      //TODO REMOVE THIS TESTING CODE
+      if (Input.GetKey(KeyCode.E)) {
+        equip.Equip(this.GetComponent<Inventory>().TakeItem("BasicHookshot"));
+      }
+
       if (rigidbody.velocity.magnitude > 50) {
         rigidbody.velocity /= 2;
       }
