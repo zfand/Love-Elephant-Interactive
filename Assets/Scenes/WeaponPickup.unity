@@ -3299,7 +3299,6 @@ GameObject:
   - 114: {fileID: 351986264}
   - 195: {fileID: 351986265}
   - 95: {fileID: 351986263}
-  - 114: {fileID: 351986260}
   m_Layer: 0
   m_Name: sloth
   m_TagString: Untagged
@@ -3326,24 +3325,6 @@ Transform:
   - {fileID: 1395424538}
   - {fileID: 259918415}
   m_Father: {fileID: 0}
---- !u!114 &351986260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: a8c47a7f8045c497da24047a2b144d8b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1007119700}
-  m_GameObject: {fileID: 351986258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945608f9bca13b4bb05de9132f00dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 11400000, guid: 82ac8f4a733416f42862b7e148c800dc, type: 2}
-  level: 1
-  navMeshAgent: {fileID: 0}
-  target: {fileID: 0}
-  animator: {fileID: 0}
-  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &351986261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6543,7 +6524,9 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 311510205}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400006, guid: a8c47a7f8045c497da24047a2b144d8b, type: 2}
+    - {fileID: 11400008, guid: a8c47a7f8045c497da24047a2b144d8b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a8c47a7f8045c497da24047a2b144d8b, type: 2}
   m_RootGameObject: {fileID: 351986258}
   m_IsPrefabParent: 0
@@ -8424,7 +8407,6 @@ GameObject:
   - 199: {fileID: 1175641428}
   - 195: {fileID: 1175641432}
   - 95: {fileID: 1175641431}
-  - 114: {fileID: 1175641430}
   m_Layer: 0
   m_Name: BodyFire
   m_TagString: Untagged
@@ -9491,24 +9473,6 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!114 &1175641430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400008, guid: a8c47a7f8045c497da24047a2b144d8b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1007119700}
-  m_GameObject: {fileID: 1175641426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f945608f9bca13b4bb05de9132f00dd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  level: 0
-  navMeshAgent: {fileID: 0}
-  target: {fileID: 0}
-  animator: {fileID: 0}
-  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &1175641431
 Animator:
   serializedVersion: 2
