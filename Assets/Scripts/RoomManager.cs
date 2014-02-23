@@ -31,6 +31,7 @@ public class RoomManager : MonoBehaviour {
 	}
 
 	public bool checkLeft() {
+		Debug.Log ("checking left");
 		return (neededKeyLeft == "none" || player.GetComponent<PlayerKeys>().hasKey(neededKeyLeft));
 	}
 

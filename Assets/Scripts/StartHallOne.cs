@@ -9,7 +9,7 @@ public class StartHallOne : MonoBehaviour {
 	void Start () {
 
 		if (GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManager>().currentLevelState != LevelState.Complete) {
-			Instantiate(roomKey, new Vector3(-3f, 3f, 0f), Quaternion.identity);
+			Instantiate(roomKey, new Vector3(-25.5f, -3.3f, 0f), Quaternion.identity);
 		}
 	}
 	

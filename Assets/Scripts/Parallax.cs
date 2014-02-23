@@ -20,6 +20,8 @@ public class Parallax : MonoBehaviour
 
   public bool enabled;
   
+  public GameObject cam;
+
   // Use this for initialization
   void Start()
   {
@@ -49,19 +51,19 @@ public class Parallax : MonoBehaviour
     //Instantiate background 1
     firstBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
     firstBackground.renderer.material = firstMaterial;
-    firstBackground.transform.position = new Vector3 (0, 0, startDepth + 5);
+    firstBackground.transform.position = new Vector3 (0, 0, startDepth - 5);
     firstBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
     
     //Instantiate background 2
     secondBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
     secondBackground.renderer.material = secondMaterial;
-    secondBackground.transform.position = new Vector3 (0, 0, startDepth + 10);
+    secondBackground.transform.position = new Vector3 (0, 0, startDepth + 5);
     secondBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
     
     //Instantiate background 3
     thirdBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
     thirdBackground.renderer.material = thirdMaterial;
-    thirdBackground.transform.position = new Vector3 (0, 0, startDepth + 15);
+    thirdBackground.transform.position = new Vector3 (0, 0, startDepth + 10);
     thirdBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
     
     //Remove background colliders
@@ -75,23 +77,22 @@ public class Parallax : MonoBehaviour
   void Update()
   {
 	if (enabled) {
-      float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
-      float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
+      float camX = cam.transform.position.x;
     
       firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
       secondBackground.transform.position = new Vector3 (0, 0, secondBackground.transform.position.z);
       thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);
     
-      Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - playerX / 5,
-                                        firstBackground.transform.position.y - playerY / 10,
+      Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - camX / 4,
+			                            firstBackground.transform.position.y,
                                         firstBackground.transform.position.z);
     
-      Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - playerX / 8,
-                                         secondBackground.transform.position.y - playerY / 12,
+      Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - camX / 6,
+			                             secondBackground.transform.position.y,
                                          secondBackground.transform.position.z);
     
-      Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - playerX / 10,
-                                        thirdBackground.transform.position.y - playerY / 15,
+      Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - camX / 8,
+			                            thirdBackground.transform.position.y,
                                         thirdBackground.transform.position.z);
     
       firstBackground.transform.position = newFirstPos;
