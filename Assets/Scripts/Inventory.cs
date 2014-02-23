@@ -21,7 +21,7 @@ namespace LoveElephant
     /// <summary>
     /// The accepted item tags to be put in Inventory
     /// </summary>
-    private string[] acceptedItemTags = {"Weapon", "Boot", "HookShot","Item"};
+    private string[] acceptedItemTags = {"Weapon", "Boot", "HookShot","Item", "Key"};
 
     public void Start()
     {
@@ -80,12 +80,23 @@ namespace LoveElephant
       return false;
     }
 
+    /// <summary>
+    /// Adds the Given item to the Inventory by creating it then storing it.
+    /// </summary>
     public void AddItem(string itemName)
     {
       GameObject item = Create(itemName);
       if (item != null) {
         AddItem(item);
       }
+    }
+
+    /// <summary>
+    /// Adds the given key to the inventory
+    /// </summary>
+    public void AddKey(string key)
+    {
+      items["Key"].Add(key);
     }
 
     /// <summary>
@@ -100,6 +111,13 @@ namespace LoveElephant
         }
       }
       return null;
+    }
+
+    /// <summary>
+    /// Determines whether the player has the given key
+    /// </summary>
+    public bool CheckKey(string key) {
+      return items["Key"].Contains (key);
     }
 
     /// <summary>

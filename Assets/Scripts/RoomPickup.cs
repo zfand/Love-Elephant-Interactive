@@ -35,11 +35,6 @@ namespace LoveElephant
         GetManager ();
       }
 
-      if (hit.gameObject.tag == "RoomKey") {
-        player.GetComponent<PlayerKeys> ().addKey (hit.gameObject.name);
-        Destroy (hit.gameObject);
-      }
-
       if (hit.gameObject.tag == "RoomExitRight") {
         if (roomManager.GetComponent<RoomManager> ().checkRight ()) {
           GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().disable ();

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 namespace LoveElephant
@@ -34,22 +34,22 @@ namespace LoveElephant
 
     public bool checkLeft()
     {
-      return (neededKeyLeft == "none" || player.GetComponent<PlayerKeys> ().hasKey (neededKeyLeft));
+      return (neededKeyLeft == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyLeft));
     }
 
     public bool checkRight()
     {
-      return (neededKeyRight == "none" || player.GetComponent<PlayerKeys> ().hasKey (neededKeyRight));
+      return (neededKeyRight == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyRight));
     }
 
     public bool checkMidB()
     {
-      return (neededKeyMidB == "none" || player.GetComponent<PlayerKeys> ().hasKey (neededKeyMidB));
+      return (neededKeyMidB == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyMidB));
     }
 
     public bool checkMidT()
     {
-      return (neededKeyMidT == "none" || player.GetComponent<PlayerKeys> ().hasKey (neededKeyMidT));
+      return (neededKeyMidT == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyMidT));
     }
   }
 }
