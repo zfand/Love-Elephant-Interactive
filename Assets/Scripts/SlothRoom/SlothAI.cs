@@ -10,11 +10,13 @@ namespace LoveElephant
     private Animator anim;
     private Color origColor;
     public float Health = 100;
+	public float ChargeSpeed;
     private bool dying;
     private bool faceLeft;
     private bool turning = false;
     private Material mat;
     public GameObject keyDrop;
+	private bool hitwall;
 
     // Use this for initialization
     void Start()
@@ -32,29 +34,7 @@ namespace LoveElephant
     // Update is called once per frame
     void Update()
     {
-      /*if (!dying) {
-        if (!anim.IsPlaying ("Sloth_Charge"))
-          facePlayer ();
 
-        if (sameLevel () && false) {
-          if (anim.IsPlaying ("Sloth_BeginCharge")) {
-            anim.PlayQueued ("Sloth_Charge", QueueMode.CompleteOthers);
-          } else if (anim.IsPlaying ("Sloth_Charge")) {
-            charge (faceLeft);
-          } else if (anim.IsPlaying ("Sloth_EndCharge")) {
-            anim.PlayQueued ("Sloth_Idle", QueueMode.CompleteOthers);
-          } else if (anim.IsPlaying ("Sloth_Idle")) {
-            StartCoroutine (WaitForSecs (2f));
-            anim.PlayQueued ("Sloth_BeginCharge", QueueMode.PlayNow);
-          }
-        } else {
-          if (!anim.IsPlaying ("Sloth_Idle") && !anim.IsPlaying ("Sloth_Charge")) {
-            anim.Stop ();
-            anim.PlayQueued ("Sloth_Idle", QueueMode.PlayNow);
-          }
-        }
-      }
-      */
     }
 
     IEnumerator WaitForSecs(float secs)
@@ -62,21 +42,24 @@ namespace LoveElephant
       yield return new WaitForSeconds (secs);
     }
 
-    void charge(bool lookL)
-    {
-      float xPos = transform.position.x;
-      float yPos = transform.position.y;
+	IEnumerator Charge()
+	{
+		float newspeed = ChargeSpeed;
+		if(faceLeft){
+			newspeed *= -1;
+		}
+		while(!hitwall){
+				transform.position = new Vector3(transform.position.x + newspeed, transform.position.y, transform.position.z);
+				yield return 0;
+		}
+		hitwall = false;
+	}
 
-      if (faceLeft) {
-        transform.position = new Vector3 (xPos - 0.1f, yPos, 0f);
-      } else {
-        transform.position = new Vector3 (xPos + 0.1f, yPos, 0f);
-      }
-    }
 
     void OnCollisionEnter(Collision hit)
     {
       if (hit.gameObject.tag == "Wall") {
+		hitwall = true;
         facePlayer ();
         //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
       }
