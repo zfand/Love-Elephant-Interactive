@@ -9,14 +9,12 @@ namespace LoveElephant
   /// </summary>
   public class KeyPickup : MonoBehaviour
   {
-    public enum Keys
-    {
-      Green = 1,
-      White = 2
-    }
-    public Keys key;
+    /// <summary>
+    /// The key to be added to the Inventory
+    /// </summary>
+    public KeyType key;
 
-    void OnCollisionEnter(Collision c)
+    void OnTriggerEnter(Collider c)
     {
       if (c.gameObject.CompareTag ("Player")) {
         c.gameObject.GetComponent<Inventory> ().AddKey (key.ToString());

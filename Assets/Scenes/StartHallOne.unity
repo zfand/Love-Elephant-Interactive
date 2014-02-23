@@ -320,9 +320,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 221430146}
   - 65: {fileID: 221430145}
+  - 114: {fileID: 221430147}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: RoomExitRight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,6 +351,19 @@ Transform:
   m_LocalScale: {x: -.159999996, y: 1.39999998, z: 1}
   m_Children: []
   m_Father: {fileID: 1260892242}
+--- !u!114 &221430147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 221430144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa35c125a37743feb8264069c2f0dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredKey: 1
+  room: StartHallTwo
 --- !u!1 &359372443
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,6 +540,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
+      propertyPath: connectedRooms.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -561,7 +579,15 @@ Prefab:
     - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 221430144}
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
+      propertyPath: playerStartPos
+      value: 
+      objectReference: {fileID: 1453838680}
+    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
+      propertyPath: connectedRooms.Array.data[0]
+      value: StartHallTwo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
   m_RootGameObject: {fileID: 1041849063}
@@ -863,19 +889,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10eb2880577164694e28db3728610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftExit: {fileID: 0}
-  rightExit: {fileID: 1260892240}
-  midExitB: {fileID: 0}
-  midExitT: {fileID: 0}
-  neededKeyRight: white
-  neededKeyLeft: 
-  neededKeyMidB: 
-  neededKeyMidT: 
-  leftRoom: 
-  rightRoom: StartHallTwo
-  midRoomB: 
-  midRoomT: 
-  player: {fileID: 221430144}
+  doors: []
+  connectedRooms:
+  - StartHallTwo
+  playerStartPos: {fileID: 1453838680}
+  player: {fileID: 0}
 --- !u!1 &1260892240
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +905,7 @@ GameObject:
   - 212: {fileID: 1260892241}
   m_Layer: 0
   m_Name: RoomOneExit
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -922,7 +940,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1260892240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.0599995, y: -3.02999997, z: -.100000001}
+  m_LocalPosition: {x: 26.0599995, y: -3.0086844, z: -.100000001}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 221430146}
@@ -1067,6 +1085,32 @@ Prefab:
   m_RootGameObject: {fileID: 1865661815}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1453838680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1453838681}
+  m_Layer: 0
+  m_Name: PlayerStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1453838681
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1453838680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.85788536, y: -6.05897331, z: -.100000024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1599753029
 GameObject:
   m_ObjectHideFlags: 0

@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2190347}
   - 212: {fileID: 2190348}
+  - 114: {fileID: 2190349}
   m_Layer: 0
   m_Name: RoomOneExit
   m_TagString: Untagged
@@ -126,6 +127,19 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: c65d6b1df1077704d9ec6210e39cf538, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &2190349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2190346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa35c125a37743feb8264069c2f0dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredKey: 1
+  room: StartHallOne
 --- !u!1 &31956831
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +345,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 398567595}
   - 65: {fileID: 398567596}
+  - 114: {fileID: 398567597}
   m_Layer: 0
   m_Name: Exit
   m_TagString: RoomExitRight
@@ -361,6 +376,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &398567597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 398567594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa35c125a37743feb8264069c2f0dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredKey: 2
+  room: TheHubOne
 --- !u!1 &495937274
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,18 +531,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10eb2880577164694e28db3728610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftExit: {fileID: 1468636099}
-  rightExit: {fileID: 398567594}
-  midExitB: {fileID: 2146351202}
-  midExitT: {fileID: 0}
-  neededKeyRight: green
-  neededKeyLeft: white
-  neededKeyMidB: none
-  neededKeyMidT: 
-  leftRoom: StartHallOne
-  rightRoom: TheHubOne
-  midRoomB: SlothRoom
-  midRoomT: 
+  doors: []
+  connectedRooms:
+  - SlothRoom
+  - TheHubOne
+  - TheHubTwo
+  playerStartPos: {fileID: 2139917823}
   player: {fileID: 0}
 --- !u!4 &890308319
 Transform:
@@ -946,6 +968,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1468636100}
   - 65: {fileID: 1468636101}
+  - 114: {fileID: 1468636102}
   m_Layer: 0
   m_Name: Exit
   m_TagString: RoomExitLeft
@@ -976,6 +999,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1468636102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1468636099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa35c125a37743feb8264069c2f0dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredKey: 1
+  room: StartHallOne
 --- !u!1 &1546757693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1331,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .109999999, y: 1.01999998, z: 1}
   m_Center: {x: 1.13, y: -.200000003, z: 0}
+--- !u!1 &2139917823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2139917824}
+  m_Layer: 0
+  m_Name: PlayerStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139917824
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139917823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.875473, y: -6.05897331, z: -.100000024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &2146351202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1366,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2146351204}
   - 65: {fileID: 2146351203}
+  - 114: {fileID: 2146351205}
   m_Layer: 0
   m_Name: Exit
   m_TagString: RoomExitMidB
@@ -1318,7 +1381,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2146351202}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.74000001, y: -.5, z: 1}
@@ -1334,6 +1397,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 89728460}
+--- !u!114 &2146351205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2146351202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa35c125a37743feb8264069c2f0dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredKey: 1
+  room: SlothRoom
 --- !u!1 &2147324918
 GameObject:
   m_ObjectHideFlags: 0

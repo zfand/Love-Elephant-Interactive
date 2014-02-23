@@ -10,14 +10,14 @@ TagManager:
   - Sword
   - Floor
   - Ceiling
-  - RoomExitRight
-  - RoomExitLeft
+  - Door
+  - 
   - RoomKey
   - SceneManager
   - RoomManager
   - Parallax
-  - RoomExitMidB
-  - RoomExitMidT
+  - 
+  - 
   - HookShot
   - Weapon
   - Boot

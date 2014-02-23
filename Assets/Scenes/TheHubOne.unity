@@ -83,6 +83,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 119642376}
   - 65: {fileID: 119642377}
+  - 114: {fileID: 119642378}
   m_Layer: 0
   m_Name: Exit
   m_TagString: RoomExitLeft
@@ -113,6 +114,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &119642378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 119642375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa35c125a37743feb8264069c2f0dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredKey: 2
+  room: StartHallTwo
 --- !u!1 &233710909
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,18 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d10eb2880577164694e28db3728610b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftExit: {fileID: 0}
-  rightExit: {fileID: 0}
-  midExitB: {fileID: 0}
-  midExitT: {fileID: 0}
-  neededKeyRight: 
-  neededKeyLeft: green
-  neededKeyMidB: 
-  neededKeyMidT: 
-  leftRoom: StartHallTwo
-  rightRoom: 
-  midRoomB: 
-  midRoomT: 
+  doors: []
+  connectedRooms:
+  - StartHallTwo
+  playerStartPos: {fileID: 614036025}
   player: {fileID: 0}
 --- !u!4 &233710911
 Transform:
@@ -311,6 +317,32 @@ Transform:
   m_GameObject: {fileID: 420511401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1 &614036025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 614036026}
+  m_Layer: 0
+  m_Name: PlayerStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &614036026
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614036025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.6381111, y: -6.05897331, z: -.100000024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -925,7 +957,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2106440023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26, y: -3.02999997, z: -.100000001}
+  m_LocalPosition: {x: -26.0953369, y: -3.02999997, z: -.100000001}
   m_LocalScale: {x: -2, y: 2, z: 1}
   m_Children:
   - {fileID: 119642376}

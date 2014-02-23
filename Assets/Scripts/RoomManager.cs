@@ -1,56 +1,58 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
+using Preloader;
 
 namespace LoveElephant
 {
+
+  /// <summary>
+  /// Room manager.
+  ///  Manages local instances of the room.
+  /// </summary>
   public class RoomManager : MonoBehaviour
   {
 
-    public GameObject leftExit;
-    public GameObject rightExit;
-    public GameObject midExitB;
-    public GameObject midExitT;
-    public string neededKeyRight;
-    public string neededKeyLeft;
-    public string neededKeyMidB;
-    public string neededKeyMidT;
-    public string leftRoom;
-    public string rightRoom;
-    public string midRoomB;
-    public string midRoomT;
+    /// <summary>
+    /// Doors in the Room
+    /// </summary>
+    public GameObject[] doors;
+    /// <summary>
+    /// The Rooms(Scenes) connected to this one
+    /// </summary>
+    public string[] connectedRooms;
+    /// <summary>
+    /// The starting Position of the 
+    /// </summary>
+    public GameObject playerStartPos;
+    /// <summary>
+    /// Reference to the player
+    /// </summary>
     public GameObject player;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
-      player = GameObject.FindGameObjectWithTag ("Player");
-    }
-  
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
-
-    public bool checkLeft()
-    {
-      Debug.Log ("checking left");
-      return (neededKeyLeft == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyLeft));
+      if (player == null) {
+        player = GameObject.FindGameObjectWithTag ("Player");
+      }
+      if (playerStartPos != null) {
+        player.transform.position = playerStartPos.transform.position;
+      }
+      doors = GameObject.FindGameObjectsWithTag ("Door");
     }
 
-    public bool checkRight()
+    /// <summary>
+    /// Switches to the given room if it's a connected Room
+    /// </summary>
+    public void SwitchRooms(string room)
     {
-      return (neededKeyRight == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyRight));
-    }
-
-    public bool checkMidB()
-    {
-      return (neededKeyMidB == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyMidB));
-    }
-
-    public bool checkMidT()
-    {
-      return (neededKeyMidT == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyMidT));
+      if (connectedRooms.Contains (room)) {
+        GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().disable ();
+        SceneManager sm = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>();
+        sm.SMSaveState(LevelState.Complete);
+        sm.SMLoadLevel(room);
+      }
     }
   }
 }
