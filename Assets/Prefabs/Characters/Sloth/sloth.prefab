@@ -5093,7 +5093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   Health: 100
-  keyDrop: {fileID: 0}
+  keyDrop: {fileID: 100000, guid: eaa24eb92b4feff42b6ad474a9ef95eb, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
