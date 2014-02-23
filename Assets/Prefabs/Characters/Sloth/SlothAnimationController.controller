@@ -14,13 +14,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Attack
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Charge
+  - m_Name: BeginCharge
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -68,10 +62,28 @@ Transition:
   m_TransitionOffset: .00481109833
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Charge
+    m_ConditionEvent: BeginCharge
     m_EventTreshold: 0
     m_ExitTime: .75999999
   m_Atomic: 0
+  m_Solo: 0
+  m_Mute: 0
+--- !u!1101 &110101426
+Transition:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110236749}
+  m_DstState: {fileID: 110200000}
+  m_TransitionDuration: .24000001
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 5
+    m_ConditionEvent: 
+    m_EventTreshold: 0
+    m_ExitTime: 2
+  m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
 --- !u!1101 &110108194
@@ -85,26 +97,26 @@ Transition:
   m_TransitionDuration: .399999917
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Attack
+  - m_ConditionMode: 5
+    m_ConditionEvent: BeginCharge
     m_EventTreshold: 1
-    m_ExitTime: 1
+    m_ExitTime: 4
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
---- !u!1101 &110122070
+--- !u!1101 &110133512
 Transition:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_SrcState: {fileID: 110271265}
-  m_DstState: {fileID: 110200000}
+  m_DstState: {fileID: 110236749}
   m_TransitionDuration: .352941096
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: Attack
+    m_ConditionEvent: 
     m_EventTreshold: 0
     m_ExitTime: .647058904
   m_Atomic: 1
@@ -215,6 +227,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110236749
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Stunned
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 564, y: -12, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110271265
 State:
   m_ObjectHideFlags: 3
@@ -226,7 +253,7 @@ State:
   m_Motions:
   - {fileID: 7400006, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 402, y: 45, z: 0}
+  m_Position: {x: 432, y: 120, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -289,9 +316,14 @@ StateMachine:
   - {fileID: 110271265}
   - {fileID: 110285564}
   - {fileID: 110200000}
+  - {fileID: 110236749}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
+    data:
+      first: {fileID: 110236749}
+      second:
+      - {fileID: 110101426}
     data:
       first: {fileID: 0}
       second:
@@ -312,7 +344,7 @@ StateMachine:
     data:
       first: {fileID: 110271265}
       second:
-      - {fileID: 110122070}
+      - {fileID: 110133512}
     data:
       first: {fileID: 110285564}
       second: []

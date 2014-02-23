@@ -14,16 +14,25 @@ namespace LoveElephant
     private bool dying;
     private bool faceLeft;
     private bool turning = false;
+    private bool startHit = false;
     private Material mat;
     public GameObject keyDrop;
 	private bool hitwall;
-
+	private bool charging;
+	public float IdleTime;
+	public float IdleMax;
+	public float IdleMin;
+    AnimatorStateInfo info;
+	Transform stunSwirl;
     // Use this for initialization
     void Start()
     {
 	  anim = GetComponent<Animator> ();
       faceLeft = true;
+	  charging = false;
       player = GameObject.FindGameObjectWithTag ("Player");
+	  stunSwirl = transform.FindChild("Stun");
+	  stunSwirl.gameObject.SetActive(false);
       /*
     mat = GetComponent<MeshRenderer>().material;
     origColor = mat.color;
@@ -34,7 +43,25 @@ namespace LoveElephant
     // Update is called once per frame
     void Update()
     {
+		info = anim.GetCurrentAnimatorStateInfo(0);
 
+		if(info.IsName("IdleState")){
+			stunSwirl.gameObject.SetActive(false);	
+			facePlayer ();
+			IdleTime--;
+				if(IdleTime <= 0){
+					anim.SetTrigger("BeginCharge");
+					IdleTime = Mathf.Ceil(Random.Range (IdleMin, IdleMax));
+				}
+
+		}
+		else if(!charging && info.IsName("Charge") && !startHit){
+			charging = true;
+			StartCoroutine(Charge ());
+		} else if(info.IsName("EndCharge")){
+			stunSwirl.gameObject.SetActive(true);	
+			startHit = false;
+		}
     }
 
     IEnumerator WaitForSecs(float secs)
@@ -52,25 +79,22 @@ namespace LoveElephant
 				transform.position = new Vector3(transform.position.x + newspeed, transform.position.y, transform.position.z);
 				yield return 0;
 		}
+		charging = false;
 		hitwall = false;
+			startHit = true;
+		anim.SetTrigger("HitWall");
 	}
 
 
-    void OnCollisionEnter(Collision hit)
-    {
-      if (hit.gameObject.tag == "Wall") {
-		hitwall = true;
-        facePlayer ();
-        //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
-      }
-    }
+    public void HitWall(){
+		if(charging){
+			hitwall = true;
+		}
+	}
   
-
-
     //Face the player
     void facePlayer()
     {
-
       float currentX = this.transform.eulerAngles.x;
       float currentY = this.transform.eulerAngles.y;
       if (!turning) {
@@ -88,17 +112,22 @@ namespace LoveElephant
 
     IEnumerator TurnSloth(Vector3 dest)
     {
-      float time = 10f;
-      float currtime = 0f;
-      float interval = 0.1f;
+      float interval = 5f;
+	  float totalrot = 0;
       Vector3 startangle = this.transform.eulerAngles;
       turning = true;
-      while (currtime <= time) {
-        this.transform.eulerAngles = Vector3.Lerp (startangle, dest, currtime / time);
-        currtime += interval;
-        yield return 0;
+	  bool rotating = true;
+      while (rotating) {
+		totalrot += interval;
+		if(totalrot >= 180){
+			rotating = false;
+			yield return 0;
+		}
+		transform.Rotate (new Vector3(0f, interval, 0f));
+		yield return 0;
       }
       turning = false;
+	  
       this.transform.eulerAngles = dest;
     }
     //If this is at the same level as the player
