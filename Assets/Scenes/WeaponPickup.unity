@@ -5081,6 +5081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1346b6228654328b7add3892bd452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2073548425}
   firstTexture: {fileID: 2800000, guid: 79bf55f9619d14349b8a915fb3429675, type: 3}
   secondTexture: {fileID: 2800000, guid: 6bf6d1931a3f54d1b91bf7ef5962280a, type: 3}
   thirdTexture: {fileID: 2800000, guid: 993bd39288a9041d5958428868f26b58, type: 3}

@@ -198,6 +198,9 @@ namespace Item
       }
     }
 
+    /// <summary>
+    /// Sets the anchor position and creates it if needed
+    /// </summary>
     private void SetAnchorPos(Vector3 pos) 
     {
       if (anchor == null) {

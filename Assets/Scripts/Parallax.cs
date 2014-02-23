@@ -13,6 +13,7 @@ namespace LoveElephant
     private Material secondMaterial;
     private Material thirdMaterial;
     private Shader backShader;
+    public GameObject player;
     public Texture firstTexture;
     public Texture secondTexture;
     public Texture thirdTexture;
@@ -26,8 +27,11 @@ namespace LoveElephant
 
       enabled = true;
     
+      if (player == null) {
+        player = GameObject.FindGameObjectWithTag ("Player");
+      }
       //Get player's Z to dynamically place backgrounds
-      float startDepth = GameObject.FindGameObjectWithTag ("Player").transform.position.z;
+      float startDepth = player.transform.position.z;
   
       //Create a shader based on the given type
       backShader = new Shader ();
@@ -75,9 +79,9 @@ namespace LoveElephant
     void Update()
     {
       if (enabled) {
-        float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
-        float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
-    
+        float playerX = player.transform.position.x;
+        float playerY = player.transform.position.y;
+
         firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
         secondBackground.transform.position = new Vector3 (0, 0, secondBackground.transform.position.z);
         thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);

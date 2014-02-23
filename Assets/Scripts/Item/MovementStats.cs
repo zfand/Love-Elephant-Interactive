@@ -3,6 +3,10 @@ using System.Collections;
 
 namespace Item
 {
+  /// <summary>
+  /// Movement stats.
+  ///  All stats related to player movement
+  /// </summary>
   [System.Serializable]
   public class MovementStats
   {
