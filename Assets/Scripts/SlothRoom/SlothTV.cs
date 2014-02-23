@@ -10,6 +10,7 @@ namespace LoveElephant
     public float health = 100f;
     public float defense = 1f;
     public Transform deathPos;
+    public GameObject deathDrop;
     private Color origColor;
     private Color flashColor;
     private float OriginalHealth;
@@ -50,7 +51,7 @@ namespace LoveElephant
           exploding = true;
           Transform expl = transform.parent.Find ("TVExplosion");
           expl.particleSystem.Play ();
-          GameObject upgrade = (GameObject)Instantiate (Resources.Load ("BFBlowtorchUpgrade"));
+          GameObject upgrade = (GameObject)Instantiate (deathDrop);
           upgrade.transform.position = expl.transform.position;
         
           upgrade.transform.position = new Vector3 (upgrade.transform.position.x - 1f, upgrade.transform.position.y + 1f, 0f);

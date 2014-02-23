@@ -254,11 +254,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69475642fc0536f4e8d2ca3dd2b87bb1, type: 3}
+  m_Script: {fileID: 11500000, guid: 29623f10dbd3640a2a581367a0527ba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
-  SwingAngle: 90
+  damage: 10
+  swingAngle: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,11 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366d070e979bc45ddb941ea4929e46a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 0}
+  sword: {fileID: 100006}
   speed: 20
   totaldegrees: 80
   degreesperframe: 5
-  Damage: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

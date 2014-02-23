@@ -27,13 +27,10 @@ namespace Item
       OriginalSwordPosition = sword.transform.localPosition;
       OriginalSwordRotation = sword.transform.localRotation;
 
-      sword.SetActive (false);
-    }
-
-    void Awake()
-    {
       // Setting up the references.
       playerCtrl = transform.parent.gameObject.GetComponent<PlayerController> ();
+
+      sword.SetActive (false);
     }
 
     void OnDrawGizmos()

@@ -14,7 +14,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: BFBlowtorchUpgrade
+  m_Name: BFBlowtorchDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,11 +82,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f166102b95f01c94fa2fc3738b50f7d8, type: 3}
+  m_Script: {fileID: 11500000, guid: b821d1a6ece4c49c4baa2ee349aa3850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Upgrade: BFSword
-  PickupTimer: 30
+  prefabName: BFSword
+  pickupDelay: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
