@@ -7,7 +7,7 @@ namespace LoveElephant
   {
 
     public GameObject player;
-    private Animation anim;
+    private Animator anim;
     private Color origColor;
     public float Health = 100;
     private bool dying;
@@ -19,7 +19,8 @@ namespace LoveElephant
     // Use this for initialization
     void Start()
     {
-      anim = GetComponent<Animation> ();
+	  anim = GetComponent<Animator> ();
+	  //anim.Play("IdleState");
       faceLeft = true;
       player = GameObject.FindGameObjectWithTag ("Player");
       /*
@@ -32,7 +33,7 @@ namespace LoveElephant
     // Update is called once per frame
     void Update()
     {
-      if (!dying) {
+      /*if (!dying) {
         if (!anim.IsPlaying ("Sloth_Charge"))
           facePlayer ();
 
@@ -54,6 +55,7 @@ namespace LoveElephant
           }
         }
       }
+      */
     }
 
     IEnumerator WaitForSecs(float secs)
@@ -63,6 +65,7 @@ namespace LoveElephant
 
     void charge(bool lookL)
     {
+			anim.Play("charge");
       float xPos = transform.position.x;
       float yPos = transform.position.y;
 
@@ -77,7 +80,7 @@ namespace LoveElephant
     {
       if (hit.gameObject.tag == "Wall") {
         facePlayer ();
-        anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
+        //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
       }
     }
   

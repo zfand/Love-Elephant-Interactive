@@ -63,7 +63,7 @@ LightmapSettings:
 NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    agentRadius: .5
+    agentRadius: .100000001
     agentHeight: 2
     agentSlope: 45
     agentClimb: .400000006
@@ -73,7 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-  m_NavMesh: {fileID: 0}
+  m_NavMesh: {fileID: 19400000, guid: 3dba8e7852bfc2446b5f56e53e35f176, type: 2}
 --- !u!1001 &4810735
 Prefab:
   m_ObjectHideFlags: 0
@@ -3427,9 +3427,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 351986259}
-  - 111: {fileID: 351986262}
   - 54: {fileID: 351986261}
   - 114: {fileID: 351986264}
+  - 195: {fileID: 351986265}
+  - 95: {fileID: 351986263}
+  - 114: {fileID: 351986260}
   m_Layer: 0
   m_Name: sloth
   m_TagString: Untagged
@@ -3456,6 +3458,23 @@ Transform:
   - {fileID: 1395424538}
   - {fileID: 259918415}
   m_Father: {fileID: 0}
+--- !u!114 &351986260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351986258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945608f9bca13b4bb05de9132f00dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 11400000, guid: 82ac8f4a733416f42862b7e148c800dc, type: 2}
+  level: 0
+  navMeshAgent: {fileID: 0}
+  target: {fileID: 0}
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &351986261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3472,27 +3491,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!111 &351986262
-Animation:
+--- !u!95 &351986263
+Animator:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11100000, guid: a8c47a7f8045c497da24047a2b144d8b,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 351986258}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  - {fileID: 7400002, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  - {fileID: 7400004, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  - {fileID: 7400006, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  - {fileID: 7400008, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  - {fileID: 7400010, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
+  m_Avatar: {fileID: 9000000, guid: 7c80e07f5d4674578b0d4f7529e93c26, type: 3}
+  m_Controller: {fileID: 9100000, guid: c4c942893c304d64b936fe1741f9f94e, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 1
+  m_HasTransformHierarchy: 1
 --- !u!114 &351986264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3508,6 +3520,26 @@ MonoBehaviour:
   player: {fileID: 0}
   Health: 100
   keyDrop: {fileID: 0}
+--- !u!195 &351986265
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 351986258}
+  m_Enabled: 1
+  m_Radius: .5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &352153160
 GameObject:
   m_ObjectHideFlags: 0
@@ -7917,7 +7949,7 @@ GameObject:
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1056402972
 Transform:
@@ -8474,6 +8506,9 @@ GameObject:
   - 4: {fileID: 1175641427}
   - 198: {fileID: 1175641429}
   - 199: {fileID: 1175641428}
+  - 195: {fileID: 1175641432}
+  - 95: {fileID: 1175641431}
+  - 114: {fileID: 1175641430}
   m_Layer: 0
   m_Name: BodyFire
   m_TagString: Untagged
@@ -9540,6 +9575,57 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!114 &1175641430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175641426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945608f9bca13b4bb05de9132f00dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  level: 0
+  navMeshAgent: {fileID: 0}
+  target: {fileID: 0}
+  animator: {fileID: 0}
+  initialPosition: {x: 0, y: 0, z: 0}
+--- !u!95 &1175641431
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175641426}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
+--- !u!195 &1175641432
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175641426}
+  m_Enabled: 1
+  m_Radius: 9.99999975e-06
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 9.99999975e-06
+  m_BaseOffset: 3.63797881e-12
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1188270361
 GameObject:
   m_ObjectHideFlags: 0

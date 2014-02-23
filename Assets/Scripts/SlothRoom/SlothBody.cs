@@ -77,12 +77,12 @@ public class SlothBody : MonoBehaviour
 
   IEnumerator SlothDying()
   {
-    Animation anim = transform.parent.animation;
-    anim.PlayQueued ("Sloth_Death", QueueMode.PlayNow);
+ //   Animator anim = transform.parent.animator;
+ //   anim.Play("Dying");
     this.Dying ();
-    while (anim.isPlaying) {
+//    while (anim.isPlaying) {
       yield return 0;
-    }
+   // }
 	
 	exploding = true;
     this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
