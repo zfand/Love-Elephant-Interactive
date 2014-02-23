@@ -15,19 +15,15 @@ MonoBehaviour:
   - id: c29e00b5-b8df-48f0-8e51-031096795d98
     position:
       serializedVersion: 2
-      x: 411
-      y: 80
+      x: 428
+      y: 79
       width: 150
       height: 30
     title: Any State
     typeString: AnyState
     description: 
     stateActions: []
-    transitions:
-    - fromState: c29e00b5-b8df-48f0-8e51-031096795d98
-      toState: dc41f99b-5640-471f-b98e-ac208f85a32a
-      conditions: []
-      title: ' Any State -> IdleState'
+    transitions: []
     update: []
     ikActions: []
     isDefaultState: 0
@@ -36,7 +32,7 @@ MonoBehaviour:
   - id: dc41f99b-5640-471f-b98e-ac208f85a32a
     position:
       serializedVersion: 2
-      x: 151
+      x: 152
       y: 189
       width: 150
       height: 30
@@ -49,33 +45,20 @@ MonoBehaviour:
     transitions:
     - fromState: dc41f99b-5640-471f-b98e-ac208f85a32a
       toState: 7d0396ab-e721-40ed-af21-099df50985c6
-      conditions: []
+      conditions:
+      - type: 0
+        floatVal: 1
+        floatVal2: 2
+        stringValue: 
+        boolValue: 0
+        comparerType: 0
+        layerValue:
+          serializedVersion: 2
+          m_Bits: 0
+        targetInformationType: 0
+        customCoditionValue: {fileID: 0}
       title: IdleState ->  ChargingState
-    update:
-    - type: 8
-      targetType: 1
-      stringValue: MoveSpeed
-      gameObjectValue: {fileID: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      floatValue: 0
-      floatValue2: 0
-      intValue: 0
-      boolValue: 0
-      audioClipValue: {fileID: 0}
-      setFloatType: 0
-      customActionValue: {fileID: 0}
-    - type: 13
-      targetType: 1
-      stringValue: Base Layer.IdleState
-      gameObjectValue: {fileID: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      floatValue: 0
-      floatValue2: 0
-      intValue: 0
-      boolValue: 0
-      audioClipValue: {fileID: 0}
-      setFloatType: 0
-      customActionValue: {fileID: 0}
+    update: []
     ikActions: []
     isDefaultState: 1
     properties: []
@@ -90,25 +73,13 @@ MonoBehaviour:
     title: ' Charging'
     typeString: SimpleState
     description: 
-    stateActions:
-    - type: 11
-      targetType: 1
-      stringValue: Attack
-      gameObjectValue: {fileID: 0}
-      vector3Value: {x: 0, y: 0, z: 0}
-      floatValue: 0
-      floatValue2: 0
-      intValue: 0
-      boolValue: 0
-      audioClipValue: {fileID: 0}
-      setFloatType: 0
-      customActionValue: {fileID: 0}
+    stateActions: []
     transitions:
     - fromState: 7d0396ab-e721-40ed-af21-099df50985c6
       toState: e6acc41b-d3d3-4530-9ea5-72a3b040bf64
       conditions:
       - type: 0
-        floatVal: 1
+        floatVal: 3
         floatVal2: 0
         stringValue: 
         boolValue: 0
@@ -119,7 +90,19 @@ MonoBehaviour:
         targetInformationType: 0
         customCoditionValue: {fileID: 0}
       title: ' Charging -> Charge'
-    update: []
+    update:
+    - type: 11
+      targetType: 1
+      stringValue: Charge
+      gameObjectValue: {fileID: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      floatValue: 0
+      floatValue2: 0
+      intValue: 0
+      boolValue: 0
+      audioClipValue: {fileID: 0}
+      setFloatType: 0
+      customActionValue: {fileID: 0}
     ikActions: []
     isDefaultState: 0
     properties: []
@@ -138,9 +121,32 @@ MonoBehaviour:
     transitions:
     - fromState: e6acc41b-d3d3-4530-9ea5-72a3b040bf64
       toState: 6acd3adc-975e-42bc-ba26-c295862db0cd
-      conditions: []
+      conditions:
+      - type: 0
+        floatVal: 3
+        floatVal2: 0
+        stringValue: 
+        boolValue: 0
+        comparerType: 0
+        layerValue:
+          serializedVersion: 2
+          m_Bits: 0
+        targetInformationType: 0
+        customCoditionValue: {fileID: 0}
       title: Charge -> EndCharge
-    update: []
+    update:
+    - type: 11
+      targetType: 1
+      stringValue: Attack
+      gameObjectValue: {fileID: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      floatValue: 0
+      floatValue2: 0
+      intValue: 0
+      boolValue: 0
+      audioClipValue: {fileID: 0}
+      setFloatType: 0
+      customActionValue: {fileID: 0}
     ikActions: []
     isDefaultState: 0
     properties:
@@ -177,7 +183,7 @@ MonoBehaviour:
       toState: dc41f99b-5640-471f-b98e-ac208f85a32a
       conditions:
       - type: 0
-        floatVal: 1
+        floatVal: 3
         floatVal2: 0
         stringValue: 
         boolValue: 0

@@ -20,7 +20,6 @@ namespace LoveElephant
     void Start()
     {
 	  anim = GetComponent<Animator> ();
-	  //anim.Play("IdleState");
       faceLeft = true;
       player = GameObject.FindGameObjectWithTag ("Player");
       /*
@@ -65,7 +64,6 @@ namespace LoveElephant
 
     void charge(bool lookL)
     {
-			anim.Play("charge");
       float xPos = transform.position.x;
       float yPos = transform.position.y;
 

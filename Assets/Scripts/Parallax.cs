@@ -72,7 +72,7 @@ namespace LoveElephant
     }
   
     // Update is called once per frame
-    void Update()
+    void Updatex()
     {
       if (enabled) {
         float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
