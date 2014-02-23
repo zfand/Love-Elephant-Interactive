@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 namespace LoveElephant
@@ -34,6 +34,7 @@ namespace LoveElephant
 
     public bool checkLeft()
     {
+      Debug.Log ("checking left");
       return (neededKeyLeft == "none" || player.GetComponent<Inventory> ().CheckKey (neededKeyLeft));
     }
 
