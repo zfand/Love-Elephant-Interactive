@@ -70,7 +70,7 @@ MonoBehaviour:
       y: 348
       width: 150
       height: 30
-    title: ' Charging'
+    title: Charging
     typeString: SimpleState
     description: 
     stateActions: []
@@ -194,7 +194,19 @@ MonoBehaviour:
         targetInformationType: 0
         customCoditionValue: {fileID: 0}
       title: EndCharge -> IdleState
-    update: []
+    update:
+    - type: 11
+      targetType: 1
+      stringValue: HitWall
+      gameObjectValue: {fileID: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+      floatValue: 0
+      floatValue2: 0
+      intValue: 0
+      boolValue: 0
+      audioClipValue: {fileID: 0}
+      setFloatType: 0
+      customActionValue: {fileID: 0}
     ikActions: []
     isDefaultState: 0
     properties: []

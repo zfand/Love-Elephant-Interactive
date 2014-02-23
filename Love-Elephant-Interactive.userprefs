@@ -1,27 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SlothRoom\SlothBody.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SlothRoom\SlothAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\SlothRoom\SlothBody.cs" Line="79" Column="4" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothAI.cs" Line="10" Column="26" />
-      <File FileName="Assets\Scripts\ItemPickup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item\Sword.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item\MovementStats.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item\WeaponStats.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothRoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothTV.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Parallax.cs" Line="43" Column="37" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothBody.cs" Line="1" Column="1" />
-      <File FileName="Assets\AI System\Scripts\Core\States\AnyState.cs" Line="1" Column="1" />
-      <File FileName="Assets\AI System\Scripts\Core\States\AttackState.cs" Line="1" Column="1" />
-      <File FileName="Assets\AI System\Scripts\Core\AIController.cs" Line="1" Column="1" />
-      <File FileName="Assets\AI System\Scripts\Core\AIRuntimeController.cs" Line="26" Column="1" />
+      <File FileName="Assets\Scripts\SlothRoom\SlothAI.cs" Line="42" Column="30" />
+      <File FileName="Assets\AI System\Scripts\Core\AIRuntimeController.cs" Line="22" Column="27" />
+      <File FileName="Assets\AI System\Scripts\Core\AIController.cs" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="42" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
