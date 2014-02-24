@@ -121,8 +121,9 @@ namespace LoveElephant
     {
       facingRight = !facingRight;
       Vector3 scale = transform.localScale;
+	  transform.Rotate (new Vector3(0, 180, 0));
       scale.x *= -1;
-      transform.localScale = scale;
+      //transform.localScale = scale;
     }
   }
 }

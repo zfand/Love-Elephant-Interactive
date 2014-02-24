@@ -52,6 +52,15 @@ public class SlothBody : MonoBehaviour
     }
   }
   
+  void OnCollisionEnter(Collision hit)
+  {
+	if (hit.gameObject.tag == "Wall") {
+		transform.parent.GetComponent<SlothAI>().HitWall();
+		//facePlayer ();
+		//anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
+	}
+  } 
+
   //flash red on hit 
   IEnumerator FlashRed()
   {
@@ -76,12 +85,13 @@ public class SlothBody : MonoBehaviour
 
   IEnumerator SlothDying()
   {
-    Animation anim = transform.parent.animation;
-    anim.PlayQueued ("Sloth_Death", QueueMode.PlayNow);
+ //   Animator anim = transform.parent.animator;
+ //   anim.Play("Dying");
     this.Dying ();
-    while (anim.isPlaying) {
+	SlothAI ai = this.transform.parent.GetComponent<SlothAI> ();
+   	while (!ai.IsDead()) {
       yield return 0;
-    }
+   }
 	
 	exploding = true;
     this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
