@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     moveForce: 365
-    maxSpeed: 5
+    maxSpeed: 8
     jumpForce: 500
 --- !u!23 &298351915
 Renderer:
@@ -331,7 +331,7 @@ MonoBehaviour:
   yankLen: 2
   yankTime: .100000001
   yankForce: 1000
-  swingForce: 1000
+  swingForce: 3000
 --- !u!1 &1183902609
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +827,14 @@ Prefab:
     - target: {fileID: 11400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
       propertyPath: yankTime
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: swingForce
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: stats.maxSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}

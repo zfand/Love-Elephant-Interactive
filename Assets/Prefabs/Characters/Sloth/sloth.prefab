@@ -5140,6 +5140,7 @@ MonoBehaviour:
   health: 200
   defense: 1
   deathPos: {fileID: 400358}
+  deathDrop: {fileID: 100000, guid: 5448edd245adbeb468e8945f3e770429, type: 2}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
