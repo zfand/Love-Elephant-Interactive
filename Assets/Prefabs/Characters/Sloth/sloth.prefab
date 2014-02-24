@@ -2796,6 +2796,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400366}
   - 212: {fileID: 21200000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Stun
   m_TagString: Untagged
@@ -5006,8 +5007,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100366}
   m_LocalRotation: {x: 0, y: -.70710665, z: 0, w: -.707107008}
-  m_LocalPosition: {x: -1.48244041e-07, y: 7.87591171, z: .414520323}
-  m_LocalScale: {x: 1.99999952, y: 2, z: 1.99999952}
+  m_LocalPosition: {x: -1.07167409e-07, y: 6.69859982, z: .299661666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400348}
 --- !u!54 &5400000
@@ -5136,9 +5137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c6cdf161f7fba4fb8d6e0a9ae7699d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 200
   defense: 1
-  deathPos: {fileID: 0}
+  deathPos: {fileID: 400358}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5150,8 +5151,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8df8c59af9e344885aea4ba76ac9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   defense: 1
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20b6a274172ffe4393fdcf5cdf0bb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateSpeed: 5
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

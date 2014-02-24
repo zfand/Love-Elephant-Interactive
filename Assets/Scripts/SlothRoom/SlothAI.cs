@@ -22,6 +22,9 @@ namespace LoveElephant
 	public float IdleTime;
 	public float IdleMax;
 	public float IdleMin;
+	private bool dead = false;
+	private bool startdying = false;
+	
     AnimatorStateInfo info;
 	Transform stunSwirl;
     // Use this for initialization
@@ -42,8 +45,9 @@ namespace LoveElephant
   
     // Update is called once per frame
     void Update()
-    {
-		info = anim.GetCurrentAnimatorStateInfo(0);
+	{
+	  info = anim.GetCurrentAnimatorStateInfo(0);
+	  if(!dying){
 
 		if(info.IsName("IdleState")){
 			stunSwirl.gameObject.SetActive(false);	
@@ -62,6 +66,18 @@ namespace LoveElephant
 			stunSwirl.gameObject.SetActive(true);	
 			startHit = false;
 		}
+	  } else {
+		if(startdying){
+			if(info.IsName ("Dead")){
+				dying = false;
+			}
+		} else {
+			if(info.IsName("Dying")){
+				startdying = true;
+			}
+		}
+
+      }
     }
 
     IEnumerator WaitForSecs(float secs)
@@ -146,8 +162,14 @@ namespace LoveElephant
     public void Dying()
     {
       dying = true;
+	
+	  anim.SetTrigger("Dying");
       Vector3 keyPos = new Vector3 (transform.position.x, transform.position.y + 2f, 0f);
       Instantiate (keyDrop, keyPos, Quaternion.identity);
     }
+
+	public bool IsDead() {
+			return !dying;
+	}
   }
 }

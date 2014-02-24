@@ -80,9 +80,10 @@ public class SlothBody : MonoBehaviour
  //   Animator anim = transform.parent.animator;
  //   anim.Play("Dying");
     this.Dying ();
-//    while (anim.isPlaying) {
+	SlothAI ai = this.transform.parent.GetComponent<SlothAI> ();
+   	while (!ai.IsDead()) {
       yield return 0;
-   // }
+   }
 	
 	exploding = true;
     this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
