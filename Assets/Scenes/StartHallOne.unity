@@ -363,7 +363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  room: StartHallTwo
 --- !u!1 &359372443
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,66 +532,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!1001 &521630165
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: connectedRooms.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: rightExit
-      value: 
-      objectReference: {fileID: 1260892240}
-    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: playerStartPos
-      value: 
-      objectReference: {fileID: 1453838680}
-    - target: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-      propertyPath: connectedRooms.Array.data[0]
-      value: StartHallTwo
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-  m_RootGameObject: {fileID: 1041849063}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &610857907
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +793,7 @@ BoxCollider:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-  m_PrefabInternal: {fileID: 521630165}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1041849064}
@@ -870,7 +809,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 9e2d7fa3d21caf94c88832ff570080c8, type: 2}
-  m_PrefabInternal: {fileID: 521630165}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1041849063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -882,18 +821,17 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 9e2d7fa3d21caf94c88832ff570080c8,
     type: 2}
-  m_PrefabInternal: {fileID: 521630165}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1041849063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d10eb2880577164694e28db3728610b, type: 3}
+  m_Script: {fileID: 11500000, guid: f6dfe53ef418d48e1a60a539a2bc3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: []
-  connectedRooms:
-  - StartHallTwo
-  playerStartPos: {fileID: 1453838680}
-  player: {fileID: 0}
+  doors:
+  - door: {fileID: 1260892240}
+    connectedRoom: StartHallTwo
+    playerStartPos: {x: -25, y: -6, z: 0}
 --- !u!1 &1260892240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,32 +1023,6 @@ Prefab:
   m_RootGameObject: {fileID: 1865661815}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1453838680
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1453838681}
-  m_Layer: 0
-  m_Name: PlayerStartPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1453838681
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1453838680}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.85788536, y: -6.05897331, z: -.100000024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &1599753029
 GameObject:
   m_ObjectHideFlags: 0

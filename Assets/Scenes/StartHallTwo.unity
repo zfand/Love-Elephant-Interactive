@@ -139,7 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  room: StartHallOne
 --- !u!1 &31956831
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 2
-  room: TheHubOne
 --- !u!1 &495937274
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,16 +526,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 890308317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d10eb2880577164694e28db3728610b, type: 3}
+  m_Script: {fileID: 11500000, guid: f6dfe53ef418d48e1a60a539a2bc3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: []
-  connectedRooms:
-  - SlothRoom
-  - TheHubOne
-  - TheHubTwo
-  playerStartPos: {fileID: 2139917823}
-  player: {fileID: 0}
+  doors:
+  - door: {fileID: 2190346}
+    connectedRoom: StartHallOne
+    playerStartPos: {x: 25, y: -6, z: 0}
+  - door: {fileID: 1644087287}
+    connectedRoom: TheHubOne
+    playerStartPos: {x: -25, y: -6, z: 0}
+  - door: {fileID: 89728459}
+    connectedRoom: SlothRoom
+    playerStartPos: {x: 0, y: 4.5, z: 0}
 --- !u!4 &890308319
 Transform:
   m_ObjectHideFlags: 0
@@ -1011,7 +1012,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  room: StartHallOne
 --- !u!1 &1546757693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,32 +1331,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .109999999, y: 1.01999998, z: 1}
   m_Center: {x: 1.13, y: -.200000003, z: 0}
---- !u!1 &2139917823
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2139917824}
-  m_Layer: 0
-  m_Name: PlayerStartPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2139917824
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2139917823}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.875473, y: -6.05897331, z: -.100000024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &2146351202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1383,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  room: SlothRoom
 --- !u!1 &2147324918
 GameObject:
   m_ObjectHideFlags: 0

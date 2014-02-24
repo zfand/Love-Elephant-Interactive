@@ -68,6 +68,9 @@ namespace LoveElephant
         hookShot.transform.parent = this.transform;
       } else if (item.tag == "Weapon") {
         if (weapon != null) {
+          item.transform.position = weapon.transform.position;
+          item.transform.rotation = weapon.transform.rotation;
+          item.transform.localScale = weapon.transform.localScale;
           Unequip (weapon);
         }
         weapon = item;
