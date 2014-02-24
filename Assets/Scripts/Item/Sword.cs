@@ -33,16 +33,6 @@ namespace Item
       sword.SetActive (false);
     }
 
-    void OnDrawGizmos()
-    {
-      if (hitPos != Vector3.zero) {
-        //Gizmos.DrawSphere(hitPos, 1);
-        //Gizmos.DrawRay(transform.position, (hitPos - transform.position)*10);
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine (transform.position, hitPos);
-      }
-    }
-
     void Update()
     {
       // If the fire button is pressed...

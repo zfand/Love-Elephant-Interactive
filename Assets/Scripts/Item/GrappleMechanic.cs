@@ -99,19 +99,9 @@ namespace Item
     {
       if (hitPos != Vector3.zero) {
         Gizmos.color = Color.white;
-        Gizmos.DrawLine (transform.parent.position, hitPos);
         if (anchor != null) {
           Gizmos.DrawWireSphere (anchor.transform.position, .3f);
-          Gizmos.DrawWireSphere (transform.parent.position, .3f);
         }
-      } else {
-        //fix the center of the Object
-        if (lr == null) {
-          lr = this.GetComponent<LineRenderer> ();
-        }
-        lr.SetPosition (0, transform.parent.position);
-        lr.SetPosition (1, transform.parent.position);
-
       }
     }
 
@@ -134,8 +124,18 @@ namespace Item
         StopSwing (true);
       }
 
+      //Reel Up!
+      if (Input.GetButton("Up") && state == GrappleState.Swinging) {
+        StartCoroutine ("Reel", Vector3.up);
+      }
+
+      //Reel Up!
+      if (Input.GetButton("Down") && state == GrappleState.Swinging) {
+        StartCoroutine ("Reel", Vector3.down);
+      }
+
       //Yank!
-      if (Input.GetButtonDown ("Up") && (state == GrappleState.Attached || state == GrappleState.Swinging)) {
+      if (Input.GetButtonDown ("Up") && state == GrappleState.Attached) {
         StartCoroutine ("Yank");
       }
 
@@ -177,6 +177,10 @@ namespace Item
         }
         //If the angle is too low
         float dot = Vector3.Dot (Vector3.up, (clickedPosition - transform.parent.position).normalized);
+        if(dot < 0f) { // 0 is 90 degrees to the left or right
+          return;
+        }
+
 
         //Ok we're good create the point
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
@@ -263,6 +267,20 @@ namespace Item
       state = GrappleState.Off;
     }
 
+    private IEnumerator Reel(Vector3 dir) 
+    {
+      joint.autoConfigureConnectedAnchor = false;
+      Vector3 startPos = joint.connectedAnchor;
+      Vector3 endPos = startPos+dir*yankLen;
+      float deltaTime = 0f;
+
+      while (deltaTime < yankTime) {
+        joint.connectedAnchor = Vector3.Lerp(startPos,endPos, deltaTime/yankTime);
+        deltaTime += Time.deltaTime;
+        yield return 0;
+      }
+    }
+
     /// <summary>
     /// Update function for checking/updating the yanking
     ///  Returns True if yanking
@@ -279,18 +297,9 @@ namespace Item
         detlaTime += Time.deltaTime;
         yield return 0;
       }
-      if (state == GrappleState.Swinging) {
-        StopSwing (false);
-      }
       if (Input.GetButton ("Fire1")) {
         StartSwing ();
-      } else {
-        state = GrappleState.Failed;
-        StartCoroutine ("RetractRope", extendTime * 1.5f);
-        transform.parent.rigidbody.AddForce (transform.parent.position + (hitPos - transform.parent.position).normalized * yankForce);
       }
-      transform.parent.rigidbody.velocity = Vector3.zero;
-      transform.parent.rigidbody.angularVelocity = Vector3.zero;
     }
  
     /// <summary>
