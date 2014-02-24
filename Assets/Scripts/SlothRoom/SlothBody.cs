@@ -53,6 +53,15 @@ public class SlothBody : MonoBehaviour
     }
   }
   
+  void OnCollisionEnter(Collision hit)
+  {
+	if (hit.gameObject.tag == "Wall") {
+		transform.parent.GetComponent<SlothAI>().HitWall();
+		//facePlayer ();
+		//anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
+	}
+  } 
+
   //flash red on hit 
   IEnumerator FlashRed()
   {

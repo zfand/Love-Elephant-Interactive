@@ -58,8 +58,8 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 110200000}
   m_DstState: {fileID: 110288624}
-  m_TransitionDuration: .22163637
-  m_TransitionOffset: .00481109833
+  m_TransitionDuration: .0172651839
+  m_TransitionOffset: .00577316713
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: BeginCharge

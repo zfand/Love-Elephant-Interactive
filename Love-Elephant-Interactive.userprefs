@@ -2,15 +2,18 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SlothRoom\SlothAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\SlothRoom\SlothAI.cs" Line="64" Column="39" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothTV.cs" Line="75" Column="56" />
+      <File FileName="Assets\Scripts\SlothRoom\SlothAI.cs" Line="48" Column="2" />
+      <File FileName="Assets\Scripts\SlothRoom\SlothTV.cs" Line="108" Column="40" />
+      <File FileName="Assets\Scripts\SlothRoom\StunVisuals.cs" Line="14" Column="52" />
+      <File FileName="Assets\Scripts\SlothRoom\SlothBody.cs" Line="84" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="72" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="86" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="94" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="85" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="99" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="107" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\SlothRoom\SlothAI.cs" line="76" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
