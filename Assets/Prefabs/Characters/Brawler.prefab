@@ -475,9 +475,9 @@ MonoBehaviour:
   extendTime: .200000003
   maxDashSpeed: 20
   yankLen: 2
-  yankTime: .25
+  yankTime: .100000001
   yankForce: 1000
-  swingForce: 1000
+  swingForce: 3000
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -492,6 +492,7 @@ MonoBehaviour:
   facingRight: 0
   jump: 0
   grounded: 0
+  gravity: 20
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -532,9 +533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    moveForce: 365
-    maxSpeed: 5
-    jumpForce: 500
+    moveForce: 100
+    maxSpeed: 8
+    jumpForce: 20
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

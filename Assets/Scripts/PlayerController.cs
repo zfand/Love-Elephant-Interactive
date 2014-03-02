@@ -21,10 +21,14 @@ namespace LoveElephant
   public bool
       grounded = false;
     private MovementStats mStats;
+
     public MovementStats movementStats {
-      set { this.mStats =  value;}
+      set { this.mStats = value;}
     }
-    
+    /// <summary>
+    /// The gravity only affecting the player
+    /// </summary>
+    public float gravity;
     /// <summary>
     /// Reference to the player's Animator
     /// </summary>
@@ -33,14 +37,13 @@ namespace LoveElephant
     /// A point at the bottom of the player
     /// </summary>
     private Transform groundCheck;
-
     private Equipment equip;
   
     private void Awake()
     {
       anim = this.GetComponentInChildren<Animator> ();
       groundCheck = transform.Find ("GroundCheck");
-      equip = this.GetComponent<Equipment>();
+      equip = this.GetComponent<Equipment> ();
 
       if (anim == null) {
         Debug.LogError ("The Player's Animator is NULL!");
@@ -59,7 +62,7 @@ namespace LoveElephant
     // Use this for initialization
     private void Start()
     {
-      mStats = equip.boot.GetComponent<Boot>().stats;
+      mStats = equip.boot.GetComponent<Boot> ().stats;
     }
   
     // Update is called once per frame
@@ -95,7 +98,7 @@ namespace LoveElephant
 
       //Add force
       if (h * rigidbody.velocity.x < mStats.maxSpeed) {
-        rigidbody.AddForce (Vector2.right * h * mStats.moveForce);
+        rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
       }
       if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxSpeed) {
         rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxSpeed, rigidbody.velocity.y, 0);
@@ -107,11 +110,13 @@ namespace LoveElephant
         anim.SetTrigger ("Jump");
 
         // Add a vertical force to the player.
-        rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0));
+        rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0), ForceMode.VelocityChange);
       
         jump = false;
       }
 
+      // fake gravity
+      rigidbody.AddForce(-Vector3.up * gravity, ForceMode.Acceleration);  
     }
 
     /// <summary>
@@ -121,7 +126,7 @@ namespace LoveElephant
     {
       facingRight = !facingRight;
       Vector3 scale = transform.localScale;
-	  transform.Rotate (new Vector3(0, 180, 0));
+      transform.Rotate (new Vector3 (0, 180, 0));
       scale.x *= -1;
       //transform.localScale = scale;
     }
