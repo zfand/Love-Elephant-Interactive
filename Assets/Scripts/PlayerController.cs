@@ -93,6 +93,10 @@ namespace LoveElephant
 
       //Flip Facing Direction
       if (h > 0 && !facingRight || h < 0 && facingRight) {
+        if (grounded) {
+          //Flip velocity with facing
+          rigidbody.velocity = new Vector3(rigidbody.velocity.x, -rigidbody.velocity.y);
+        }
         FlipFacing ();
       }
 
