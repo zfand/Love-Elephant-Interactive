@@ -11,9 +11,17 @@ namespace LoveElephant
     public bool
       facingRight = false;
     [HideInInspector]
-    //replace this with a list of inputs to be done
+    /// <summary>
+    /// replace this with a list of inputs to be done
+    /// </summary>
   public bool
       jump = false;
+    [HideInInspector]
+    /// <summary>
+    /// Determines if the input is enabled or disabled
+    /// </summary>
+    public bool
+      inputEnabled = true;
     [HideInInspector]
     /// <summary>
   /// Determines if the player is currently touching the ground
@@ -68,13 +76,12 @@ namespace LoveElephant
     // Update is called once per frame
     private void Update()
     {
-  
       // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
       grounded = Physics.Linecast (transform.position, groundCheck.position);
       //.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
       anim.SetBool ("Grounded", grounded);
-    
+      
       // If the jump button is pressed and the player is grounded then the player should jump.
       if (Input.GetButtonDown ("Jump") && grounded)
         jump = true;
@@ -82,48 +89,49 @@ namespace LoveElephant
       if (rigidbody.velocity.magnitude > 50) {
         rigidbody.velocity /= 2;
       }
-
     }
 
     private void FixedUpdate()
     {
-      float h = Input.GetAxis ("Horizontal");
+      if (inputEnabled) {
+        float h = Input.GetAxis ("Horizontal");
 
-      anim.SetFloat ("Speed", Mathf.Abs (h));
+        anim.SetFloat ("Speed", Mathf.Abs (h));
 
-      //Flip Facing Direction
-      if (h > 0 && !facingRight || h < 0 && facingRight) {
-        if (grounded) {
-          //Flip velocity with facing
-          rigidbody.velocity = new Vector3(rigidbody.velocity.x, -rigidbody.velocity.y);
+        //Flip Facing Direction
+        if (h > 0 && !facingRight || h < 0 && facingRight) {
+          if (grounded) {
+            //Flip velocity with facing
+            rigidbody.velocity = new Vector3 (rigidbody.velocity.x, -rigidbody.velocity.y);
+          }
+          FlipFacing ();
         }
-        FlipFacing ();
-      }
 
-      //Make sure you're not grinding up against a wall
-      if (!Physics.Linecast( transform.position, transform.position + Vector3.right * Mathf.Sign(h) , ~(1 << LayerMask.NameToLayer("Player")))) {
-        //Add force
-        if (h * rigidbody.velocity.x < mStats.maxSpeed) {
-          rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
+        //Make sure you're not grinding up against a wall
+        if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~(1 << LayerMask.NameToLayer ("Player")))) {
+          //Add force
+          if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
+            rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
+          }
+          if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed) {
+            rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxRunSpeed, rigidbody.velocity.y, 0);
+          }
         }
-        if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxSpeed) {
-          rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxSpeed, rigidbody.velocity.y, 0);
-        }
-      }
       
-      // If the player should jump...
-      if (jump) {
-        // Set the Jump animator trigger parameter.
-        anim.SetTrigger ("Jump");
+        // If the player should jump...
+        if (jump) {
+          // Set the Jump animator trigger parameter.
+          anim.SetTrigger ("Jump");
 
-        // Add a vertical force to the player.
-        rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0f), ForceMode.VelocityChange);
+          // Add a vertical force to the player.
+          rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0f), ForceMode.VelocityChange);
       
-        jump = false;
-      }
+          jump = false;
+        }
 
-      // fake gravity
-      rigidbody.AddForce(-Vector3.up * gravity, ForceMode.Acceleration);  
+        // fake gravity
+        rigidbody.AddForce (-Vector3.up * gravity, ForceMode.Acceleration);  
+      }
     }
 
     /// <summary>
