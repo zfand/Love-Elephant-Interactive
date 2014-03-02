@@ -100,21 +100,24 @@ namespace LoveElephant
         FlipFacing ();
       }
 
-      //Add force
-      if (h * rigidbody.velocity.x < mStats.maxSpeed) {
-        rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
+      //Make sure you're not grinding up against a wall
+      if (!Physics.Linecast( transform.position, transform.position + Vector3.right * Mathf.Sign(h) , ~(1 << LayerMask.NameToLayer("Player")))) {
+        //Add force
+        if (h * rigidbody.velocity.x < mStats.maxSpeed) {
+          rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
+        }
+        if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxSpeed) {
+          rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxSpeed, rigidbody.velocity.y, 0);
+        }
       }
-      if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxSpeed) {
-        rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxSpeed, rigidbody.velocity.y, 0);
-      }
-
+      
       // If the player should jump...
       if (jump) {
         // Set the Jump animator trigger parameter.
         anim.SetTrigger ("Jump");
 
         // Add a vertical force to the player.
-        rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0), ForceMode.VelocityChange);
+        rigidbody.AddForce (new Vector3 (0f, mStats.jumpForce, 0f), ForceMode.VelocityChange);
       
         jump = false;
       }
