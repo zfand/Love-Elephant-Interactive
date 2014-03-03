@@ -46,6 +46,8 @@ namespace LoveElephant
     /// </summary>
     private Transform groundCheck;
     private Equipment equip;
+
+    private LayerMask ignoredWallLayer;
   
     private void Awake()
     {
@@ -71,6 +73,8 @@ namespace LoveElephant
     private void Start()
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
+
+      ignoredWallLayer = 1 << LayerMask.NameToLayer ("Player") << LayerMask.NameToLayer("RoomKey") << LayerMask.NameToLayer("Pickup");
     }
   
     // Update is called once per frame
@@ -108,7 +112,7 @@ namespace LoveElephant
         }
 
         //Make sure you're not grinding up against a wall
-        if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~(1 << LayerMask.NameToLayer ("Player")))) {
+        if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~ignoredWallLayer)) {
           //Add force
           if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
             rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
