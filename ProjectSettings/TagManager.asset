@@ -17,11 +17,13 @@ TagManager:
   - RoomManager
   - Parallax
   - Spawner
-  - 
+  - Boss
   - HookShot
   - Weapon
   - Boot
   - Item
+  - 
+  - 
   - 
   - 
   - 

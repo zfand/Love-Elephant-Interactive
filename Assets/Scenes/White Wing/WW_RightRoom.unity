@@ -125,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: c65d6b1df1077704d9ec6210e39cf538, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bec55636822c0d642a31a8f5e4e368c2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2190349
 MonoBehaviour:
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
+  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &31956831
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 2
+  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &495937274
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,13 +558,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors:
   - door: {fileID: 2190346}
-    connectedRoom: StartHallOne
-    playerSpawnPos: SpawnerDoorLeft
-  - door: {fileID: 1644087287}
-    connectedRoom: TheHubOne
+    connectedRoom: WW_LeftRoom
     playerSpawnPos: SpawnerDoorRight
+  - door: {fileID: 1644087287}
+    connectedRoom: TH_LeftRoom
+    playerSpawnPos: SpawnerDoorLeft
   - door: {fileID: 89728459}
-    connectedRoom: SlothRoom
+    connectedRoom: WW_SlothRoom
     playerSpawnPos: SpawnerDoorTop
 --- !u!4 &890308319
 Transform:
@@ -994,6 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
+  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &1472567822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,7 +1019,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1472567822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: -6.5, z: 0}
+  m_LocalPosition: {x: -25, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1139,7 +1142,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 1188cf99fcaa6804796cae2cd4de9d58, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b9c3575073ecf242bc8e8aa754847cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1688183078
 GameObject:
@@ -1349,6 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
+  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &2147324918
 GameObject:
   m_ObjectHideFlags: 0

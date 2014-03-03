@@ -14,7 +14,7 @@ public class Crate : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider hit) {
-		if (hit.gameObject.tag == "Weapon") {
+		if (hit.gameObject.tag == "Weapon" || hit.gameObject.tag == "Boss") {
 			((MeshExploder) this.GetComponent("MeshExploder")).Explode(); 
 			this.gameObject.SetActive(false);
 		}
