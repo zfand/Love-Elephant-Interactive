@@ -409,7 +409,7 @@ MonoBehaviour:
   minRopeLength: 5
   extendTime: .200000003
   yankLen: 1
-  reelTime: 0
+  reelTime: .100000001
   yankForce: 25
   swingForce: 50
 --- !u!1 &1183902609

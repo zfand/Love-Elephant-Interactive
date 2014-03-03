@@ -22,7 +22,7 @@ namespace Preloader
       DoorConfig door = new DoorConfig();
       door.playerSpawnPos = "SpawnerDoorStart";
       GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMSaveState(LevelState.Complete);
-      GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadLevel("StartHallOne", door);
+      GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadLevel("WW_LeftRoom", door);
     }
   }
 }
