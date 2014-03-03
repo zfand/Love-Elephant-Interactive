@@ -471,13 +471,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorPrefab: {fileID: 100000, guid: 21b78e180053f446bb9c62c7dd3f3aad, type: 2}
-  maxLength: 15
+  maxRopeLength: 15
+  minRopeLength: 5
   extendTime: .200000003
-  maxDashSpeed: 20
-  yankLen: 2
-  yankTime: .100000001
-  yankForce: 1000
-  swingForce: 3000
+  yankLen: 1
+  reelTime: .100000001
+  yankForce: 25
+  swingForce: 50
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -491,6 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingRight: 0
   jump: 0
+  inputEnabled: 1
   grounded: 0
   gravity: 20
 --- !u!114 &11400004
@@ -534,8 +535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     moveForce: 100
-    maxSpeed: 8
-    jumpForce: 20
+    maxRunSpeed: 9
+    jumpForce: 15
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
