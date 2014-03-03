@@ -41,18 +41,13 @@ namespace LoveElephant.Room
     /// </summary>
     public void SwitchRooms(GameObject door)
     {
-      Debug.Log(door);
       DoorConfig config = findConnection(door);
-      //Debug.Log(config);
 
       if (config != null) {
         GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().enabled = false;
         SceneManager sm = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ();
         sm.SMSaveState (LevelState.Complete);
-        sm.SMLoadLevel (config.connectedRoom);
-        if (config.playerStartPos != Vector3.zero) {
-          player.transform.position = config.playerStartPos;
-        }
+        sm.SMLoadLevel (config.connectedRoom, config);
       }
     }
   }

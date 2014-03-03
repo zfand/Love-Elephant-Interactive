@@ -335,6 +335,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &165455325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 165455326}
+  m_Layer: 0
+  m_Name: SpawnerDoorRight
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &165455326
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165455325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: -6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &398567594
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +446,6 @@ MonoBehaviour:
   shaderType: Transparent/Diffuse
   width: 64
   height: 16
-  enabled: 0
   cam: {fileID: 1323073701}
 --- !u!4 &495937276
 Transform:
@@ -532,13 +557,13 @@ MonoBehaviour:
   doors:
   - door: {fileID: 2190346}
     connectedRoom: StartHallOne
-    playerStartPos: {x: 25, y: -6, z: 0}
+    playerSpawnPos: SpawnerDoorLeft
   - door: {fileID: 1644087287}
     connectedRoom: TheHubOne
-    playerStartPos: {x: -25, y: -6, z: 0}
+    playerSpawnPos: SpawnerDoorRight
   - door: {fileID: 89728459}
     connectedRoom: SlothRoom
-    playerStartPos: {x: 0, y: 4.5, z: 0}
+    playerSpawnPos: SpawnerDoorTop
 --- !u!4 &890308319
 Transform:
   m_ObjectHideFlags: 0
@@ -969,6 +994,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
+--- !u!1 &1472567822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1472567823}
+  m_Layer: 0
+  m_Name: SpawnerDoorLeft
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472567823
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1472567822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: -6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1546757693
 GameObject:
   m_ObjectHideFlags: 0
