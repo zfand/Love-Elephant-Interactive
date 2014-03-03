@@ -4,24 +4,24 @@
 TagManager:
   tags:
   - ground
-  - Wall
-  - Obstacle
   - Pivot
   - Sword
-  - Floor
-  - Ceiling
   - Door
-  - 
   - RoomKey
   - SceneManager
   - RoomManager
   - Parallax
   - Spawner
-  - 
   - HookShot
   - Weapon
   - Boot
   - Item
+  - Pickup
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
