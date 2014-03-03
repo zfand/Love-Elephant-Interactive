@@ -11,7 +11,7 @@ TagManager:
   - Floor
   - Ceiling
   - Door
-  - 
+  - GuiItem
   - RoomKey
   - SceneManager
   - RoomManager

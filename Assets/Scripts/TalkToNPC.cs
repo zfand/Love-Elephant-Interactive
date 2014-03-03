@@ -14,6 +14,7 @@ namespace LoveElephant
 		bool shopready;
 		NPCInventory npcshop;
 		List<string> playerInventory;
+		string playerEquipment = "";
 		// Use this for initialization
 		void Start () {
 			
@@ -49,8 +50,10 @@ namespace LoveElephant
 			if(other.gameObject.CompareTag ("Player")) {
 				EIcon.renderer.enabled = true;
 				shopready = true;
-				playerInventory = other.gameObject.GetComponent<Inventory>().GetItemsByTag(NPCType);
-				npcshop.SetPlayerInfo(playerInventory);
+				Equipment e =  other.gameObject.GetComponent<Equipment>();
+				Inventory i = other.gameObject.GetComponent<Inventory>();
+				playerInventory = i.GetItemsByTag(NPCType);
+				npcshop.SetPlayerInfo(playerInventory, e, i);
 			}
 		}
 

@@ -52,6 +52,26 @@ namespace LoveElephant
       this.transform.Cast<Transform> ().ToList ().ForEach (child => Equip (child.gameObject));
     }
 
+	public string GetCurrentEquip(string equipType){
+		switch(equipType){
+			case "Weapon":
+				if(weapon != null){
+					return weapon.name;
+				} else return "";
+			case "Hookshot":
+				if(hookShot != null){
+					return hookShot.name;
+				} else return "";
+			case "Boot":
+				if(boot != null){
+					return boot.name;
+				} else return "";
+			default:
+				return "";
+			}
+
+			
+	}
     /// <summary>
     /// Equips Item onto the Player, Unequiping existing Items
     /// </summary>

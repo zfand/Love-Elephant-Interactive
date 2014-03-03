@@ -12,8 +12,8 @@ namespace LoveElephant
 		List<GameObject> ItemObjects;
 		int ItemCount;
 		string npctype;
-		List<string> PlayerInv;
-
+		Inventory PlayerInv;
+		Equipment playerequip;
 
 		// Use this for initialization
 		void Start () {
@@ -46,6 +46,8 @@ namespace LoveElephant
 				newpos = new Vector3(xcoord, this.transform.position.y + 0.2f, this.transform.position.z);
 				g.transform.position = newpos;
 				xcoord += g.gameObject.renderer.bounds.size.x + RenderGap;
+				
+				g.GetComponent<GuiItemInfo>().Initialize();
 
 			}
 
@@ -53,12 +55,33 @@ namespace LoveElephant
 		
 		// Update is called once per frame
 		void Update () {
-			
+			if(isOpen){
+				if(Input.GetButtonDown("Fire2")){
+					Vector3 clickedPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+					LayerMask layermask = ~(1 << LayerMask.NameToLayer ("NPC"));      
+					RaycastHit hit;
+					Physics.Raycast (clickedPosition, Vector3.forward, out hit, 1000, layermask);
+					if (hit.collider) {
+						//If the Object is a UI Item
+						if ((hit.collider.gameObject.tag == "GuiItem")) {
+							GuiItemInfo info = hit.collider.gameObject.GetComponent<GuiItemInfo>();
+							if(!info.IsLocked() && !info.IsEquipped()){
+								UnequipAll();
+								Equip(hit.collider.gameObject.name);
+								playerequip.Equip (PlayerInv.TakeItem(hit.collider.gameObject.name));
+							}
+						}
+					}
+				}
+			}
+
 		}
-
-
-		public void SetPlayerInfo(List<string> inv){
-			PlayerInv = inv;
+			
+			
+		public void SetPlayerInfo(List<string> inv, Equipment pequip, Inventory p_inv){
+			string equip = pequip.GetCurrentEquip(npctype);
+			playerequip = pequip;
+			PlayerInv = p_inv;
 			GameObject lockicon = Resources.Load<GameObject> ("Gui/LockIcons/LockIcon");
 			GameObject newlock;
 			bool foundmatch = false;
@@ -71,9 +94,16 @@ namespace LoveElephant
 					}
 				}
 				if(!foundmatch){
-					g.GetComponent<GuiLock>().Lock();
+					g.GetComponent<GuiItemInfo>().Lock();
+					g.GetComponent<GuiItemInfo>().UnEquip();
 				} else {
-					g.GetComponent<GuiLock>().UnLock ();
+					g.GetComponent<GuiItemInfo>().UnLock ();
+					if(equip == g.name){
+						g.GetComponent<GuiItemInfo>().Equip();
+					} else {
+						g.GetComponent<GuiItemInfo>().UnEquip();
+					}
+
 				}
 				foundmatch = false;
 			}
@@ -95,6 +125,22 @@ namespace LoveElephant
 
 		public bool IsOpen(){
 			return isOpen;
+		}
+
+		void UnequipAll(){
+			foreach(GameObject g in ItemObjects){
+				g.GetComponent<GuiItemInfo>().UnEquip();
+			}
+		}
+
+
+		void Equip(string objName){			
+			foreach(GameObject g in ItemObjects){
+				if(g.name == objName){
+					g.GetComponent<GuiItemInfo>().Equip();
+					break;
+				}
+			}
 		}
 	}
 }

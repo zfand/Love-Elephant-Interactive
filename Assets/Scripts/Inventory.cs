@@ -29,7 +29,7 @@ namespace LoveElephant
       foreach (string key in acceptedItemTags) {
         items.Add (key, new List<string> ());
       }
-      items["Weapon"].Add ("Stock");
+	
     }
 
     public void OnDrawGizmos()
