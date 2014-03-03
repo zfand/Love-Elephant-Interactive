@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using LoveElephant.Room;
 
 namespace Preloader
@@ -96,9 +97,12 @@ namespace Preloader
     void OnLevelWasLoaded(int level)
     {
       if (this.doorData != null) {
-        GameObject spawn = GameObject.Find (doorData.playerSpawnPos);
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+
+        GameObject spawn = spawners.Where(spawner => spawner.name == doorData.playerSpawnPos).First<GameObject>();
         if (spawn == null) {
-          Debug.LogError ("Couldn't find spawn location " + doorData.playerSpawnPos); 
+          Debug.Log ("Couldn't find spawn location " + doorData.playerSpawnPos);
+          spawn = spawners[0];
         }
         player.transform.position = spawn.transform.position;
 
