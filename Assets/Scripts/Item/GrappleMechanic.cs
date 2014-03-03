@@ -146,7 +146,7 @@ namespace Item
       if (Input.GetButton("Up") && state == GrappleState.Swinging) {
         float ropLen = Vector3.Distance(transform.parent.position, anchor.transform.position);
         if (ropLen >= minRopeLength) {
-          StopCoroutine("Yank");
+          StopCoroutine("GroundReel");
           StartCoroutine ("Reel", Vector3.up);
         }
       }
@@ -155,18 +155,22 @@ namespace Item
       else if (Input.GetButton("Down") && state == GrappleState.Swinging) {
         float ropLen = Vector3.Distance(transform.position, anchor.transform.position);
         if (ropLen <= maxRopeLength) {
-          StopCoroutine("Yank");
           StartCoroutine ("Reel", Vector3.down);
         }
       }
-      
+
+      //Reel up from ground!
       if (Input.GetButtonDown ("Up") && state == GrappleState.Attached) {
-        StartCoroutine ("Yank");
+        StartCoroutine ("GroundReel");
       }
 
       //Yank!
-      if (Input.GetButtonDown("Down") && state == GrappleState.Attached) {
-        transform.parent.rigidbody.AddForce((hitPos- transform.parent.position).normalized*yankForce, ForceMode.VelocityChange);
+      if (Input.GetButtonDown("Jump") && (state == GrappleState.Attached || state == GrappleState.Swinging)) {
+        float force = yankForce;
+        if (state == GrappleState.Swinging) {
+          force*=2;
+        }
+        transform.parent.rigidbody.AddForce((hitPos- transform.parent.position).normalized*force, ForceMode.VelocityChange);
         StopSwing(true);
 
       }
@@ -309,6 +313,9 @@ namespace Item
       state = GrappleState.Off;
     }
 
+    /// <summary>
+    /// Reel the rope in or out depending on the direction
+    /// </summary>
     private IEnumerator Reel(Vector3 dir) 
     {
       joint.autoConfigureConnectedAnchor = false;
@@ -328,10 +335,9 @@ namespace Item
     }
 
     /// <summary>
-    /// Update function for checking/updating the yanking
-    ///  Returns True if yanking
+    /// Reels the rope up from the ground and starts swinging!
     /// </summary>
-    private IEnumerator Yank()
+    private IEnumerator GroundReel()
     {
       Vector3 startPos = transform.parent.position;
       Vector3 yankPos = transform.parent.position + (hitPos - transform.parent.position).normalized * yankLen;
