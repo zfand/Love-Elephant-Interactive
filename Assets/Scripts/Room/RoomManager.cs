@@ -46,11 +46,11 @@ namespace LoveElephant.Room
       //Debug.Log(config);
 
       if (config != null) {
-        GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().disable ();
+        GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().enabled = false;
         SceneManager sm = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ();
         sm.SMSaveState (LevelState.Complete);
         sm.SMLoadLevel (config.connectedRoom);
-        if (config.playerStartPos != null) {
+        if (config.playerStartPos != Vector3.zero) {
           player.transform.position = config.playerStartPos;
         }
       }
