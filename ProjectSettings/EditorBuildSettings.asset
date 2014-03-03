@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/White Wing/WW_RightRoom.unity
   - enabled: 1
     path: Assets/Scenes/White Wing/WW_SlothRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/The Hub/TH_MainRoom.unity
