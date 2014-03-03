@@ -10,6 +10,7 @@ namespace LoveElephant
     /// The required key to open the door
     /// </summary>
     public KeyType requiredKey;
+	public Vector3 keyVec;
 
     void OnTriggerEnter(Collider c)
     {

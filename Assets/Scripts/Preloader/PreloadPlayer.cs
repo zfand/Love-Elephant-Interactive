@@ -20,7 +20,7 @@ namespace Preloader
     void Awake()
     {
       DoorConfig door = new DoorConfig();
-      door.playerSpawnPos = "SpawnerDoorStart";
+      door.playerSpawnPos = "SpawnerDoorLeft";
       GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMSaveState(LevelState.Complete);
       GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadLevel("WW_LeftRoom", door);
     }

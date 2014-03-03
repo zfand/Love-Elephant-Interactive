@@ -44,7 +44,7 @@ MonoBehaviour:
   shaderType: Transparent/Diffuse
   width: 32.5999985
   height: 17.7999992
-  enabled: 0
+  cam: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
