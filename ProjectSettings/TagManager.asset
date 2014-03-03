@@ -11,7 +11,7 @@ TagManager:
   - Floor
   - Ceiling
   - Door
-  - 
+  - Crate
   - RoomKey
   - SceneManager
   - RoomManager
