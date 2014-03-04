@@ -85,7 +85,7 @@ GameObject:
   - 212: {fileID: 2190348}
   - 114: {fileID: 2190349}
   m_Layer: 0
-  m_Name: RoomOneExit
+  m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &31956831
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 2
-  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &495937274
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +586,7 @@ MonoBehaviour:
     playerSpawnPos: SpawnerDoorRight
   - door: {fileID: 1644087287}
     connectedRoom: TH_MainRoom
-    playerSpawnPos: SpawnerDoorLeft
+    playerSpawnPos: SpawnerDoorLeftFloor
   - door: {fileID: 89728459}
     connectedRoom: WW_SlothRoom
     playerSpawnPos: SpawnerDoorTop
@@ -1022,7 +1020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &1472567822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,7 +1125,7 @@ GameObject:
   - 4: {fileID: 1644087288}
   - 212: {fileID: 1644087289}
   m_Layer: 0
-  m_Name: RoomTwoExitRight
+  m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1378,7 +1375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredKey: 1
-  keyVec: {x: 0, y: 0, z: 0}
 --- !u!1 &2147324918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1419,3 +1415,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1323073701}
   widthBarrier: 10.3500004
+  tallRoom: 0
