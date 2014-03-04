@@ -114,7 +114,10 @@ namespace LoveElephant
         //Make sure you're not grinding up against a wall
         if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~ignoredWallLayer)) {
           //Add force
-          if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
+          if (h  == 0 && grounded) {
+            rigidbody.velocity = Vector3.zero;
+          }
+          else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
             rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
           }
           if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed) {
