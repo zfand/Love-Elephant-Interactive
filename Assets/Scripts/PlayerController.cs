@@ -120,7 +120,7 @@ namespace LoveElephant
           else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
             rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
           }
-          if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed) {
+          if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed && grounded) {
             rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxRunSpeed, rigidbody.velocity.y, 0);
           }
         }
