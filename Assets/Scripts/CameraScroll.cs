@@ -18,10 +18,21 @@ public class CameraScroll : MonoBehaviour {
 		float playerX = GameObject.FindGameObjectWithTag ("Player").transform.position.x;
 		float playerY = GameObject.FindGameObjectWithTag ("Player").transform.position.y;
 
+		float newX = playerX;
 		float newY = cam.transform.position.y;
 
 		if (tallRoom) {
 			newY = playerY + 6.5f;
+		}
+
+		if (newX < -widthBarrier) {
+			newX = -widthBarrier;
+		} else if (newX > widthBarrier) {
+			newX = widthBarrier;
+		}
+
+		if (newY > widthBarrier + 6.5f) {
+			newY = widthBarrier + 6.5f;
 		}
 
 		if (playerX > -widthBarrier && playerX < widthBarrier) {
