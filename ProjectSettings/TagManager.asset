@@ -4,25 +4,22 @@
 TagManager:
   tags:
   - ground
-  - Wall
-  - Obstacle
   - Pivot
   - Sword
-  - Floor
-  - Ceiling
   - Door
-  - Crate
   - RoomKey
   - SceneManager
   - RoomManager
   - Parallax
   - Spawner
-  - Boss
   - HookShot
   - Weapon
   - Boot
   - Item
+  - Pickup
   - Platform
+  - Boss
+  - Crate
   - 
   - 
   - 
@@ -30,7 +27,10 @@ TagManager:
   - 
   - 
   - 
-  - RoomExitLeft
+  - 
+  - 
+  - 
+  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
