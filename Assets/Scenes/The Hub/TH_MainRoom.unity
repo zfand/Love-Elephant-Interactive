@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1346b6228654328b7add3892bd452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstTexture: {fileID: 2800000, guid: 166db09283cdcc2428186dca9a400dc7, type: 3}
+  firstTexture: {fileID: 2800000, guid: a530a0795d083b44b9dab34e1d106fc9, type: 3}
   secondTexture: {fileID: 2800000, guid: 18eed9b3d5c34d24f938e826932fb79e, type: 3}
   thirdTexture: {fileID: 2800000, guid: f5fa2e7f1d80c424c8276fecd7a45531, type: 3}
   shaderType: Transparent/Diffuse
@@ -2318,7 +2318,7 @@ MonoBehaviour:
     connectedRoom: PW_RightRoom
     playerSpawnPos: SpawnerDoorRight
   - door: {fileID: 1161989495}
-    connectedRoom: YW_LeftRoom
+    connectedRoom: YW_FirstRoom
     playerSpawnPos: SpawnerDoorLeft
   - door: {fileID: 786152507}
     connectedRoom: RW_LeftRoom

@@ -26,4 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Red Wing/RW_LeftRoom.unity
   - enabled: 1
-    path: Assets/Scenes/Yellow Wing/YW_RightRoom.unity
+    path: Assets/Scenes/Yellow Wing/YW_FirstRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Yellow Wing/YW_PrideEnvyRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Yellow Wing/YW_SecondRoom.unity
