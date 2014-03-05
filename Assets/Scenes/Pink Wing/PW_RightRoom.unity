@@ -734,7 +734,7 @@ MonoBehaviour:
   doors:
   - door: {fileID: 435069757}
     connectedRoom: TH_MainRoom
-    playerSpawnPos: SpawnerDoorRight
+    playerSpawnPos: SpawnerDoorLeftTop
   - door: {fileID: 99090666}
     connectedRoom: PW_MidRoom
     playerSpawnPos: SpawnerDoorRight
