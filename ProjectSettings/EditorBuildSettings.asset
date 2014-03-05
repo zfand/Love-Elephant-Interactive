@@ -22,7 +22,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Green Wing/GW_GreedGluttonyRoom.unity
   - enabled: 1
-    path: Assets/Scenes/Pink Wing/PW_LeftRoom.unity
+    path: Assets/Scenes/Pink Wing/PW_RightRoom.unity
   - enabled: 1
     path: Assets/Scenes/Red Wing/RW_LeftRoom.unity
   - enabled: 1

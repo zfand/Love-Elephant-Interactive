@@ -12,7 +12,7 @@ GameObject:
   - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: MetalTall
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.05999994, y: 10.0900002, z: .200000003}
+  m_Size: {x: 1.54999995, y: 9.93000031, z: .200000003}
   m_Center: {x: 0, y: -.0599999987, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
