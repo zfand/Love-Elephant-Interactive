@@ -504,6 +504,7 @@ MonoBehaviour:
   reelTime: .100000001
   yankForce: 25
   swingForce: 50
+  grappleSpike: {fileID: 100002, guid: 1bde70086d8ca844b8d8873c552d193a, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

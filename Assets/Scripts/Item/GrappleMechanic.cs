@@ -39,6 +39,11 @@ namespace Item
     /// The swing force.
     /// </summary>
     public float swingForce;
+	
+	/// <summary>
+	/// The sprite covering the end of the line 
+	/// </summary>
+	public GameObject grappleSpike;
 
     /////////////////////////////////////////////////////////////////////////
     ///                     Private                                       ///
@@ -187,11 +192,18 @@ namespace Item
         lr.SetPosition (0, ropePos.position);
         lr.SetPosition (1, hitPos);
         lr.enabled = true;
-        anim.SetBool ("Swing", true);
-      } else if (state == GrappleState.Off) {
+		anim.SetBool ("Swing", true);
+		grappleSpike.transform.position = hitPos;
+	  } else if (state == GrappleState.Off) {
+		grappleSpike.SetActive (false);
         lr.enabled = false;
         anim.SetBool ("Swing", false);
       }
+
+	  if (state != GrappleState.Off) {
+		grappleSpike.SetActive (true);
+	  }
+	
     }
 
     private void FixedUpdate()
@@ -280,6 +292,7 @@ namespace Item
       while (deltaTime < extendTime) {
         lr.SetPosition (0, ropePos.position);
         lr.SetPosition (1, Vector3.Lerp (startPos, hitPos, deltaTime / extendTime));
+		grappleSpike.transform.position = Vector3.Lerp (startPos, hitPos, deltaTime / extendTime);
         deltaTime += Time.deltaTime;
         yield return 0;
       }
@@ -305,7 +318,8 @@ namespace Item
       }
       while (deltaTime < retractTime) {
         lr.SetPosition (0, ropePos.position);
-        lr.SetPosition (1, Vector3.Lerp (hitPos, ropePos.position, deltaTime / retractTime));
+		lr.SetPosition (1, Vector3.Lerp (hitPos, ropePos.position, deltaTime / retractTime));
+		grappleSpike.transform.position = Vector3.Lerp (hitPos, ropePos.position, deltaTime / retractTime);
         deltaTime += Time.deltaTime;
         yield return 0;
       }
