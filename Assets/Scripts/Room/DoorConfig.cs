@@ -21,7 +21,7 @@ namespace LoveElephant.Room
     /// <summary>
     /// The position the player will move to when going through the room
     /// </summary>
-    public Vector3 playerStartPos;
+    public string playerSpawnPos;
   }
 }
 

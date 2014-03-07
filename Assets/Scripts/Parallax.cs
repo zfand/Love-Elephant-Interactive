@@ -17,20 +17,14 @@ public class Parallax : MonoBehaviour
   public string shaderType;
   public float width;
   public float height;
-
-  public bool enabled;
-  
   public GameObject cam;
 
   // Use this for initialization
   void Start()
   {
-
-    enabled = true;
-    
     //Get player's Z to dynamically place backgrounds
     float startDepth = GameObject.FindGameObjectWithTag ("Player").transform.position.z;
-	
+  
     //Create a shader based on the given type
     backShader = new Shader ();
     backShader = Shader.Find (shaderType);
@@ -76,7 +70,7 @@ public class Parallax : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-	if (enabled) {
+    if (enabled) {
       float camX = cam.transform.position.x;
     
       firstBackground.transform.position = new Vector3 (0, 0, firstBackground.transform.position.z);
@@ -84,28 +78,20 @@ public class Parallax : MonoBehaviour
       thirdBackground.transform.position = new Vector3 (0, 0, thirdBackground.transform.position.z);
     
       Vector3 newFirstPos = new Vector3 (firstBackground.transform.position.x - camX / 4,
-			                            firstBackground.transform.position.y,
+                                  firstBackground.transform.position.y,
                                         firstBackground.transform.position.z);
     
       Vector3 newSecondPos = new Vector3 (secondBackground.transform.position.x - camX / 6,
-			                             secondBackground.transform.position.y,
+                                   secondBackground.transform.position.y,
                                          secondBackground.transform.position.z);
     
       Vector3 newThirdPos = new Vector3 (thirdBackground.transform.position.x - camX / 8,
-			                            thirdBackground.transform.position.y,
+                                  thirdBackground.transform.position.y,
                                         thirdBackground.transform.position.z);
     
       firstBackground.transform.position = newFirstPos;
       secondBackground.transform.position = newSecondPos;
       thirdBackground.transform.position = newThirdPos;
-	}
+    }
   }
-
-	public void disable() {
-		enabled = false;
-	}
-
-	public void enable() {
-		enabled = true;
-	}
 }

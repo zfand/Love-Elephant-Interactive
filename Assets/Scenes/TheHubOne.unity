@@ -521,6 +521,32 @@ Transform:
   m_LocalScale: {x: .280000001, y: 1.19000006, z: 1}
   m_Children: []
   m_Father: {fileID: 2106440024}
+--- !u!1 &1094149670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1094149671}
+  m_Layer: 0
+  m_Name: SpawnerDoorLeft
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1094149671
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1094149670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25, y: -6.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1230181917
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +580,6 @@ MonoBehaviour:
   shaderType: Transparent/Diffuse
   width: 64
   height: 16
-  enabled: 0
   cam: {fileID: 420511401}
 --- !u!4 &1230181919
 Transform:

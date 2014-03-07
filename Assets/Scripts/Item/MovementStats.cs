@@ -18,7 +18,7 @@ namespace Item
     /// <summary>
     /// The fastest the player can travel in the x axis.
     /// </summary>
-    public float maxSpeed = 5f;  
+    public float maxRunSpeed = 5f;  
     
     /// <summary>
     /// Amount of force added when the player jumps.

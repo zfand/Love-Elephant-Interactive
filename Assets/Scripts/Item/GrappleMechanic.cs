@@ -12,14 +12,32 @@ namespace Item
     public GameObject anchorPrefab;
     private GameObject anchor;
     /// <summary>
-    /// The max length of Rope
+    /// The max length of the Rope
     /// </summary>
-    public float maxLength = 1f;
+    public float maxRopeLength = 1f;
+    /// <summary>
+    /// The minimum length of the Rope
+    /// </summary>
+    public float minRopeLength = 1f;
+    /// <summary>
+    /// The extend time it takes for the rope to extend
+    /// </summary>
     public float extendTime = 1f;
-    public float maxDashSpeed = 10f;
+    /// <summary>
+    /// The length of the yank.
+    /// </summary>
     public float yankLen;
-    public float yankTime;
+    /// <summary>
+    /// The time it takes to reel the rope.
+    /// </summary>
+    public float reelTime;
+    /// <summary>
+    /// The yank force.
+    /// </summary>
     public float yankForce;
+    /// <summary>
+    /// The swing force.
+    /// </summary>
     public float swingForce;
 
     /////////////////////////////////////////////////////////////////////////
@@ -114,29 +132,47 @@ namespace Item
 
       //Attached
       if (state == GrappleState.Attached) {
-        if (Vector3.Distance (hitPos, transform.parent.position) > maxLength) {
+        if (Vector3.Distance (hitPos, transform.parent.position) > maxRopeLength) {
           StopSwing (true);
         }
       }
 
       //Let go while swinging
-      if (!Input.GetButton ("Fire1") && state == GrappleState.Swinging) {
+      if (!Input.GetButton ("Fire1") && (state == GrappleState.Swinging || state == GrappleState.Attached)) {
         StopSwing (true);
       }
 
       //Reel Up!
       if (Input.GetButton("Up") && state == GrappleState.Swinging) {
-        StartCoroutine ("Reel", Vector3.up);
+        float ropLen = Vector3.Distance(transform.parent.position, anchor.transform.position);
+        if (ropLen >= minRopeLength) {
+          StopCoroutine("GroundReel");
+          StartCoroutine ("Reel", Vector3.up);
+        }
       }
 
-      //Reel Up!
-      if (Input.GetButton("Down") && state == GrappleState.Swinging) {
-        StartCoroutine ("Reel", Vector3.down);
+      //let out the line
+      else if (Input.GetButton("Down") && state == GrappleState.Swinging) {
+        float ropLen = Vector3.Distance(transform.position, anchor.transform.position);
+        if (ropLen <= maxRopeLength) {
+          StartCoroutine ("Reel", Vector3.down);
+        }
+      }
+
+      //Reel up from ground!
+      if (Input.GetButtonDown ("Up") && state == GrappleState.Attached) {
+        StartCoroutine ("GroundReel");
       }
 
       //Yank!
-      if (Input.GetButtonDown ("Up") && state == GrappleState.Attached) {
-        StartCoroutine ("Yank");
+      if (Input.GetButtonDown("Jump") && (state == GrappleState.Attached || state == GrappleState.Swinging)) {
+        float force = yankForce;
+        if (state == GrappleState.Swinging) {
+          force*=2;
+        }
+        transform.parent.rigidbody.AddForce((hitPos- transform.parent.position).normalized*force, ForceMode.VelocityChange);
+        StopSwing(true);
+
       }
 
       //Hit the Ground
@@ -155,6 +191,16 @@ namespace Item
       } else if (state == GrappleState.Off) {
         lr.enabled = false;
         anim.SetBool ("Swing", false);
+      }
+    }
+
+    private void FixedUpdate()
+    {
+      //if swinging
+      if (state == GrappleState.Swinging) {
+        float h = Input.GetAxis ("Horizontal");
+        transform.parent.rigidbody.AddForce (Vector2.right * h * swingForce, ForceMode.Acceleration);
+        transform.parent.rigidbody.AddForce (-Vector3.up * pController.gravity, ForceMode.Acceleration);  
       }
     }
 
@@ -186,7 +232,7 @@ namespace Item
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
         SetAnchorPos(hitPos);
         //if the grapple point isn't too far away
-        if (distance <= maxLength) {
+        if (distance <= maxRopeLength) {
           state = GrappleState.Extending;
           //if we're in the air start swinging
           if (!pController.grounded) {
@@ -228,7 +274,7 @@ namespace Item
 
       //shorten rope
       if (state == GrappleState.Failed) {
-        hitPos = transform.parent.position + (hitPos - transform.parent.position).normalized * maxLength;
+        hitPos = transform.parent.position + (hitPos - transform.parent.position).normalized * maxRopeLength;
       }
 
       while (deltaTime < extendTime) {
@@ -254,8 +300,8 @@ namespace Item
     {
       float deltaTime = 0f;
       lr.enabled = true;
-      if (Vector3.Distance (transform.parent.position, hitPos) > maxLength) {
-        hitPos = transform.parent.position + (hitPos - transform.parent.position).normalized * maxLength;
+      if (Vector3.Distance (transform.parent.position, hitPos) > maxRopeLength) {
+        hitPos = transform.parent.position + (hitPos - transform.parent.position).normalized * maxRopeLength;
       }
       while (deltaTime < retractTime) {
         lr.SetPosition (0, ropePos.position);
@@ -267,6 +313,9 @@ namespace Item
       state = GrappleState.Off;
     }
 
+    /// <summary>
+    /// Reel the rope in or out depending on the direction
+    /// </summary>
     private IEnumerator Reel(Vector3 dir) 
     {
       joint.autoConfigureConnectedAnchor = false;
@@ -274,25 +323,28 @@ namespace Item
       Vector3 endPos = startPos+dir*yankLen;
       float deltaTime = 0f;
 
-      while (deltaTime < yankTime) {
-        joint.connectedAnchor = Vector3.Lerp(startPos,endPos, deltaTime/yankTime);
+      while (deltaTime < reelTime) {
+        // check to see if we're still swinging
+        if (state != GrappleState.Swinging) {
+          break;
+        }
+        joint.connectedAnchor = Vector3.Lerp(startPos,endPos, deltaTime/reelTime);
         deltaTime += Time.deltaTime;
         yield return 0;
       }
     }
 
     /// <summary>
-    /// Update function for checking/updating the yanking
-    ///  Returns True if yanking
+    /// Reels the rope up from the ground and starts swinging!
     /// </summary>
-    private IEnumerator Yank()
+    private IEnumerator GroundReel()
     {
       Vector3 startPos = transform.parent.position;
       Vector3 yankPos = transform.parent.position + (hitPos - transform.parent.position).normalized * yankLen;
       float detlaTime = 0f;
 
       while (transform.parent.position != yankPos) {
-        transform.parent.position = Vector3.Lerp (startPos, yankPos, detlaTime / yankTime);
+        transform.parent.position = Vector3.Lerp (startPos, yankPos, detlaTime / reelTime);
         lr.SetPosition (0, ropePos.position);
         detlaTime += Time.deltaTime;
         yield return 0;
@@ -308,6 +360,7 @@ namespace Item
     private void StartSwing()
     {
       state = GrappleState.Swinging;
+      pController.inputEnabled = false;
 
       //Create Joints
       joint = transform.parent.gameObject.AddComponent<HingeJoint> ();
@@ -317,19 +370,6 @@ namespace Item
       anchorJoint = anchor.AddComponent<HingeJoint> ();
       anchorJoint.axis = Vector3.back;
       anchorJoint.anchor = Vector3.zero;
-
-      //Add Force
-      /*
-    Vector3 dir = (anchor.transform.parent.position - transform.parent.position).normalized;
-    Vector3 perp = Vector3.Cross(transform.parent.forward, dir);
-    bool swingingRight = Vector3.Dot(perp,Vector3.up) > 0;
-
-    if (swingingRight) {
-      rigidbody.AddForce(Vector3.right*swingForce);
-    } else {
-      rigidbody.AddForce(Vector3.right*-swingForce);
-    }
-    */
     }
 
     /// <summary>
@@ -337,6 +377,8 @@ namespace Item
     /// </summary>
     public void StopSwing(bool retract)
     {
+      pController.inputEnabled = true;
+      
       if (retract) {
         state = GrappleState.Failed;
         StartCoroutine ("RetractRope", extendTime * 0.8f);

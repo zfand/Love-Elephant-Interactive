@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using LoveElephant.Room;
 
 namespace Preloader
 {
@@ -18,8 +19,10 @@ namespace Preloader
 
     void Awake()
     {
-      GameObject.FindGameObjectWithTag ("SceneManager").SendMessage ("SMSaveState", LevelState.Complete);
-      GameObject.FindGameObjectWithTag ("SceneManager").SendMessage ("SMLoadLevel", "StartHallOne");
+      DoorConfig door = new DoorConfig();
+      door.playerSpawnPos = "SpawnerDoorStart";
+      GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMSaveState(LevelState.Complete);
+      GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadLevel("StartHallOne", door);
     }
   }
 }
