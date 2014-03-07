@@ -4,24 +4,37 @@
 TagManager:
   tags:
   - ground
-  - Wall
-  - Obstacle
   - Pivot
   - Sword
-  - Floor
-  - Ceiling
   - Door
+<<<<<<< HEAD
   - GuiItem
+=======
+<<<<<<< HEAD
+=======
+  - GuiItem
+>>>>>>> 88a863b50c9dffa880400f23e7fe48d7299e1394
+>>>>>>> EarlyGameDemo
   - RoomKey
   - SceneManager
   - RoomManager
   - Parallax
-  - 
-  - 
+  - Spawner
   - HookShot
   - Weapon
   - Boot
   - Item
+  - Pickup
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
