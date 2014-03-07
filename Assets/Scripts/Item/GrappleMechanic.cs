@@ -216,16 +216,6 @@ namespace Item
       }
     }
 
-    private void FixedUpdate()
-    {
-      //if swinging
-      if (state == GrappleState.Swinging) {
-        float h = Input.GetAxis ("Horizontal");
-        transform.parent.rigidbody.AddForce (Vector2.right * h * swingForce, ForceMode.Acceleration);
-        transform.parent.rigidbody.AddForce (-Vector3.up * pController.gravity, ForceMode.Acceleration);  
-      }
-    }
-
     /// <summary>
     /// Called when shoot button is clicked
     /// </summary>

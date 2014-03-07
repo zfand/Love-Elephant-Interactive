@@ -27,12 +27,13 @@ namespace LoveElephant
 			foreach(string s in Items){
 				itempath = "Gui/" + npctype + "/" + s;
 				GameObject uninstantiatedItem = Resources.Load<GameObject> (itempath);
+				
+				if(uninstantiatedItem == null){
+					Debug.LogError(itempath + " not valid");
+					continue;
+				}
 				item =  Instantiate (uninstantiatedItem) as GameObject;
 
-				if(item == null){
-					Debug.LogError(itempath + " not valid");
-					return;
-				}
 				item.name = uninstantiatedItem.name;
 				totalwidth += item.renderer.bounds.size.x;
 				item.transform.parent = this.transform;
