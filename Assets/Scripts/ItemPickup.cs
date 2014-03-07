@@ -40,7 +40,7 @@ namespace LoveElephant
     private void OnPickup(GameObject player) {
       player.GetComponent<Inventory>().AddItem(prefabName);
       //TODO REMOVE THIS TESTING CODE
-      player.GetComponent<Equipment>().Equip(player.GetComponent<Inventory>().TakeItem(prefabName));
+     // player.GetComponent<Equipment>().Equip(player.GetComponent<Inventory>().TakeItem(prefabName));
       Destroy(this.gameObject);
     }
   }

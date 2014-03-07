@@ -7,6 +7,10 @@ TagManager:
   - Pivot
   - Sword
   - Door
+<<<<<<< HEAD
+=======
+  - GuiItem
+>>>>>>> 88a863b50c9dffa880400f23e7fe48d7299e1394
   - RoomKey
   - SceneManager
   - RoomManager
