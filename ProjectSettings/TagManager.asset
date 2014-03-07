@@ -7,14 +7,6 @@ TagManager:
   - Pivot
   - Sword
   - Door
-<<<<<<< HEAD
-  - GuiItem
-=======
-<<<<<<< HEAD
-=======
-  - GuiItem
->>>>>>> 88a863b50c9dffa880400f23e7fe48d7299e1394
->>>>>>> EarlyGameDemo
   - RoomKey
   - SceneManager
   - RoomManager
@@ -25,6 +17,10 @@ TagManager:
   - Boot
   - Item
   - Pickup
+  - Platform
+  - Boss
+  - Crate
+  - 
   - 
   - 
   - 

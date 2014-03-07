@@ -106,6 +106,7 @@ void OnCollisionStay(Collision hit)
     this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
     
     Transform tv = this.transform.parent.Find ("tv");
+	this.gameObject.GetComponent<MeshExploder>().Explode();
     if (tv.gameObject.activeInHierarchy) {
       SlothTV script = tv.GetComponent <SlothTV> ();
       script.Explode ();
