@@ -9,14 +9,12 @@ namespace LoveElephant
     public GameObject player;
     private Animator anim;
     private Color origColor;
-    public float Health = 100;
     public float ChargeSpeed;
     private bool dying;
     private bool faceLeft;
     private bool turning = false;
     private bool startHit = false;
     private Material mat;
-    public GameObject keyDrop;
     private bool hitwall;
     private bool charging;
     public float IdleTime;
@@ -162,7 +160,7 @@ namespace LoveElephant
   
       anim.SetTrigger ("Dying");
       Vector3 keyPos = new Vector3 (transform.position.x, transform.position.y + 2f, 0f);
-      Instantiate (keyDrop, keyPos, Quaternion.identity);
+      //Instantiate (keyDrop, keyPos, Quaternion.identity);
     }
 
     public bool IsDead()
