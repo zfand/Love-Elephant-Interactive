@@ -1,14 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraScroll.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inventory.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraScroll.cs" Line="24" Column="24" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item\Crate.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\StartHallOne.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothTV.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothBody.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Door.cs" Line="23" Column="2" />
+      <File FileName="Assets\Scripts\Item\GrappleMechanic.cs" Line="198" Column="1" />
+      <File FileName="Assets\Scripts\SlothRoom\SlothRoom.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Item\GrappleMechanic.cs" Line="201" Column="8" />
+      <File FileName="Assets\Scripts\NPCInventory.cs" Line="33" Column="14" />
+      <File FileName="Assets\Scripts\GuiItemInfo.cs" Line="67" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="135" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

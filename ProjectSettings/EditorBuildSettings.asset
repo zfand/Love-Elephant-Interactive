@@ -22,8 +22,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Green Wing/GW_GreedGluttonyRoom.unity
   - enabled: 1
+    path: Assets/Scenes/Yellow Wing/YW_FirstRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Yellow Wing/YW_PrideEnvyRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Yellow Wing/YW_SecondRoom.unity
+  - enabled: 1
     path: Assets/Scenes/Pink Wing/PW_LeftRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Pink Wing/PW_LustRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Pink Wing/PW_MidRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Pink Wing/PW_RightRoom.unity
   - enabled: 1
     path: Assets/Scenes/Red Wing/RW_LeftRoom.unity
   - enabled: 1
-    path: Assets/Scenes/Yellow Wing/YW_RightRoom.unity
+    path: Assets/Scenes/Red Wing/RW_WrathRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
