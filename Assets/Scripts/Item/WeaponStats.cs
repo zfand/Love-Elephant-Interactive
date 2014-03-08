@@ -30,7 +30,7 @@ namespace Item
     /// <summary>
     /// Gets the damage that's being dealt to an enemy
     /// </summary>
-    public float getDamage(float defense)
+    public float getDamage()
     {
       if (lifeSteal) {
         if (player == null) {
@@ -39,7 +39,7 @@ namespace Item
         // do life steal player.heal(damage*stealPercent);
       }
       //TODO make this interesting
-      return damage / defense;
+      return damage;
     }
   }
 }
