@@ -76,7 +76,6 @@ namespace Boss
 
     private IEnumerator BlowUpTV()
     {
-      Debug.Log("BLEW UP");
       Transform boom = this.transform.parent.Find ("TVExplosion");
       yield return new WaitForSeconds(0.5f);
       boom.position = deathPos.position;

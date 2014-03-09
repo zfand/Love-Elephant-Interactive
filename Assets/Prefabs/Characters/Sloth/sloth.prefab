@@ -4902,7 +4902,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100348}
   m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
-  m_LocalPosition: {x: -13.3285885, y: -4.73643637, z: 0}
+  m_LocalPosition: {x: .136984929, y: -1.1130023, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400346}
@@ -5252,7 +5252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   armor: 1
-  attackDmg: 10
+  attackDmg: 5
   lifeSteal: 0
   flashTime: .25
   drop: {fileID: 100000, guid: 5448edd245adbeb468e8945f3e770429, type: 2}
