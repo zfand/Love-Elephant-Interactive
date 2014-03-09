@@ -36,19 +36,19 @@ namespace Boss
     /// <summary>
     /// The max health of the Boss
     /// </summary>
-    private float m_maxHealth;
+    private float maxHealth;
     /// <summary>
     /// The material of the Boss
     /// </summary>
     private Material mat;
-    
+
     /// <summary>
-    /// The max health of the Boss
+    /// Gets the percentage of health left in the Boss
     /// </summary>
-    /// <value>The max health.</value>
-    public float maxHealth {
-      get { return this.m_maxHealth; }
+    public float healthPercent {
+      get { return this.health / this.maxHealth; }
     }
+
     /// <summary>
     /// Determines whether the Boss is Alive
     /// </summary>
@@ -60,7 +60,7 @@ namespace Boss
     // Use this for initialization
     private void Start()
     {
-      m_maxHealth = health;
+      maxHealth = health;
       mat = GetComponent<SkinnedMeshRenderer> ().material;
     }
   

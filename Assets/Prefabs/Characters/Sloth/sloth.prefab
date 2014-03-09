@@ -5254,7 +5254,7 @@ MonoBehaviour:
   armor: 1
   attackDmg: 10
   lifeSteal: 0
-  flashTime: .5
+  flashTime: .25
   drop: {fileID: 100000, guid: 5448edd245adbeb468e8945f3e770429, type: 2}
 --- !u!114 &11400014
 MonoBehaviour:
@@ -5271,7 +5271,7 @@ MonoBehaviour:
   armor: 1
   attackDmg: 10
   lifeSteal: 0
-  flashTime: .5
+  flashTime: .25
   drop: {fileID: 100000, guid: eaa24eb92b4feff42b6ad474a9ef95eb, type: 2}
 --- !u!137 &13700000
 SkinnedMeshRenderer:

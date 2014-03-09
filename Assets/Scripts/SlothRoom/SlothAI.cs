@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace LoveElephant
+namespace Boss
 {
   public class SlothAI : MonoBehaviour
   {
@@ -64,7 +64,8 @@ namespace LoveElephant
       } else {
         if (startdying) {
           if (info.IsName ("Dead")) {
-            dying = false;
+            startdying = false;
+            this.GetComponentInChildren<SlothBody>().Die();
           }
         } else {
           if (info.IsName ("Dying")) {
@@ -144,28 +145,13 @@ namespace LoveElephant
     //If this is at the same level as the player
     bool sameLevel()
     {
-
-      float heightDiff = Mathf.Abs (player.transform.position.y - this.transform.position.y);
-
-      if (heightDiff < 4.5) {
-        return true;
-      }
-
-      return false;
+      return Mathf.Abs (player.transform.position.y - this.transform.position.y) < 4.5;
     }
 
     public void Dying()
     {
       dying = true;
-  
       anim.SetTrigger ("Dying");
-      Vector3 keyPos = new Vector3 (transform.position.x, transform.position.y + 2f, 0f);
-      //Instantiate (keyDrop, keyPos, Quaternion.identity);
-    }
-
-    public bool IsDead()
-    {
-      return !dying;
     }
   }
 }
