@@ -4152,7 +4152,7 @@ GameObject:
   - 65: {fileID: 2002964670}
   m_Layer: 0
   m_Name: MetalMid
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4383,6 +4383,10 @@ Prefab:
     - target: {fileID: 6500000, guid: 80a09e203edf2ef449711e64ce3fb5b0, type: 2}
       propertyPath: m_Center.x
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 80a09e203edf2ef449711e64ce3fb5b0, type: 2}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80a09e203edf2ef449711e64ce3fb5b0, type: 2}
