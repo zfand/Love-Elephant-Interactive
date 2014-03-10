@@ -13,6 +13,7 @@ namespace LoveElephant
     private float maxHealth;
     private Material mat;
     private bool invincible = false;
+	public GameObject healthBar;
 
     // Use this for initialization
     void Start()
@@ -44,6 +45,9 @@ namespace LoveElephant
         if (health >= 0f) {
           StartCoroutine(Invincible());
         } else {
+	  	  healthBar.renderer.enabled = false;
+		  health = maxHealth;
+	  	  rigidbody.velocity = Vector3.zero;
           GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadPerviousLevel();
         }
       }
@@ -51,6 +55,10 @@ namespace LoveElephant
 
     private IEnumerator Invincible()
     {
+	  healthBar.renderer.enabled = true;
+	  healthBar.renderer.material.color = new Color (1f,0f,0f);
+	  Vector3 newScale = new Vector3((0.6f * (health/maxHealth)), .1f, .1f);
+	  healthBar.transform.localScale = newScale;
       invincible = true;
       Color originalColor = mat.color;
       Color fadeColor = originalColor;
@@ -64,6 +72,7 @@ namespace LoveElephant
       }
 
       invincible = false;
+	  healthBar.renderer.enabled = false;
     }
   }
 }

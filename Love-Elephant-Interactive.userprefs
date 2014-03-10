@@ -1,13 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Inventory.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerStats.cs">
     <Files>
-      <File FileName="Assets\Scripts\Item\GrappleMechanic.cs" Line="198" Column="1" />
+      <File FileName="Assets\Scripts\Preloader\SceneManager.cs" Line="114" Column="4" />
+      <File FileName="Assets\Scripts\Item\GrappleMechanic.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\SlothRoom\SlothRoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Item\GrappleMechanic.cs" Line="201" Column="8" />
-      <File FileName="Assets\Scripts\NPCInventory.cs" Line="33" Column="14" />
-      <File FileName="Assets\Scripts\GuiItemInfo.cs" Line="67" Column="1" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="135" Column="27" />
+      <File FileName="Assets\Scripts\NPCInventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GuiItemInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerStats.cs" Line="49" Column="5" />
+      <File FileName="Assets\Scripts\Equipment.cs" Line="97" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
