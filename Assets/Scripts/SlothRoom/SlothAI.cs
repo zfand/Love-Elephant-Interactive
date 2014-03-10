@@ -111,11 +111,9 @@ namespace Boss
       float currentY = this.transform.eulerAngles.y;
       if (!turning) {
         if (player.transform.position.x < this.transform.position.x && !faceLeft) {
-          Debug.Log ("turnleft");
           faceLeft = true;
           StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
         } else if (player.transform.position.x > this.transform.position.x && faceLeft) {
-          Debug.Log ("turnright");
           faceLeft = false;
           StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
         }

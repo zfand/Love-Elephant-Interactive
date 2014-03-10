@@ -32,6 +32,7 @@ namespace Boss
     /// Item that is dropped on death
     /// </summary>
     public GameObject drop;
+    private bool dropped;
 
     /// <summary>
     /// The max health of the Boss
@@ -79,6 +80,11 @@ namespace Boss
     {
       dmg /= armor;
       health -= dmg;
+	  if (!alive && !dropped) {
+		Vector3 keydrop = new Vector3(this.transform.position.x, this.transform.position.y + 2, 0f);
+		Instantiate(drop, keydrop, Quaternion.identity);
+	    dropped = true;
+      }
       return dmg;
     }
 
