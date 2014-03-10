@@ -113,5 +113,5 @@ namespace LoveElephant
       item.transform.parent = null;
       box.AddItem (item);
     }
-  }
+  }	
 }

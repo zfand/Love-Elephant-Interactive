@@ -95,8 +95,13 @@ namespace LoveElephant
 					}
 				}
 				if(!foundmatch){
-					g.GetComponent<GuiItemInfo>().Lock();
-					g.GetComponent<GuiItemInfo>().UnEquip();
+					if(equip == g.name){
+						g.GetComponent<GuiItemInfo>().Equip();
+						g.GetComponent<GuiItemInfo>().UnLock ();
+					} else {
+						g.GetComponent<GuiItemInfo>().UnEquip();
+						g.GetComponent<GuiItemInfo>().Lock();
+					}
 				} else {
 					g.GetComponent<GuiItemInfo>().UnLock ();
 					if(equip == g.name){
