@@ -294,9 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa1346b6228654328b7add3892bd452b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flipFirst: 1
+  flipSecond: 0
+  flipThird: 1
   firstTexture: {fileID: 2800000, guid: b56ed91646259444daefa54770717fdd, type: 3}
   secondTexture: {fileID: 2800000, guid: 54ac063f52ba7e94f85402922da0771b, type: 3}
-  thirdTexture: {fileID: 2800000, guid: b91a27e9fc1c5224faae8e01876dc03f, type: 3}
+  thirdTexture: {fileID: 2800000, guid: a7a4c9934bb89da40ac7c26c52621d4b, type: 3}
   shaderType: Transparent/Diffuse
   width: 64
   height: 16
