@@ -5272,7 +5272,7 @@ MonoBehaviour:
   attackDmg: 10
   lifeSteal: 0
   flashTime: .25
-  drop: {fileID: 100000, guid: eaa24eb92b4feff42b6ad474a9ef95eb, type: 2}
+  drop: {fileID: 100000, guid: 013c05eaae990f0418290963c015c2fc, type: 2}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
