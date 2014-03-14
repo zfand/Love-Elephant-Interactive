@@ -10,6 +10,7 @@ namespace LoveElephant
     Green = 2,
     Yellow = 3,
     Pink = 4,
-    Red = 5
+    Red = 5,
+	Black = 6
   }
 }

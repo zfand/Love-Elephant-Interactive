@@ -1,15 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerStats.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Preloader\SceneManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Preloader\SceneManager.cs" Line="114" Column="4" />
-      <File FileName="Assets\Scripts\Item\GrappleMechanic.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SlothRoom\SlothRoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NPCInventory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GuiItemInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerStats.cs" Line="49" Column="5" />
-      <File FileName="Assets\Scripts\Equipment.cs" Line="97" Column="50" />
+      <File FileName="Assets\Scripts\Door.cs" Line="18" Column="76" />
+      <File FileName="Assets\Scripts\KeyType.cs" Line="13" Column="13" />
+      <File FileName="Assets\Scripts\Preloader\PreloadPlayer.cs" Line="30" Column="1" />
+      <File FileName="Assets\Scripts\StartHallOne.cs" Line="16" Column="4" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="43" Column="27" />
+      <File FileName="Assets\Scripts\Preloader\SceneManager.cs" Line="130" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
