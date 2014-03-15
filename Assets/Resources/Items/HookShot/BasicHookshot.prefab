@@ -40,14 +40,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchorPrefab: {fileID: 100000, guid: 21b78e180053f446bb9c62c7dd3f3aad, type: 2}
-  maxRopeLength: 1
-  minRopeLength: 1
+  maxRopeLength: 15
+  minRopeLength: 5
   extendTime: .200000003
-  yankLen: 2
-  reelTime: 0
-  yankForce: 1000
-  swingForce: 1000
-  grappleSpike: {fileID: 0}
+  yankLen: 1
+  reelTime: .100000001
+  yankForce: 25
+  swingForce: 50
+  grappleSpike: {fileID: 100000, guid: 0b2d0370a38bea74499501045aea60c9, type: 2}
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -70,8 +70,8 @@ LineRenderer:
   m_SortingOrder: 0
   m_SortingLayerID: 0
   m_Positions:
-  - {x: 0, y: -1, z: 0}
-  - {x: 0, y: -1, z: 0}
+  - {x: -6.5999999, y: -6.24749994, z: 0}
+  - {x: -6.5999999, y: -6.24749994, z: 0}
   m_Parameters:
     startWidth: .100000001
     endWidth: .100000001

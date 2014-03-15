@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 120: {fileID: 12000000}
   m_Layer: 0
-  m_Name: LoveBite
+  m_Name: SnakeBite
   m_TagString: HookShot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   reelTime: .100000001
   yankForce: 25
   swingForce: 50
-  grappleSpike: {fileID: 100000, guid: 611e5f7d97e3e6744b6ce0f05ab2d586, type: 2}
+  grappleSpike: {fileID: 100000, guid: 3c688a8be70b9e64ca907ef6a9dd07ae, type: 2}
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1

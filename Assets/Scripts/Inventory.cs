@@ -78,6 +78,8 @@ namespace LoveElephant
         this.Add (item);
         return true;
       }
+      Destroy (item);
+	  Debug.LogError("item tag '" + item.tag + "' is invalid");
       return false;
     }
 
