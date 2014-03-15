@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -79,10 +79,11 @@ namespace LoveElephant
 		}
 			
 			
-		public void SetPlayerInfo(List<string> inv, Equipment pequip, Inventory p_inv){
+		public void SetPlayerInfo(Equipment pequip, Inventory p_inv){
 			string equip = pequip.GetCurrentEquip(npctype);
 			playerequip = pequip;
 			PlayerInv = p_inv;
+			List<string> inv = p_inv.GetItemsByTag(npctype);
 			GameObject lockicon = Resources.Load<GameObject> ("Gui/LockIcons/LockIcon");
 			GameObject newlock;
 			bool foundmatch = false;
@@ -95,8 +96,13 @@ namespace LoveElephant
 					}
 				}
 				if(!foundmatch){
-					g.GetComponent<GuiItemInfo>().Lock();
-					g.GetComponent<GuiItemInfo>().UnEquip();
+					if(equip == g.name){
+						g.GetComponent<GuiItemInfo>().Equip();
+						g.GetComponent<GuiItemInfo>().UnLock ();
+					} else {
+						g.GetComponent<GuiItemInfo>().UnEquip();
+						g.GetComponent<GuiItemInfo>().Lock();
+					}
 				} else {
 					g.GetComponent<GuiItemInfo>().UnLock ();
 					if(equip == g.name){

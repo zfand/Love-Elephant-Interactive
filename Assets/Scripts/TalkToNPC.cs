@@ -52,8 +52,7 @@ namespace LoveElephant
 				shopready = true;
 				Equipment e =  other.gameObject.GetComponent<Equipment>();
 				Inventory i = other.gameObject.GetComponent<Inventory>();
-				playerInventory = i.GetItemsByTag(NPCType);
-				npcshop.SetPlayerInfo(playerInventory, e, i);
+				npcshop.SetPlayerInfo(e, i);
 			}
 		}
 
