@@ -10,6 +10,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/The Hub/TH_MainRoom.unity
   - enabled: 1
+    path: Assets/Scenes/White Wing/WW_TutOne.unity
+  - enabled: 1
+    path: Assets/Scenes/White Wing/WW_TutTwo.unity
+  - enabled: 1
     path: Assets/Scenes/White Wing/WW_LeftRoom.unity
   - enabled: 1
     path: Assets/Scenes/White Wing/WW_RightRoom.unity

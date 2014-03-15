@@ -47,7 +47,7 @@ namespace LoveElephant.Room
         GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().enabled = false;
         SceneManager sm = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ();
         sm.SMSaveState (LevelState.Complete);
-        sm.SMLoadLevel (config.connectedRoom, config);
+        sm.SMLoadLevel (config);
       }
     }
   }

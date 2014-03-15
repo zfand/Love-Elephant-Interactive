@@ -20,6 +20,7 @@ TagManager:
   - Platform
   - Boss
   - Crate
+  - HealthBar
   - 
   - 
   - 
@@ -31,6 +32,12 @@ TagManager:
   - 
   - 
   - 
+  - GuiItem
+  - 
+  - Wall
+  - Ceiling
+  - Floor
+  - RoomExitMidB
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

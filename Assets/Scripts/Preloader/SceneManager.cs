@@ -23,11 +23,14 @@ namespace Preloader
     /// The state of the current level.
     /// </summary>
     public LevelState currentLevelState;
-
     /// <summary>
-    /// The current scene.
+    /// The current Level.
     /// </summary>
-    public string currentScene;
+    public string currentLevel;
+    /// <summary>
+    /// The current spawn point
+    /// </summary>
+    public string currentSpawn;
     /// <summary>
     /// The image displayed while loading
     /// </summary>
@@ -41,7 +44,15 @@ namespace Preloader
     /// The data from the door used for setting up a scene
     /// </summary>
     private DoorConfig doorData;
-  
+    /// <summary>
+    /// The pervious level
+    /// </summary>
+    private string perviousLevel;
+    /// <summary>
+    /// The pervious spawn point
+    /// </summary>
+    private string perviousSpawn;
+
     private void OnDrawGizmos()
     {
       #if UNITY_EDITOR
@@ -75,34 +86,51 @@ namespace Preloader
       if (allLevelStates == null) {
         allLevelStates = new Dictionary<string, LevelState> ();
       } 
-      allLevelStates [currentScene] = state;
+      allLevelStates [currentLevel] = state;
+    }
+
+    /// <summary>
+    /// Loads the room the player was last in
+    /// </summary>
+    public void SMLoadPerviousLevel()
+    {
+      DoorConfig config = new DoorConfig();
+      config.connectedRoom = perviousLevel;
+      config.playerSpawnPos = perviousSpawn;
+      SMLoadLevel(config);
     }
 
     /// <summary>
     /// Loads a new level of the given name
     ///  USE gameObject.SendMessage("SMLoadLevel", LevelState.None);
     /// </summary>
-    public void SMLoadLevel(string name, DoorConfig data)
+    public void SMLoadLevel(DoorConfig data)
     {
-      if (!allLevelStates.ContainsKey (name)) {
-        allLevelStates.Add (name, LevelState.None);
+      if (!allLevelStates.ContainsKey (data.connectedRoom)) {
+        allLevelStates.Add (data.connectedRoom, LevelState.None);
       }
-      currentScene = name;
-      currentLevelState = allLevelStates [name];
 
-      this.doorData = data;
-      Application.LoadLevel (name);
+      perviousLevel = currentLevel;
+
+      currentLevel = data.connectedRoom;
+      currentLevelState = allLevelStates [currentLevel];
+
+      perviousSpawn = currentSpawn;
+      currentSpawn = data.playerSpawnPos;
+      doorData = data;
+
+      Application.LoadLevel (currentLevel);
     }
 
-    void OnLevelWasLoaded(int level)
+    private void OnLevelWasLoaded(int level)
     {
       if (this.doorData != null) {
-        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
-
-        GameObject spawn = spawners.Where(spawner => spawner.name == doorData.playerSpawnPos).First<GameObject>();
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag ("Spawner");
+        
+        GameObject spawn = spawners.Where (spawner => spawner.name == doorData.playerSpawnPos).First<GameObject> ();
         if (spawn == null) {
           Debug.Log ("Couldn't find spawn location " + doorData.playerSpawnPos);
-          spawn = spawners[0];
+          spawn = spawners [0];
         }
         player.transform.position = spawn.transform.position;
 

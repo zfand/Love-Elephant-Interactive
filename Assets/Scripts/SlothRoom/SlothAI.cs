@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace LoveElephant
+namespace Boss
 {
   public class SlothAI : MonoBehaviour
   {
@@ -9,14 +9,12 @@ namespace LoveElephant
     public GameObject player;
     private Animator anim;
     private Color origColor;
-    public float Health = 100;
     public float ChargeSpeed;
     private bool dying;
     private bool faceLeft;
     private bool turning = false;
     private bool startHit = false;
     private Material mat;
-    public GameObject keyDrop;
     private bool hitwall;
     private bool charging;
     public float IdleTime;
@@ -66,7 +64,8 @@ namespace LoveElephant
       } else {
         if (startdying) {
           if (info.IsName ("Dead")) {
-            dying = false;
+            startdying = false;
+            this.GetComponentInChildren<SlothBody>().Die();
           }
         } else {
           if (info.IsName ("Dying")) {
@@ -112,11 +111,9 @@ namespace LoveElephant
       float currentY = this.transform.eulerAngles.y;
       if (!turning) {
         if (player.transform.position.x < this.transform.position.x && !faceLeft) {
-          Debug.Log ("turnleft");
           faceLeft = true;
           StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
         } else if (player.transform.position.x > this.transform.position.x && faceLeft) {
-          Debug.Log ("turnright");
           faceLeft = false;
           StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
         }
@@ -146,28 +143,13 @@ namespace LoveElephant
     //If this is at the same level as the player
     bool sameLevel()
     {
-
-      float heightDiff = Mathf.Abs (player.transform.position.y - this.transform.position.y);
-
-      if (heightDiff < 4.5) {
-        return true;
-      }
-
-      return false;
+      return Mathf.Abs (player.transform.position.y - this.transform.position.y) < 4.5;
     }
 
     public void Dying()
     {
       dying = true;
-  
       anim.SetTrigger ("Dying");
-      Vector3 keyPos = new Vector3 (transform.position.x, transform.position.y + 2f, 0f);
-      Instantiate (keyDrop, keyPos, Quaternion.identity);
-    }
-
-    public bool IsDead()
-    {
-      return !dying;
     }
   }
 }

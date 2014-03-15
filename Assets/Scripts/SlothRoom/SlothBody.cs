@@ -2,125 +2,66 @@
 using System.Collections;
 using Item;
 
-namespace LoveElephant
+namespace Boss
 {
-public class SlothBody : MonoBehaviour
-{
-  public float health = 100f;
-  public float defense = 1f;
-
-  private Color origColor;
-  private Color flashColor;
-  private bool dying;
-  private float fullHealth;
-  private bool faceLeft;
-  private Material mat;
-  private bool exploding = false;
-  // Use this for initialization
-  void Start()
+  public class SlothBody : MonoBehaviour
   {
-    mat = GetComponent<SkinnedMeshRenderer> ().material;
-    origColor = mat.color;
-    flashColor = Color.red;
-    fullHealth = health;
-    dying = false;
 
-  }
+
+    private bool dying = false;
+    private bool faceLeft;
+    private bool flaming = false;
+    private BossStats stats;
+
+    // Use this for initialization
+    void Start()
+    {
+      stats = this.GetComponent<BossStats> ();
+    }
   
-  // Update is called once per frame
-  void Update()
-  {
-  }
-	
-  void OnTriggerEnter(Collider other)
-  {
-    if (!dying) {
-      if (other.gameObject.tag == "Weapon") {
-        float startperc = health / fullHealth;
-        
-        health -= other.gameObject.GetComponent<WeaponStats>().getDamage(defense);
-        
-        float endperc = health / fullHealth; 
-        if (startperc >= 0.50 && endperc <= 0.50) {
-          this.transform.Find ("BodyFire").particleSystem.Play ();
-        }
-        StartCoroutine (FlashRed ());
-        if (health <= 0 && !exploding) {
-          StartCoroutine (SlothDying ());
-        }
+    // Update is called once per frame
+    void Update()
+    {
+      float hpLeft = stats.healthPercent;
+      if (!flaming && hpLeft < 0.5f) {
+        this.transform.Find ("BodyFire").particleSystem.Play ();
+        flaming = true;
+      } else if (!dying && hpLeft <= 0f) {
+        this.transform.parent.GetComponent<SlothAI> ().Dying ();
+        dying = true;
       }
     }
-  }
   
-  void OnCollisionEnter(Collision hit)
-  {
-	if (hit.gameObject.tag == "Wall") {
-		transform.parent.GetComponent<SlothAI>().HitWall();
-		//facePlayer ();
-		//anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
-	}
-  } 
-
-void OnCollisionStay(Collision hit)
-{
-	if (hit.gameObject.tag == "Wall") {
-		transform.parent.GetComponent<SlothAI>().HitWall();
-		//facePlayer ();
-		//anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
-	}
-}
-
-  //flash red on hit 
-  IEnumerator FlashRed()
-  {
-    float elapsedTime = 0f;
-    float totaltime = 0.25f;
-    float intervalTime = .05f;
-    int index = 0;
-    while (elapsedTime < totaltime) {
-      if (index % 2 == 0) {
-        mat.color = origColor;
-      } else {
-        mat.color = flashColor;
+    void OnCollisionEnter(Collision hit)
+    {
+      if (hit.gameObject.tag == "Wall") {
+        transform.parent.GetComponent<SlothAI> ().HitWall ();
+        //facePlayer ();
+        //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
       }
-      
-      elapsedTime += intervalTime;
-      index++;
-      yield return new WaitForSeconds (intervalTime);
     }
-    mat.color = origColor;
-    
-  }
 
-  IEnumerator SlothDying()
-  {
- //   Animator anim = transform.parent.animator;
- //   anim.Play("Dying");
-    this.Dying ();
-	SlothAI ai = this.transform.parent.GetComponent<SlothAI> ();
-   	while (!ai.IsDead()) {
-      yield return 0;
-   }
-	
-	exploding = true;
-    this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
-    
-    Transform tv = this.transform.parent.Find ("tv");
-	this.gameObject.GetComponent<MeshExploder>().Explode();
-    if (tv.gameObject.activeInHierarchy) {
-      SlothTV script = tv.GetComponent <SlothTV> ();
-      script.Explode ();
+    void OnCollisionStay(Collision hit)
+    {
+      if (hit.gameObject.tag == "Wall") {
+        transform.parent.GetComponent<SlothAI> ().HitWall ();
+        //facePlayer ();
+        //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
+      }
     }
-  
-    this.gameObject.SetActive (false);
 
-  }
+    public void Die()
+    {
+      this.transform.parent.Find ("SlothExplosion").particleSystem.Play ();
+    
+      SlothTV tv = this.transform.parent.GetComponentInChildren<SlothTV> ();
+      if (tv != null) {
+        tv.Die ();
+      }
 
-  void Dying()
-  {
-      
-    this.transform.parent.GetComponent<SlothAI> ().Dying ();
-    dying = true;
+      this.gameObject.GetComponent<MeshExploder> ().Explode ();
+      this.gameObject.SetActive (false);
+
+    }
   }
-}
 }
