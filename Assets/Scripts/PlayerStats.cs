@@ -10,6 +10,7 @@ namespace LoveElephant
     public float health;
     public float armor;
     public float invincibleTime;
+	public float poisonFlashTime;
     private float maxHealth;
     private Material mat;
     private bool invincible = false;
@@ -25,10 +26,15 @@ namespace LoveElephant
     // Update is called once per frame
     void Update()
     {
-  
-    }
-
-    private void OnCollisionEnter(Collision c)
+		if (health <= 0f) {
+			healthBar.renderer.enabled = false;
+			health = maxHealth;
+			rigidbody.velocity = Vector3.zero;
+			GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadPerviousLevel();
+		}
+	}
+		
+	private void OnCollisionEnter(Collision c)
     {
       if (!invincible && c.gameObject.tag == "Boss") {
 
@@ -40,20 +46,40 @@ namespace LoveElephant
         rigidbody.AddForce (dir, ForceMode.Impulse);
         float dmg = c.gameObject.GetComponent<BossStats> ().attackDmg;
 
-        health -= dmg/ armor;
+		DamagePlayer(dmg);
 
-        if (health >= 0f) {
-          StartCoroutine(Invincible());
-        } else {
-	  	  healthBar.renderer.enabled = false;
-		  health = maxHealth;
-	  	  rigidbody.velocity = Vector3.zero;
-          GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadPerviousLevel();
-        }
       }
     }
 
-    private IEnumerator Invincible()
+	public void DamagePlayer(float damage){
+			health -= damage / armor;
+			
+			if (health <= 0f) {
+				healthBar.renderer.enabled = false;
+				health = maxHealth;
+				rigidbody.velocity = Vector3.zero;
+				GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager>().SMLoadPerviousLevel();
+			}
+	}
+
+	public void PoisonPlayer(float dmg){
+		DamagePlayer(dmg);
+		StartCoroutine("PoisonFlash");
+	}
+
+	private IEnumerator PoisonFlash	()
+	{
+		Color originalColor = mat.color;
+		mat.color = new Color(60f/255f, 120f/255f, 60f/255f);
+		yield return new WaitForSeconds (poisonFlashTime);
+		mat.color = originalColor;
+		yield return new WaitForSeconds (poisonFlashTime/2f);
+		mat.color = new Color(60f/255f, 120f/255f, 60f/255f);
+		yield return new WaitForSeconds (poisonFlashTime);
+		mat.color = originalColor;
+	}
+
+	private IEnumerator Invincible()
     {
 	  healthBar.renderer.enabled = true;
 	  healthBar.renderer.material.color = new Color (1f,0f,0f);
