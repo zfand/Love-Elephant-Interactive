@@ -14,7 +14,7 @@ namespace LoveElephant
     void OnTriggerEnter(Collider c)
     {
       if (c.gameObject.CompareTag ("Player")) {
-        if (c.gameObject.GetComponent<Inventory>().CheckKey(requiredKey.ToString())) {
+        if (c.gameObject.GetComponent<Inventory>().CheckKey(requiredKey.ToString()) || requiredKey == KeyType.None) {
           GameObject.FindGameObjectWithTag("RoomManager").GetComponent<RoomManager>().SwitchRooms(this.transform.parent.gameObject);
         }
       }

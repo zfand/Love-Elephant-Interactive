@@ -13,6 +13,8 @@ namespace LoveElephant
     /// The name of the prefab of the Item that will be stored
     /// </summary>
     public string prefabName;
+
+	public string prefabType;
     /// <summary>
     /// A Milliseconds delay before picking up the Item
     /// </summary>
@@ -38,9 +40,7 @@ namespace LoveElephant
 
     }
     private void OnPickup(GameObject player) {
-      player.GetComponent<Inventory>().AddItem(prefabName);
-      //TODO REMOVE THIS TESTING CODE
-     // player.GetComponent<Equipment>().Equip(player.GetComponent<Inventory>().TakeItem(prefabName));
+      player.GetComponent<Inventory>().AddItem(prefabName, prefabType);
       Destroy(this.gameObject);
     }
   }

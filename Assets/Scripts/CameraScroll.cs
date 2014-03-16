@@ -5,6 +5,7 @@ public class CameraScroll : MonoBehaviour {
 
 	public GameObject cam;
 	public float widthBarrier;
+	public bool TheHub;
 	public bool tallRoom;
 
 	// Use this for initialization
@@ -30,9 +31,13 @@ public class CameraScroll : MonoBehaviour {
 		} else if (newX > widthBarrier) {
 			newX = widthBarrier;
 		}
-
+		
 		if (newY > widthBarrier + 6.5f) {
 			newY = widthBarrier + 6.5f;
+		}
+
+		if (TheHub && newY > 6.5f) {
+			newY = 6.5f;
 		}
 
 		if (playerX > -widthBarrier && playerX < widthBarrier) {

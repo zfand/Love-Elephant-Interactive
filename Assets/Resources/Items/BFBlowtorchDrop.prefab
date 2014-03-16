@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabName: BFT
+  prefabType: Weapon
   pickupDelay: 0
 --- !u!136 &13600000
 CapsuleCollider:

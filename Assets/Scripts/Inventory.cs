@@ -61,9 +61,9 @@ namespace LoveElephant
     /// <summary>
     /// Returns a new instance of the Item
     /// </summary>
-    private GameObject Create(string name)
+    private GameObject Create(string name, string type)
     {
-      GameObject item = Instantiate (Resources.Load<GameObject> ("Items/" + name)) as GameObject;
+      GameObject item = Instantiate (Resources.Load<GameObject> ("Items/" + type + "/" + name)) as GameObject;
       item.transform.parent = this.transform;
       item.name = name;
       return item;
@@ -78,15 +78,17 @@ namespace LoveElephant
         this.Add (item);
         return true;
       }
+      Destroy (item);
+	  Debug.LogError("item tag '" + item.tag + "' is invalid");
       return false;
     }
 
     /// <summary>
     /// Adds the Given item to the Inventory by creating it then storing it.
     /// </summary>
-    public void AddItem(string itemName)
+    public void AddItem(string itemName, string itemType)
     {
-      GameObject item = Create(itemName);
+      GameObject item = Create(itemName, itemType);
       if (item != null) {
         AddItem(item);
       }
@@ -108,7 +110,7 @@ namespace LoveElephant
       foreach (string key in items.Keys) {
         foreach (string item in items[key].Where(item => item == name)) {
           items [key].Remove (item);
-          return Create (item);
+          return Create (item, key);
         }
       }
       return null;

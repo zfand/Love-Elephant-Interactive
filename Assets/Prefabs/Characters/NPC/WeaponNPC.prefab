@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - Stock
+  - Torch
   - Vampyre
   - Copycat
   - BFT

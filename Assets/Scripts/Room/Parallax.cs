@@ -11,6 +11,11 @@ public class Parallax : MonoBehaviour
   private Material secondMaterial;
   private Material thirdMaterial;
   private Shader backShader;
+	
+  public bool flipFirst;
+  public bool flipSecond;
+  public bool flipThird;
+
   public Texture firstTexture;
   public Texture secondTexture;
   public Texture thirdTexture;
@@ -46,19 +51,31 @@ public class Parallax : MonoBehaviour
     firstBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
     firstBackground.renderer.material = firstMaterial;
     firstBackground.transform.position = new Vector3 (0, 0, startDepth - 5);
-    firstBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+	if (!flipFirst) {
+	  firstBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+	} else {
+	  firstBackground.transform.localScale = new Vector3 (-intWidth, intHeight, 1);
+	}
     
     //Instantiate background 2
     secondBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
     secondBackground.renderer.material = secondMaterial;
     secondBackground.transform.position = new Vector3 (0, 0, startDepth + 5);
-    secondBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
-    
+	if (!flipSecond) {
+    	secondBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+	} else {
+		secondBackground.transform.localScale = new Vector3 (-intWidth, intHeight, 1);
+	}
+
     //Instantiate background 3
     thirdBackground = GameObject.CreatePrimitive (PrimitiveType.Cube);
     thirdBackground.renderer.material = thirdMaterial;
     thirdBackground.transform.position = new Vector3 (0, 0, startDepth + 10);
-    thirdBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+	if (!flipThird) {
+      thirdBackground.transform.localScale = new Vector3 (intWidth, intHeight, 1);
+	} else {
+	  thirdBackground.transform.localScale = new Vector3 (-intWidth, intHeight, 1);
+	}
     
     //Remove background colliders
     firstBackground.collider.isTrigger = true;

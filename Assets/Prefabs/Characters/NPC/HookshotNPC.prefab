@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - Stock
+  - BasicHookshot
   - Snakebite
   - Lovebite
   RenderGap: .100000001

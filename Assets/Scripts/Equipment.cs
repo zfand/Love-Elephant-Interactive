@@ -58,7 +58,7 @@ namespace LoveElephant
 				if(weapon != null){
 					return weapon.name;
 				} else return "";
-			case "Hookshot":
+			case "HookShot":
 				if(hookShot != null){
 					return hookShot.name;
 				} else return "";
@@ -96,7 +96,10 @@ namespace LoveElephant
         weapon = item;
         weapon.transform.parent = this.transform;
       } else if (item.tag == "Boot") {
-        if (boot != null) {
+		if (boot != null) {
+			item.transform.position = boot.transform.position;
+			item.transform.rotation = boot.transform.rotation;
+			item.transform.localScale = boot.transform.localScale;
           Unequip (boot);
         }
         boot = item;
@@ -113,5 +116,5 @@ namespace LoveElephant
       item.transform.parent = null;
       box.AddItem (item);
     }
-  }
+  }	
 }
