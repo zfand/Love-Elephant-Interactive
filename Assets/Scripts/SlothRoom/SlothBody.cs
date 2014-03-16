@@ -60,7 +60,7 @@ namespace Boss
       }
 
       this.gameObject.GetComponent<MeshExploder> ().Explode ();
-      this.gameObject.SetActive (false);
+      Destroy(transform.parent.gameObject);
 
     }
   }
