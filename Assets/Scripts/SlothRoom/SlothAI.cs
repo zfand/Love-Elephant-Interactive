@@ -7,9 +7,16 @@ namespace Boss
   {
 
     public GameObject player;
+    public float ChargeSpeed;
+    public float IdleTime;
+    public float IdleMax;
+    public float IdleMin;
+
+    public HurtBox tvHurt;
+    public HurtBox bodHurt;
+
     private Animator anim;
     private Color origColor;
-    public float ChargeSpeed;
     private bool dying;
     private bool faceLeft;
     private bool turning = false;
@@ -17,9 +24,6 @@ namespace Boss
     private Material mat;
     private bool hitwall;
     private bool charging;
-    public float IdleTime;
-    public float IdleMax;
-    public float IdleMin;
     private bool startdying = false;
     AnimatorStateInfo info;
     Transform stunSwirl;
@@ -52,6 +56,8 @@ namespace Boss
           if (IdleTime <= 0) {
             anim.SetTrigger ("BeginCharge");
             IdleTime = Mathf.Ceil (Random.Range (IdleMin, IdleMax));
+            bodHurt.HurtEnabled(true);
+            tvHurt.HurtEnabled(true);
           }
 
         } else if (!charging && info.IsName ("Charge") && !startHit) {
@@ -60,6 +66,8 @@ namespace Boss
         } else if (info.IsName ("EndCharge")) {
           stunSwirl.gameObject.SetActive (true);  
           startHit = false;
+          bodHurt.HurtEnabled(false);
+          tvHurt.HurtEnabled(false);
         }
       } else {
         if (startdying) {

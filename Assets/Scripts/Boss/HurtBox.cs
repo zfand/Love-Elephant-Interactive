@@ -8,7 +8,7 @@ public class HurtBox : MonoBehaviour
   /// </summary>
   public float attackDmg;
 
-  public void Hurtenabled(bool toggle) {
+  public void HurtEnabled(bool toggle) {
     this.enabled = toggle;
     if (collider != null) {
       collider.enabled = toggle;
