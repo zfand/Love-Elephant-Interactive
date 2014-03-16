@@ -2649,7 +2649,6 @@ GameObject:
   - 114: {fileID: 11400000}
   - 195: {fileID: 19500000}
   - 95: {fileID: 9500000}
-  - 65: {fileID: 6500004}
   m_Layer: 0
   m_Name: sloth
   m_TagString: Boss
@@ -2812,13 +2811,14 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100368
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400368}
   - 136: {fileID: 13600000}
+  - 114: {fileID: 11400016}
   m_Layer: 0
   m_Name: TVHurtBox
   m_TagString: HurtBox
@@ -2835,6 +2835,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400370}
   - 136: {fileID: 13600002}
+  - 114: {fileID: 11400020}
   m_Layer: 0
   m_Name: HeadHurtBox
   m_TagString: HurtBox
@@ -2851,6 +2852,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400372}
   - 135: {fileID: 13500002}
+  - 114: {fileID: 11400018}
   m_Layer: 0
   m_Name: BodyHurtBox
   m_TagString: HurtBox
@@ -4900,6 +4902,7 @@ Transform:
   - {fileID: 400006}
   - {fileID: 400358}
   - {fileID: 400356}
+  - {fileID: 400368}
   m_Father: {fileID: 400348}
 --- !u!4 &400342
 Transform:
@@ -4957,7 +4960,6 @@ Transform:
   - {fileID: 400344}
   - {fileID: 400342}
   - {fileID: 400370}
-  - {fileID: 400368}
   - {fileID: 400354}
   - {fileID: 400340}
   - {fileID: 400338}
@@ -5075,10 +5077,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.90460992e-06, y: 4.47561169, z: 5.32567644}
+  m_LocalPosition: {x: -0, y: 4.47561169, z: 5.32567644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400348}
+  m_Father: {fileID: 400340}
 --- !u!4 &400370
 Transform:
   m_ObjectHideFlags: 1
@@ -5172,18 +5174,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.61868382, y: 3.22633505, z: 1.78999996}
   m_Center: {x: .0317819864, y: 4.55219221, z: 5.36999989}
---- !u!65 &6500004
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100348}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -5343,6 +5333,42 @@ MonoBehaviour:
   lifeSteal: 0
   flashTime: .25
   drop: {fileID: 100000, guid: eaa24eb92b4feff42b6ad474a9ef95eb, type: 2}
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a830b31300c46a6b048904c309e7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDmg: 15
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a830b31300c46a6b048904c309e7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDmg: 30
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33a830b31300c46a6b048904c309e7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDmg: 10
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -5362,8 +5388,8 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100372}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 2.54999995
   m_Center: {x: 0, y: 0, z: 0}
@@ -5375,7 +5401,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 100368}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1.10000002
   m_Height: 4
   m_Direction: 1

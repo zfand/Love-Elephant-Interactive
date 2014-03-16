@@ -7,12 +7,9 @@ public class HurtBox : MonoBehaviour
   /// The damage the Boss does on hit
   /// </summary>
   public float attackDmg;
-  /// <summary>
-  /// reference to hurt collider
-  /// </summary>
-  public Collider collider;
 
-  public void enabled(bool toggle) {
+  public void Hurtenabled(bool toggle) {
+    this.enabled = toggle;
     if (collider != null) {
       collider.enabled = toggle;
     }
