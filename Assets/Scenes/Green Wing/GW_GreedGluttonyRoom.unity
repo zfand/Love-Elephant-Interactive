@@ -762,6 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1724664799}
   widthBarrier: 10.3500004
+  TheHub: 0
   tallRoom: 0
 --- !u!4 &1931051121
 Transform:
