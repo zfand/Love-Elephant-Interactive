@@ -15,10 +15,6 @@ namespace Boss
     /// </summary>
     public float armor;
     /// <summary>
-    /// The damage the Boss does on hit
-    /// </summary>
-    public float attackDmg;
-    /// <summary>
     /// The life steal of the Boss
     /// </summary>
     [Range(0f,1f)]
