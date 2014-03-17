@@ -52,7 +52,7 @@ namespace Boss
 
             //if close
             roll = (dist < 5f) ? roll + 35 : roll;
-            roll = (dist < 15f) ? roll + 25 : roll;
+            roll = (dist < 10f) ? roll + 25 : roll;
             //if too far
             roll = (dist > 30f) ? roll - 65 : roll;
 
