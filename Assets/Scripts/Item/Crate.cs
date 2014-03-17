@@ -19,4 +19,11 @@ public class Crate : MonoBehaviour {
 			this.gameObject.SetActive(false);
 		}
 	}
+
+  void OnCollisionEnter(Collision hit) {
+    if (hit.gameObject.tag == "Weapon" || hit.gameObject.tag == "Boss") {
+      ((MeshExploder) this.GetComponent("MeshExploder")).Explode(); 
+      this.gameObject.SetActive(false);
+    }
+  }
 }

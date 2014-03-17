@@ -30,7 +30,7 @@ namespace LoveElephant
 
     private void OnCollisionEnter(Collision c)
     {
-      if (!invincible && c.collider.tag == "HurtBox") {
+      if (!invincible && c.collider.tag == "Boss") {
 
         Vector3 dir = Vector3.zero;
         foreach (ContactPoint p in c.contacts) {
@@ -38,7 +38,7 @@ namespace LoveElephant
         }
         dir = dir.normalized * 25f;
         rigidbody.AddForce (dir, ForceMode.Impulse);
-        float dmg = c.collider.GetComponent<HurtBox> ().attackDmg;
+        float dmg = c.collider.GetComponent<BossStats> ().attackDmg;
 
         health -= dmg / armor;
 

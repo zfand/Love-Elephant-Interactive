@@ -1,15 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerStats.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Boss/BossStats.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerStats.cs" Line="4" Column="17" />
-      <File FileName="Assets/Scripts/Boss/BossStats.cs" Line="64" Column="45" />
-      <File FileName="Assets/Scripts/SlothRoom/SlothBody.cs" Line="19" Column="32" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="6" />
-      <File FileName="Assets/Scripts/Item/GrappleMechanic.cs" Line="376" Column="37" />
-      <File FileName="Assets/Scripts/Equipment.cs" Line="55" Column="24" />
-      <File FileName="Assets/Scripts/Preloader/SceneManager.cs" Line="85" Column="46" />
-      <File FileName="Assets/Scripts/Room/RoomManager.cs" Line="50" Column="25" />
+      <File FileName="Assets/Scripts/SlothRoom/SlothAI.cs" Line="49" Column="69" />
+      <File FileName="Assets/Scripts/Boss/BossStats.cs" Line="16" Column="28" />
+      <File FileName="Assets/Scripts/Item/Sword.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Item/Crate.cs" Line="1" Column="19" />
+      <File FileName="Assets/Scripts/SlothRoom/SlothTV.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerStats.cs" Line="40" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

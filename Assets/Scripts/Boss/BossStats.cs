@@ -11,6 +11,10 @@ namespace Boss
     /// </summary>
     public float health;
     /// <summary>
+    /// The damage the Boss does on hit
+    /// </summary>
+    public float attackDmg;
+    /// <summary>
     /// The toughness of the Boss
     /// </summary>
     public float armor;

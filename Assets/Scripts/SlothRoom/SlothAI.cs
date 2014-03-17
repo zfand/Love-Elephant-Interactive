@@ -7,22 +7,17 @@ namespace Boss
   {
 
     public GameObject player;
-    public float ChargeSpeed;
-    public float IdleTime;
-    public float IdleMax;
-    public float IdleMin;
-
-    public HurtBox tvHurt;
-    public HurtBox bodHurt;
-
+    public float chargeSpeed;
+    public float chargeDistance;
+    public float idleTime;
+    public float idleMax;
+    public float idleMin;
     private Animator anim;
     private Color origColor;
     private bool dying;
-    private bool faceLeft;
+    private int facing;
     private bool turning = false;
     private bool startHit = false;
-    private Material mat;
-    private bool hitwall;
     private bool charging;
     private bool startdying = false;
     AnimatorStateInfo info;
@@ -31,16 +26,12 @@ namespace Boss
     void Start()
     {
       anim = GetComponent<Animator> ();
-      faceLeft = true;
+      facing = 1;
       charging = false;
       player = GameObject.FindGameObjectWithTag ("Player");
       stunSwirl = transform.FindChild ("Stun");
       stunSwirl.gameObject.SetActive (false);
-      /*
-    mat = GetComponent<MeshRenderer>().material;
-    origColor = mat.color;
-    flashColor = Color.red;
-    */
+
     }
   
     // Update is called once per frame
@@ -52,28 +43,26 @@ namespace Boss
         if (info.IsName ("IdleState")) {
           stunSwirl.gameObject.SetActive (false); 
           facePlayer ();
-          IdleTime--;
-          if (IdleTime <= 0) {
+          idleTime--;
+          if (idleTime <= 0) {
             anim.SetTrigger ("BeginCharge");
-            IdleTime = Mathf.Ceil (Random.Range (IdleMin, IdleMax));
-            bodHurt.HurtEnabled(true);
-            tvHurt.HurtEnabled(true);
+            idleTime = Mathf.Ceil (Random.Range (idleMin, idleMax));
           }
 
         } else if (!charging && info.IsName ("Charge") && !startHit) {
           charging = true;
+          startHit = true;
           StartCoroutine (Charge ());
         } else if (info.IsName ("EndCharge")) {
-          stunSwirl.gameObject.SetActive (true);  
           startHit = false;
-          bodHurt.HurtEnabled(false);
-          tvHurt.HurtEnabled(false);
+        } else if (info.IsName ("Stunned")) {
+          stunSwirl.gameObject.SetActive (true);  
         }
       } else {
         if (startdying) {
           if (info.IsName ("Dead")) {
             startdying = false;
-            this.GetComponentInChildren<SlothBody>().Die();
+            this.GetComponentInChildren<SlothBody> ().Die ();
           }
         } else {
           if (info.IsName ("Dying")) {
@@ -91,24 +80,22 @@ namespace Boss
 
     IEnumerator Charge()
     {
-      float newspeed = ChargeSpeed;
-      if (faceLeft) {
-        newspeed *= -1;
-      }
-      while (!hitwall) {
-        transform.position = new Vector3 (transform.position.x + newspeed, transform.position.y, transform.position.z);
+      float newspeed = chargeSpeed * facing;
+      Vector3 startPos = transform.position;
+
+      while (charging && Vector3.Distance(startPos, transform.position) < chargeDistance) {
+        transform.position = new Vector3 (transform.position.x - newspeed, transform.position.y, transform.position.z);
         yield return 0;
       }
       charging = false;
-      hitwall = false;
-      startHit = true;
-      anim.SetTrigger ("HitWall");
+      anim.SetTrigger ("EndCharge");
     }
 
     public void HitWall()
     {
       if (charging) {
-        hitwall = true;
+        charging = false;
+        anim.SetTrigger ("Stunned");   
       }
     }
   
@@ -118,11 +105,11 @@ namespace Boss
       float currentX = this.transform.eulerAngles.x;
       float currentY = this.transform.eulerAngles.y;
       if (!turning) {
-        if (player.transform.position.x < this.transform.position.x && !faceLeft) {
-          faceLeft = true;
+        if (player.transform.position.x < this.transform.position.x && facing != 1) {
+          facing = 1;
           StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
-        } else if (player.transform.position.x > this.transform.position.x && faceLeft) {
-          faceLeft = false;
+        } else if (player.transform.position.x > this.transform.position.x && facing != -1) {
+          facing = -1;
           StartCoroutine (TurnSloth (new Vector3 (currentX, -currentY, 0f)));
         }
       }
@@ -135,7 +122,7 @@ namespace Boss
       bool rotating = true;
       turning = true;
 
-      while (rotating) {
+      while (rotating) { 
         totalrot += interval;
         if (totalrot >= 180) {
           rotating = false;
