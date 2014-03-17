@@ -91,7 +91,7 @@ namespace LoveElephant
         jump = true;
 
       if (rigidbody.velocity.magnitude > 50) {
-        rigidbody.velocity /= 2;
+        rigidbody.velocity = rigidbody.velocity.normalized * 50;
       }
     }
 
@@ -116,9 +116,10 @@ namespace LoveElephant
           //Add force
           if (h  == 0 && grounded) {
             rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
           }
           else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
-            rigidbody.AddForce (Vector2.right * h * mStats.moveForce, ForceMode.Acceleration);
+            rigidbody.AddForce (Vector2.right * h * mStats.moveForce);
           }
           if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed && grounded) {
             rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxRunSpeed, rigidbody.velocity.y, 0);
