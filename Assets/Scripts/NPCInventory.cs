@@ -10,7 +10,6 @@ namespace LoveElephant
 		public float RenderGap;
 		bool isOpen;
 		List<GameObject> ItemObjects;
-		int ItemCount;
 		string npctype;
 		Inventory PlayerInv;
 		Equipment playerequip;
@@ -19,7 +18,6 @@ namespace LoveElephant
 		void Start () {
 			isOpen = false;
 			ItemObjects = new List<GameObject>();
-			ItemCount = Items.Count;
 			npctype = this.transform.parent.GetComponent<TalkToNPC>().NPCType;
 			GameObject item;
 			string itempath;
@@ -84,8 +82,6 @@ namespace LoveElephant
 			playerequip = pequip;
 			PlayerInv = p_inv;
 			List<string> inv = p_inv.GetItemsByTag(npctype);
-			GameObject lockicon = Resources.Load<GameObject> ("Gui/LockIcons/LockIcon");
-			GameObject newlock;
 			bool foundmatch = false;
 			
 			foreach(GameObject g in ItemObjects){
