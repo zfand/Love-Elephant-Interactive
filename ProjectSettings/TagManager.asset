@@ -21,7 +21,7 @@ TagManager:
   - Boss
   - Crate
   - HealthBar
-  - 
+  - IgnorePlayer
   - 
   - 
   - 
@@ -39,6 +39,8 @@ TagManager:
   - Floor
   - RoomExitMidB
   - 
+  - HurtBox
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -52,7 +54,7 @@ TagManager:
   User Layer 10: Enemies
   User Layer 11: Pickups
   User Layer 12: Ground
-  User Layer 13: 
+  User Layer 13: IgnorePlayer
   User Layer 14: 
   User Layer 15: 
   User Layer 16: 

@@ -74,7 +74,7 @@ namespace LoveElephant
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
 
-      ignoredWallLayer = 1 << LayerMask.NameToLayer ("Player") << LayerMask.NameToLayer("RoomKey") << LayerMask.NameToLayer("Pickup");
+      ignoredWallLayer = 1 << LayerMask.NameToLayer ("Player") << LayerMask.NameToLayer("RoomKey") << LayerMask.NameToLayer("Pickup") << LayerMask.NameToLayer("IgnorePlayer");
     }
   
     // Update is called once per frame
