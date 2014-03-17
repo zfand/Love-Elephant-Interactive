@@ -4970,7 +4970,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100348}
   m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
-  m_LocalPosition: {x: 11.9066105, y: -5.91239834, z: 0}
+  m_LocalPosition: {x: 11.6429615, y: -6.06144333, z: 0}
   m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 400346}
@@ -5243,11 +5243,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chargeSpeed: .5
-  chargeDistance: 10
+  chargeSpeed: .400000006
+  chargeDistance: 25
   idleTime: 0
-  idleMax: 600
-  idleMin: 300
+  idleMax: 10
+  idleMin: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

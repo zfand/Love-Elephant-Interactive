@@ -43,10 +43,28 @@ namespace Boss
         if (info.IsName ("IdleState")) {
           stunSwirl.gameObject.SetActive (false); 
           facePlayer ();
-          idleTime--;
+          idleTime -= Time.deltaTime;
           if (idleTime <= 0) {
-            anim.SetTrigger ("BeginCharge");
             idleTime = Mathf.Ceil (Random.Range (idleMin, idleMax));
+
+            float roll = Random.Range (0,100);
+            float dist = Vector3.Distance(player.transform.position, transform.position);
+
+            //if close
+            roll = (dist < 5f) ? roll + 35 : roll;
+            roll = (dist < 15f) ? roll + 25 : roll;
+            //if too far
+            roll = (dist > 30f) ? roll - 65 : roll;
+
+            if (roll >= 65) {
+              anim.SetTrigger("Spin");
+              StartCoroutine ( DirtySpin());
+            } else if (roll >= 80) {
+              anim.SetTrigger("Shock");
+              StartCoroutine ( DirtyShock());
+            } else {
+              anim.SetTrigger ("BeginCharge");
+            }
           }
 
         } else if (!charging && info.IsName ("Charge") && !startHit) {
@@ -135,6 +153,35 @@ namespace Boss
     
       this.transform.eulerAngles = dest;
     }
+
+    IEnumerator DirtySpin()
+    {
+      float interval = 15f;
+      float totalrot = 0;
+      Vector3 startRotation = this.transform.eulerAngles;
+
+      bool rotating = true;
+      turning = true;
+
+      while (rotating) { 
+        totalrot += interval;
+        if (totalrot >= 720) {
+          rotating = false;
+          yield return 0;
+        }
+        transform.Rotate (new Vector3 (0f, interval, 0f));
+        yield return 0;
+      }
+      turning = false;
+      
+      this.transform.eulerAngles = startRotation;
+    }
+
+    IEnumerator DirtyShock()
+    {
+      yield return 0;
+    }
+
     //If this is at the same level as the player
     bool sameLevel()
     {
