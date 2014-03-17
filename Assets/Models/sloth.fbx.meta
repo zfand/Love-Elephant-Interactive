@@ -178,6 +178,7 @@ ModelImporter:
     100344: tv
     100346: tv_ctrl
     100348: tv_jt
+    100350: group1
     400000: bl_cable_ctrl4_1
     400002: bl_cable_ctrl4_2
     400004: bl_cable_ctrl4_3
@@ -353,6 +354,7 @@ ModelImporter:
     400344: tv
     400346: tv_ctrl
     400348: tv_jt
+    400350: group1
     4300000: body
     4300002: eye1
     4300004: eye2
