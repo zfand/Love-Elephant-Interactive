@@ -4953,7 +4953,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100348}
   m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
-  m_LocalPosition: {x: 17.7417698, y: -6.83494568, z: 0}
+  m_LocalPosition: {x: 11.9066105, y: -6.40647411, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400346}
@@ -5214,10 +5214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  ChargeSpeed: .5
-  IdleTime: 100
-  IdleMax: 300
-  IdleMin: 100
+  chargeSpeed: .5
+  chargeDistance: 10
+  idleTime: 0
+  idleMax: 600
+  idleMin: 300
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5313,6 +5314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  attackDmg: 0
   armor: 1
   lifeSteal: 0
   flashTime: .25
@@ -5329,6 +5331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  attackDmg: 0
   armor: 1
   lifeSteal: 0
   flashTime: .25
