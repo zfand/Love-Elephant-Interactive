@@ -112,7 +112,8 @@ namespace LoveElephant
         }
 
         //Make sure you're not grinding up against a wall
-        if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~ignoredWallLayer)) {
+        //if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~ignoredWallLayer)) {
+        if (true) {
           //Add force
           if (h  == 0 && grounded) {
             rigidbody.velocity = Vector3.zero;
