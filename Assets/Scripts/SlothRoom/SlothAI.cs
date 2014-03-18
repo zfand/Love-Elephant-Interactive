@@ -7,7 +7,7 @@ namespace Boss
   {
 
     public GameObject player;
-    public float chargeSpeed;
+    public float chargeForce;
     public float chargeDistance;
     public float idleTime;
     public float idleMax;
@@ -37,6 +37,8 @@ namespace Boss
     // Update is called once per frame
     void Update()
     {
+      rigidbody.AddForce(-Vector3.up * 10f);
+
       info = anim.GetCurrentAnimatorStateInfo (0);
       if (!dying) {
 
@@ -98,13 +100,23 @@ namespace Boss
 
     IEnumerator Charge()
     {
-      float newspeed = chargeSpeed * facing;
       Vector3 startPos = transform.position;
+      float deltaTime = 0;
+
+      rigidbody.AddForce(Vector3.left * facing * chargeForce, ForceMode.Impulse);
 
       while (charging && Vector3.Distance(startPos, transform.position) < chargeDistance) {
-        transform.position = new Vector3 (transform.position.x - newspeed, transform.position.y, transform.position.z);
+        rigidbody.AddForce(Vector3.left * facing * chargeForce);
         yield return 0;
       }
+      rigidbody.velocity = Vector3.zero;
+      rigidbody.angularVelocity = Vector3.zero;
+
+      while (deltaTime < 0.5f) {
+        deltaTime += Time.deltaTime;
+        yield return 0;
+      }
+
       charging = false;
       anim.SetTrigger ("EndCharge");
     }

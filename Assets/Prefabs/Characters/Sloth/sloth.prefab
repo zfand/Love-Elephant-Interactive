@@ -2603,7 +2603,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400342}
   - 114: {fileID: 11400004}
-  - 65: {fileID: 6500000}
+  - 136: {fileID: 13600004}
   m_Layer: 13
   m_Name: Feet
   m_TagString: Untagged
@@ -2771,7 +2771,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 11.8642197, y: -5.72626305, z: 0}
   m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 400002}
@@ -4994,18 +4994,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!65 &6500000
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100342}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -5162,8 +5150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chargeSpeed: .400000006
-  chargeDistance: 25
+  chargeForce: 1000
+  chargeDistance: 5
   idleTime: 0
   idleMax: 10
   idleMin: 0
@@ -5205,6 +5193,19 @@ CapsuleCollider:
   m_Height: 3.4000001
   m_Direction: 1
   m_Center: {x: .00746940449, y: 4.50106382, z: 5.38555622}
+--- !u!136 &13600004
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100342}
+  m_Material: {fileID: 13400000, guid: e276318e0ed8048dda860db123b79c6c, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
