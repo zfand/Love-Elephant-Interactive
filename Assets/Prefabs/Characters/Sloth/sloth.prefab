@@ -12,7 +12,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400014}
   m_Layer: 0
-  m_Name: Sloth
+  m_Name: sloth
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,10 +98,10 @@ GameObject:
   - 33: {fileID: 3300000}
   - 136: {fileID: 13600002}
   - 54: {fileID: 5400002}
-  - 138: {fileID: 13800002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400012}
+  - 59: {fileID: 5900000}
   m_Layer: 0
   m_Name: tv
   m_TagString: Boss
@@ -2771,7 +2771,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 11.8642197, y: -5.72626305, z: 0}
+  m_LocalPosition: {x: 12.7586298, y: -5.67939568, z: 0}
   m_LocalScale: {x: .800000012, y: .800000012, z: .800000012}
   m_Children:
   - {fileID: 400002}
@@ -4994,6 +4994,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!59 &5900000
+HingeJoint:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_ConnectedBody: {fileID: 5400004}
+  m_Anchor: {x: 0, y: 6.21594048, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 6.21594048, z: 0}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 0
+    damper: 0
+    targetPosition: 0
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 0
+    force: 0
+    freeSpin: 0
+  m_UseLimits: 0
+  m_Limits:
+    min: 0
+    max: 0
+    minBounce: 0
+    maxBounce: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -5657,15 +5686,6 @@ FixedJoint:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_ConnectedBody: {fileID: 5400000}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
---- !u!138 &13800002
-FixedJoint:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100010}
   m_ConnectedBody: {fileID: 5400000}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
