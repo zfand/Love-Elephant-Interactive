@@ -60,7 +60,6 @@ namespace Boss
 
             if (roll >= 65) {
               anim.SetTrigger("Spin");
-              StartCoroutine ( DirtySpin());
             } else if (roll >= 80) {
               anim.SetTrigger("Shock");
               StartCoroutine ( DirtyShock());
@@ -112,7 +111,7 @@ namespace Boss
       rigidbody.velocity = Vector3.zero;
       rigidbody.angularVelocity = Vector3.zero;
 
-      while (deltaTime < 0.5f) {
+      while (deltaTime < 1f) {
         deltaTime += Time.deltaTime;
         yield return 0;
       }
@@ -164,29 +163,6 @@ namespace Boss
       turning = false;
     
       this.transform.eulerAngles = dest;
-    }
-
-    IEnumerator DirtySpin()
-    {
-      float interval = 15f;
-      float totalrot = 0;
-      Vector3 startRotation = this.transform.eulerAngles;
-
-      bool rotating = true;
-      turning = true;
-
-      while (rotating) { 
-        totalrot += interval;
-        if (totalrot >= 720) {
-          rotating = false;
-          yield return 0;
-        }
-        transform.Rotate (new Vector3 (0f, interval, 0f));
-        yield return 0;
-      }
-      turning = false;
-      
-      this.transform.eulerAngles = startRotation;
     }
 
     IEnumerator DirtyShock()

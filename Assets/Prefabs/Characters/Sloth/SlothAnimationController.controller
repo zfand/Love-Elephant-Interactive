@@ -422,7 +422,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Spin
-  m_Speed: 1
+  m_Speed: .400000006
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400012, guid: f3da71982e2a443a98f6e4298d7578f6, type: 3}
