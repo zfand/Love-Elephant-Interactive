@@ -1,14 +1,26 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GreedGluttonyAI.cs">
+    <Files>
+      <File FileName="..\..\Apocalypticism\Assets\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="..\..\Apocalypticism\Assets\FloorGrid.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ItemPickup.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Equipment.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\NPCInventory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GuiItemInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Item\Sword.cs" Line="31" Column="31" />
+      <File FileName="Assets\GreedGluttonyAI.cs" Line="15" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Duncan\Documents\Apocalypticism\Assets\FloorGrid.cs" line="32" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\NPCInventory.cs" line="103" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Equipment.cs" line="116" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Inventory.cs" line="57" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Inventory.cs" line="91" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\TempPoisoner.cs" line="19" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Equipment.cs" line="58" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\NPCInventory.cs" line="107" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Equipment.cs" line="113" />
+      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Item\Sword.cs" line="31" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
