@@ -318,7 +318,8 @@ ModelImporter:
     7400014: GG_Vomit
     7400016: GG_VomitEnd
     7400018: GG_Attack
-    7400020: GG_Death
+    7400020: GG_Idle
+    7400022: GG_Death
     9500000: //RootNode
     13700000: arm1
     13700002: arm2
@@ -3230,7 +3231,7 @@ ModelImporter:
       name: GG_Attack
       takeName: Take 001
       firstFrame: 145
-      lastFrame: 177
+      lastFrame: 183
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -3547,10 +3548,330 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
+      name: GG_Idle
+      takeName: Take 001
+      firstFrame: 184
+      lastFrame: 239
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: b_leg1
+        weight: 1
+      - path: b_leg1/b_leg2
+        weight: 1
+      - path: b_leg1/b_leg2/b_leg3
+        weight: 1
+      - path: b_leg1/b_leg2/b_leg3/b_foot1
+        weight: 1
+      - path: b_leg1/b_leg2/b_leg3/b_foot1/b_foot2
+        weight: 1
+      - path: b_leg4
+        weight: 1
+      - path: b_leg4/b_leg5
+        weight: 1
+      - path: b_leg4/b_leg5/b_leg6
+        weight: 1
+      - path: b_leg4/b_leg5/b_leg6/b_foot3
+        weight: 1
+      - path: b_leg4/b_leg5/b_leg6/b_foot3/b_foot4
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/arm1
+        weight: 1
+      - path: body/arm2
+        weight: 1
+      - path: body/head
+        weight: 1
+      - path: body/head/l_eye
+        weight: 1
+      - path: body/head/r_eye
+        weight: 1
+      - path: body/l_leg1
+        weight: 1
+      - path: body/l_leg2
+        weight: 1
+      - path: body/l_leg3
+        weight: 1
+      - path: body/r_leg2
+        weight: 1
+      - path: f_leg1
+        weight: 1
+      - path: f_leg1/f_leg2
+        weight: 1
+      - path: f_leg1/f_leg2/f_leg3
+        weight: 1
+      - path: f_leg1/f_leg2/f_leg3/f_foot1
+        weight: 1
+      - path: f_leg1/f_leg2/f_leg3/f_foot1/f_foot2
+        weight: 1
+      - path: f_leg4
+        weight: 1
+      - path: f_leg4/f_leg5
+        weight: 1
+      - path: f_leg4/f_leg5/f_leg6
+        weight: 1
+      - path: f_leg4/f_leg5/f_leg6/f_foot3
+        weight: 1
+      - path: f_leg4/f_leg5/f_leg6/f_foot3/f_foot4
+        weight: 1
+      - path: greed1
+        weight: 1
+      - path: hip
+        weight: 1
+      - path: hip/spine
+        weight: 1
+      - path: hip/spine/spine1
+        weight: 1
+      - path: hip/spine/spine1/spine2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14/lb_ten15
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14/lb_ten15/lb_ten16
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14/lb_ten15/lb_ten16/lb_ten17
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14/lb_ten15/lb_ten16/lb_ten17/lb_ten18
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14/lb_ten15/lb_ten16/lb_ten17/lb_ten18/lb_ten19
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/lb_ten1/lb_ten2/lb_ten3/lb_ten4/lb_ten5/lb_ten6/lb_ten7/lb_ten8/lb_ten9/lb_ten10/lb_ten11/lb_ten12/lb_ten13/lb_ten14/lb_ten15/lb_ten16/lb_ten17/lb_ten18/lb_ten19/lb_ten20
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13/rb_ten14
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13/rb_ten14/rb_ten15
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13/rb_ten14/rb_ten15/rb_ten16
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13/rb_ten14/rb_ten15/rb_ten16/rb_ten17
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13/rb_ten14/rb_ten15/rb_ten16/rb_ten17/rb_ten18
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/g_spine1/g_spine/center1/rb_ten1/rb_ten2/rb_ten3/rb_ten4/rb_ten5/rb_ten6/rb_ten7/rb_ten8/rb_ten9/rb_ten10/rb_ten11/rb_ten12/rb_ten13/rb_ten14/rb_ten15/rb_ten16/rb_ten17/rb_ten18/rb_ten19
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/g_spine3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/g_spine3/jaw1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/g_spine3/jaw1/jaw2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/g_spine3/jaw1/jaw3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/g_spine3/jaw1/jaw3/jaw4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10/l_ten11
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10/l_ten11/l_ten12
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10/l_ten11/l_ten12/l_ten13
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10/l_ten11/l_ten12/l_ten13/l_ten14
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10/l_ten11/l_ten12/l_ten13/l_ten14/l_ten15
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/l_ten1/l_ten2/l_ten3/l_ten4/l_ten5/l_ten6/l_ten7/l_ten8/l_ten9/l_ten10/l_ten11/l_ten12/l_ten13/l_ten14/l_ten15/l_ten16
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10/r_ten11
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10/r_ten11/r_ten12
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10/r_ten11/r_ten12/r_ten13
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10/r_ten11/r_ten12/r_ten13/r_ten14
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10/r_ten11/r_ten12/r_ten13/r_ten14/r_ten15
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/g_spine2/r_ten1/r_ten2/r_ten3/r_ten4/r_ten5/r_ten6/r_ten7/r_ten8/r_ten9/r_ten10/r_ten11/r_ten12/r_ten13/r_ten14/r_ten15/r_ten16
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1/l_finger1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1/l_finger1/l_claw1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1/l_finger2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1/l_finger2/l_claw2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1/l_finger3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/l_shoulder1/l_arm1/l_arm2/l_arm3/l_hand1/l_finger3/l_claw3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/neck1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/neck1/neck2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/neck1/neck2/neck3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/neck1/neck2/neck3/neck4
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/neck1/neck2/neck3/neck4/head1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/neck1/neck2/neck3/neck4/head1/eye1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1/r_finger1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1/r_finger1/r_claw1
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1/r_finger2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1/r_finger2/r_claw2
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1/r_finger3
+        weight: 1
+      - path: hip/spine/spine1/spine2/spine3/spine4/spine5/r_shoulder1/r_arm1/r_arm2/r_arm3/r_hand1/r_finger3/r_claw3
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
       name: GG_Death
       takeName: Take 001
-      firstFrame: 177
-      lastFrame: 196
+      firstFrame: 240
+      lastFrame: 288
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
