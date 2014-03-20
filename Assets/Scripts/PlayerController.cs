@@ -46,9 +46,7 @@ namespace LoveElephant
     /// </summary>
     private Transform groundCheck;
     private Equipment equip;
-
-    private LayerMask ignoredWallLayer;
-  
+      
     private void Awake()
     {
       anim = this.GetComponentInChildren<Animator> ();
@@ -74,7 +72,7 @@ namespace LoveElephant
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
 
-      ignoredWallLayer = 1 << LayerMask.NameToLayer ("Player") << LayerMask.NameToLayer("RoomKey") << LayerMask.NameToLayer("Pickup") << LayerMask.NameToLayer("IgnorePlayer");
+      //ignoredWallLayer = 1 << LayerMask.NameToLayer ("Player") << LayerMask.NameToLayer("RoomKey") << LayerMask.NameToLayer("Pickup") << LayerMask.NameToLayer("IgnorePlayer");
     }
   
     // Update is called once per frame

@@ -12,6 +12,7 @@ namespace Boss
     public float idleTime;
     public float idleMax;
     public float idleMin;
+    public BossStats[] stats;
     private Animator anim;
     private Color origColor;
     private bool dying;
@@ -35,15 +36,15 @@ namespace Boss
     }
   
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
       rigidbody.AddForce(-Vector3.up * 10f);
 
       info = anim.GetCurrentAnimatorStateInfo (0);
       if (!dying) {
-
-        if (info.IsName ("IdleState")) {
-          stunSwirl.gameObject.SetActive (false); 
+        if (info.IsName ("IdleState") && !anim.IsInTransition(0)) {
+          SetAttacking(false);
+          stunSwirl.gameObject.SetActive (false);
           facePlayer ();
           idleTime -= Time.deltaTime;
           if (idleTime <= 0) {
@@ -66,6 +67,7 @@ namespace Boss
             } else {
               anim.SetTrigger ("BeginCharge");
             }
+            SetAttacking(true);
           }
 
         } else if (!charging && info.IsName ("Charge") && !startHit) {
@@ -88,7 +90,6 @@ namespace Boss
             startdying = true;
           }
         }
-
       }
     }
 
@@ -174,6 +175,12 @@ namespace Boss
     bool sameLevel()
     {
       return Mathf.Abs (player.transform.position.y - this.transform.position.y) < 4.5;
+    }
+
+    private void SetAttacking(bool toggle) {
+      foreach (BossStats s in stats) {
+        s.attacking = toggle;
+      }
     }
 
     public void Dying()

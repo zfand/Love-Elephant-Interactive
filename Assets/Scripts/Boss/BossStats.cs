@@ -4,6 +4,7 @@ using Item;
 
 namespace Boss
 {
+  [System.Serializable]
   public class BossStats : MonoBehaviour
   {
     /// <summary>
@@ -33,6 +34,7 @@ namespace Boss
     /// </summary>
     public GameObject drop;
     private bool dropped;
+    public bool attacking;
 
     /// <summary>
     /// The max health of the Boss
@@ -68,9 +70,16 @@ namespace Boss
     private void OnTriggerEnter(Collider other)
     {
       if (other.gameObject.tag == "Weapon") {
-        this.TakeDamage (other.gameObject.GetComponent<WeaponStats> ().getDamage ());
+        this.TakeDamage (other.gameObject.GetComponent<WeaponStats> ().GetDamage ());
         StartCoroutine ("Flash");
       }
+    }
+
+    public float GetDamage() {
+      if (attacking) {
+        return attackDmg;
+      } 
+      return 0;
     }
 
     /// <summary>
@@ -94,8 +103,14 @@ namespace Boss
     private IEnumerator Flash()
     {
       Color originalColor = mat.color;
+      float deltaTime = 0f;
+
       mat.color = Color.red;
-      yield return new WaitForSeconds (flashTime);
+
+      while (deltaTime < flashTime) {
+        deltaTime += Time.deltaTime;
+        yield return 0;
+      }
       mat.color = originalColor;
     }
   }
