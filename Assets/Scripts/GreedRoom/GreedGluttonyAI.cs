@@ -39,7 +39,12 @@ public class GreedGluttonyAI : MonoBehaviour {
 			}
 		}
 	}
+	void OnCollisionEnter(Collision c){
+		if(c.gameObject.CompareTag("Player")){
+			Debug.Log("this is working");
+		}
 
+	}
 	void OnTriggerStay(Collider c){
 		if(c.gameObject.CompareTag("Player")){
 			if(animinfo.IsName("Walk")){
