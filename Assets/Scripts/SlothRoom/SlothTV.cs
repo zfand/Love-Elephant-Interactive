@@ -9,6 +9,7 @@ namespace Boss
   
 
     public Transform deathPos;
+    public GameObject tv_ctrl;
     private BossStats stats;
     private bool faceLeft;
     private bool flaming = false;
@@ -70,14 +71,18 @@ namespace Boss
       }
     }
 
-    public void Die() {
-      StartCoroutine(BlowUpTV());
+    public void Die()
+    {
+      if (tv_ctrl != null) {
+        tv_ctrl.SetActive (false);
+      }
+      StartCoroutine (BlowUpTV ());
     }
 
     private IEnumerator BlowUpTV()
     {
       Transform boom = this.transform.parent.Find ("TVExplosion");
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds (0.5f);
       boom.position = deathPos.position;
       boom.particleSystem.Play ();
       this.gameObject.SetActive (false);

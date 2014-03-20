@@ -30,29 +30,34 @@ namespace LoveElephant
 
     private void OnCollisionEnter(Collision c)
     {
-      if (!invincible && c.collider.tag == "Boss") {
-
-        Vector3 dir = Vector3.zero;
-        foreach (ContactPoint p in c.contacts) {
-          dir += p.normal;
-        }
-        dir = dir.normalized * 25f;
-        rigidbody.AddForce (dir, ForceMode.Impulse);
-        float dmg = c.collider.GetComponent<BossStats> ().attackDmg;
-
-        health -= dmg / armor;
-
-        if (health >= 0f) {
-          StartCoroutine (Invincible ());
-        } else {
-          healthBar.renderer.enabled = false;
-          health = maxHealth;
-          rigidbody.velocity = Vector3.zero;
-          GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ().SMLoadPerviousLevel ();
+      if (!invincible && c.collider.tag == "HurtBox") {
+        float dmg = c.collider.GetComponent<HurtBox> ().GetDamage ();
+        if (dmg > 0) {
+          Vector3 dir = Vector3.zero;
+          foreach (ContactPoint p in c.contacts) {
+            dir += p.normal;
+          }
+          dir = dir.normalized * 25f;
+          rigidbody.AddForce (dir, ForceMode.Impulse);
+          TakeDamage(dmg);
         }
       }
     }
 
+    private void TakeDamage(float dmg)
+    {
+      health -= dmg / armor;
+      
+      if (health >= 0f) {
+        StartCoroutine (Invincible ());
+      } else {
+        healthBar.renderer.enabled = false;
+        health = maxHealth;
+        rigidbody.velocity = Vector3.zero;
+        GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ().SMLoadPerviousLevel ();
+      }
+    }
+    
     private IEnumerator Invincible()
     {
       healthBar.renderer.enabled = true;

@@ -30,7 +30,7 @@ namespace Item
     /// <summary>
     /// Gets the damage that's being dealt to an enemy
     /// </summary>
-    public float getDamage()
+    public float GetDamage()
     {
       if (lifeSteal) {
         if (player == null) {
