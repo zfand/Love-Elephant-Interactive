@@ -2900,6 +2900,7 @@ GameObject:
   - 54: {fileID: 991098154}
   - 114: {fileID: 991098155}
   - 135: {fileID: 991098156}
+  - 65: {fileID: 991098157}
   m_Layer: 0
   m_Name: greedgluttony
   m_TagString: Untagged
@@ -2914,7 +2915,7 @@ Transform:
   m_PrefabInternal: {fileID: 2004871910}
   m_GameObject: {fileID: 991098151}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 8.16725159, y: -6.81349564, z: 5}
+  m_LocalPosition: {x: 8.16725159, y: -6.81349564, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2013961999}
@@ -2968,6 +2969,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: .100000001
   DrinkTime: 0
+  IdleMax: 0
+  IdleMin: 0
   Destination: {fileID: 242408221}
 --- !u!135 &991098156
 SphereCollider:
@@ -2981,6 +2984,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 2.29999995, z: 0}
+--- !u!65 &991098157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991098151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 4}
+  m_Center: {x: 0, y: 2.5, z: 2}
 --- !u!1 &998189546
 GameObject:
   m_ObjectHideFlags: 0
@@ -6109,7 +6124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: 2747e2504827ef14a83010db8ffdfae8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400060, guid: 2747e2504827ef14a83010db8ffdfae8, type: 3}
       propertyPath: m_LocalRotation.x

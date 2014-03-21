@@ -580,6 +580,7 @@ MonoBehaviour:
   inputEnabled: 1
   grounded: 0
   gravity: 20
+  groundCheck: {fileID: 400006}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
