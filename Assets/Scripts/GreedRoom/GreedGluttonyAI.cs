@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Boss 
 {
@@ -9,6 +10,8 @@ namespace Boss
 		public float DrinkTime;
 		public float IdleMax;
 		public float IdleMin;
+		public List<GameObject> Pipes; 
+		private List<Pipe> pipe_Scripts;
 		private float idleCooldown;
 		Animator anim;
 		bool Moving;
@@ -23,8 +26,9 @@ namespace Boss
 			Random.seed = (int)Time.time;
 			idleCooldown = Random.Range(IdleMin, IdleMax);
 			anim = GetComponent<Animator> ();
+			anim.SetTrigger("Attack");
 			FaceRight = transform.forward.x  > 0;
-			StartCoroutine(StartWalk());
+			//StartCoroutine(StartWalk());
 		}
 
 		IEnumerator StartWalk(){
@@ -35,9 +39,17 @@ namespace Boss
 		// Update is called once per frame
 		void Update () {
 			animinfo = anim.GetCurrentAnimatorStateInfo(0);
-			if(animinfo.IsName("Idle")){
+			if(state == GGState.Idle){
 				if(idleCooldown <= 0){
-
+					ResetIdle();
+					PickNewAction();
+				} else {
+					idleCooldown--;
+				}
+			}
+			if(state == GGState.Stomp){
+				foreach(Pipe p in pipe_Scripts){
+					p.Open();
 				}
 			}
 			if(!Moving && animinfo.IsName("Walk") && !Rotating && state == GGState.Walk){
@@ -112,12 +124,12 @@ namespace Boss
 			float totalrot = 0;
 			bool rotating = true;
 			Rotating = true;
-			//if(animinfo.IsName("Walk")){
-			//	anim.SetTrigger("Idle");
-			//}
-			//while (!animinfo.IsName("Idle")){
-			//	yield return 0;
-			//}
+			if(animinfo.IsName("Walk")){
+				anim.SetTrigger("Idle");
+			}
+			while (!animinfo.IsName("Idle")){
+				yield return 0;
+			}
 			anim.SetTrigger("Rotate");
 			while (!animinfo.IsName("Rotate")){
 				if(animinfo.IsName("Walk")){
@@ -134,14 +146,19 @@ namespace Boss
 				transform.Rotate (new Vector3 (0f, interval, 0f));
 				yield return 0;
 			}
-			Rotating = false;
-			anim.SetTrigger("Idle");
 			this.transform.eulerAngles = dest;
+			Rotating = false;
+			Idle ();
+		}
+		
+		void ResetIdle(){
+			
+			idleCooldown = Random.Range(IdleMin, IdleMax);
 		}
 
-		void Walk(){
-			anim.SetTrigger("Walk");
-			state = GGState.Walk;
+		void PickNewAction(){
+
+
 		}
 
 		void Idle(){
@@ -149,6 +166,68 @@ namespace Boss
 			state = GGState.Idle;
 		}
 
+		void Walk(){			
+			if(!animinfo.IsName("Idle")){
+				StartCoroutine(IdleThenTrigger("Walk"));
+				return;
+			}
+			anim.SetTrigger("Walk");
+			state = GGState.Walk;
+		}
+
+		void Stomp(){			
+			if(!animinfo.IsName("Idle")){
+				StartCoroutine(IdleThenTrigger("Attack"));
+				return;
+			}
+			anim.SetTrigger("Attack");
+			state = GGState.Stomp;
+		}
+
+		void Vomit(){
+			if(!animinfo.IsName("Idle")){
+				StartCoroutine(IdleThenTrigger("Vomit"));
+				return;
+			}
+			anim.SetTrigger("Vomit");
+			state = GGState.Vomit;
+		}
+
+		//handle extraneous animation issues
+		IEnumerator IdleThenTrigger(string s){
+			anim.SetTrigger("Idle");
+			float Exitcountdown = 100;
+			while (!animinfo.IsName("Idle") || Exitcountdown <= 0){
+				Exitcountdown -= 1;
+				yield return 0;
+			}
+			if(Exitcountdown <= 0){
+				anim.Play ("Idle");
+				state = GGState.Idle;
+				return true;
+			}
+			anim.SetTrigger(s);
+			switch(s) {
+				case "Walk":
+					state = GGState.Walk;
+					break;
+				case "Drink":
+					state = GGState.Drink;
+					break;
+				case "Vomit":
+					state = GGState.Vomit;
+					break;
+				case "Rotate":
+					state = GGState.Rotate;
+					break;
+				case "Stomp":
+					state = GGState.Stomp;
+					break;
+				default:
+					state = GGState.Idle;
+					break;
+			}
+		}
 	}
 
 	public enum GGState {
