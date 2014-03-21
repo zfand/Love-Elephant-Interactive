@@ -14,6 +14,8 @@ namespace Boss
 		private ParticleSystem particles;
 		private GameObject splash;
 		private GameObject puddle;
+		private float colliding_counter;
+		private float colliding_counter_max = 5;
 		public void Start() {
 			particles = this.transform.GetComponent<ParticleSystem>();
 			splashing = false;
@@ -31,37 +33,52 @@ namespace Boss
 			if(open){
 				openTimer++;
 				if(openTimer > OpenTime){
-					Close();
+					StartCoroutine(Close());
 				}
 			}
+
+			colliding_counter--;
 		}
 
 		public bool IsSplashing(){
 			return splashing;
 		}
 		public void Splash(Vector3 position, bool _puddle){
+			colliding_counter = colliding_counter_max;
+
 			splashing = true;
 			splash = Instantiate(Resources.Load("Particles/Splash")) as GameObject;
             splash.transform.position = position;
 			splash.SetActive(true);
+			if(!open){
+				splash.particleSystem.loop = false;
+			}
 			if(_puddle){
 				SpawnPuddle(position);
 			}
 		}
 		public void SpawnPuddle(Vector3 position){
-			puddle = Instantiate(Resources.Load ("Items/StatusEffects/PoisonPuddle")) as GameObject;
-			puddle.transform.position = position;
+			if(puddle == null){
+				puddle = Instantiate(Resources.Load ("Items/StatusEffects/PoisonPuddle")) as GameObject;
+				puddle.transform.position = position;
+			}
 		}
 
-		public void Close() {
+		public IEnumerator Close() {
+			particles.Stop ();
 			open = false;
 			openTimer = 0;
+			while(colliding_counter > 0){
+				yield return 0;
+			}
+			if(splash != null){
+				Destroy (splash);
+			}
+			if(puddle != null){
+				puddle.GetComponent<PoisonPuddle>().FadeOut();
+			}
 			splashing = false;
-			puddle.GetComponent<PoisonPuddle>().FadeOut();
-			Destroy (splash);
-
-			particles.Stop ();
-
+			
 		}
 	}
 }

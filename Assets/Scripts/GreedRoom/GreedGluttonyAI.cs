@@ -10,8 +10,8 @@ namespace Boss
 		public float DrinkTime;
 		public float IdleMax;
 		public float IdleMin;
-		public List<GameObject> Pipes; 
-		private List<Pipe> pipe_Scripts;
+		public List<GameObject> PipeObjects; 
+		private List<Pipe> Pipes;
 		private float idleCooldown;
 		Animator anim;
 		bool Moving;
@@ -26,8 +26,13 @@ namespace Boss
 			Random.seed = (int)Time.time;
 			idleCooldown = Random.Range(IdleMin, IdleMax);
 			anim = GetComponent<Animator> ();
-			anim.SetTrigger("Attack");
+			state = GGState.Idle;
+			Attack ();
 			FaceRight = transform.forward.x  > 0;
+			Pipes = new List<Pipe>();
+			foreach(GameObject g in PipeObjects){
+				Pipes.Add (g.GetComponent<Pipe>());
+			}
 			//StartCoroutine(StartWalk());
 		}
 
@@ -47,9 +52,12 @@ namespace Boss
 					idleCooldown--;
 				}
 			}
-			if(state == GGState.Stomp){
-				foreach(Pipe p in pipe_Scripts){
-					p.Open();
+			if(state == GGState.Attack){
+				if((animinfo.IsName("Attack") && anim.IsInTransition(0)) || animinfo.IsName("AttackOver")){ 
+					foreach(Pipe p in Pipes){
+						p.Open();
+					}
+					Idle ();
 				}
 			}
 			if(!Moving && animinfo.IsName("Walk") && !Rotating && state == GGState.Walk){
@@ -175,13 +183,13 @@ namespace Boss
 			state = GGState.Walk;
 		}
 
-		void Stomp(){			
+		void Attack(){			
 			if(!animinfo.IsName("Idle")){
 				StartCoroutine(IdleThenTrigger("Attack"));
 				return;
 			}
 			anim.SetTrigger("Attack");
-			state = GGState.Stomp;
+			state = GGState.Attack;
 		}
 
 		void Vomit(){
@@ -206,7 +214,6 @@ namespace Boss
 				state = GGState.Idle;
 				return true;
 			}
-			anim.SetTrigger(s);
 			switch(s) {
 				case "Walk":
 					state = GGState.Walk;
@@ -220,13 +227,15 @@ namespace Boss
 				case "Rotate":
 					state = GGState.Rotate;
 					break;
-				case "Stomp":
-					state = GGState.Stomp;
+				case "Attack":
+					state = GGState.Attack;
 					break;
 				default:
 					state = GGState.Idle;
 					break;
 			}
+			
+			anim.SetTrigger(s);
 		}
 	}
 
@@ -236,7 +245,7 @@ namespace Boss
 		Drink,
 		Vomit,
 		Rotate,
-		Stomp
+		Attack
 	}
 }
 

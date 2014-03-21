@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891b4b768c2cf9e4e9433d6de52f6301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 5
+  FadeTime: 50
   scaleinterval: .100000001
   MaxScale: 10
 --- !u!198 &19800000

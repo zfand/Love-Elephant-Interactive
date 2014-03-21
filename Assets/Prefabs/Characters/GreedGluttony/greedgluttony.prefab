@@ -222,6 +222,9 @@ GameObject:
   - 137: {fileID: 13700000}
   - 54: {fileID: 5400000}
   - 138: {fileID: 13800000}
+  - 114: {fileID: 11400004}
+  - 135: {fileID: 13500012}
+  - 135: {fileID: 13500014}
   m_Layer: 0
   m_Name: greed1
   m_TagString: Untagged
@@ -4044,7 +4047,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &6500000
 BoxCollider:
@@ -4139,9 +4142,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: .100000001
   DrinkTime: 0
-  IdleMax: 0
-  IdleMin: 0
+  IdleMax: 200
+  IdleMin: 100
+  PipeObjects:
+  - {fileID: 0}
+  - {fileID: 0}
   Destination: {fileID: 0}
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff385e0c4f9854f399a2e5c5c423b2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  attackDmg: 0
+  armor: 1
+  lifeSteal: 0
+  flashTime: .25
+  drop: {fileID: 0}
+  attacking: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4152,8 +4176,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .100000001
-  m_Center: {x: 0, y: 2.3599999, z: 0}
+  m_Radius: 1.04999995
+  m_Center: {x: -.649999976, y: 2.3900001, z: 0}
 --- !u!135 &13500002
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4214,6 +4238,30 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 2.3599999, z: 0}
+--- !u!135 &13500012
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .600000024
+  m_Center: {x: .155494124, y: 3.76999998, z: -.829999983}
+--- !u!135 &13500014
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .300000012
+  m_Center: {x: .155494124, y: 4.55000019, z: -.379999995}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
