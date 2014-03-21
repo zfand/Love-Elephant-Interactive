@@ -38,27 +38,26 @@ namespace LoveElephant
     /// </summary>
     public float gravity;
     /// <summary>
+    /// Flag for when the player is colliding with anything
+    /// </summary>
+    private bool isColliding;
+    /// <summary>
     /// Reference to the player's Animator
     /// </summary>
     private Animator anim;
     /// <summary>
     /// A point at the bottom of the player
     /// </summary>
-    private Transform groundCheck;
+    public Transform groundCheck;
     private Equipment equip;
       
     private void Awake()
     {
       anim = this.GetComponentInChildren<Animator> ();
-      groundCheck = transform.Find ("GroundCheck");
       equip = this.GetComponent<Equipment> ();
 
       if (anim == null) {
         Debug.LogError ("The Player's Animator is NULL!");
-      }
-
-      if (groundCheck == null) {
-        Debug.LogError ("There is no GroundCheck transform on the Player");
       }
 
       if (equip == null) {
@@ -71,8 +70,6 @@ namespace LoveElephant
     private void Start()
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
-
-      //ignoredWallLayer = 1 << LayerMask.NameToLayer ("Player") << LayerMask.NameToLayer("RoomKey") << LayerMask.NameToLayer("Pickup") << LayerMask.NameToLayer("IgnorePlayer");
     }
   
     // Update is called once per frame
@@ -80,7 +77,6 @@ namespace LoveElephant
     {
       // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
       grounded = Physics.Linecast (transform.position, groundCheck.position);
-      //.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));  
 
       anim.SetBool ("Grounded", grounded);
       
@@ -111,14 +107,14 @@ namespace LoveElephant
 
         //Make sure you're not grinding up against a wall
         //if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~ignoredWallLayer)) {
-        if (true) {
+        if (grounded || !isColliding) {
           //Add force
           if (h  == 0 && grounded) {
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
           }
           else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
-            rigidbody.AddForce (Vector2.right * h * mStats.moveForce);
+            rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
           }
           if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed && grounded) {
             rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxRunSpeed, rigidbody.velocity.y, 0);
@@ -139,6 +135,14 @@ namespace LoveElephant
         // fake gravity
         rigidbody.AddForce (-Vector3.up * gravity, ForceMode.Acceleration);  
       }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+      isColliding = true;
+    }
+
+    private void OnCollisionExit(Collision collision) {
+      isColliding = false;
     }
 
     /// <summary>
