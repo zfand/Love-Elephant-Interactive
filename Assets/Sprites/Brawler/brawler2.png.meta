@@ -1,0 +1,436 @@
+fileFormatVersion: 2
+guid: 16c3c6f51ffed1044924d4301a476f08
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: run1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 1307
+        width: 136
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run2
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1305
+        width: 107
+        height: 193
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run3
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1307
+        width: 99
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run4
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1307
+        width: 92
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run5
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 1307
+        width: 89
+        height: 193
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run6
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 1308
+        width: 97
+        height: 192
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run7
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1096
+        width: 104
+        height: 196
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run8
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1097
+        width: 115
+        height: 193
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run9
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1105
+        width: 123
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run10
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 1110
+        width: 139
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run11
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1109
+        width: 153
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run12
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1105
+        width: 152
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run13
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 898
+        width: 151
+        height: 190
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run14
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 898
+        width: 149
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run15
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 895
+        width: 145
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run16
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 895
+        width: 137
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run17
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 894
+        width: 112
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run18
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 894
+        width: 103
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 684
+        width: 96
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run20
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 682
+        width: 98
+        height: 190
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run21
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 685
+        width: 97
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run22
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 682
+        width: 100
+        height: 193
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run23
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 685
+        width: 111
+        height: 190
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run24
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 689
+        width: 123
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run25
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 480
+        width: 131
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run26
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 482
+        width: 152
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run27
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 479
+        width: 159
+        height: 185
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run28
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 476
+        width: 158
+        height: 187
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run29
+      rect:
+        serializedVersion: 2
+        x: 909
+        y: 472
+        width: 151
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: run30
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 469
+        width: 136
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: idle1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 261
+        width: 79
+        height: 183
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: idle2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 261
+        width: 79
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: idle3
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 261
+        width: 77
+        height: 186
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: brawler2_33
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 262
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: idle4
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 261
+        width: 78
+        height: 191
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: idle5
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 261
+        width: 78
+        height: 188
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 51
+        width: 106
+        height: 172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump2
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 51
+        width: 98
+        height: 197
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump3
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 45
+        width: 93
+        height: 184
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump4
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 31
+        width: 102
+        height: 181
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump5
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 9
+        width: 97
+        height: 189
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump6
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 32
+        width: 86
+        height: 192
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: jump7
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 44
+        width: 82
+        height: 205
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
