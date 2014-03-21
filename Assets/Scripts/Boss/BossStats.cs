@@ -44,6 +44,7 @@ namespace Boss
     /// The material of the Boss
     /// </summary>
     private Material mat;
+	private Color originalColor;
 
     /// <summary>
     /// Gets the percentage of health left in the Boss
@@ -65,6 +66,7 @@ namespace Boss
     {
       maxHealth = health;
       mat = GetComponent<SkinnedMeshRenderer> ().material;
+	  originalColor = mat.color;
     }
   
     private void OnTriggerEnter(Collider other)
@@ -102,7 +104,6 @@ namespace Boss
     /// </summary>
     private IEnumerator Flash()
     {
-      Color originalColor = mat.color;
       float deltaTime = 0f;
 
       mat.color = Color.red;

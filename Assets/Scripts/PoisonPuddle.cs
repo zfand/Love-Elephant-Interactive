@@ -46,10 +46,15 @@ namespace LoveElephant {
 		private IEnumerator DestroyPuddle(){
 			float fadeouttime = 0;
 
+			if(currscale < MaxScale){
+				yield return new WaitForSeconds(1);
+			}
 			while(fadeouttime < FadeTime){
+
 				this.transform.position = new Vector3(this.transform.position.x, 
-				                                      this.transform.position.y - 0.1f,
+				                                      this.transform.position.y - 0.01f,
 				                                      this.transform.position.z);
+				fadeouttime++;
 				yield return 0;
 			}
 
