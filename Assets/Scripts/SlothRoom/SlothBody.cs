@@ -56,7 +56,7 @@ namespace Boss
     
       SlothTV tv = this.transform.parent.GetComponentInChildren<SlothTV> ();
       if (tv != null) {
-        tv.Die ();
+        tv.Die (false);
       }
 
       this.gameObject.GetComponent<MeshExploder> ().Explode ();

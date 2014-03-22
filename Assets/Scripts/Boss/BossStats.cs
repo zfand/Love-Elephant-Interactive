@@ -33,9 +33,15 @@ namespace Boss
     /// Item that is dropped on death
     /// </summary>
     public GameObject drop;
-    private bool dropped;
+    [HideInInspector]
+    /// <summary>
+    /// Determines if this script should drop it's loot
+    /// </summary>
+    public bool dropLoot;
+    /// <summary>
+    /// Flag for when the Boss is attacking
+    /// </summary>
     public bool attacking;
-
     /// <summary>
     /// The max health of the Boss
     /// </summary>
@@ -44,20 +50,21 @@ namespace Boss
     /// The material of the Boss
     /// </summary>
     private Material mat;
-	private Color originalColor;
-
+    /// <summary>
+    /// The original color of the mat
+    /// </summary>
+    private Color originalColor;
     /// <summary>
     /// Gets the percentage of health left in the Boss
     /// </summary>
     public float healthPercent {
       get { return this.health / this.maxHealth; }
     }
-
     /// <summary>
     /// Determines whether the Boss is Alive
     /// </summary>
     public bool alive {
-      get { return health >= 0f; }
+      get { return health > 0f; }
     }
 
 
@@ -66,7 +73,8 @@ namespace Boss
     {
       maxHealth = health;
       mat = GetComponent<SkinnedMeshRenderer> ().material;
-	  originalColor = mat.color;
+      originalColor = mat.color;
+      dropLoot = true;
     }
   
     private void OnTriggerEnter(Collider other)
@@ -77,7 +85,8 @@ namespace Boss
       }
     }
 
-    public float GetDamage() {
+    public float GetDamage()
+    {
       if (attacking) {
         return attackDmg;
       } 
@@ -91,10 +100,11 @@ namespace Boss
     {
       dmg /= armor;
       health -= dmg;
-	  if (!alive && !dropped) {
-		Vector3 keydrop = new Vector3(this.transform.position.x, this.transform.position.y + 2, 0f);
-		Instantiate(drop, keydrop, Quaternion.identity);
-	    dropped = true;
+
+      if (!alive && dropLoot) {
+        Vector3 keydrop = new Vector3 (this.transform.position.x, this.transform.position.y + 2, 0f);
+        Instantiate (drop, keydrop, Quaternion.identity);
+        dropLoot = false;
       }
       return dmg;
     }

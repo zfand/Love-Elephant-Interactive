@@ -20,6 +20,8 @@ namespace Boss
     void Start()
     {
       stats = this.GetComponent<BossStats> ();
+      //stops the boss stats from dropping the loot
+      stats.dropLoot = false;
     }
   
     // Update is called once per frame
@@ -34,22 +36,7 @@ namespace Boss
         almostDead = true;
       } else if (!exploding && hpleft <= 0f) {
         exploding = true;
-        Transform expl = transform.parent.Find ("TVExplosion");
-        expl.particleSystem.Play ();
-        GameObject upgrade = (GameObject)Instantiate (stats.drop);
-        upgrade.transform.position = expl.transform.position;
-        upgrade.transform.position = new Vector3 (upgrade.transform.position.x - 1f, upgrade.transform.position.y + 1f, 0f);
-        upgrade.rigidbody.AddExplosionForce (500, expl.transform.position, 10);
-        
-        this.gameObject.GetComponent<MeshExploder> ().Explode ();
-        
-        GameObject shrapnel = (GameObject)Instantiate (Resources.Load ("Shrapnel"));
-        shrapnel.transform.position = expl.transform.position;
-        foreach (Transform t in shrapnel.transform) {
-          t.gameObject.rigidbody.AddExplosionForce (500, expl.transform.position, 10);
-        }
-        this.gameObject.SetActive (false);
-
+        Die(true);
       }
     }
 
@@ -71,20 +58,33 @@ namespace Boss
       }
     }
 
-    public void Die()
+    public void Die(bool drop)
     {
-      if (tv_ctrl != null) {
-        tv_ctrl.SetActive (false);
-      }
-      StartCoroutine (BlowUpTV ());
+      tv_ctrl.SetActive (false);
+      StartCoroutine (BlowUpTV (drop));
     }
 
-    private IEnumerator BlowUpTV()
+    private IEnumerator BlowUpTV(bool drop)
     {
-      Transform boom = this.transform.parent.Find ("TVExplosion");
       yield return new WaitForSeconds (0.5f);
+      Transform boom = this.transform.parent.Find ("TVExplosion");
+      boom.transform.parent = tv_ctrl.transform;
+      if (drop) {
+        GameObject upgrade = (GameObject)Instantiate (stats.drop);
+        upgrade.transform.position = boom.transform.position;
+        upgrade.transform.position = new Vector3 (upgrade.transform.position.x - 1f, upgrade.transform.position.y + 1f, 0f);
+        upgrade.rigidbody.AddExplosionForce (500, boom.transform.position, 10);
+
+        GameObject shrapnel = (GameObject)Instantiate (Resources.Load ("Shrapnel"));
+        shrapnel.transform.position = boom.transform.position;
+        foreach (Transform t in shrapnel.transform) {
+          t.gameObject.rigidbody.AddExplosionForce (500, boom.transform.position, 10);
+        }
+      }
       boom.position = deathPos.position;
       boom.particleSystem.Play ();
+      this.gameObject.GetComponent<MeshExploder> ().Explode ();
+
       this.gameObject.SetActive (false);
     }
   }
