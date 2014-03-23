@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using LoveElephant;
 
 namespace Boss
 {
@@ -14,6 +15,8 @@ namespace Boss
     public float idleMin;
     public BossStats[] stats;
     public SlothTV tv;
+    public GameObject shock;
+    public float shockDamage;
     private Animator anim;
     private Color origColor;
     private bool dying;
@@ -60,9 +63,8 @@ namespace Boss
             //if too far
             roll = (dist > 30f) ? roll - 65 : roll;
 
-            roll = 70;
             if (roll >= 80) {
-              anim.SetTrigger("Shock");
+              StartCoroutine("Shock");
             } else if (roll >= 65 && tv != null) {
               anim.SetTrigger("Spin");
             } else {
@@ -92,11 +94,6 @@ namespace Boss
           }
         }
       }
-    }
-
-    IEnumerator WaitForSecs(float secs)
-    {
-      yield return new WaitForSeconds (secs);
     }
 
     IEnumerator Charge()
@@ -167,9 +164,15 @@ namespace Boss
       this.transform.eulerAngles = dest;
     }
 
-    IEnumerator DirtyShock()
+    private IEnumerator Shock()
     {
-      yield return 0;
+      anim.SetTrigger("Shock");
+      rigidbody.AddForce(Vector3.up*500, ForceMode.Impulse);
+      yield return new WaitForSeconds(1.5f);
+      shock.particleSystem.Play();
+      if (Vector3.Distance(shock.transform.position,player.transform.position) <= 4f) {
+        player.GetComponent<PlayerStats>().TakeDamage(shockDamage);
+      }
     }
 
     //If this is at the same level as the player

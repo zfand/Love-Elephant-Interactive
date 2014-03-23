@@ -364,6 +364,7 @@ ModelImporter:
     7400008: Sloth_ChargeNoTV
     7400010: Sloth_Death
     7400012: Sloth_Spin
+    7400014: Sloth_BuildShock
     9500000: //RootNode
     13700000: body
     13700002: cable1
@@ -2277,6 +2278,382 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 84
       lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: body/cables
+        weight: 1
+      - path: body/cables/cable1
+        weight: 1
+      - path: body/cables/cable2
+        weight: 1
+      - path: body/cables/cable3
+        weight: 1
+      - path: body/cables/cable4
+        weight: 1
+      - path: body/eyes
+        weight: 1
+      - path: body/eyes/eye1
+        weight: 1
+      - path: body/eyes/eye2
+        weight: 1
+      - path: body/eyes/eye3
+        weight: 1
+      - path: body/eyes/eye4
+        weight: 1
+      - path: body/eyes/eye5
+        weight: 1
+      - path: body/eyes/eye6
+        weight: 1
+      - path: body_ctrl
+        weight: 1
+      - path: body_ctrl/cable_ctrls
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6/bl_ctrl6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6/bl_ctrl6/bl_cable_ctrl4_9
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6/bl_ctrl6/bl_cable_ctrl4_9/bl_ctrl7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6/bl_ctrl6/bl_cable_ctrl4_9/bl_ctrl7/bl_cable_ctrl4_7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6/bl_ctrl6/bl_cable_ctrl4_9/bl_ctrl7/bl_cable_ctrl4_7/bl_ctrl8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/bl_ctrl/bl_cable_ctrl4_1/bl_ctrl1/bl_cable_ctrl4_2/bl_ctrl2/bl_cable_ctrl4_3/bl_ctrl3/bl_cable_ctrl4_4/bl_ctrl4/bl_cable_ctrl4_5/bl_ctrl5/bl_cable_ctrl4_6/bl_ctrl6/bl_cable_ctrl4_9/bl_ctrl7/bl_cable_ctrl4_7/bl_ctrl8/bl_cable_ctrl4_8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6/br_ctrl6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6/br_ctrl6/br_cable_ctrl7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6/br_ctrl6/br_cable_ctrl7/br_ctrl7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6/br_ctrl6/br_cable_ctrl7/br_ctrl7/br_cable_ctrl8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6/br_ctrl6/br_cable_ctrl7/br_ctrl7/br_cable_ctrl8/br_ctrl8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/br_ctrl/br_cable_ctrl1/br_ctrl1/br_cable_ctrl2/br_ctrl2/br_cable_ctrl3/br_ctrl3/br_cable_ctrl4/br_ctrl4/br_cable_ctrl5/br_ctrl5/br_cable_ctrl6/br_ctrl6/br_cable_ctrl7/br_ctrl7/br_cable_ctrl8/br_ctrl8/br_cable_ctrl9
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1/lf_ctrl6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1/lf_ctrl6/lf_cable_ctrl4 2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1/lf_ctrl6/lf_cable_ctrl4 2/lf_ctrl7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1/lf_ctrl6/lf_cable_ctrl4 2/lf_ctrl7/lf_cable_ctrl4 3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1/lf_ctrl6/lf_cable_ctrl4 2/lf_ctrl7/lf_cable_ctrl4 3/lf_ctrl8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/lf_ctrl/lf_cable_ctrl/lf_ctrl1/lf_cable_ctrl1/lf_ctrl2/lf_cable_ctrl2/lf_ctrl3/lf_cable_ctrl3/lf_ctrl4/lf_cable_ctrl4/lf_ctrl5/lf_cable_ctrl4
+          1/lf_ctrl6/lf_cable_ctrl4 2/lf_ctrl7/lf_cable_ctrl4 3/lf_ctrl8/lf_cable_ctrl4
+          4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6/rf_ctrl6
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6/rf_ctrl6/rf_cable_ctrl7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6/rf_ctrl6/rf_cable_ctrl7/rf_ctrl7
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6/rf_ctrl6/rf_cable_ctrl7/rf_ctrl7/rf_cable_ctrl8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6/rf_ctrl6/rf_cable_ctrl7/rf_ctrl7/rf_cable_ctrl8/rf_ctrl8
+        weight: 1
+      - path: body_ctrl/cable_ctrls/rf_ctrl/rf_cable_ctrl1/rf_ctrl1/rf_cable_ctrl2/rf_ctrl2/rf_cable_ctrl3/rf_ctrl3/rf_cable_ctrl4/rf_ctrl4/rf_cable_ctrl5/rf_ctrl5/rf_cable_ctrl6/rf_ctrl6/rf_cable_ctrl7/rf_ctrl7/rf_cable_ctrl8/rf_ctrl8/rf_cable_ctrl9
+        weight: 1
+      - path: body_ctrl/eye_ctrls
+        weight: 1
+      - path: body_ctrl/eye_ctrls/eyectrl1
+        weight: 1
+      - path: body_ctrl/eye_ctrls/eyectrl2
+        weight: 1
+      - path: body_ctrl/eye_ctrls/eyectrl3
+        weight: 1
+      - path: body_ctrl/eye_ctrls/eyectrl4
+        weight: 1
+      - path: body_ctrl/eye_ctrls/eyectrl5
+        weight: 1
+      - path: body_ctrl/eye_ctrls/eyectrl6
+        weight: 1
+      - path: body_ctrl/fat_ctrls
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0/fat_ctrl1
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0/fat_ctrl2
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0/fat_ctrl3
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0/fat_ctrl4
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0/fat_ctrl5
+        weight: 1
+      - path: body_ctrl/fat_ctrls/fat_ctrl0/fat_ctrl6
+        weight: 1
+      - path: body_jt
+        weight: 1
+      - path: body_jt/cable_grp
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4/bl_cable_jt5
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4/bl_cable_jt5/bl_cable_jt6
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4/bl_cable_jt5/bl_cable_jt6/bl_cable_jt7
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4/bl_cable_jt5/bl_cable_jt6/bl_cable_jt7/bl_cable_jt8
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4/bl_cable_jt5/bl_cable_jt6/bl_cable_jt7/bl_cable_jt8/bl_cable_jt9
+        weight: 1
+      - path: body_jt/cable_grp/bl_cable_jt1/bl_cable_jt2/bl_cable_jt3/bl_cable_jt4/bl_cable_jt5/bl_cable_jt6/bl_cable_jt7/bl_cable_jt8/bl_cable_jt9/bl_cable_jt10
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4/br_cable_jt5
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4/br_cable_jt5/br_cable_jt6
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4/br_cable_jt5/br_cable_jt6/br_cable_jt7
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4/br_cable_jt5/br_cable_jt6/br_cable_jt7/br_cable_jt8
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4/br_cable_jt5/br_cable_jt6/br_cable_jt7/br_cable_jt8/br_cable_jt9
+        weight: 1
+      - path: body_jt/cable_grp/br_cable_jt1/br_cable_jt2/br_cable_jt3/br_cable_jt4/br_cable_jt5/br_cable_jt6/br_cable_jt7/br_cable_jt8/br_cable_jt9/br_cable_jt10
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4/fl_cable_jt5
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4/fl_cable_jt5/fl_cable_jt6
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4/fl_cable_jt5/fl_cable_jt6/fl_cable_jt7
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4/fl_cable_jt5/fl_cable_jt6/fl_cable_jt7/fl_cable_jt8
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4/fl_cable_jt5/fl_cable_jt6/fl_cable_jt7/fl_cable_jt8/fl_cable_jt9
+        weight: 1
+      - path: body_jt/cable_grp/fl_cable_jt1/fl_cable_jt2/fl_cable_jt3/fl_cable_jt4/fl_cable_jt5/fl_cable_jt6/fl_cable_jt7/fl_cable_jt8/fl_cable_jt9/fl_cable_jt10
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4/lr_cable_jt5
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4/lr_cable_jt5/lr_cable_jt6
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4/lr_cable_jt5/lr_cable_jt6/lr_cable_jt7
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4/lr_cable_jt5/lr_cable_jt6/lr_cable_jt7/lr_cable_jt8
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4/lr_cable_jt5/lr_cable_jt6/lr_cable_jt7/lr_cable_jt8/lr_cable_jt9
+        weight: 1
+      - path: body_jt/cable_grp/lr_cable_jt1/lr_cable_jt2/lr_cable_jt3/lr_cable_jt4/lr_cable_jt5/lr_cable_jt6/lr_cable_jt7/lr_cable_jt8/lr_cable_jt9/lr_cable_jt10
+        weight: 1
+      - path: body_jt/center_jt
+        weight: 1
+      - path: body_jt/center_jt/fat_grp
+        weight: 1
+      - path: body_jt/center_jt/fat_grp/fat_jt1
+        weight: 1
+      - path: body_jt/center_jt/fat_grp/fat_jt2
+        weight: 1
+      - path: body_jt/center_jt/fat_grp/fat_jt3
+        weight: 1
+      - path: body_jt/center_jt/fat_grp/fat_jt4
+        weight: 1
+      - path: body_jt/center_jt/fat_grp/fat_jt5
+        weight: 1
+      - path: body_jt/center_jt/fat_grp/fat_jt6
+        weight: 1
+      - path: body_jt/center_jt/top_jt
+        weight: 1
+      - path: body_jt/eye_grp
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt1
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt1/eyeball_jt1
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt2
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt2/eyeball_jt2
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt3
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt3/eyeball_jt3
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt4
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt4/eyeball_jt4
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt5
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt5/eyeball_jt5
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt6
+        weight: 1
+      - path: body_jt/eye_grp/eye_jt6/eyeball_jt6
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/tv_ctrl
+        weight: 1
+      - path: tv
+        weight: 1
+      - path: tv_jt
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Sloth_BuildShock
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 67
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
