@@ -13,6 +13,7 @@ namespace Boss
     public float idleMax;
     public float idleMin;
     public BossStats[] stats;
+    public SlothTV tv;
     private Animator anim;
     private Color origColor;
     private bool dying;
@@ -59,11 +60,11 @@ namespace Boss
             //if too far
             roll = (dist > 30f) ? roll - 65 : roll;
 
-            if (roll >= 65) {
-              anim.SetTrigger("Spin");
-            } else if (roll >= 80) {
+            roll = 70;
+            if (roll >= 80) {
               anim.SetTrigger("Shock");
-              StartCoroutine ( DirtyShock());
+            } else if (roll >= 65 && tv != null) {
+              anim.SetTrigger("Spin");
             } else {
               anim.SetTrigger ("BeginCharge");
             }
