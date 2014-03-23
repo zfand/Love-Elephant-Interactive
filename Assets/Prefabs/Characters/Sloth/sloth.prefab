@@ -5303,6 +5303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8df8c59af9e344885aea4ba76ac9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockBackForce: 250
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1

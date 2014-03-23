@@ -7,7 +7,7 @@ namespace Boss
   public class SlothBody : MonoBehaviour
   {
 
-
+    public float knockBackForce;
     private bool dying = false;
     private bool faceLeft;
     private bool flaming = false;
@@ -38,6 +38,12 @@ namespace Boss
         transform.parent.GetComponent<SlothAI> ().HitWall ();
         //facePlayer ();
         //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
+      }
+    }
+
+    void OnTriggerEnter(Collider c) {
+      if (c.tag == "Weapon") {
+        rigidbody.AddForce((transform.position - c.transform.position).normalized *  knockBackForce, ForceMode.Impulse);
       }
     }
 
