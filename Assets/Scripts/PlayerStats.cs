@@ -8,12 +8,13 @@ namespace LoveElephant
   public class PlayerStats : MonoBehaviour
   {
     public float health;
-	public float armor;
-	public float invincibleTime;
-	public float poisonFlashTime;
+    public float armor;
+    public float invincibleTime;
+    public float poisonFlashTime;
     private float maxHealth;
     private Material mat;
     private bool invincible = false;
+    private Color originalColor;
     public GameObject healthBar;
 
     // Use this for initialization
@@ -21,6 +22,7 @@ namespace LoveElephant
     {
       maxHealth = health;
       mat = GetComponentInChildren<SpriteRenderer> ().material;
+      originalColor = mat.color;
     }
   
     // Update is called once per frame
@@ -40,7 +42,7 @@ namespace LoveElephant
           }
           dir = dir.normalized * 25f;
           rigidbody.AddForce (dir, ForceMode.Impulse);
-          TakeDamage(dmg);
+          TakeDamage (dmg);
         }
       }
     }
@@ -58,24 +60,23 @@ namespace LoveElephant
         GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ().SMLoadPerviousLevel ();
       }
     }
-    
-	
-	public void PoisonPlayer(float dmg){
-		TakeDamage(dmg);
-		StartCoroutine("PoisonFlash");
-	}
-	
-	private IEnumerator PoisonFlash	()
-	{
-		Color originalColor = mat.color;
-		mat.color = new Color(60f/255f, 120f/255f, 60f/255f);
-		yield return new WaitForSeconds (poisonFlashTime);
-		mat.color = originalColor;
-		yield return new WaitForSeconds (poisonFlashTime/2f);
-		mat.color = new Color(60f/255f, 120f/255f, 60f/255f);
-		yield return new WaitForSeconds (poisonFlashTime);
-		mat.color = originalColor;
-	}
+  
+    public void PoisonPlayer(float dmg)
+    {
+      TakeDamage (dmg);
+      StartCoroutine ("PoisonFlash");
+    }
+  
+    private IEnumerator PoisonFlash()
+    {
+      mat.color = new Color (60f / 255f, 120f / 255f, 60f / 255f);
+      yield return new WaitForSeconds (poisonFlashTime);
+      mat.color = originalColor;
+      yield return new WaitForSeconds (poisonFlashTime / 2f);
+      mat.color = new Color (60f / 255f, 120f / 255f, 60f / 255f);
+      yield return new WaitForSeconds (poisonFlashTime);
+      mat.color = originalColor;
+    }
 
     private IEnumerator Invincible()
     {
