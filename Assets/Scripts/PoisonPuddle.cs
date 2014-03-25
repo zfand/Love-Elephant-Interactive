@@ -23,7 +23,7 @@ namespace LoveElephant {
 			}
 		}
 
-		void OnCollisionEnter(Collision other){
+		void OnTriggerEnter(Collider other){
 
 			if(other.gameObject.CompareTag("Player")) {
 				Transform old_poisoner = other.transform.FindChild("Poisoner");
@@ -62,7 +62,7 @@ namespace LoveElephant {
 		}
 
 
-		void OnCollisionStay(Collision other){
+		void OnTriggerStay(Collider other){
 			if(other.gameObject.CompareTag("Player")) {
 				Transform poisoner = other.transform.FindChild("Poisoner");
 				if(poisoner != null) {

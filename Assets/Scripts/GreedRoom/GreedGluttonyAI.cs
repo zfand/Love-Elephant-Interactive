@@ -10,9 +10,17 @@ namespace Boss
 		public float DrinkTime;
 		public float IdleMax;
 		public float IdleMin;
+
 		public List<GameObject> PipeObjects; 
+		public GameObject CameraObject;
+		public GameObject player;
+		public List<GameObject> PukeSpots;
+		private CameraShake shake;
+		
 		private List<Pipe> Pipes;
 		private float idleCooldown;
+		private float MaxPukeValue = 100f;
+		private float currentPukeValue = 0f;
 		Animator anim;
 		bool Moving;
 		bool Rotating;
@@ -20,7 +28,9 @@ namespace Boss
 		bool AtDest;
 		AnimatorStateInfo animinfo;
 		bool FaceRight;
+		bool ResetGG = false;
 		GGState state;
+		GGState nextState;
 		// Use this for initialization
 		void Start () {
 			Random.seed = (int)Time.time;
@@ -33,6 +43,8 @@ namespace Boss
 			foreach(GameObject g in PipeObjects){
 				Pipes.Add (g.GetComponent<Pipe>());
 			}
+
+			shake = CameraObject.GetComponent<CameraShake>();
 			//StartCoroutine(StartWalk());
 		}
 
@@ -53,19 +65,21 @@ namespace Boss
 				}
 			}
 			if(state == GGState.Attack){
-				if((animinfo.IsName("Attack") && anim.IsInTransition(0)) || animinfo.IsName("AttackOver")){ 
-					foreach(Pipe p in Pipes){
-						p.Open();
-					}
+				if(animinfo.IsName("AttackOver")){
 					Idle ();
 				}
 			}
-			if(!Moving && animinfo.IsName("Walk") && !Rotating && state == GGState.Walk){
-				if(FacingDestination()){
-					StartCoroutine(MoveToDestination());
-				} else {
+			if(state == GGState.Walk){
+
+				if(!FacingDestination() && !Rotating){
+					Moving = false;
 					StartCoroutine(FaceDestination());
+				} else if(!Moving){
+					StartCoroutine(MoveToDestination());
+
 				}
+				
+
 			} else if(Moving){
 				if(!FacingDestination()){
 					AtDest = true;
@@ -75,15 +89,36 @@ namespace Boss
 		void OnCollisionEnter(Collision c){
 			if(c.gameObject.CompareTag("Player")){
 				Debug.Log("this is working");
+			} else if(c.collider.gameObject.CompareTag("Floor") && state == GGState.Attack){
+				
+				shake.Shake();
+				foreach(Pipe p in Pipes){
+					p.Open();
+				}
 			}
 
 		}
 		void OnTriggerStay(Collider c){
-			if(c.gameObject.CompareTag("Player")){
-				if(animinfo.IsName("Walk")){
+			if(c.gameObject.CompareTag("Player") && nextState == GGState.Attack){
+				if(animinfo.IsName("Walk")){ 
 					AtDest = true;
-				} else if(animinfo.IsName("Idle")){
-					//anim.SetTrigger("Attack");
+				}
+			}			
+			if(c.gameObject.CompareTag("Pipe") && nextState == GGState.Drink){
+				if(animinfo.IsName("Walk")){ 
+					AtDest = true;
+				}
+			}
+
+			if(c.gameObject.CompareTag("Wall")){
+				if(nextState == GGState.Vomit){
+					if(animinfo.IsName("Walk")){ 
+						AtDest = true;
+					}
+				} else {
+					AtDest = true;
+					ResetGG = true;
+
 				}
 			}
 
@@ -109,9 +144,12 @@ namespace Boss
 				this.transform.position = new Vector3(this.transform.position.x + speed, transform.position.y, transform.position.z);
 				yield return 0;
 			}
+			if(ResetGG){
+				Idle ();
+				yield break;
+			}
 			Moving = false;
-
-			Idle();
+			StartCoroutine(IdleThenTrigger(nextState.ToString()));
 		}
 
 		bool FacingDestination(){
@@ -165,6 +203,66 @@ namespace Boss
 		}
 
 		void PickNewAction(){
+			Debug.Log ("Pick new");
+			bool pipesopen = false;
+			Dictionary<string, float> possible = new Dictionary<string, float>();
+			if(currentPukeValue <= MaxPukeValue){
+				foreach(Pipe p in Pipes){
+					if(p.IsOpen()){
+						pipesopen = true;
+						break;
+					}
+				}
+			} else {
+				possible.Add ("Puke", 0.3f);
+			}
+			if(pipesopen){
+				possible.Add("Drink", 0.5f);
+				possible.Add ("Attack", 0.2f);
+			} else {
+				possible.Add ("Attack", 0.7f);
+			}
+
+			float chance = Random.value;
+			float current = 0f;
+			string dothis = "";
+			foreach(string s in possible.Keys){
+				if(possible[s] + current <= chance){
+					dothis = s;
+					break;
+				} else {
+					current += possible[s];
+				}
+			}
+
+			switch(dothis){
+			case "Drink":
+				int index = Mathf.FloorToInt (Random.value * PipeObjects.Count);
+				if(index == PipeObjects.Count){
+					index--;
+				}
+				Destination = PipeObjects[index];
+				nextState = GGState.Drink;
+				break;
+			case "Attack":
+				Destination = player;
+				nextState = GGState.Attack;
+				break;
+			case "Puke":
+				index = Mathf.FloorToInt (Random.value * PukeSpots.Count);
+				if(index == PukeSpots.Count){
+					index--;
+				}
+				Destination = PukeSpots[index];
+				nextState = GGState.Vomit;
+				break;
+			default:
+				Destination = player;
+				nextState = GGState.Attack;
+				break;
+			}
+			state = GGState.Walk;
+			Debug.Log ("dothis: " + dothis);
 
 
 		}
@@ -172,6 +270,8 @@ namespace Boss
 		void Idle(){
 			anim.SetTrigger ("Idle");
 			state = GGState.Idle;
+			ResetGG = false;
+			ResetIdle();
 		}
 
 		void Walk(){			
@@ -234,12 +334,13 @@ namespace Boss
 					state = GGState.Idle;
 					break;
 			}
-			
+			nextState = GGState.None;
 			anim.SetTrigger(s);
 		}
 	}
 
 	public enum GGState {
+		None,
 		Idle,
 		Walk,
 		Drink,

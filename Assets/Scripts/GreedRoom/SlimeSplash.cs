@@ -19,6 +19,7 @@ namespace Boss
 		void OnParticleCollision(GameObject g) {
 			if(g.CompareTag("Pipe")){
 				Pipe p = g.GetComponent<Pipe>();
+				p.ResetCounter();
 				if(!p.IsSplashing()){
 					p.Splash (new Vector3(g.transform.position.x, 
 					                      this.transform.position.y + this.renderer.bounds.size.y/2, 
