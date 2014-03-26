@@ -8,15 +8,17 @@ namespace Boss
 
 		public float Speed = 0.1f;
 		public float DrinkTime;
+		private float currentDrinkTime;
 		public float IdleMax;
 		public float IdleMin;
-
+		private float direction;
 		public List<GameObject> PipeObjects; 
 		public GameObject CameraObject;
 		public GameObject player;
+		public GameObject DroolObject;
 		public List<GameObject> PukeSpots;
 		private CameraShake shake;
-		
+		private ParticleSystem Drool;
 		private List<Pipe> Pipes;
 		private float idleCooldown;
 		private float MaxPukeValue = 100f;
@@ -24,11 +26,29 @@ namespace Boss
 		Animator anim;
 		bool Moving;
 		bool Rotating;
+		bool Drinking;
 		public GameObject Destination;
-		bool AtDest;
 		AnimatorStateInfo animinfo;
-		bool FaceRight;
+		bool faceRight;
+		bool FaceRight 
+		{
+			get
+			{ 
+				return faceRight;
+			}
+			set
+			{
+				if(value){
+					direction = 1;
+				} else {
+					direction = -1;
+				}
+				faceRight = value;
+			}
+
+		}
 		bool ResetGG = false;
+		bool MovingToPipe = false;
 		GGState state;
 		GGState nextState;
 		// Use this for initialization
@@ -36,9 +56,10 @@ namespace Boss
 			Random.seed = (int)Time.time;
 			idleCooldown = Random.Range(IdleMin, IdleMax);
 			anim = GetComponent<Animator> ();
+			Drool = DroolObject.particleSystem;	
 			state = GGState.Idle;
-			Attack ();
 			FaceRight = transform.forward.x  > 0;
+
 			Pipes = new List<Pipe>();
 			foreach(GameObject g in PipeObjects){
 				Pipes.Add (g.GetComponent<Pipe>());
@@ -48,11 +69,6 @@ namespace Boss
 			//StartCoroutine(StartWalk());
 		}
 
-		IEnumerator StartWalk(){
-			yield return new WaitForSeconds(5);
-			Walk();
-
-		}
 		// Update is called once per frame
 		void Update () {
 			animinfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -69,20 +85,14 @@ namespace Boss
 					Idle ();
 				}
 			}
+			if(state == GGState.Drink && !Drinking){
+				StartCoroutine(Drink());
+			}
 			if(state == GGState.Walk){
-
 				if(!FacingDestination() && !Rotating){
-					Moving = false;
 					StartCoroutine(FaceDestination());
 				} else if(!Moving){
 					StartCoroutine(MoveToDestination());
-
-				}
-				
-
-			} else if(Moving){
-				if(!FacingDestination()){
-					AtDest = true;
 				}
 			}
 		}
@@ -99,39 +109,25 @@ namespace Boss
 
 		}
 		void OnTriggerStay(Collider c){
-			if(c.gameObject.CompareTag("Player") && nextState == GGState.Attack){
-				if(animinfo.IsName("Walk")){ 
-					AtDest = true;
-				}
-			}			
-			if(c.gameObject.CompareTag("Pipe") && nextState == GGState.Drink){
-				if(animinfo.IsName("Walk")){ 
-					AtDest = true;
-				}
-			}
-
-			if(c.gameObject.CompareTag("Wall")){
-				if(nextState == GGState.Vomit){
-					if(animinfo.IsName("Walk")){ 
-						AtDest = true;
-					}
-				} else {
-					AtDest = true;
-					ResetGG = true;
-
-				}
-			}
+			//if(c.gameObject.CompareTag("Wall")){
+			//	if(nextState == GGState.Vomit){
+			//		if(animinfo.IsName("Walk")){ 
+			//			AtDest = true;
+			//		}
+			//	} else {
+			//		AtDest = true;
+			//		ResetGG = true;
+			//
+			//	}
+			//}
 
 		}
 
 
 		IEnumerator MoveToDestination(){
-			AtDest = false;
+//			AtDest = false;
 			Moving = true;
-			float speed = Speed;
-			if(!FaceRight){
-				speed = -speed;
-			}
+
 			if(Destination == null){
 				Debug.Log ("Gluttony has no Destination");
 				yield break;
@@ -140,18 +136,45 @@ namespace Boss
 			while(!animinfo.IsName("Walk")){
 				yield return 0;
 			}
-			while(!AtDest){
-				this.transform.position = new Vector3(this.transform.position.x + speed, transform.position.y, transform.position.z);
+			while(Mathf.Abs(this.transform.position.x - Destination.transform.position.x) > 1.5f){
+				this.transform.position = new Vector3(this.transform.position.x + Speed*direction, transform.position.y, transform.position.z);
 				yield return 0;
 			}
 			if(ResetGG){
 				Idle ();
+				nextState = GGState.None;
 				yield break;
 			}
+			state = nextState;
+			nextState = GGState.None;
 			Moving = false;
-			StartCoroutine(IdleThenTrigger(nextState.ToString()));
+			StartCoroutine(IdleThenTrigger(state.ToString()));
 		}
 
+		IEnumerator Drink(){
+			Drinking = true;
+			currentPukeValue = 0;
+			currentDrinkTime = 0;
+			
+			while (currentPukeValue < MaxPukeValue){// && currentDrinkTime < DrinkTime){
+				//currentPukeValue += PukeChargeRate;
+				//currentDrinkTime += Time.deltaTime;
+				currentPukeValue++;
+				yield return 0;
+			}
+			Drinking = false;
+			Idle ();
+			Drool.Play ();
+			ClosePipes();
+
+		}
+
+
+		void ClosePipes(){
+			foreach(Pipe p in Pipes){
+				p.Close ();
+			}
+		}
 		bool FacingDestination(){
 			float diff = Destination.transform.position.x - this.transform.position.x;
 			if(diff > 0){
@@ -169,20 +192,8 @@ namespace Boss
 			float interval = 5f;
 			float totalrot = 0;
 			bool rotating = true;
+			direction = 0;
 			Rotating = true;
-			if(animinfo.IsName("Walk")){
-				anim.SetTrigger("Idle");
-			}
-			while (!animinfo.IsName("Idle")){
-				yield return 0;
-			}
-			anim.SetTrigger("Rotate");
-			while (!animinfo.IsName("Rotate")){
-				if(animinfo.IsName("Walk")){
-					Debug.Log ("I'm gonna scream");
-				}
-				yield return 0;
-			}
 			while (rotating) { 
 				totalrot += interval;
 				if (totalrot >= 180) {
@@ -194,7 +205,7 @@ namespace Boss
 			}
 			this.transform.eulerAngles = dest;
 			Rotating = false;
-			Idle ();
+			FaceRight = transform.forward.x  > 0;
 		}
 		
 		void ResetIdle(){
@@ -217,17 +228,17 @@ namespace Boss
 				possible.Add ("Puke", 0.3f);
 			}
 			if(pipesopen){
-				possible.Add("Drink", 0.5f);
-				possible.Add ("Attack", 0.2f);
+				possible.Add("Drink", 1f);
+				possible.Add ("Attack", 0f);
 			} else {
-				possible.Add ("Attack", 0.7f);
+				possible.Add ("Attack", 0f);
 			}
 
 			float chance = Random.value;
 			float current = 0f;
 			string dothis = "";
 			foreach(string s in possible.Keys){
-				if(possible[s] + current <= chance){
+				if(possible[s] + current >= chance){
 					dothis = s;
 					break;
 				} else {
@@ -275,30 +286,30 @@ namespace Boss
 		}
 
 		void Walk(){			
+			state = GGState.Walk;
 			if(!animinfo.IsName("Idle")){
 				StartCoroutine(IdleThenTrigger("Walk"));
 				return;
 			}
 			anim.SetTrigger("Walk");
-			state = GGState.Walk;
 		}
 
 		void Attack(){			
+			state = GGState.Attack;
 			if(!animinfo.IsName("Idle")){
 				StartCoroutine(IdleThenTrigger("Attack"));
 				return;
 			}
 			anim.SetTrigger("Attack");
-			state = GGState.Attack;
 		}
 
 		void Vomit(){
+			state = GGState.Vomit;
 			if(!animinfo.IsName("Idle")){
 				StartCoroutine(IdleThenTrigger("Vomit"));
 				return;
 			}
 			anim.SetTrigger("Vomit");
-			state = GGState.Vomit;
 		}
 
 		//handle extraneous animation issues
@@ -311,28 +322,7 @@ namespace Boss
 			}
 			if(Exitcountdown <= 0){
 				anim.Play ("Idle");
-				state = GGState.Idle;
 				return true;
-			}
-			switch(s) {
-				case "Walk":
-					state = GGState.Walk;
-					break;
-				case "Drink":
-					state = GGState.Drink;
-					break;
-				case "Vomit":
-					state = GGState.Vomit;
-					break;
-				case "Rotate":
-					state = GGState.Rotate;
-					break;
-				case "Attack":
-					state = GGState.Attack;
-					break;
-				default:
-					state = GGState.Idle;
-					break;
 			}
 			nextState = GGState.None;
 			anim.SetTrigger(s);
