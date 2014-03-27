@@ -16,6 +16,8 @@ namespace Boss
 		public GameObject CameraObject;
 		public GameObject player;
 		public GameObject DroolObject;
+		public GameObject DrinkSplashObj;
+		private ParticleSystem DrinkSplash;
 		public List<GameObject> PukeSpots;
 		private CameraShake shake;
 		private ParticleSystem Drool;
@@ -57,6 +59,7 @@ namespace Boss
 			idleCooldown = Random.Range(IdleMin, IdleMax);
 			anim = GetComponent<Animator> ();
 			Drool = DroolObject.particleSystem;	
+			DrinkSplash = DrinkSplashObj.particleSystem;
 			state = GGState.Idle;
 			FaceRight = transform.forward.x  > 0;
 
@@ -72,6 +75,8 @@ namespace Boss
 		// Update is called once per frame
 		void Update () {
 			animinfo = anim.GetCurrentAnimatorStateInfo(0);
+			rigidbody.AddForce(-Vector3.up * 10000f);
+
 			if(state == GGState.Idle){
 				if(idleCooldown <= 0){
 					ResetIdle();
@@ -99,11 +104,15 @@ namespace Boss
 		void OnCollisionEnter(Collision c){
 			if(c.gameObject.CompareTag("Player")){
 				Debug.Log("this is working");
-			} else if(c.collider.gameObject.CompareTag("Floor") && state == GGState.Attack){
-				
-				shake.Shake();
-				foreach(Pipe p in Pipes){
-					p.Open();
+			} else if(c.collider.gameObject.CompareTag("Floor") && (state == GGState.Attack || animinfo.IsName("AttackOver"))){
+				foreach(ContactPoint con in c.contacts){
+					if(con.thisCollider.name == "f_leg6" || con.thisCollider.name == "f_leg3"){
+						shake.Shake();
+						foreach(Pipe p in Pipes){
+							p.Open();
+						}
+						break;
+					}
 				}
 			}
 
@@ -155,7 +164,7 @@ namespace Boss
 			Drinking = true;
 			currentPukeValue = 0;
 			currentDrinkTime = 0;
-			
+			DrinkSplash.Play ();
 			while (currentPukeValue < MaxPukeValue){// && currentDrinkTime < DrinkTime){
 				//currentPukeValue += PukeChargeRate;
 				//currentDrinkTime += Time.deltaTime;
@@ -165,6 +174,7 @@ namespace Boss
 			Drinking = false;
 			Idle ();
 			Drool.Play ();
+			DrinkSplash.Stop ();
 			ClosePipes();
 
 		}
