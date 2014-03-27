@@ -12,11 +12,22 @@ namespace Boss
 		public float IdleMax;
 		public float IdleMin;
 		private float direction;
+
 		public List<GameObject> PipeObjects; 
 		public GameObject CameraObject;
 		public GameObject player;
 		public GameObject DroolObject;
+		public GameObject VomitObject;
+		public GameObject DrinkSplashObj;
+		public GameObject StompStrong;
+		public GameObject StompWeak;
+
+		private ParticleSystem DrinkSplash;
+		private ParticleSystem VomitSystem;
 		public List<GameObject> PukeSpots;
+
+
+
 		private CameraShake shake;
 		private ParticleSystem Drool;
 		private List<Pipe> Pipes;
@@ -27,6 +38,7 @@ namespace Boss
 		bool Moving;
 		bool Rotating;
 		bool Drinking;
+		bool Vomiting = false;
 		public GameObject Destination;
 		AnimatorStateInfo animinfo;
 		bool faceRight;
@@ -57,6 +69,8 @@ namespace Boss
 			idleCooldown = Random.Range(IdleMin, IdleMax);
 			anim = GetComponent<Animator> ();
 			Drool = DroolObject.particleSystem;	
+			VomitSystem = VomitObject.particleSystem;
+			DrinkSplash = DrinkSplashObj.particleSystem;
 			state = GGState.Idle;
 			FaceRight = transform.forward.x  > 0;
 
@@ -72,6 +86,8 @@ namespace Boss
 		// Update is called once per frame
 		void Update () {
 			animinfo = anim.GetCurrentAnimatorStateInfo(0);
+			rigidbody.AddForce(-Vector3.up * 10000f);
+
 			if(state == GGState.Idle){
 				if(idleCooldown <= 0){
 					ResetIdle();
@@ -90,24 +106,64 @@ namespace Boss
 			}
 			if(state == GGState.Walk){
 				if(!FacingDestination() && !Rotating){
-					StartCoroutine(FaceDestination());
+					FaceDestination();
 				} else if(!Moving){
 					StartCoroutine(MoveToDestination());
 				}
 			}
+			if(state == GGState.Vomit && !Vomiting){
+				StartCoroutine(VomitLoop());
+			}
 		}
+
 		void OnCollisionEnter(Collision c){
 			if(c.gameObject.CompareTag("Player")){
 				Debug.Log("this is working");
-			} else if(c.collider.gameObject.CompareTag("Floor") && state == GGState.Attack){
-				
-				shake.Shake();
-				foreach(Pipe p in Pipes){
-					p.Open();
+			} 
+
+			if(c.collider.gameObject.CompareTag("Floor") && state == GGState.Attack){
+					if((animinfo.IsName("StabAttack") || animinfo.IsName("AttackOver"))){
+						if(c.contacts[0].thisCollider.name == "f_leg6" || c.contacts[0].thisCollider.name == "f_leg3"){
+							shake.Shake();
+							foreach(Pipe p in Pipes){
+								p.Open();
+							}
+							StartCoroutine(StompDamage());
+						}
+					}
 				}
 			}
 
+		IEnumerator StompDamage(){
+
+			float frames = 10f;
+			float currentFrames = 0f;
+			StompWeak.SetActive(true);
+			StompStrong.SetActive(true);
+			while(frames > currentFrames){
+				currentFrames +=1;
+				yield return 0;
+			}
+			
+			StompWeak.SetActive(false);
+			StompStrong.SetActive(false);
 		}
+
+		IEnumerator VomitLoop(){
+			Vomiting = true;
+			VomitSystem.Play ();
+
+			while(currentPukeValue > 0f){
+				currentPukeValue -= 0.25f;
+				yield return 0;
+			}
+			Vomiting = false;
+			VomitSystem.Stop ();
+			Drool.Stop();
+			Idle ();
+
+		}
+
 		void OnTriggerStay(Collider c){
 			//if(c.gameObject.CompareTag("Wall")){
 			//	if(nextState == GGState.Vomit){
@@ -136,7 +192,16 @@ namespace Boss
 			while(!animinfo.IsName("Walk")){
 				yield return 0;
 			}
-			while(Mathf.Abs(this.transform.position.x - Destination.transform.position.x) > 1.5f){
+			float distance = 2f;
+			float mindistance = 1.5f;
+			if(Destination.CompareTag("Player")){
+				distance = 4f;
+			} else if(nextState == GGState.Vomit){
+				distance = 5f;
+			}
+
+
+			while(Mathf.Abs(this.transform.position.x - Destination.transform.position.x) > distance){//|| Mathf.Abs(this.transform.position.x - Destination.transform.position.x) < mindistance){
 				this.transform.position = new Vector3(this.transform.position.x + Speed*direction, transform.position.y, transform.position.z);
 				yield return 0;
 			}
@@ -144,6 +209,12 @@ namespace Boss
 				Idle ();
 				nextState = GGState.None;
 				yield break;
+			}
+			if(nextState == GGState.Vomit){
+				StartCoroutine(Rotate ());
+			}
+			while(Rotating){
+				yield return 0;
 			}
 			state = nextState;
 			nextState = GGState.None;
@@ -155,16 +226,17 @@ namespace Boss
 			Drinking = true;
 			currentPukeValue = 0;
 			currentDrinkTime = 0;
-			
+			DrinkSplash.Play ();
 			while (currentPukeValue < MaxPukeValue){// && currentDrinkTime < DrinkTime){
 				//currentPukeValue += PukeChargeRate;
 				//currentDrinkTime += Time.deltaTime;
-				currentPukeValue++;
+				currentPukeValue += 0.25f;
 				yield return 0;
 			}
 			Drinking = false;
 			Idle ();
 			Drool.Play ();
+			DrinkSplash.Stop ();
 			ClosePipes();
 
 		}
@@ -175,6 +247,8 @@ namespace Boss
 				p.Close ();
 			}
 		}
+
+
 		bool FacingDestination(){
 			float diff = Destination.transform.position.x - this.transform.position.x;
 			if(diff > 0){
@@ -184,11 +258,16 @@ namespace Boss
 			}
 		}
 
-		IEnumerator FaceDestination(){
+		void FaceDestination(){
+			StartCoroutine(Rotate ());
+		}
+
+		IEnumerator Rotate(){
+			
 			float currentX = this.transform.eulerAngles.x;
 			float currentY = this.transform.eulerAngles.y;
 			Vector3 dest = new Vector3 (currentX, -currentY, 0f);
-
+			
 			float interval = 5f;
 			float totalrot = 0;
 			bool rotating = true;
@@ -217,7 +296,7 @@ namespace Boss
 			Debug.Log ("Pick new");
 			bool pipesopen = false;
 			Dictionary<string, float> possible = new Dictionary<string, float>();
-			if(currentPukeValue <= MaxPukeValue){
+			if(currentPukeValue < MaxPukeValue){
 				foreach(Pipe p in Pipes){
 					if(p.IsOpen()){
 						pipesopen = true;
@@ -225,20 +304,20 @@ namespace Boss
 					}
 				}
 			} else {
-				possible.Add ("Puke", 0.3f);
+				possible.Add ("Puke", 30f);
 			}
 			if(pipesopen){
-				possible.Add("Drink", 1f);
-				possible.Add ("Attack", 0f);
+				possible.Add("Drink", 50f);
+				possible.Add ("Attack", 50f);
 			} else {
-				possible.Add ("Attack", 0f);
+				possible.Add ("Attack", 70f);
 			}
 
-			float chance = Random.value;
+			float chance = Random.Range(0, 100);
 			float current = 0f;
 			string dothis = "";
 			foreach(string s in possible.Keys){
-				if(possible[s] + current >= chance){
+				if(possible[s] <= chance){
 					dothis = s;
 					break;
 				} else {

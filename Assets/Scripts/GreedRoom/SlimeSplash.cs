@@ -5,6 +5,7 @@ namespace Boss
 	public class SlimeSplash : MonoBehaviour {
 
 		GameObject splash;
+		public bool SpawnPuddle = true;
 		// Use this for initialization
 		void Start () {
 			splash = (GameObject)Resources.Load ("Particles/Splash");
@@ -24,7 +25,7 @@ namespace Boss
 					p.Splash (new Vector3(g.transform.position.x, 
 					                      this.transform.position.y + this.renderer.bounds.size.y/2, 
 					                      g.transform.position.z), 
-					          true);
+					          SpawnPuddle);
 				}
 			}
 		}

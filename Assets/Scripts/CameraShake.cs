@@ -22,7 +22,9 @@ public class CameraShake : MonoBehaviour {
 	
 	public void Shake()
 	{
-		StartCoroutine(DoShake());
+		if(!Shaking){
+			StartCoroutine(DoShake());
+		}
 	}
 
  	IEnumerator DoShake() {
