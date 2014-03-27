@@ -221,7 +221,10 @@ namespace Item
     /// </summary>
     private void Shoot()
     {
-      Vector3 clickedPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+      Vector3 clickedPosition = Input.mousePosition;
+      //Find the distance the camera is from the play plane
+      clickedPosition.z = Camera.main.transform.position.z * -1;
+      clickedPosition = Camera.main.ScreenToWorldPoint (clickedPosition);
       clickedPosition.z = 0;
       LayerMask layermask = ~(1 << LayerMask.NameToLayer ("Player"));      
       RaycastHit hit;
