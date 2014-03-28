@@ -52,7 +52,7 @@ namespace LoveElephant
       health -= dmg / armor;
       
       if (health >= 0f) {
-        StartCoroutine (Invincible ());
+        StartCoroutine ("Invincible");
       } else {
         healthBar.renderer.enabled = false;
         health = maxHealth;
@@ -65,6 +65,13 @@ namespace LoveElephant
     {
       TakeDamage (dmg);
       StartCoroutine ("PoisonFlash");
+    }
+
+    public void Reset() {
+      health = maxHealth;
+      StopCoroutine("Invincible");
+      StopCoroutine("PoisonFlash");
+      mat.color = originalColor;
     }
   
     private IEnumerator PoisonFlash()

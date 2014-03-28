@@ -75,6 +75,9 @@ namespace LoveElephant
     // Update is called once per frame
     private void Update()
     {
+      // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+      grounded = Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer("IgnorePlayer")));
+
       anim.SetBool ("Grounded", grounded);
       
       // If the jump button is pressed and the player is grounded then the player should jump.

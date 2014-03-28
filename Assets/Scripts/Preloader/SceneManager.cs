@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using LoveElephant.Room;
+using LoveElephant;
 
 namespace Preloader
 {
@@ -118,6 +119,10 @@ namespace Preloader
       perviousSpawn = currentSpawn;
       currentSpawn = data.playerSpawnPos;
       doorData = data;
+
+      if (player != null) {
+        player.GetComponent<PlayerStats>().Reset();
+      }
 
       Application.LoadLevel (currentLevel);
     }
