@@ -75,14 +75,13 @@ namespace LoveElephant
     // Update is called once per frame
     private void Update()
     {
-      // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-      grounded = Physics.Linecast (transform.position, groundCheck.position);
-
       anim.SetBool ("Grounded", grounded);
       
       // If the jump button is pressed and the player is grounded then the player should jump.
-      if (Input.GetButtonDown ("Jump") && grounded)
+      if (Input.GetButtonDown ("Jump") && grounded) {
         jump = true;
+        grounded = false;
+      }
 
       if (rigidbody.velocity.magnitude > 50) {
         rigidbody.velocity = rigidbody.velocity.normalized * 50;
@@ -135,6 +134,14 @@ namespace LoveElephant
         // fake gravity
         rigidbody.AddForce (-Vector3.up * gravity, ForceMode.Acceleration);  
       }
+    }
+
+    private void OnTriggerEnter(Collider c) {
+      grounded = true;
+    }
+
+    private void OnTriggerExit(Collider c) {
+      grounded = false;
     }
 
     private void OnCollisionEnter(Collision collision) {
