@@ -76,7 +76,7 @@ namespace LoveElephant
     private void Update()
     {
       // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-      grounded = Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer("IgnorePlayer")));
+      grounded |= Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer("Player")));
 
       anim.SetBool ("Grounded", grounded);
       
