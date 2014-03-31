@@ -95,25 +95,20 @@ namespace LoveElephant
     {
       if (inputEnabled) {
         float h = Input.GetAxis ("Horizontal");
+        Debug.Log(h);
 
         anim.SetFloat ("Speed", Mathf.Abs (h));
 
         //Flip Facing Direction
         if (h > 0 && !facingRight || h < 0 && facingRight) {
-          if (grounded) {
-            //Flip velocity with facing
-            rigidbody.velocity = new Vector3 (rigidbody.velocity.x, -rigidbody.velocity.y);
-          }
           FlipFacing ();
         }
 
         //Make sure you're not grinding up against a wall
-        //if (!Physics.Linecast (transform.position, transform.position + Vector3.right * Mathf.Sign (h), ~ignoredWallLayer)) {
         if (grounded || !isColliding) {
-          //Add force
-          if (h  == 0 && grounded) {
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.angularVelocity = Vector3.zero;
+          if (grounded && h == 0) {
+            //rigidbody.velocity = Vector3.zero;
+            //rigidbody.angularVelocity = Vector3.zero;
           }
           else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
             rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
