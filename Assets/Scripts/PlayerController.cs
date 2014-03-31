@@ -106,10 +106,14 @@ namespace LoveElephant
         //Make sure you're not grinding up against a wall
         if (grounded || !isColliding) {
           if (grounded && h == 0) {
-            //rigidbody.velocity = Vector3.zero;
-            //rigidbody.angularVelocity = Vector3.zero;
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
           } else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
-            rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
+            if (grounded) {
+              rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
+            } else if (h != 0) {
+              rigidbody.AddForce ((Vector3.right * h) * (mStats.moveForce/2));
+            }
           }
           if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed && grounded) {
             rigidbody.velocity = new Vector3 (Mathf.Sign (rigidbody.velocity.x) * mStats.maxRunSpeed, rigidbody.velocity.y, 0);

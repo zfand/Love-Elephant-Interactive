@@ -246,7 +246,6 @@ namespace LoveElephant
           return;
         }
 
-
         //Ok we're good create the point
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
         SetAnchorPos (hitPos);

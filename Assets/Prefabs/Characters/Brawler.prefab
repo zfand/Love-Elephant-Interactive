@@ -649,7 +649,7 @@ MonoBehaviour:
   jump: 0
   inputEnabled: 1
   grounded: 0
-  gravity: 30
+  gravity: 25
   groundCheck: {fileID: 400006}
 --- !u!114 &11400004
 MonoBehaviour:
