@@ -95,8 +95,9 @@ namespace LoveElephant
     {
       if (inputEnabled) {
         float h = Input.GetAxis ("Horizontal");
-
         anim.SetFloat ("Speed", Mathf.Abs (h));
+
+        h = (h == 0) ? 0 : (h > 0) ? 1 : -1;
 
         //Flip Facing Direction
         if (h > 0 && !facingRight || h < 0 && facingRight) {
