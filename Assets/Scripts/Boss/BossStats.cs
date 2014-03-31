@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Collections;
-using Item;
 
-namespace Boss
+namespace LoveElephant
 {
   [System.Serializable]
   public class BossStats : MonoBehaviour

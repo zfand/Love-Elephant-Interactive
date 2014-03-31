@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace Boss 
+namespace LoveElephant 
 {
 	public class SlimeSplash : MonoBehaviour {
 

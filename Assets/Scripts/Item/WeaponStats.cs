@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Item
+namespace LoveElephant
 {
   /// <summary>
   /// Weapon stats.

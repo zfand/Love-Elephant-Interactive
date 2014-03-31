@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LoveElephant;
 
-namespace Boss
+namespace LoveElephant
 {
 	public class Pipe : MonoBehaviour
 	{

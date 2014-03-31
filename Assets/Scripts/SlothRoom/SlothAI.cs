@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LoveElephant;
 
-namespace Boss
+namespace LoveElephant
 {
   public class SlothAI : MonoBehaviour
   {

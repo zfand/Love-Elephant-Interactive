@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Item;
 
 namespace LoveElephant
 {
@@ -95,7 +94,6 @@ namespace LoveElephant
     {
       if (inputEnabled) {
         float h = Input.GetAxis ("Horizontal");
-        Debug.Log(h);
 
         anim.SetFloat ("Speed", Mathf.Abs (h));
 

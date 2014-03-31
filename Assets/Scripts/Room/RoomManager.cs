@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Preloader;
 
-namespace LoveElephant.Room
+namespace LoveElephant
 {
 
   /// <summary>

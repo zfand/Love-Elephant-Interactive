@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Item;
 
-namespace Boss
+namespace LoveElephant
 {
   public class SlothTV : MonoBehaviour
   {

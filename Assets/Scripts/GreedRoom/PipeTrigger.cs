@@ -2,7 +2,7 @@
 using System.Collections;
 using LoveElephant;
 
-namespace Boss
+namespace LoveElephant
 {
 	public class PipeTrigger : MonoBehaviour {
 

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Boss 
+namespace LoveElephant 
 {
 	public class GreedGluttonyAI : MonoBehaviour {
 

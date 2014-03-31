@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Boss
+namespace LoveElephant
 {
   public class HurtBox : MonoBehaviour
   {
