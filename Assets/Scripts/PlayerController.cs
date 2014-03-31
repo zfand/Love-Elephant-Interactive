@@ -20,6 +20,7 @@ namespace LoveElephant
     /// Determines if the input is enabled or disabled
     /// </summary>
     public bool
+
       inputEnabled = true;
     [HideInInspector]
     /// <summary>
@@ -75,7 +76,7 @@ namespace LoveElephant
     private void Update()
     {
       // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
-      grounded |= Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer("Player")));
+      grounded |= Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer ("Player")));
 
       anim.SetBool ("Grounded", grounded);
       
@@ -107,8 +108,7 @@ namespace LoveElephant
           if (grounded && h == 0) {
             //rigidbody.velocity = Vector3.zero;
             //rigidbody.angularVelocity = Vector3.zero;
-          }
-          else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
+          } else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
             rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
           }
           if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed && grounded) {
@@ -132,19 +132,23 @@ namespace LoveElephant
       }
     }
 
-    private void OnTriggerEnter(Collider c) {
+    private void OnTriggerEnter(Collider c)
+    {
       grounded = true;
     }
 
-    private void OnTriggerExit(Collider c) {
+    private void OnTriggerExit(Collider c)
+    {
       grounded = false;
     }
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision)
+    {
       isColliding = true;
     }
 
-    private void OnCollisionExit(Collision collision) {
+    private void OnCollisionExit(Collision collision)
+    {
       isColliding = false;
     }
 
