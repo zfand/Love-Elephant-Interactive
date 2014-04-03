@@ -3,7 +3,7 @@
 ///  Used to determine the state of the Level On Awake
 /// </summary>
 using System;
-namespace Preloader
+namespace LoveElephant
 {
   public enum LevelState
   {

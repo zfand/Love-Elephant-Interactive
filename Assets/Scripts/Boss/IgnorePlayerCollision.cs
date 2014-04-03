@@ -1,15 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
-public class IgnorePlayerCollision : MonoBehaviour
+namespace LoveElephant
 {
-
-  // Use this for initialization
-  void Start()
+  public class IgnorePlayerCollision : MonoBehaviour
   {
-    GameObject player = GameObject.FindGameObjectWithTag ("Player");
-    if (player != null && collider != null) {
-      Physics.IgnoreCollision (player.collider, collider);
+
+    // Use this for initialization
+    void Start()
+    {
+      GameObject player = GameObject.FindGameObjectWithTag ("Player");
+      if (player != null && collider != null) {
+        Physics.IgnoreCollision (player.collider, collider);
+      }
     }
   }
 }

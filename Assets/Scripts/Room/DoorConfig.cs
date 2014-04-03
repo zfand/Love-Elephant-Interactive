@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace LoveElephant.Room
+namespace LoveElephant
 {
   /// <summary>
   /// Door config.

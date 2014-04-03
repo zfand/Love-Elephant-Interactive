@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Preloader;
 
-namespace LoveElephant.Room
+namespace LoveElephant
 {
 
   /// <summary>
@@ -44,7 +43,6 @@ namespace LoveElephant.Room
       DoorConfig config = findConnection(door);
 
       if (config != null) {
-        GameObject.FindGameObjectWithTag ("Parallax").GetComponent<Parallax> ().enabled = false;
         SceneManager sm = GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ();
         sm.SMSaveState (LevelState.Complete);
         sm.SMLoadLevel (config);

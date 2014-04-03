@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
-using Item;
 
-namespace Boss
+namespace LoveElephant
 {
+  [System.Serializable]
   public class BossStats : MonoBehaviour
   {
     /// <summary>
@@ -32,8 +32,16 @@ namespace Boss
     /// Item that is dropped on death
     /// </summary>
     public GameObject drop;
-    private bool dropped;
-
+    /// <summary>
+    /// Determines if this script should drop it's loot
+    /// </summary>
+    public bool dropLoot = true;
+    [HideInInspector]
+    /// <summary>
+    /// Flag for when the Boss is attacking
+    /// </summary>
+    public bool attacking;
+    public SkinnedMeshRenderer mesh;
     /// <summary>
     /// The max health of the Boss
     /// </summary>
@@ -42,19 +50,21 @@ namespace Boss
     /// The material of the Boss
     /// </summary>
     private Material mat;
-
+    /// <summary>
+    /// The original color of the mat
+    /// </summary>
+    private Color originalColor;
     /// <summary>
     /// Gets the percentage of health left in the Boss
     /// </summary>
     public float healthPercent {
       get { return this.health / this.maxHealth; }
     }
-
     /// <summary>
     /// Determines whether the Boss is Alive
     /// </summary>
     public bool alive {
-      get { return health >= 0f; }
+      get { return health > 0f; }
     }
 
 
@@ -62,15 +72,28 @@ namespace Boss
     private void Start()
     {
       maxHealth = health;
-      mat = GetComponent<SkinnedMeshRenderer> ().material;
+      if (mesh != null) {
+        mat = mesh.material;
+      } else {
+        mat = GetComponent<SkinnedMeshRenderer> ().material;
+      }
+      originalColor = mat.color;
     }
   
     private void OnTriggerEnter(Collider other)
     {
       if (other.gameObject.tag == "Weapon") {
-        this.TakeDamage (other.gameObject.GetComponent<WeaponStats> ().getDamage ());
+        this.TakeDamage (other.gameObject.GetComponent<WeaponStats> ().GetDamage ());
         StartCoroutine ("Flash");
       }
+    }
+
+    public float GetDamage()
+    {
+      if (attacking) {
+        return attackDmg;
+      } 
+      return 0;
     }
 
     /// <summary>
@@ -80,10 +103,11 @@ namespace Boss
     {
       dmg /= armor;
       health -= dmg;
-	  if (!alive && !dropped) {
-		Vector3 keydrop = new Vector3(this.transform.position.x, this.transform.position.y + 2, 0f);
-		Instantiate(drop, keydrop, Quaternion.identity);
-	    dropped = true;
+
+      if (!alive && dropLoot) {
+        Vector3 keydrop = new Vector3 (this.transform.position.x, this.transform.position.y + 2, 0f);
+        Instantiate (drop, keydrop, Quaternion.identity);
+        dropLoot = false;
       }
       return dmg;
     }
@@ -93,9 +117,14 @@ namespace Boss
     /// </summary>
     private IEnumerator Flash()
     {
-      Color originalColor = mat.color;
+      float deltaTime = 0f;
+
       mat.color = Color.red;
-      yield return new WaitForSeconds (flashTime);
+
+      while (deltaTime < flashTime) {
+        deltaTime += Time.deltaTime;
+        yield return 0;
+      }
       mat.color = originalColor;
     }
   }

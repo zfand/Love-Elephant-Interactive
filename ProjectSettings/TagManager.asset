@@ -22,9 +22,9 @@ TagManager:
   - Crate
   - HealthBar
   - IgnorePlayer
-  - 
-  - 
-  - 
+  - Pipe
+  - PipeTrigger
+  - Vomit
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   - RoomExitMidB
   - 
   - HurtBox
+  - 
+  - 
+  - Poison
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

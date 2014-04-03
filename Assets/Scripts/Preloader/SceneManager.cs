@@ -2,9 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using LoveElephant.Room;
 
-namespace Preloader
+namespace LoveElephant
 {
 /// <summary>
 /// Scene manager.
@@ -118,6 +117,10 @@ namespace Preloader
       perviousSpawn = currentSpawn;
       currentSpawn = data.playerSpawnPos;
       doorData = data;
+
+      if (player != null) {
+        player.GetComponent<PlayerStats>().Reset();
+      }
 
       Application.LoadLevel (currentLevel);
     }

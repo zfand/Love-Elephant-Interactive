@@ -1,15 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Door.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Door.cs" Line="18" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Duncan\Documents\Apocalypticism\Assets\FloorGrid.cs" line="32" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\NPCInventory.cs" line="103" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Equipment.cs" line="116" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Inventory.cs" line="57" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\Inventory.cs" line="91" />
-      <Breakpoint file="C:\Users\Duncan\Documents\GitHub\Love-Elephant-Interactive\Assets\Scripts\TempPoisoner.cs" line="19" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

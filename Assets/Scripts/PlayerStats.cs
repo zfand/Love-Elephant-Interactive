@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Boss;
-using Preloader;
 
 namespace LoveElephant
 {
@@ -10,9 +8,11 @@ namespace LoveElephant
     public float health;
     public float armor;
     public float invincibleTime;
+    public float poisonFlashTime;
     private float maxHealth;
     private Material mat;
     private bool invincible = false;
+    private Color originalColor;
     public GameObject healthBar;
 
     // Use this for initialization
@@ -20,6 +20,7 @@ namespace LoveElephant
     {
       maxHealth = health;
       mat = GetComponentInChildren<SpriteRenderer> ().material;
+      originalColor = mat.color;
     }
   
     // Update is called once per frame
@@ -30,27 +31,56 @@ namespace LoveElephant
 
     private void OnCollisionEnter(Collision c)
     {
-      if (!invincible && c.collider.tag == "Boss") {
-
-        Vector3 dir = Vector3.zero;
-        foreach (ContactPoint p in c.contacts) {
-          dir += p.normal;
-        }
-        dir = dir.normalized * 25f;
-        rigidbody.AddForce (dir, ForceMode.Impulse);
-        float dmg = c.collider.GetComponent<BossStats> ().attackDmg;
-
-        health -= dmg / armor;
-
-        if (health >= 0f) {
-          StartCoroutine (Invincible ());
-        } else {
-          healthBar.renderer.enabled = false;
-          health = maxHealth;
-          rigidbody.velocity = Vector3.zero;
-          GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ().SMLoadPerviousLevel ();
+      if (!invincible && c.collider.tag == "HurtBox") {
+        float dmg = c.collider.GetComponent<HurtBox> ().GetDamage ();
+        if (dmg > 0) {
+          Vector3 dir = Vector3.zero;
+          foreach (ContactPoint p in c.contacts) {
+            dir += p.normal;
+          }
+          dir = dir.normalized * 25f;
+          rigidbody.AddForce (dir, ForceMode.Impulse);
+          TakeDamage (dmg);
         }
       }
+    }
+
+    public void TakeDamage(float dmg)
+    {
+      health -= dmg / armor;
+      
+      if (health >= 0f) {
+        StartCoroutine ("Invincible");
+      } else {
+        healthBar.renderer.enabled = false;
+        health = maxHealth;
+        rigidbody.velocity = Vector3.zero;
+        GameObject.FindGameObjectWithTag ("SceneManager").GetComponent<SceneManager> ().SMLoadPerviousLevel ();
+      }
+    }
+  
+    public void PoisonPlayer(float dmg)
+    {
+      TakeDamage (dmg);
+      StartCoroutine ("PoisonFlash");
+    }
+
+    public void Reset() {
+      health = maxHealth;
+      StopCoroutine("Invincible");
+      StopCoroutine("PoisonFlash");
+      mat.color = originalColor;
+    }
+  
+    private IEnumerator PoisonFlash()
+    {
+      mat.color = new Color (60f / 255f, 120f / 255f, 60f / 255f);
+      yield return new WaitForSeconds (poisonFlashTime);
+      mat.color = originalColor;
+      yield return new WaitForSeconds (poisonFlashTime / 2f);
+      mat.color = new Color (60f / 255f, 120f / 255f, 60f / 255f);
+      yield return new WaitForSeconds (poisonFlashTime);
+      mat.color = originalColor;
     }
 
     private IEnumerator Invincible()

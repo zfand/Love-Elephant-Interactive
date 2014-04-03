@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Item;
 
-namespace Boss
+namespace LoveElephant
 {
   public class SlothBody : MonoBehaviour
   {
 
-
+    public float knockBackForce;
     private bool dying = false;
     private bool faceLeft;
     private bool flaming = false;
@@ -41,6 +40,12 @@ namespace Boss
       }
     }
 
+    void OnTriggerEnter(Collider c) {
+      if (c.tag == "Weapon") {
+        rigidbody.AddForce((transform.position - c.transform.position).normalized *  knockBackForce, ForceMode.Impulse);
+      }
+    }
+
     void OnCollisionStay(Collision hit)
     {
       if (hit.gameObject.tag == "Wall") {
@@ -56,7 +61,7 @@ namespace Boss
     
       SlothTV tv = this.transform.parent.GetComponentInChildren<SlothTV> ();
       if (tv != null) {
-        tv.Die ();
+        tv.Die (false);
       }
 
       this.gameObject.GetComponent<MeshExploder> ().Explode ();

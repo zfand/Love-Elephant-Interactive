@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Item;
+
 namespace LoveElephant 
 {
 	public class TalkToNPC : MonoBehaviour {

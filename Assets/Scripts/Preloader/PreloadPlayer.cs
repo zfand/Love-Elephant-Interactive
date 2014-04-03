@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LoveElephant.Room;
 
-namespace Preloader
+namespace LoveElephant
 {
   public class PreloadPlayer : MonoBehaviour
   {

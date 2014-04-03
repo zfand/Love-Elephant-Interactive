@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Boss
+namespace LoveElephant
 {
   public class SlothAI : MonoBehaviour
   {
@@ -12,6 +12,10 @@ namespace Boss
     public float idleTime;
     public float idleMax;
     public float idleMin;
+    public BossStats[] stats;
+    public SlothTV tv;
+    public GameObject shock;
+    public float shockDamage;
     private Animator anim;
     private Color origColor;
     private bool dying;
@@ -35,15 +39,15 @@ namespace Boss
     }
   
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
       rigidbody.AddForce(-Vector3.up * 10f);
 
       info = anim.GetCurrentAnimatorStateInfo (0);
       if (!dying) {
-
-        if (info.IsName ("IdleState")) {
-          stunSwirl.gameObject.SetActive (false); 
+        if (info.IsName ("IdleState") && !anim.IsInTransition(0)) {
+          SetAttacking(false);
+          stunSwirl.gameObject.SetActive (false);
           facePlayer ();
           idleTime -= Time.deltaTime;
           if (idleTime <= 0) {
@@ -58,15 +62,14 @@ namespace Boss
             //if too far
             roll = (dist > 30f) ? roll - 65 : roll;
 
-            if (roll >= 65) {
+            if (roll >= 80) {
+              StartCoroutine("Shock");
+            } else if (roll >= 65 && tv != null) {
               anim.SetTrigger("Spin");
-              StartCoroutine ( DirtySpin());
-            } else if (roll >= 80) {
-              anim.SetTrigger("Shock");
-              StartCoroutine ( DirtyShock());
             } else {
               anim.SetTrigger ("BeginCharge");
             }
+            SetAttacking(true);
           }
 
         } else if (!charging && info.IsName ("Charge") && !startHit) {
@@ -89,13 +92,7 @@ namespace Boss
             startdying = true;
           }
         }
-
       }
-    }
-
-    IEnumerator WaitForSecs(float secs)
-    {
-      yield return new WaitForSeconds (secs);
     }
 
     IEnumerator Charge()
@@ -111,11 +108,6 @@ namespace Boss
       }
       rigidbody.velocity = Vector3.zero;
       rigidbody.angularVelocity = Vector3.zero;
-
-      while (deltaTime < 0.5f) {
-        deltaTime += Time.deltaTime;
-        yield return 0;
-      }
 
       charging = false;
       anim.SetTrigger ("EndCharge");
@@ -166,38 +158,27 @@ namespace Boss
       this.transform.eulerAngles = dest;
     }
 
-    IEnumerator DirtySpin()
+    private IEnumerator Shock()
     {
-      float interval = 15f;
-      float totalrot = 0;
-      Vector3 startRotation = this.transform.eulerAngles;
-
-      bool rotating = true;
-      turning = true;
-
-      while (rotating) { 
-        totalrot += interval;
-        if (totalrot >= 720) {
-          rotating = false;
-          yield return 0;
-        }
-        transform.Rotate (new Vector3 (0f, interval, 0f));
-        yield return 0;
+      anim.SetTrigger("Shock");
+      rigidbody.AddForce(Vector3.up*500, ForceMode.Impulse);
+      yield return new WaitForSeconds(1.5f);
+      shock.particleSystem.Play();
+      if (Vector3.Distance(shock.transform.position,player.transform.position) <= 4f) {
+        player.GetComponent<PlayerStats>().TakeDamage(shockDamage);
       }
-      turning = false;
-      
-      this.transform.eulerAngles = startRotation;
-    }
-
-    IEnumerator DirtyShock()
-    {
-      yield return 0;
     }
 
     //If this is at the same level as the player
     bool sameLevel()
     {
       return Mathf.Abs (player.transform.position.y - this.transform.position.y) < 4.5;
+    }
+
+    private void SetAttacking(bool toggle) {
+      foreach (BossStats s in stats) {
+        s.attacking = toggle;
+      }
     }
 
     public void Dying()

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using LoveElephant;
 
-namespace Item
+namespace LoveElephant
 {
   public class Sword : MonoBehaviour
   {
