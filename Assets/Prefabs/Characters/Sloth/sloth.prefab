@@ -5975,7 +5975,7 @@ MonoBehaviour:
   player: {fileID: 0}
   chargeForce: 1000
   chargeDistance: 4
-  idleTime: 0
+  idleTime: 6
   idleMax: 5
   idleMin: 0
   stats:
