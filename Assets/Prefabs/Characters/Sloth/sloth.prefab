@@ -5898,7 +5898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8df8c59af9e344885aea4ba76ac9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockBackForce: 250
+  knockBackForce: 50
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5973,8 +5973,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chargeForce: 1800
-  chargeDistance: 10
+  chargeForce: 1000
+  chargeDistance: 4
   idleTime: 0
   idleMax: 5
   idleMin: 0
@@ -5985,7 +5985,7 @@ MonoBehaviour:
   shockBuild: {fileID: 100368}
   shock: {fileID: 100348}
   shockDamage: 15
-  shockDelayTime: 5
+  shockDelayTime: 3
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1

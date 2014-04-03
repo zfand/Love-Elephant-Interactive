@@ -67,6 +67,7 @@ namespace LoveElephant
             } else if (roll >= 65 && tv != null) {
               anim.SetTrigger("Spin");
             } else {
+              rigidbody.constraints = RigidbodyConstraints.FreezeAll;
               anim.SetTrigger ("BeginCharge");
             }
             SetAttacking(true);
@@ -97,13 +98,14 @@ namespace LoveElephant
 
     IEnumerator Charge()
     {
+      rigidbody.constraints = ~RigidbodyConstraints.FreezePositionX;
       Vector3 startPos = transform.position;
       float deltaTime = 0;
 
-      rigidbody.AddForce(Vector3.left * facing * chargeForce, ForceMode.Impulse);
+      rigidbody.AddForce(Vector3.left * facing * chargeForce, ForceMode.Acceleration);
 
       while (charging && Vector3.Distance(startPos, transform.position) < chargeDistance) {
-        rigidbody.AddForce(Vector3.left * facing * chargeForce);
+        //rigidbody.AddForce(Vector3.left * facing * chargeForce);
         yield return 0;
       }
       rigidbody.velocity = Vector3.zero;
@@ -160,14 +162,18 @@ namespace LoveElephant
 
     private IEnumerator Shock()
     {
+      rigidbody.constraints = RigidbodyConstraints.FreezeAll;
       anim.SetTrigger("Shock");
       shockBuild.particleSystem.Play();
       yield return new WaitForSeconds(shockDelayTime);
+      shockBuild.particleSystem.Stop();
       shock.particleSystem.Play();
       if (Vector3.Distance(shock.transform.position,player.transform.position) <= 4f) {
         player.GetComponent<PlayerStats>().TakeDamage(shockDamage);
       }
       anim.SetTrigger("Shock");
+      rigidbody.constraints = ~RigidbodyConstraints.FreezePositionX;
+
     }
 
     //If this is at the same level as the player
