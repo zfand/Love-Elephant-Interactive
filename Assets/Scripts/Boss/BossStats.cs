@@ -32,15 +32,16 @@ namespace LoveElephant
     /// Item that is dropped on death
     /// </summary>
     public GameObject drop;
-    [HideInInspector]
     /// <summary>
     /// Determines if this script should drop it's loot
     /// </summary>
-    public bool dropLoot;
+    public bool dropLoot = true;
+    [HideInInspector]
     /// <summary>
     /// Flag for when the Boss is attacking
     /// </summary>
     public bool attacking;
+    public SkinnedMeshRenderer mesh;
     /// <summary>
     /// The max health of the Boss
     /// </summary>
@@ -71,9 +72,12 @@ namespace LoveElephant
     private void Start()
     {
       maxHealth = health;
-      mat = GetComponent<SkinnedMeshRenderer> ().material;
+      if (mesh != null) {
+        mat = mesh.material;
+      } else {
+        mat = GetComponent<SkinnedMeshRenderer> ().material;
+      }
       originalColor = mat.color;
-      dropLoot = true;
     }
   
     private void OnTriggerEnter(Collider other)

@@ -9,6 +9,7 @@ namespace LoveElephant
 
     public Transform deathPos;
     public GameObject tv_ctrl;
+    public GameObject tv_mesh;
     private BossStats stats;
     private bool faceLeft;
     private bool flaming = false;
@@ -19,8 +20,6 @@ namespace LoveElephant
     void Start()
     {
       stats = this.GetComponent<BossStats> ();
-      //stops the boss stats from dropping the loot
-      stats.dropLoot = false;
     }
   
     // Update is called once per frame
@@ -28,10 +27,10 @@ namespace LoveElephant
     {
       float hpleft = stats.healthPercent;
       if (!flaming && hpleft < 0.5f) {
-        this.transform.Find ("TVFire").particleSystem.Play ();
+        tv_mesh.transform.Find ("TVFire").particleSystem.Play ();
         flaming = true;
       } else if (!almostDead && hpleft < 0.2f) {
-        this.transform.Find ("TVFire").particleSystem.emissionRate *= 2;
+        tv_mesh.transform.Find ("TVFire").particleSystem.Play ();
         almostDead = true;
       } else if (!exploding && hpleft <= 0f) {
         exploding = true;
@@ -82,7 +81,10 @@ namespace LoveElephant
       }
       boom.position = deathPos.position;
       boom.particleSystem.Play ();
-      this.gameObject.GetComponent<MeshExploder> ().Explode ();
+      tv_mesh.GetComponent<MeshExploder> ().Explode ();
+
+      tv_mesh.gameObject.SetActive (false);
+      Destroy(tv_mesh);
 
       this.gameObject.SetActive (false);
       Destroy(this);
