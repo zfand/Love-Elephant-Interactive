@@ -14,8 +14,10 @@ namespace LoveElephant
     public float idleMin;
     public BossStats[] stats;
     public SlothTV tv;
+    public GameObject shockBuild;
     public GameObject shock;
     public float shockDamage;
+    public float shockDelayTime;
     private Animator anim;
     private Color origColor;
     private bool dying;
@@ -161,12 +163,13 @@ namespace LoveElephant
     private IEnumerator Shock()
     {
       anim.SetTrigger("Shock");
-      rigidbody.AddForce(Vector3.up*500, ForceMode.Impulse);
-      yield return new WaitForSeconds(1.5f);
+      shockBuild.particleSystem.Play();
+      yield return new WaitForSeconds(shockDelayTime);
       shock.particleSystem.Play();
       if (Vector3.Distance(shock.transform.position,player.transform.position) <= 4f) {
         player.GetComponent<PlayerStats>().TakeDamage(shockDamage);
       }
+      anim.SetTrigger("Shock");
     }
 
     //If this is at the same level as the player
