@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: run1
+  m_Name: idle1
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -25,19 +25,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< HEAD
-  m_Name: Brawler_New_Run
+  m_Name: Brawler_New_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: a849d8c4adb04054192d9297b461781c, type: 2}
-=======
-  m_Name: new_Brawler_Run
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: c0d49f23b2df16542888150a239d4bc9, type: 2}
->>>>>>> 64b1d20bb8b30b9368f532becd82b9e8e6a9ca02
+  - {fileID: 7400000, guid: 0fbcd0c76a316dd4c8f6bff988748582, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
