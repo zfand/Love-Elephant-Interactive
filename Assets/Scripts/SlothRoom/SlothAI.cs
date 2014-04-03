@@ -43,8 +43,6 @@ namespace LoveElephant
     // Update is called once per frame
     void FixedUpdate()
     {
-      rigidbody.AddForce(-Vector3.up * 10f);
-
       info = anim.GetCurrentAnimatorStateInfo (0);
       if (!dying) {
         if (info.IsName ("IdleState") && !anim.IsInTransition(0)) {
