@@ -49,7 +49,14 @@ namespace LoveElephant
     /// A point at the bottom of the player
     /// </summary>
     public Transform groundCheck;
+    /// <summary>
+    /// Reference to the equip of the player
+    /// </summary>
     private Equipment equip;
+    /// <summary>
+    /// The last input from the user
+    /// </summary>
+    private float lastInput;
       
     private void Awake()
     {
@@ -70,6 +77,7 @@ namespace LoveElephant
     private void Start()
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
+      lastInput = 1000f;
     }
   
     // Update is called once per frame
@@ -95,9 +103,17 @@ namespace LoveElephant
     {
       if (inputEnabled) {
         float h = Input.GetAxis ("Horizontal");
-        anim.SetFloat ("Speed", Mathf.Abs (h));
+        if (Mathf.Abs (h) < Mathf.Abs (lastInput)) {
+          lastInput = h;
+          h = 0;
+          anim.SetFloat ("Speed", 0);
+        } else {
+          lastInput = h;
+          anim.SetFloat ("Speed", Mathf.Abs (h));
+        }
 
-        h = (h == 0) ? 0 : (h > 0) ? 1 : -1;
+        Debug.Log(h);
+        //h = (h == 0) ? 0 : (h > 0) ? 1 : -1;
 
         //Flip Facing Direction
         if (h > 0 && !facingRight || h < 0 && facingRight) {
@@ -107,8 +123,8 @@ namespace LoveElephant
         //Make sure you're not grinding up against a wall
         if (grounded || !isColliding) {
           if (grounded && h == 0) {
-            rigidbody.velocity = Vector3.zero;
-            rigidbody.angularVelocity = Vector3.zero;
+            //rigidbody.velocity = Vector3.zero;
+            //rigidbody.angularVelocity = Vector3.zero;
           } else if (h * rigidbody.velocity.x < mStats.maxRunSpeed) {
             if (grounded) {
               rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
