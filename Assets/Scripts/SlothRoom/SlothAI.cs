@@ -109,11 +109,6 @@ namespace LoveElephant
       rigidbody.velocity = Vector3.zero;
       rigidbody.angularVelocity = Vector3.zero;
 
-      while (deltaTime < 1f) {
-        deltaTime += Time.deltaTime;
-        yield return 0;
-      }
-
       charging = false;
       anim.SetTrigger ("EndCharge");
     }

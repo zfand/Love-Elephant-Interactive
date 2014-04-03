@@ -2652,8 +2652,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Sloth_BuildShock
       takeName: Take 001
-      firstFrame: 50
-      lastFrame: 67
+      firstFrame: .599999964
+      lastFrame: .699999988
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
