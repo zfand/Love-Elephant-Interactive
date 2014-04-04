@@ -69,6 +69,10 @@ namespace LoveElephant
     /// </summary>
     private GrappleState state;
     /// <summary>
+    /// If the player is currently Ground Reeling
+    /// </summary>
+    private bool groundReeling;
+    /// <summary>
     /// Reference to the player's Controller
     /// </summary>
     private PlayerController pController;
@@ -99,6 +103,7 @@ namespace LoveElephant
     private void Start()
     {    
       state = GrappleState.Off;
+      groundReeling = false;
       lr = this.GetComponent<LineRenderer> ();
       if (lr == null) {
         Debug.LogError ("The Hookshot does not have a LineRenderer!");
@@ -164,7 +169,7 @@ namespace LoveElephant
       }
 
       //Reel up from ground!
-      if (Input.GetButton ("Up") && state == GrappleState.Attached) {
+      if (Input.GetButton ("Up") && state == GrappleState.Attached && !groundReeling) {
         StartCoroutine ("GroundReel");
       }
 
@@ -215,8 +220,7 @@ namespace LoveElephant
       }
       //delete joints 
       else if (joint != null) {
-        Destroy (joint);
-        Destroy (anchorJoint);
+        StopSwing(false);
       }
     }
 
@@ -362,6 +366,7 @@ namespace LoveElephant
     /// </summary>
     private IEnumerator GroundReel()
     {
+      groundReeling = true;
       Vector3 startPos = transform.parent.position;
       Vector3 yankPos = transform.parent.position + (hitPos - transform.parent.position).normalized * yankLen;
       float detlaTime = 0f;
@@ -375,6 +380,7 @@ namespace LoveElephant
       if (Input.GetButton ("Fire1")) {
         StartSwing ();
       }
+      groundReeling = false;
     }
  
     /// <summary>
