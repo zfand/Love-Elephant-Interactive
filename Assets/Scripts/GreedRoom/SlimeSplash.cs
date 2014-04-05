@@ -22,9 +22,7 @@ namespace LoveElephant
 				Pipe p = g.GetComponent<Pipe>();
 				p.ResetCounter();
 				if(!p.IsSplashing()){
-					p.Splash (new Vector3(g.transform.position.x, 
-					                      this.transform.position.y + this.renderer.bounds.size.y/2, 
-					                      g.transform.position.z), 
+					p.Splash (this.transform.position, 
 					          SpawnPuddle);
 				}
 			}
