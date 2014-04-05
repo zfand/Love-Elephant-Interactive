@@ -14,6 +14,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
+  - 114: {fileID: 11400016}
   m_Layer: 9
   m_Name: Brawler
   m_TagString: Player
@@ -244,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5999999, y: -6.24749994, z: 0}
+  m_LocalPosition: {x: -11.9816933, y: -14.6328993, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400004}
@@ -795,6 +796,17 @@ MonoBehaviour:
   invincibleTime: .5
   poisonFlashTime: 0
   healthBar: {fileID: 100026}
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42e19c7c85a2dc469e6ad9bb451b968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &12000000
 LineRenderer:
   m_ObjectHideFlags: 1
