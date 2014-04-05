@@ -38,6 +38,9 @@ namespace LoveElephant
 		bool Rotating;
 		bool Drinking;
 		bool Vomiting = false;
+
+		bool dying = false;
+		bool startdying = false;
 		public GameObject Destination;
 		AnimatorStateInfo animinfo;
 		bool faceRight;
@@ -86,34 +89,41 @@ namespace LoveElephant
 		// Update is called once per frame
 		void Update () {
 			animinfo = anim.GetCurrentAnimatorStateInfo(0);
-			rigidbody.AddForce(-Vector3.up * 10000f);
+			if(!dying){
+				rigidbody.AddForce(-Vector3.up * 10000f);
 
-			if(state == GGState.Idle){
-				if(idleCooldown <= 0){
-					ResetIdle();
-					PickNewAction();
-				} else {
-					idleCooldown--;
+				if(state == GGState.Idle){
+					if(idleCooldown <= 0){
+						ResetIdle();
+						PickNewAction();
+					} else {
+						idleCooldown--;
+					}
+				}
+				if(state == GGState.Attack){
+					if(animinfo.IsName("AttackOver")){
+						Idle ();
+					}
+				}
+				if(state == GGState.Drink && !Drinking){
+					StartCoroutine(Drink());
+				}
+				if(state == GGState.Walk){
+					if(!FacingDestination() && !Rotating){
+						FaceDestination();
+					} else if(!Moving){
+						StartCoroutine(MoveToDestination());
+					}
+				}
+				if(state == GGState.Vomit && animinfo.IsName("Vomit") && !Vomiting){
+					StartCoroutine(VomitLoop());
+				}
+			} else {
+				if (animinfo.IsName ("Dead")) {
+					this.GetComponentInChildren<Gluttony> ().Die ();
 				}
 			}
-			if(state == GGState.Attack){
-				if(animinfo.IsName("AttackOver")){
-					Idle ();
-				}
-			}
-			if(state == GGState.Drink && !Drinking){
-				StartCoroutine(Drink());
-			}
-			if(state == GGState.Walk){
-				if(!FacingDestination() && !Rotating){
-					FaceDestination();
-				} else if(!Moving){
-					StartCoroutine(MoveToDestination());
-				}
-			}
-			if(state == GGState.Vomit && animinfo.IsName("Vomit") && !Vomiting){
-				StartCoroutine(VomitLoop());
-			}
+
 		}
 
 		void OnCollisionEnter(Collision c){
@@ -422,6 +432,12 @@ namespace LoveElephant
 			}
 			nextState = GGState.None;
 			anim.SetTrigger(s);
+		}
+
+		public void Dying()
+		{
+			dying = true;
+			anim.SetTrigger ("Die");
 		}
 	}
 
