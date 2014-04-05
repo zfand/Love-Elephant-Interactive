@@ -2,8 +2,8 @@
 using System.Collections;
 namespace LoveElephant 
 {
-	public class SlimeSplash : MonoBehaviour {
-
+	public class PointSplash : MonoBehaviour {
+		
 		GameObject splash;
 		public bool SpawnPuddle = true;
 		// Use this for initialization
@@ -14,21 +14,19 @@ namespace LoveElephant
 		
 		// Update is called once per frame
 		void Update () {
-		
+			
 		}
-
+		
 		void OnParticleCollision(GameObject g) {
 			if(g.CompareTag("Pipe")){
 				Pipe p = g.GetComponent<Pipe>();
 				p.ResetCounter();
 				if(!p.IsSplashing()){
-					p.Splash (new Vector3(g.transform.position.x, 
-					                      this.transform.position.y + this.renderer.bounds.size.y/2, 
-					                      g.transform.position.z), 
+					p.Splash (this.transform.position, 
 					          SpawnPuddle);
 				}
 			}
 		}
-
+		
 	}
 }

@@ -320,9 +320,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 62427497}
-  - 114: {fileID: 62427496}
   - 65: {fileID: 62427498}
   - 23: {fileID: 62427499}
+  - 114: {fileID: 62427496}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Untagged
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 62427495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e622808467f7d62448a6656d7f65d527, type: 3}
+  m_Script: {fileID: 11500000, guid: 48282c060dbfabc469cfb282f5759c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPuddle: 1
@@ -558,45 +558,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
   m_LocalPosition: {x: 22.0317745, y: 2.60909462, z: 0}
   m_LocalScale: {x: 1.79999995, y: 1.79999995, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
---- !u!1 &250843057
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 250843059}
-  - 65: {fileID: 250843058}
-  m_Layer: 0
-  m_Name: PipeTrigger
-  m_TagString: PipeTrigger
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &250843058
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 250843057}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.54999995, y: 8.89000034, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &250843059
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 250843057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.38666844, y: 2.44502068, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!1 &271470365
@@ -1357,9 +1318,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 877225057}
-  - 114: {fileID: 877225056}
   - 65: {fileID: 877225055}
   - 23: {fileID: 877225054}
+  - 114: {fileID: 877225056}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Untagged
@@ -1408,7 +1369,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 877225053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e622808467f7d62448a6656d7f65d527, type: 3}
+  m_Script: {fileID: 11500000, guid: 48282c060dbfabc469cfb282f5759c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPuddle: 1
@@ -1850,9 +1811,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1100766417}
-  - 114: {fileID: 1100766416}
   - 65: {fileID: 1100766415}
   - 23: {fileID: 1100766414}
+  - 114: {fileID: 1100766416}
   m_Layer: 0
   m_Name: Splash
   m_TagString: Untagged
@@ -1901,7 +1862,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1100766413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e622808467f7d62448a6656d7f65d527, type: 3}
+  m_Script: {fileID: 11500000, guid: 48282c060dbfabc469cfb282f5759c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPuddle: 1
@@ -5289,7 +5250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1843809326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.20303345, y: 3.59531212, z: 0}
+  m_LocalPosition: {x: 7.65173626, y: 3.59531212, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
