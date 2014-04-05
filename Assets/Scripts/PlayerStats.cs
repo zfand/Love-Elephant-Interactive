@@ -29,7 +29,19 @@ namespace LoveElephant
   
     }
 
-    private void OnCollisionEnter(Collision c)
+	private void OnParticleCollision(GameObject g){
+		if(!invincible){
+			if(g.CompareTag("Vomit")){
+			   TakeDamage(5);
+			} else if(g.CompareTag("Pipe")){
+				TakeDamage (1);
+			}
+		}
+			
+	}
+    
+
+	private void OnCollisionEnter(Collision c)
     {
       if (!invincible && c.collider.tag == "HurtBox") {
         float dmg = c.collider.GetComponent<HurtBox> ().GetDamage ();

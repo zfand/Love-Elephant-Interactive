@@ -2293,23 +2293,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &100300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400300}
-  - 135: {fileID: 13500018}
-  - 114: {fileID: 11400008}
-  m_Layer: 0
-  m_Name: StrongStomp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &100302
 GameObject:
   m_ObjectHideFlags: 1
@@ -2522,6 +2505,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400012}
+  - {fileID: 400302}
   m_Father: {fileID: 400084}
 --- !u!4 &400032
 Transform:
@@ -2851,7 +2835,6 @@ Transform:
   - {fileID: 400022}
   - {fileID: 400138}
   - {fileID: 400030}
-  - {fileID: 400302}
   - {fileID: 400034}
   - {fileID: 400296}
   m_Father: {fileID: 400206}
@@ -3075,7 +3058,6 @@ Transform:
   - {fileID: 400162}
   - {fileID: 400028}
   - {fileID: 400118}
-  - {fileID: 400300}
   - {fileID: 400298}
   m_Father: {fileID: 0}
 --- !u!4 &400122
@@ -4130,28 +4112,17 @@ Transform:
   m_LocalScale: {x: .666666448, y: .666666687, z: .666666448}
   m_Children: []
   m_Father: {fileID: 400120}
---- !u!4 &400300
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100300}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: .10028559, y: -.19381842, z: 1.91139495}
-  m_LocalScale: {x: .666666448, y: .666666687, z: .666666448}
-  m_Children: []
-  m_Father: {fileID: 400120}
 --- !u!4 &400302
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100302}
-  m_LocalRotation: {x: .153082341, y: -.5889498, z: .191427499, w: .770103514}
-  m_LocalPosition: {x: -1.79869592, y: .190796122, z: .405827284}
-  m_LocalScale: {x: .5, y: .099999994, z: .49999997}
+  m_LocalRotation: {x: .121072076, y: -.621320009, z: .27552253, w: .723457277}
+  m_LocalPosition: {x: -1.11462307, y: -.701894462, z: .383871883}
+  m_LocalScale: {x: .49999997, y: .0999999866, z: .49999994}
   m_Children: []
-  m_Father: {fileID: 400084}
+  m_Father: {fileID: 400030}
 --- !u!23 &2300000
 Renderer:
   m_ObjectHideFlags: 1
@@ -4311,6 +4282,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropLoot: 0
   attacking: 0
+  mesh: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4334,8 +4306,7 @@ MonoBehaviour:
   DroolObject: {fileID: 100296}
   VomitObject: {fileID: 100302}
   DrinkSplashObj: {fileID: 100294}
-  StompStrong: {fileID: 100300}
-  StompWeak: {fileID: 100298}
+  Stomp: {fileID: 0}
   PukeSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -4359,6 +4330,7 @@ MonoBehaviour:
   drop: {fileID: 0}
   dropLoot: 0
   attacking: 0
+  mesh: {fileID: 0}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4367,24 +4339,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 043433069b428014690641104f8f34cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e2a13d23da03cd458f2ce335fb97460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 20
   ExplosiveForce: 5000
---- !u!114 &11400008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 043433069b428014690641104f8f34cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 20
-  ExplosiveForce: 7500
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4504,18 +4463,6 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &13500018
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13600000
 CapsuleCollider:

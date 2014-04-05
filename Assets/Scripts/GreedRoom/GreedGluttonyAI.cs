@@ -19,8 +19,7 @@ namespace LoveElephant
 		public GameObject DroolObject;
 		public GameObject VomitObject;
 		public GameObject DrinkSplashObj;
-		public GameObject StompStrong;
-		public GameObject StompWeak;
+		public GameObject Stomp;
 
 		private ParticleSystem DrinkSplash;
 		private ParticleSystem VomitSystem;
@@ -80,6 +79,7 @@ namespace LoveElephant
 			}
 
 			shake = CameraObject.GetComponent<CameraShake>();
+			currentPukeValue = MaxPukeValue;
 			//StartCoroutine(StartWalk());
 		}
 
@@ -111,7 +111,7 @@ namespace LoveElephant
 					StartCoroutine(MoveToDestination());
 				}
 			}
-			if(state == GGState.Vomit && !Vomiting){
+			if(state == GGState.Vomit && animinfo.IsName("Vomit") && !Vomiting){
 				StartCoroutine(VomitLoop());
 			}
 		}
@@ -138,28 +138,45 @@ namespace LoveElephant
 
 			float frames = 10f;
 			float currentFrames = 0f;
-			StompWeak.SetActive(true);
-			StompStrong.SetActive(true);
+			Stomp.SetActive(true);
 			while(frames > currentFrames){
 				currentFrames +=1;
 				yield return 0;
 			}
 			
-			StompWeak.SetActive(false);
-			StompStrong.SetActive(false);
+			Stomp.SetActive(false);
 		}
 
 		IEnumerator VomitLoop(){
 			Vomiting = true;
-			VomitSystem.Play ();
-
+			GameObject vomitcopy = GameObject.Instantiate(VomitObject, VomitObject.transform.position, VomitObject.transform.rotation) as GameObject;
+			
+			Transform neck = VomitObject.transform.parent;
+			vomitcopy.transform.parent = neck;
+			ParticleSystem vomit = vomitcopy.particleSystem;
+			vomit.Play ();
+			Quaternion orig_rotation = neck.rotation;
+			float rotatespeed = 0.2f;
+			float max_rotate = 80f;
+			float currentrotate = 0f;
 			while(currentPukeValue > 0f){
 				currentPukeValue -= 0.25f;
+				if(currentrotate <= 0f){
+					rotatespeed = Mathf.Abs (rotatespeed);
+				} else if(currentrotate >= max_rotate){
+					rotatespeed = -1 * (Mathf.Abs (rotatespeed));
+				}
+				currentrotate += rotatespeed;
+				vomitcopy.transform.Rotate (Vector3.forward, -rotatespeed, Space.World);
+				//vomitcopy.transform.Rotate (Vector3.up, 5, Space.World);
 				yield return 0;
-			}
+			}			
 			Vomiting = false;
-			VomitSystem.Stop ();
+			vomit.Stop ();
+			vomitcopy.transform.parent = null;
 			Drool.Stop();
+			neck.rotation = orig_rotation;
+			Destroy (vomitcopy);
 			Idle ();
 
 		}
