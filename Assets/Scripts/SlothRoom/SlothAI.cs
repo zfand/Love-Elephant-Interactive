@@ -15,6 +15,7 @@ namespace LoveElephant
     public BossStats[] stats;
     public SlothTV tv;
     public GameObject shockBuild;
+		public GameObject swingBuild;
     public GameObject shock;
     public float shockDamage;
     public float shockDelayTime;
@@ -26,6 +27,7 @@ namespace LoveElephant
     private bool startHit = false;
     private bool charging;
     private bool startdying = false;
+		private bool spinning = false;
     AnimatorStateInfo info;
     Transform stunSwirl;
     // Use this for initialization
@@ -45,7 +47,7 @@ namespace LoveElephant
     {
       info = anim.GetCurrentAnimatorStateInfo (0);
       if (!dying) {
-        if (info.IsName ("IdleState") && !anim.IsInTransition(0)) {
+        if (info.IsName ("IdleState") && !anim.IsInTransition(0) && !spinning) {
           SetAttacking(false);
           stunSwirl.gameObject.SetActive (false);
           facePlayer ();
@@ -65,7 +67,7 @@ namespace LoveElephant
             if (roll >= 80) {
               StartCoroutine("Shock");
             } else if (roll >= 65 && tv != null) {
-              anim.SetTrigger("Spin");
+				StartCoroutine(Spin());
             } else {
               rigidbody.constraints = RigidbodyConstraints.FreezeAll;
               anim.SetTrigger ("BeginCharge");
@@ -138,6 +140,18 @@ namespace LoveElephant
         }
       }
     }
+
+	IEnumerator Spin(){
+		swingBuild.particleSystem.Play ();
+		spinning = true;
+		while(swingBuild.particleSystem.isPlaying){
+			yield return 0;
+		}
+		
+		anim.SetTrigger("Spin");
+		spinning = false;
+	}
+
 
     IEnumerator TurnSloth(Vector3 dest)
     {
