@@ -4,6 +4,7 @@ using System.Collections;
 public class LightFlicker : MonoBehaviour {
 
 	public GameObject light;
+	public GameObject lightSprite;
 	private float minTime = 0.1f;
 	private float maxTime = 0.6f;
 	private int flickers = 3;
@@ -34,5 +35,6 @@ public class LightFlicker : MonoBehaviour {
 			flickers--;
 		}
 		light.light.intensity = 0;
+		lightSprite.rigidbody.useGravity = true;
 	}
 }
