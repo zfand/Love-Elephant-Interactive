@@ -20,7 +20,7 @@ public class LightFlicker : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.gameObject.tag == "RoomKey") {
+		if (col.gameObject.tag == "LightTrigger") {
 			StartCoroutine ("flicker");
 		}
 	}
