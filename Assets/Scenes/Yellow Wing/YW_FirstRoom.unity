@@ -1622,10 +1622,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342256259}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 22.7782955, y: 7.70302773, z: 7.50161462e-07}
+  m_LocalPosition: {x: .0942344666, y: 3.00371265, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2088355416}
 --- !u!1 &364414393
 GameObject:
   m_ObjectHideFlags: 0
@@ -10076,8 +10076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebaab98f999c64ef9bdab67e6baf8b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 342256259}
-  lightSprite: {fileID: 2088355414}
+  lights: []
 --- !u!1001 &1856980459
 Prefab:
   m_ObjectHideFlags: 0
@@ -11485,7 +11484,7 @@ GameObject:
   - 65: {fileID: 2088355418}
   m_Layer: 0
   m_Name: YW_Light
-  m_TagString: Untagged
+  m_TagString: RoomLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11522,7 +11521,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.6840611, y: 4.69931507, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 342256261}
   m_Father: {fileID: 0}
 --- !u!54 &2088355417
 Rigidbody:

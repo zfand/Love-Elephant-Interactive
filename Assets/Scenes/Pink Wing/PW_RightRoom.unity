@@ -476,6 +476,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 1ff83109603a0b7429ddbd7a22ca9a97, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a430b5bbaca3444159144f9b90bed3c6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ff83109603a0b7429ddbd7a22ca9a97, type: 2}
   m_RootGameObject: {fileID: 1338937096}
@@ -702,6 +707,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 1ff83109603a0b7429ddbd7a22ca9a97, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a430b5bbaca3444159144f9b90bed3c6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ff83109603a0b7429ddbd7a22ca9a97, type: 2}
   m_RootGameObject: {fileID: 798935872}
@@ -863,7 +873,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 3509dc7edc9663e47b510dffe19a4dce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a430b5bbaca3444159144f9b90bed3c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &798935875
 Transform:
@@ -1333,7 +1343,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 3509dc7edc9663e47b510dffe19a4dce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a430b5bbaca3444159144f9b90bed3c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1338937099
 Transform:
@@ -1604,6 +1614,11 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 9e617dee03862294fa92168a4bbd4f8f, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b25dc8d928ba47acbd2250df95b9d79,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e617dee03862294fa92168a4bbd4f8f, type: 2}
   m_RootGameObject: {fileID: 2144408492}
@@ -2142,5 +2157,5 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 1bb518b647f77d643a99ed8deefb5c04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b25dc8d928ba47acbd2250df95b9d79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

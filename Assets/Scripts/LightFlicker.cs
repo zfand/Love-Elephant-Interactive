@@ -3,15 +3,15 @@ using System.Collections;
 
 public class LightFlicker : MonoBehaviour {
 
-	public GameObject light;
-	public GameObject lightSprite;
+	//GameObjects with rigidbodys and single Light children
+	public GameObject[] lights;
 	private float minTime = 0.1f;
 	private float maxTime = 0.6f;
 	private int flickers = 3;
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("Start");
+		lights = GameObject.FindGameObjectsWithTag("RoomLight");
 	}
 	
 	// Update is called once per frame
@@ -26,15 +26,23 @@ public class LightFlicker : MonoBehaviour {
 	}
 
 	IEnumerator flicker() {
-		while (flickers > 0) {
-			float wait = Random.Range (minTime, maxTime);
+		foreach (GameObject l in lights) {
+
+			Light light = l.GetComponentInChildren<Light>();
+
+			while (flickers > 0) {
+				float wait = Random.Range (minTime, maxTime);
+				light.light.intensity = 0;
+				yield return new WaitForSeconds(wait);
+				light.light.intensity = 8;
+				yield return new WaitForSeconds(wait);
+				flickers--;
+			}
+
 			light.light.intensity = 0;
-			yield return new WaitForSeconds(wait);
-			light.light.intensity = 8;
-			yield return new WaitForSeconds(wait);
-			flickers--;
+			l.rigidbody.useGravity = true;
+
+			flickers = 3;
 		}
-		light.light.intensity = 0;
-		lightSprite.rigidbody.useGravity = true;
 	}
 }
