@@ -5,7 +5,6 @@ public class IconIdleScript : MonoBehaviour {
 
 	bool pulsing;
 	bool pulseIn;
-	bool pulseOut;
 	float mult = 1f;
 	public float maxScale;
 	public float minScale;
@@ -15,7 +14,6 @@ public class IconIdleScript : MonoBehaviour {
 	void Start () {
 		originalScale = transform.localScale;
 		pulseIn = true;
-		pulseOut = false;
 		pulsing = false;
 	}
 	
@@ -39,12 +37,10 @@ public class IconIdleScript : MonoBehaviour {
 			yield return 0;
 		}
 		pulsing = false;
-		pulseOut = true;
 	}
 
 	IEnumerator PulseOut(){
 		pulsing = true;
-		pulseOut = false;
 		while(mult >= minScale){
 			mult -= interval;
 			this.transform.localScale = originalScale * mult;
