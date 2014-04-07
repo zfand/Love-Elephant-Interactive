@@ -745,9 +745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1981595457}
-  widthBarrier: 10.3500004
-  TheHub: 1
-  tallRoom: 1
+  horizontalLimit: 5
+  hMoveTime: .200000003
 --- !u!4 &722708485
 Transform:
   m_ObjectHideFlags: 0
@@ -2110,7 +2109,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1981595457}
   m_LocalRotation: {x: .0436193869, y: 0, z: 0, w: .999048233}
-  m_LocalPosition: {x: -10.3999996, y: 8, z: -90}
+  m_LocalPosition: {x: -10.3999996, y: .0926513672, z: -90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
