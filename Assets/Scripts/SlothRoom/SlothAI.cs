@@ -102,7 +102,6 @@ namespace LoveElephant
     {
       rigidbody.constraints = ~RigidbodyConstraints.FreezePositionX;
       Vector3 startPos = transform.position;
-      float deltaTime = 0;
 
       rigidbody.AddForce(Vector3.left * facing * chargeForce, ForceMode.Acceleration);
 

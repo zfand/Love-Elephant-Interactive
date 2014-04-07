@@ -8,7 +8,6 @@ namespace LoveElephant
 
 		public float Speed = 0.1f;
 		public float DrinkTime;
-		private float currentDrinkTime;
 		public float IdleMax;
 		public float IdleMin;
 		private float direction;
@@ -22,7 +21,6 @@ namespace LoveElephant
 		public GameObject Stomp;
 
 		private ParticleSystem DrinkSplash;
-		private ParticleSystem VomitSystem;
 		public List<GameObject> PukeSpots;
 
 
@@ -40,7 +38,6 @@ namespace LoveElephant
 		bool Vomiting = false;
 
 		bool dying = false;
-		bool startdying = false;
 		public GameObject Destination;
 		AnimatorStateInfo animinfo;
 		bool faceRight;
@@ -62,7 +59,6 @@ namespace LoveElephant
 
 		}
 		bool ResetGG = false;
-		bool MovingToPipe = false;
 		GGState state;
 		GGState nextState;
 		// Use this for initialization
@@ -71,7 +67,6 @@ namespace LoveElephant
 			idleCooldown = Random.Range(IdleMin, IdleMax);
 			anim = GetComponent<Animator> ();
 			Drool = DroolObject.particleSystem;	
-			VomitSystem = VomitObject.particleSystem;
 			DrinkSplash = DrinkSplashObj.particleSystem;
 			state = GGState.Idle;
 			FaceRight = transform.forward.x  > 0;
@@ -220,7 +215,6 @@ namespace LoveElephant
 				yield return 0;
 			}
 			float distance = 2f;
-			float mindistance = 1.5f;
 			if(Destination.CompareTag("Player")){
 				distance = 4f;
 			} else if(nextState == GGState.Vomit){
@@ -252,7 +246,6 @@ namespace LoveElephant
 		IEnumerator Drink(){
 			Drinking = true;
 			currentPukeValue = 0;
-			currentDrinkTime = 0;
 			DrinkSplash.Play ();
 			while (currentPukeValue < MaxPukeValue){// && currentDrinkTime < DrinkTime){
 				//currentPukeValue += PukeChargeRate;
@@ -428,7 +421,7 @@ namespace LoveElephant
 			}
 			if(Exitcountdown <= 0){
 				anim.Play ("Idle");
-				return true;
+        yield break;
 			}
 			nextState = GGState.None;
 			anim.SetTrigger(s);
