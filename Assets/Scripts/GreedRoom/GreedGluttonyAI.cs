@@ -428,7 +428,7 @@ namespace LoveElephant
 			}
 			if(Exitcountdown <= 0){
 				anim.Play ("Idle");
-				return true;
+        yield break;
 			}
 			nextState = GGState.None;
 			anim.SetTrigger(s);
