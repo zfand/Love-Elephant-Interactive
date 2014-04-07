@@ -384,7 +384,7 @@ ParticleSystem:
         rgba: 4278255615
       minMaxState: 2
     startSize:
-      scalar: 1.29999995
+      scalar: .189999998
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -399,7 +399,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .615384638
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -9137,9 +9137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1324299908}
-  widthBarrier: 10.3500004
-  TheHub: 0
-  tallRoom: 0
+  horizontalLimit: 0
+  hMoveTime: .100000001
 --- !u!4 &1684478146
 Transform:
   m_ObjectHideFlags: 0
@@ -9451,6 +9450,14 @@ Prefab:
     - target: {fileID: 400000, guid: 5c4f4e2ecd2ccdf44b36806ecb5c80c2, type: 2}
       propertyPath: m_LocalScale.z
       value: .78473562
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 5c4f4e2ecd2ccdf44b36806ecb5c80c2, type: 2}
+      propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 5c4f4e2ecd2ccdf44b36806ecb5c80c2, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: .189999998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c4f4e2ecd2ccdf44b36806ecb5c80c2, type: 2}
