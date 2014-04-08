@@ -1682,6 +1682,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400220}
   - 95: {fileID: 9500002}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: lust
   m_TagString: Untagged
@@ -3031,7 +3032,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 342e857831e9fa449a24e4f9e0ae6993, type: 3}
   m_Controller: {fileID: 9100000, guid: aab737a1a04dbed4d82c79e3ab112e4c, type: 2}
   m_CullingMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
 --- !u!95 &9500002
@@ -3048,6 +3049,29 @@ Animator:
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8034c450c539ff045838032c87665b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShootPreCumObject: {fileID: 0}
+  IdleMax: 20
+  IdleMin: 10
+  Speed: 2
+  WayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWaypoint: {fileID: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
