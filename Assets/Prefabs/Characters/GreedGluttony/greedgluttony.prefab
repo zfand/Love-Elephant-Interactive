@@ -1715,6 +1715,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 136: {fileID: 13600010}
   - 138: {fileID: 13800000}
+  - 114: {fileID: 11400018}
   m_Layer: 0
   m_Name: g_spine1
   m_TagString: Untagged
@@ -4644,7 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff385e0c4f9854f399a2e5c5c423b2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 50
   attackDmg: 0
   armor: 1
   lifeSteal: 0
@@ -4708,6 +4709,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 446c0fc607f90844dab9ea07c9709ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defc94b01ada04f179b47694626653be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &13500000
