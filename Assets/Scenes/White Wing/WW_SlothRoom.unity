@@ -3831,9 +3831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2082798335}
-  widthBarrier: 10.3500004
-  TheHub: 0
-  tallRoom: 0
+  horizontalLimit: 0
+  hMoveTime: .100000001
 --- !u!4 &1835368421
 Transform:
   m_ObjectHideFlags: 0

@@ -3200,8 +3200,6 @@ GameObject:
   - 4: {fileID: 1145408893}
   - 111: {fileID: 1145408894}
   - 114: {fileID: 1145408895}
-  - 111: {fileID: 1145408896}
-  - 114: {fileID: 1145408897}
   m_Layer: 0
   m_Name: Wrath
   m_TagString: Untagged
@@ -3263,34 +3261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b88792a4d643642a9877f52d192343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .699999988
---- !u!111 &1145408896
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1145408892}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 662265a9d416ff844bcd8dbe54e621ad, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 662265a9d416ff844bcd8dbe54e621ad, type: 3}
-  - {fileID: 7400002, guid: 662265a9d416ff844bcd8dbe54e621ad, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!114 &1145408897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1145408892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfabe1595c43f4c48ae50fddc628baf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speed: .800000012
+  shotSpeed: 3
 --- !u!1 &1167062659
 GameObject:
   m_ObjectHideFlags: 0
