@@ -9,7 +9,7 @@ public class FacePlayer : MonoBehaviour {
 	public float speed = 0.5f;
 	private Quaternion targetRotation;
 
-	public float shotSpeed = 5f;
+	public float shotSpeed = 10f;
 	private bool firing;
 
 	// Use this for initialization

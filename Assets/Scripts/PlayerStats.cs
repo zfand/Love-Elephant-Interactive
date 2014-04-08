@@ -35,6 +35,8 @@ namespace LoveElephant
 			   TakeDamage(5);
 			} else if(g.CompareTag("Pipe")){
 				TakeDamage (1);
+			} else if (g.CompareTag("WrathBeam")){
+				TakeDamage (5);
 			}
 		}
 			
