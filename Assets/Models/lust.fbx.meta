@@ -1,0 +1,2302 @@
+fileFormatVersion: 2
+guid: 7ebad503e98202e42b802d11809c5638
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: barb
+    100002: body
+    100004: body_jt1
+    100006: body_jt2
+    100008: body_jt3
+    100010: body_jt4
+    100012: center
+    100014: center_ct
+    100016: head_jt1
+    100018: head_jt2
+    100020: head_jt3
+    100022: head_jt4
+    100024: head_jt5
+    100026: head_jt6
+    100028: l_arm
+    100030: l_arm_ct
+    100032: l_arm_ct1
+    100034: l_arm_jt1
+    100036: l_arm_jt2
+    100038: l_arm_jt3
+    100040: l_arm_jt4
+    100042: l_arm_jt5
+    100044: l_arm_jt6
+    100046: l_f1_1
+    100048: l_f1_2
+    100050: l_f1_3
+    100052: l_f2_1
+    100054: l_f2_2
+    100056: l_f2_3
+    100058: l_f3_1
+    100060: l_f3_2
+    100062: l_f3_3
+    100064: l_foot
+    100066: l_foot_f1_1
+    100068: l_foot_f1_2
+    100070: l_foot_f1_3
+    100072: l_foot_f2_1
+    100074: l_foot_f2_2
+    100076: l_foot_f2_3
+    100078: l_foot_jt1
+    100080: l_foot_jt2
+    100082: l_hand
+    100084: l_hand_jt1
+    100086: l_leg
+    100088: l_leg1
+    100090: l_leg2
+    100092: l_leg3
+    100094: l_leg4
+    100096: l_leg5
+    100098: l_leg6
+    100100: l_leg_ct
+    100102: l_leg_ct1
+    100104: l_shoulder_jt
+    100106: low_jt1
+    100108: low_jt2
+    100110: low_jt3
+    100112: low_jt4
+    100114: low_jt5
+    100116: lower_body
+    100118: //RootNode
+    100120: r_arm
+    100122: r_arm_ct
+    100124: r_arm_ct1
+    100126: r_arm_jt1
+    100128: r_arm_jt2
+    100130: r_arm_jt3
+    100132: r_arm_jt4
+    100134: r_arm_jt5
+    100136: r_f1_1
+    100138: r_f1_2
+    100140: r_f1_3
+    100142: r_f2_1
+    100144: r_f2_2
+    100146: r_f2_3
+    100148: r_f3_1
+    100150: r_f3_2
+    100152: r_f3_3
+    100154: r_foot
+    100156: r_foot_f1_1
+    100158: r_foot_f1_2
+    100160: r_foot_f1_3
+    100162: r_foot_f2_1
+    100164: r_foot_f2_2
+    100166: r_foot_f2_3
+    100168: r_foot_jt1
+    100170: r_foot_jt2
+    100172: r_hand
+    100174: r_hand_jt
+    100176: r_leg
+    100178: r_leg1
+    100180: r_leg2
+    100182: r_leg3
+    100184: r_leg4
+    100186: r_leg5
+    100188: r_leg6
+    100190: r_leg_ct
+    100192: r_leg_ct1
+    100194: r_shoulder_jt
+    400000: barb
+    400002: body
+    400004: body_jt1
+    400006: body_jt2
+    400008: body_jt3
+    400010: body_jt4
+    400012: center
+    400014: center_ct
+    400016: head_jt1
+    400018: head_jt2
+    400020: head_jt3
+    400022: head_jt4
+    400024: head_jt5
+    400026: head_jt6
+    400028: l_arm
+    400030: l_arm_ct
+    400032: l_arm_ct1
+    400034: l_arm_jt1
+    400036: l_arm_jt2
+    400038: l_arm_jt3
+    400040: l_arm_jt4
+    400042: l_arm_jt5
+    400044: l_arm_jt6
+    400046: l_f1_1
+    400048: l_f1_2
+    400050: l_f1_3
+    400052: l_f2_1
+    400054: l_f2_2
+    400056: l_f2_3
+    400058: l_f3_1
+    400060: l_f3_2
+    400062: l_f3_3
+    400064: l_foot
+    400066: l_foot_f1_1
+    400068: l_foot_f1_2
+    400070: l_foot_f1_3
+    400072: l_foot_f2_1
+    400074: l_foot_f2_2
+    400076: l_foot_f2_3
+    400078: l_foot_jt1
+    400080: l_foot_jt2
+    400082: l_hand
+    400084: l_hand_jt1
+    400086: l_leg
+    400088: l_leg1
+    400090: l_leg2
+    400092: l_leg3
+    400094: l_leg4
+    400096: l_leg5
+    400098: l_leg6
+    400100: l_leg_ct
+    400102: l_leg_ct1
+    400104: l_shoulder_jt
+    400106: low_jt1
+    400108: low_jt2
+    400110: low_jt3
+    400112: low_jt4
+    400114: low_jt5
+    400116: lower_body
+    400118: //RootNode
+    400120: r_arm
+    400122: r_arm_ct
+    400124: r_arm_ct1
+    400126: r_arm_jt1
+    400128: r_arm_jt2
+    400130: r_arm_jt3
+    400132: r_arm_jt4
+    400134: r_arm_jt5
+    400136: r_f1_1
+    400138: r_f1_2
+    400140: r_f1_3
+    400142: r_f2_1
+    400144: r_f2_2
+    400146: r_f2_3
+    400148: r_f3_1
+    400150: r_f3_2
+    400152: r_f3_3
+    400154: r_foot
+    400156: r_foot_f1_1
+    400158: r_foot_f1_2
+    400160: r_foot_f1_3
+    400162: r_foot_f2_1
+    400164: r_foot_f2_2
+    400166: r_foot_f2_3
+    400168: r_foot_jt1
+    400170: r_foot_jt2
+    400172: r_hand
+    400174: r_hand_jt
+    400176: r_leg
+    400178: r_leg1
+    400180: r_leg2
+    400182: r_leg3
+    400184: r_leg4
+    400186: r_leg5
+    400188: r_leg6
+    400190: r_leg_ct
+    400192: r_leg_ct1
+    400194: r_shoulder_jt
+    4300000: center_ct
+    4300002: lower_body
+    4300004: barb
+    4300006: l_leg_ct
+    4300008: l_leg
+    4300010: l_leg_ct1
+    4300012: l_foot
+    4300014: r_leg_ct
+    4300016: r_leg
+    4300018: r_leg_ct1
+    4300020: r_foot
+    4300022: body
+    4300024: l_arm_ct
+    4300026: l_arm
+    4300028: l_arm_ct1
+    4300030: l_hand
+    4300032: r_arm_ct
+    4300034: r_arm
+    4300036: r_arm_ct1
+    4300038: r_hand
+    7400000: Lust_Idle
+    7400002: Lust_ChargeStart
+    7400004: Lust_Charge
+    7400006: Lust_DockBegin
+    7400008: Lust_ChargeEnd
+    7400010: Lust_DockIdle
+    7400012: Lust_DockEnd
+    7400014: Lust_MeleeAttack
+    7400016: Lust_Death
+    9500000: //RootNode
+    13700000: barb
+    13700002: body
+    13700004: center_ct
+    13700006: l_arm
+    13700008: l_arm_ct
+    13700010: l_arm_ct1
+    13700012: l_foot
+    13700014: l_hand
+    13700016: l_leg
+    13700018: l_leg_ct
+    13700020: l_leg_ct1
+    13700022: lower_body
+    13700024: r_arm
+    13700026: r_arm_ct
+    13700028: r_arm_ct1
+    13700030: r_foot
+    13700032: r_hand
+    13700034: r_leg
+    13700036: r_leg_ct
+    13700038: r_leg_ct1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Lust_Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_ChargeStart
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 78
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_Charge
+      takeName: Take 001
+      firstFrame: 78
+      lastFrame: 93
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_ChargeEnd
+      takeName: Take 001
+      firstFrame: 93
+      lastFrame: 109
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_DockBegin
+      takeName: Take 001
+      firstFrame: 109
+      lastFrame: 137
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_DockIdle
+      takeName: Take 001
+      firstFrame: 137
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_DockEnd
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 185
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_MeleeAttack
+      takeName: Take 001
+      firstFrame: 185
+      lastFrame: 228
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Lust_Death
+      takeName: Take 001
+      firstFrame: 228
+      lastFrame: 263
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/body_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/head_jt1/head_jt2/head_jt3/head_jt4/head_jt5/head_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f1_1/l_f1_2/l_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f2_1/l_f2_2/l_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/l_shoulder_jt/l_arm_jt1/l_arm_jt2/l_arm_jt3/l_arm_jt4/l_arm_jt5/l_arm_jt6/l_hand_jt1/l_f3_1/l_f3_2/l_f3_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f1_1/r_f1_2/r_f1_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f2_1/r_f2_2/r_f2_3
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2
+        weight: 1
+      - path: center/body_jt1/body_jt2/body_jt3/body_jt4/r_shoulder_jt/r_arm_jt1/r_arm_jt2/r_arm_jt3/r_arm_jt4/r_arm_jt5/r_hand_jt/r_f3_1/r_f3_2/r_f3_3
+        weight: 1
+      - path: center/low_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f1_1/l_foot_f1_2/l_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/l_leg1/l_leg2/l_leg3/l_leg4/l_leg5/l_leg6/l_foot_jt1/l_foot_jt2/l_foot_f2_1/l_foot_f2_2/l_foot_f2_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4
+        weight: 1
+      - path: center/low_jt1/low_jt2/low_jt3/low_jt4/low_jt5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f1_1/r_foot_f1_2/r_foot_f1_3
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2
+        weight: 1
+      - path: center/low_jt1/low_jt2/r_leg1/r_leg2/r_leg3/r_leg4/r_leg5/r_leg6/r_foot_jt1/r_foot_jt2/r_foot_f2_1/r_foot_f2_2/r_foot_f2_3
+        weight: 1
+      - path: center_ct
+        weight: 1
+      - path: center_ct/body
+        weight: 1
+      - path: center_ct/body/l_arm_ct
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1
+        weight: 1
+      - path: center_ct/body/l_arm_ct/l_arm/l_arm_ct1/l_hand
+        weight: 1
+      - path: center_ct/body/r_arm_ct
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1
+        weight: 1
+      - path: center_ct/body/r_arm_ct/r_arm/r_arm_ct1/r_hand
+        weight: 1
+      - path: center_ct/lower_body
+        weight: 1
+      - path: center_ct/lower_body/barb
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/l_leg_ct/l_leg/l_leg_ct1/l_foot
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1
+        weight: 1
+      - path: center_ct/lower_body/r_leg_ct/r_leg/r_leg_ct1/r_foot
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
