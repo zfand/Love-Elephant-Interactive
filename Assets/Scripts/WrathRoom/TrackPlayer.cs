@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FacePlayer : MonoBehaviour {
+public class TrackPlayer : MonoBehaviour {
 
 	public GameObject chargeShot;
 	public GameObject beam;
 	GameObject player;
 	public float speed = 0.5f;
 	private Quaternion targetRotation;
+	private Vector3 targetPosition;
 
 	public float shotSpeed = 10f;
 	private bool firing;
@@ -16,6 +17,7 @@ public class FacePlayer : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
 		targetRotation = Quaternion.identity;
+		targetPosition = this.transform.position;
 		firing = false;
 		StartCoroutine (LookAndFire());
 
@@ -25,8 +27,11 @@ public class FacePlayer : MonoBehaviour {
 	void Update () {
 		if (!firing) {
 			targetRotation = Quaternion.LookRotation (player.transform.position - this.transform.position);
+			targetPosition = player.transform.position;
 			float str = Mathf.Min (speed * Time.deltaTime, 1);
 			transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, str);
+			targetPosition = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
+			transform.position = Vector3.Lerp (transform.position, targetPosition, str/2);
 		}
 		
 	}
@@ -43,7 +48,6 @@ public class FacePlayer : MonoBehaviour {
 			yield return new WaitForSeconds(shotSpeed);
 			beam.particleSystem.Stop ();
 			GetComponent<Animation>().Play();
-
 		}
 	}
 }
