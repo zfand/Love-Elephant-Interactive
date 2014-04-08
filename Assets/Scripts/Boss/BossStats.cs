@@ -42,6 +42,7 @@ namespace LoveElephant
     /// </summary>
     public bool attacking;
     public SkinnedMeshRenderer mesh;
+    public SkinnedMeshRenderer[] extraMeshs;
     /// <summary>
     /// The max health of the Boss
     /// </summary>
@@ -50,6 +51,7 @@ namespace LoveElephant
     /// The material of the Boss
     /// </summary>
     private Material mat;
+    private Material[] extraMat;
     /// <summary>
     /// The original color of the mat
     /// </summary>
@@ -76,6 +78,10 @@ namespace LoveElephant
         mat = mesh.material;
       } else {
         mat = GetComponent<SkinnedMeshRenderer> ().material;
+      }
+      extraMat = new Material[extraMeshs.Length];
+      for (int i = 0; i < extraMeshs.Length; i++) {
+        extraMat[i] = extraMeshs[i].material;
       }
       originalColor = mat.color;
     }
@@ -120,12 +126,18 @@ namespace LoveElephant
       float deltaTime = 0f;
 
       mat.color = Color.red;
+      foreach (Material m in extraMat) {
+        m.color = Color.red;
+      }
 
       while (deltaTime < flashTime) {
         deltaTime += Time.deltaTime;
         yield return 0;
       }
       mat.color = originalColor;
+      foreach (Material m in extraMat) {
+        m.color = originalColor;
+      }
     }
   }
 }

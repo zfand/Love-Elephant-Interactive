@@ -44,24 +44,6 @@ namespace LoveElephant
       }
     }
 
-    void OnCollisionEnter(Collision hit)
-    {
-      if (hit.gameObject.tag == "Wall") {
-        transform.parent.GetComponent<SlothAI> ().HitWall ();
-        //facePlayer ();
-        //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
-      }
-    }
-    
-    void OnCollisionStay(Collision hit)
-    {
-      if (hit.gameObject.tag == "Wall") {
-        transform.parent.GetComponent<SlothAI> ().HitWall ();
-        //facePlayer ();
-        //anim.PlayQueued ("Sloth_EndCharge", QueueMode.PlayNow);
-      }
-    }
-
     public void Die(bool drop)
     {
       greed_ctrl.SetActive (false);
