@@ -1,28 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
 
-	public GameObject bugBomb;
+namespace LoveElephant
+{
+	public class Spawner : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		StartCoroutine(Spawn());
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+		public GameObject bugBomb;
+		public float spawnRate;
+		public float animTime;
 
-	IEnumerator Spawn() {
-		yield return new WaitForSeconds(10f);
-		Debug.Log ("Play opening animation");
-		yield return new WaitForSeconds(3f);
-		Debug.Log ("Spawn new bugbomb");
-		Instantiate (bugBomb, new Vector3(this.transform.position.x + 3, this.transform.position.y, 0), Quaternion.Euler (0,0,90));
-		yield return new WaitForSeconds(3f);
-		Debug.Log ("Play closing animation");
+		// Use this for initialization
+		void Start () {
+			StartCoroutine(Spawn());
+		}
+		
+		// Update is called once per frame
+		void Update () {
+		}
 
+		IEnumerator Spawn() {
+			while (true) {
+				yield return new WaitForSeconds(spawnRate);
+				StartCoroutine(NewBug());
+			}
+		}
+
+		IEnumerator NewBug() {
+			yield return new WaitForSeconds(animTime);
+			int spawnDist = 3;
+			if (this.transform.position.x > 0)
+				spawnDist *= -1;
+			Instantiate (bugBomb, new Vector3(this.transform.position.x + spawnDist, this.transform.position.y, 0), Quaternion.Euler (0,0,90));
+			yield return new WaitForSeconds(animTime);
+		}
 	}
 }
