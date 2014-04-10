@@ -61,7 +61,6 @@ namespace LoveElephant
 					c.GetComponent<BugBomb>().Detonate();
 				}
 			}
-			Debug.Log ("Nearby bugs: " + bombCount);
 			Destroy (this.gameObject);
 		}
 	}
