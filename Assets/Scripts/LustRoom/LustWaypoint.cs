@@ -15,7 +15,7 @@ public class LustWaypoint : MonoBehaviour {
 	
 	}
 
-	GameObject getRandomAdjacent(){
+	public GameObject getRandomAdjacent(){
 		return adjacent[Random.Range(0, adjacent.Count - 1)];
 	}
 }

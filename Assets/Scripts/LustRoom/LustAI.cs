@@ -5,9 +5,14 @@ using System.Collections.Generic;
 public class LustAI : MonoBehaviour {
 
 	public GameObject ShootPreCumObject;	
+	public GameObject Player;
+	public GameObject projectileSpawn;
+	public GameObject projectile;
 	public float IdleMax;
 	public float IdleMin;
 	public float Speed;
+	public float ProjectileSpeed;
+	public float DiveSpeed;
 	public List<GameObject> WayPoints;
 	public GameObject currentWaypoint;
 
@@ -25,6 +30,9 @@ public class LustAI : MonoBehaviour {
 	private bool Diving = false;
 	private bool Moving = false;
 	private bool MidDive = false;
+	private bool turning = false;
+	private bool shooting = false;
+	private bool stopDiving = false;
 
 	private Animator anim;
 	private AnimatorStateInfo animinfo;
@@ -36,7 +44,7 @@ public class LustAI : MonoBehaviour {
 		if(currentWaypoint == null){
 			currentWaypoint = WayPoints[Random.Range (0, WayPoints.Count -1)];
 		}
-		
+		ShootPrecum = ShootPreCumObject.particleSystem;
 		state = LustState.Moving;
 		StartCoroutine(MoveToWaypoint());
 		idleCooldown = Random.Range(IdleMin, IdleMax);
@@ -45,20 +53,27 @@ public class LustAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Random.seed = (int)Time.time;
 		animinfo = anim.GetCurrentAnimatorStateInfo(0);
 
-		if(state == LustState.Idle){
-			if(idleCooldown <= 0){
-				ResetIdle();
-				PickNewAction();
-			} else {
-				idleCooldown--;
-			}
-		} else if(state == LustState.Dive && !Diving){
-			StartCoroutine(Dive());
-		} else if(state == LustState.Moving){
-			if(!Moving){
-				StartCoroutine(MoveToWaypoint());
+		
+		if(!FacingPlayer() && !turning){
+			StartCoroutine(FacePlayer());
+		}
+		if(!shooting){
+			if(state == LustState.Idle){
+				if(idleCooldown <= 0){
+					ResetIdle();
+					PickNewAction();
+				} else {
+					idleCooldown--;
+				}
+			} else if(state == LustState.Dive && !Diving){
+				StartCoroutine(Dive());
+			} else if(state == LustState.Moving){
+				if(!Moving){
+					StartCoroutine(MoveToWaypoint());
+				}
 			}
 		}
 	}
@@ -71,22 +86,19 @@ public class LustAI : MonoBehaviour {
 		while(!animinfo.IsName("ChargeHold")){
 			yield return 0;
 		}
-		StartCoroutine(DiveAtPlayer());
-
-		while(MidDive){
+		Vector3 dir = Vector3.Normalize(Player.transform.position - projectileSpawn.transform.position);
+		float Dashtime = 0;
+		while(Dashtime < 1 && !stopDiving){
+			this.transform.position = this.transform.position + dir * DiveSpeed;
+			Dashtime += Time.deltaTime;
 			yield return 0;
 		}
-
-		Idle();
+		anim.SetTrigger("DiveEnd");
+		stopDiving = false;
+		MoveToWaypoint();
+		Idle ();
 		Diving = false;
 
-	}
-
-	IEnumerator DiveAtPlayer(){
-		MidDive = true;
-		yield return new WaitForSeconds(1);
-
-		MidDive = false;
 	}
 
 	IEnumerator MoveToWaypoint(){
@@ -96,7 +108,7 @@ public class LustAI : MonoBehaviour {
 			yield return 0;
 		}
 		Moving = false;
-		state = LustState.Idle;
+		Idle ();
 	}
 
 	void Idle(){
@@ -111,26 +123,101 @@ public class LustAI : MonoBehaviour {
 
 	void PickNewAction(){
 		Debug.Log ("Pick new");
-		bool pipesopen = false;
 		Dictionary<string, float> possible = new Dictionary<string, float>();
 
 		
-		float chance = Random.Range(0, 100);
-		float current = 0f;
-		string dothis = "";
-		foreach(string s in possible.Keys){
-			if(possible[s] <= chance){
-				dothis = s;
-				break;
-			} else {
-				current += possible[s];
+		float roll = Random.Range (0,100);
+
+		if(Player.transform.position.y < transform.position.y){
+			if(roll > 60){
+				state = LustState.Dive;
+				return;
+			} else if(roll > 20){
+				StartCoroutine(Shoot());
+				return;
+			}
+		} else {
+			if(roll > 20){			
+				currentWaypoint = currentWaypoint.GetComponent<LustWaypoint>().getRandomAdjacent();
+				state = LustState.Moving;
+				return;
+			} else { 
+				Idle ();
 			}
 		}
-		
-		switch(dothis){
+	}
+
+
+	IEnumerator Shoot(){
+		shooting = true;
+		ShootPrecum.Play ();
+
+		while(ShootPrecum.isPlaying){
+			yield return 0;
+		}
+		anim.SetTrigger("Shoot");
+		while(animinfo.IsName("Idle")){
+			yield return 0;
+		}
+
+		while(animinfo.IsName("Shoot")){
+			yield return 0;
 		}
 		
+		Vector3 direction = Vector3.Normalize(Player.transform.position - projectileSpawn.transform.position);
+		GameObject shot = GameObject.Instantiate(projectile) as GameObject;
+		shot.transform.position = projectileSpawn.transform.position;
+		shot.rigidbody.velocity = direction * ProjectileSpeed;
+		shooting = false;
+		Idle ();
 		
+	}
+	bool FacingPlayer(){
+		float diff = this.transform.position.x - Player.transform.position.x;
+		if(diff > 0 && this.transform.forward.x > 0){
+			return false;
+		} else if(diff < 0 && this.transform.forward.x < 0){
+			return false;
+		}
+
+		return true;
+	}
+
+	
+	
+	IEnumerator FacePlayer()
+	{
+		float interval = 5f;
+		float totalrot = 0;
+		bool rotating = true;
+		Vector3 dest = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y + 180, this.transform.eulerAngles.z);
+		turning = true;
+		
+		while (rotating) { 
+			totalrot += interval;
+			if (totalrot >= 180) {
+				rotating = false;
+				yield return 0;
+			}
+			transform.Rotate (new Vector3 (0f, interval, 0f));
+			yield return 0;
+		}
+		turning = false;
+		
+		this.transform.eulerAngles = dest;
+	}
+
+	void OnCollisionEnter(Collision c){
+		if(Diving){
+			if(c.gameObject.CompareTag("Player")){
+				stopDiving = true;
+			} else if(c.gameObject.CompareTag("Wall") ||
+			          c.gameObject.CompareTag("Ceiling") ||
+			          c.gameObject.CompareTag("Floor") ||
+			          c.gameObject.CompareTag("Platform")){
+				stopDiving = true;
+			}
+		}
 	}
 }
 
