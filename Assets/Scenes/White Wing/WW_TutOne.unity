@@ -345,7 +345,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: f58c6f2c88928bd4694588893b2431d2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .5
+  m_Volume: .300000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -595,7 +595,6 @@ GameObject:
   - 20: {fileID: 672472181}
   - 92: {fileID: 672472180}
   - 124: {fileID: 672472179}
-  - 81: {fileID: 672472178}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -603,13 +602,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &672472178
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 672472177}
-  m_Enabled: 1
 --- !u!124 &672472179
 Behaviour:
   m_ObjectHideFlags: 0

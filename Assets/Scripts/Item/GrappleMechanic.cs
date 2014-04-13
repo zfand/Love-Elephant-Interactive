@@ -50,6 +50,8 @@ namespace LoveElephant
 
 	public AudioClip grapple_extend;
 
+	public AudioSource[] audioSources;
+
     /////////////////////////////////////////////////////////////////////////
     ///                     Private                                       ///
     /////////////////////////////////////////////////////////////////////////
@@ -142,16 +144,12 @@ namespace LoveElephant
     {
       //Shoot out rope
       if (Input.GetButtonDown ("Fire1") && state == GrappleState.Off) {
-				Debug.Log ("Shoot");
-		this.GetComponent<AudioSource>().clip = grapple_shoot;
-		this.GetComponent<AudioSource>().Play ();
-
         Shoot ();
       }
 
       //Attached
       if (state == GrappleState.Attached) {
-        if (Vector3.Distance (hitPos, transform.parent.position) > maxRopeLength) {
+		if (Vector3.Distance (hitPos, transform.parent.position) > maxRopeLength) {
           StopSwing (true);
         }
       }
@@ -209,7 +207,7 @@ namespace LoveElephant
         anim.SetBool ("Swing", true);
         grappleSpike.transform.position = hitPos;
       } else if (state == GrappleState.Off) {
-        grappleSpike.SetActive (false);
+        //grappleSpike.SetActive (false);
         lr.enabled = false;
         anim.SetBool ("Swing", false);
       }
@@ -238,7 +236,7 @@ namespace LoveElephant
     /// Called when shoot button is clicked
     /// </summary>
     private void Shoot()
-    {
+	{
       Vector3 clickedPosition = Input.mousePosition;
       //Find the distance the camera is from the play plane
       clickedPosition.z = Camera.main.transform.position.z * -1;
@@ -254,7 +252,11 @@ namespace LoveElephant
         if ((hit.collider.gameObject.tag == "Untagged")) {
           return;
         }
-        //If the angle is too low
+
+	    audioSources[1].clip = grapple_shoot;
+	    audioSources[1].Play ();
+        
+		//If the angle is too low
         float dot = Vector3.Dot (Vector3.up, (clickedPosition - transform.parent.position).normalized);
         if (dot < 0f) { // 0 is 90 degrees to the left or right
           return;
@@ -262,7 +264,8 @@ namespace LoveElephant
 
         //Ok we're good create the point
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
-        SetAnchorPos (hitPos);
+				SetAnchorPos (hitPos);
+		
         //if the grapple point isn't too far away
         if (distance <= maxRopeLength) {
           state = GrappleState.Extending;
@@ -322,6 +325,8 @@ namespace LoveElephant
       if (state == GrappleState.Failed) {
         StopSwing (true);
       } else {
+		audioSources[0].clip = grapple_hit;
+		audioSources[0].Play ();
         state = completeState;     
         if (Input.GetButton ("Fire1") && state == GrappleState.Swinging) {
           StartSwing ();
