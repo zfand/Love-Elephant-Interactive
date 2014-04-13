@@ -335,6 +335,10 @@ Prefab:
       propertyPath: audioSources.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: audioSources.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6.5999999
@@ -383,8 +387,29 @@ Prefab:
       propertyPath: audioSources.Array.data[2]
       value: 
       objectReference: {fileID: 993911301}
+    - target: {fileID: 11400002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: player_run
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f2223fd5d5f64c4ca7e2e2ba2059c7b, type: 3}
+    - target: {fileID: 11400002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: player_land
+      value: 
+      objectReference: {fileID: 8300000, guid: 713e179fc4ed6d344a62c60402d4cbb1, type: 3}
+    - target: {fileID: 11400002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: audioSources.Array.data[0]
+      value: 
+      objectReference: {fileID: 872682836}
+    - target: {fileID: 11400002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: audioSources.Array.data[1]
+      value: 
+      objectReference: {fileID: 1451529609}
+    - target: {fileID: 11400002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+      propertyPath: audioSources.Array.data[2]
+      value: 
+      objectReference: {fileID: 993911301}
     m_RemovedComponents:
     - {fileID: 8200002, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
+    - {fileID: 8200000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66, type: 2}
   m_RootGameObject: {fileID: 1771557643}
   m_IsPrefabParent: 0
@@ -1220,15 +1245,15 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
-  far clip plane: 1000
+  near clip plane: .00999999978
+  far clip plane: .0199999996
   field of view: 1
   orthographic: 0
   orthographic size: 5
@@ -1267,7 +1292,6 @@ GameObject:
   - 114: {fileID: 1771557650}
   - 114: {fileID: 1771557654}
   - 114: {fileID: 1771557653}
-  - 82: {fileID: 1771557656}
   - 81: {fileID: 1771557655}
   m_Layer: 9
   m_Name: Brawler
@@ -1409,6 +1433,12 @@ MonoBehaviour:
   grounded: 0
   gravity: 20
   groundCheck: {fileID: 1824551262}
+  audioSources:
+  - {fileID: 872682836}
+  - {fileID: 1451529609}
+  - {fileID: 993911301}
+  player_run: {fileID: 8300000, guid: 1f2223fd5d5f64c4ca7e2e2ba2059c7b, type: 3}
+  player_land: {fileID: 8300000, guid: 713e179fc4ed6d344a62c60402d4cbb1, type: 3}
 --- !u!114 &1771557652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,65 +1486,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1771557643}
   m_Enabled: 1
---- !u!82 &1771557656
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8200000, guid: 0ec8556e0db9e41e2a8f3bf2e90c7e66,
-    type: 2}
-  m_PrefabInternal: {fileID: 710268676}
-  m_GameObject: {fileID: 1771557643}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 126
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &1824551261
 GameObject:
   m_ObjectHideFlags: 0

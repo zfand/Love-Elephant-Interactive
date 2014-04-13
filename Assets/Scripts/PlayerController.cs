@@ -26,8 +26,9 @@ namespace LoveElephant
     /// <summary>
   /// Determines if the player is currently touching the ground
   /// </summary>
-  public bool
+    public bool
       grounded = false;
+	private bool lastGrounded;
     private MovementStats mStats;
 
     public MovementStats movementStats {
@@ -57,6 +58,10 @@ namespace LoveElephant
     /// The last input from the user
     /// </summary>
     private float lastInput;
+
+	public AudioSource[] audioSources;
+	public AudioClip player_run;
+	public AudioClip player_land;
       
     private void Awake()
     {
@@ -77,6 +82,7 @@ namespace LoveElephant
     private void Start()
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
+	  lastGrounded = true;
       lastInput = 1000f;
     }
   
@@ -97,6 +103,13 @@ namespace LoveElephant
       if (rigidbody.velocity.magnitude > 50) {
         rigidbody.velocity = rigidbody.velocity.normalized * 50;
       }
+		
+	  if (!lastGrounded && grounded && !jump) {
+		audioSources[1].clip = player_land;
+		audioSources[1].Play ();
+	  }
+
+	  lastGrounded = grounded;
     }
 
     private void FixedUpdate()
@@ -111,6 +124,15 @@ namespace LoveElephant
           lastInput = h;
           anim.SetFloat ("Speed", Mathf.Abs (h));
         }
+
+		if (h != 0 && !audioSources[2].isPlaying && grounded) {
+			audioSources[2].loop = true;
+			audioSources[2].clip = player_run;
+			audioSources[2].Play ();
+		} else if (h == 0 || !grounded) {
+	 		audioSources[2].Stop ();
+			audioSources[2].loop = false;
+		}
 
         //Flip Facing Direction
         if (h > 0 && !facingRight || h < 0 && facingRight) {
