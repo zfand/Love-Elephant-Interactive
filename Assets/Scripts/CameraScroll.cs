@@ -5,6 +5,7 @@ public class CameraScroll : MonoBehaviour
 {
 
   public GameObject cam;
+  public bool onlyHorizontal = false;
   public float horizontalLimit;
   public float hMoveTime = 0.1f;
   private GameObject player;
@@ -17,52 +18,67 @@ public class CameraScroll : MonoBehaviour
     following = false;
     player = GameObject.FindGameObjectWithTag ("Player");
     playerStartY = player.transform.position.y;
-    cam.transform.position = new Vector3(0, cam.transform.position.y, cam.transform.position.z);
-    StartCoroutine(VMoveCam(player.transform.position));
+    cam.transform.position = new Vector3 (0, cam.transform.position.y, cam.transform.position.z);
+    StartCoroutine (VMoveCam (player.transform.position));
   }
   
   // Update is called once per frame
   void Update()
   {
     if (following) {
-    Vector3 pos = cam.transform.position;
+      Vector3 pos = cam.transform.position;
+      float scrollPos;
+      float playerScrollPos;
+      Ray minRay;
+      Ray maxRay;
+      if (onlyHorizontal) {
+        scrollPos = pos.y;
+        playerScrollPos = player.transform.position.y;
+        maxRay = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth / 2, cam.camera.pixelHeight));
+        minRay = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth / 2, 0f));
 
-    Ray leftRay = cam.camera.ScreenPointToRay (new Vector3 (0f, 0f));
-    Ray rightRay = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth, 0f));
-
-    float xdir = cam.transform.position.x - player.transform.position.x;
-
-    //move vertically
-    if (xdir > 0 && Physics.Raycast (leftRay)) {
-      pos.x = player.transform.position.x;
-    } 
-
-    if (xdir < 0 && Physics.Raycast (rightRay)) {
-      pos.x = player.transform.position.x;
-    }
-
-    cam.transform.position = pos;
-
-    //move horizonally
-    if (horizontalLimit > 0) {
-      if(playerStartY + horizontalLimit < player.transform.position.y) {
-        pos.y += horizontalLimit;
-        playerStartY = player.transform.position.y;
-        StopCoroutine("HMoveCam");
-        StartCoroutine("HMoveCam", pos);
+      } else {
+        scrollPos = pos.x;
+        playerScrollPos = player.transform.position.x;
+        minRay = cam.camera.ScreenPointToRay (new Vector3 (0f, 0f));
+        maxRay = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth, 0f));
       }
-      if(playerStartY - horizontalLimit > player.transform.position.y) {
-        pos.y -= horizontalLimit;
-        playerStartY = player.transform.position.y;
-        StopCoroutine("HMoveCam");
-        StartCoroutine("HMoveCam", pos);
+      float dir = scrollPos - playerScrollPos;
+
+      //move vertically
+      if ((dir > 0 && Physics.Raycast (minRay)) || (dir < 0 && Physics.Raycast (maxRay))) {
+        scrollPos = playerScrollPos;
+      } 
+
+      if (onlyHorizontal) {
+        pos.y = scrollPos;
+      } else {
+        pos.x = scrollPos;
       }
-    }
+
+      cam.transform.position = pos;
+
+      //move horizonally
+      if (horizontalLimit > 0 && !onlyHorizontal) {
+        if (playerStartY + horizontalLimit < player.transform.position.y) {
+          pos.y += horizontalLimit;
+          playerStartY = player.transform.position.y;
+          StopCoroutine ("HMoveCam");
+          StartCoroutine ("HMoveCam", pos);
+        }
+        if (playerStartY - horizontalLimit > player.transform.position.y) {
+          pos.y -= horizontalLimit;
+          playerStartY = player.transform.position.y;
+          StopCoroutine ("HMoveCam");
+          StartCoroutine ("HMoveCam", pos);
+        }
+      }
     }
 
   }
 
-  private IEnumerator HMoveCam(Vector3 pos) {
+  private IEnumerator HMoveCam(Vector3 pos)
+  {
     float deltaTime = 0;
     float startY = cam.transform.position.y;
     float dir = cam.transform.position.y - pos.y;
@@ -71,14 +87,14 @@ public class CameraScroll : MonoBehaviour
 
     while (deltaTime <= hMoveTime) {
       if (dir <= 0) {
-        ray = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth/2, cam.camera.pixelHeight));
+        ray = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth / 2, cam.camera.pixelHeight));
       } else {
-        ray = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth/2, 0f));
+        ray = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth / 2, 0f));
       }
 
       if (Physics.Raycast (ray)) {
         newPos = cam.transform.position;
-        newPos.y = Mathf.Lerp(startY, pos.y, deltaTime / hMoveTime);
+        newPos.y = Mathf.Lerp (startY, pos.y, deltaTime / hMoveTime);
         cam.transform.position = newPos;
         deltaTime += Time.deltaTime;
       } else {
@@ -88,14 +104,15 @@ public class CameraScroll : MonoBehaviour
     }
   }
 
-  private IEnumerator VMoveCam(Vector3 pos) {
+  private IEnumerator VMoveCam(Vector3 pos)
+  {
     float dir = cam.transform.position.x - pos.x;
-    float deltaX = Mathf.Sign(dir)*-1f;
+    float deltaX = Mathf.Sign (dir) * -1f;
     Ray r;
     Vector3 newPos;
 
     while (Mathf.Abs(cam.transform.position.x) < Mathf.Abs(pos.x)) {
-      if (Mathf.Abs(deltaX) > 0.1f) {
+      if (Mathf.Abs (deltaX) > 0.1f) {
         deltaX *= 0.96f;
       }
 
@@ -106,7 +123,7 @@ public class CameraScroll : MonoBehaviour
       }
 
 
-      if (Physics.Raycast(r)) {
+      if (Physics.Raycast (r)) {
         newPos = cam.transform.position;
         newPos.x += deltaX;
         cam.transform.position = newPos;
