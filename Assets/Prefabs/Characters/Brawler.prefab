@@ -871,6 +871,7 @@ MonoBehaviour:
   grapple_shoot: {fileID: 8300000, guid: f00206f5302f753428ffc93071facf57, type: 3}
   grapple_hit: {fileID: 8300000, guid: a172f5ab11fb8a044b3bfa83fc9b854d, type: 3}
   grapple_extend: {fileID: 8300000, guid: 95dc675320cebf34f820540d39aa8680, type: 3}
+  audioSources: []
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -888,6 +889,12 @@ MonoBehaviour:
   grounded: 0
   gravity: 20
   groundCheck: {fileID: 400006}
+  audioSources:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  player_run: {fileID: 8300000, guid: 1f2223fd5d5f64c4ca7e2e2ba2059c7b, type: 3}
+  player_land: {fileID: 8300000, guid: 713e179fc4ed6d344a62c60402d4cbb1, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
