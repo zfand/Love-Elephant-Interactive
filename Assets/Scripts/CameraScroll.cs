@@ -5,9 +5,9 @@ public class CameraScroll : MonoBehaviour
 {
 
   public GameObject cam;
-  public bool onlyHorizontal = false;
-  public float horizontalLimit;
-  public float hMoveTime = 0.1f;
+  public bool onlyVertical = false;
+  public float verticalLimt;
+  public float vMoveTime = 0.1f;
   private GameObject player;
   private float playerStartY;
   private bool following;
@@ -19,7 +19,7 @@ public class CameraScroll : MonoBehaviour
     player = GameObject.FindGameObjectWithTag ("Player");
     playerStartY = player.transform.position.y;
     cam.transform.position = new Vector3 (0, cam.transform.position.y, cam.transform.position.z);
-    StartCoroutine (VMoveCam (player.transform.position));
+    StartCoroutine (HMoveCam (player.transform.position));
   }
   
   // Update is called once per frame
@@ -31,7 +31,7 @@ public class CameraScroll : MonoBehaviour
       float playerScrollPos;
       Ray minRay;
       Ray maxRay;
-      if (onlyHorizontal) {
+      if (onlyVertical) {
         scrollPos = pos.y;
         playerScrollPos = player.transform.position.y;
         maxRay = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth / 2, cam.camera.pixelHeight));
@@ -50,7 +50,7 @@ public class CameraScroll : MonoBehaviour
         scrollPos = playerScrollPos;
       } 
 
-      if (onlyHorizontal) {
+      if (onlyVertical) {
         pos.y = scrollPos;
       } else {
         pos.x = scrollPos;
@@ -59,15 +59,15 @@ public class CameraScroll : MonoBehaviour
       cam.transform.position = pos;
 
       //move horizonally
-      if (horizontalLimit > 0 && !onlyHorizontal) {
-        if (playerStartY + horizontalLimit < player.transform.position.y) {
-          pos.y += horizontalLimit;
+      if (verticalLimt > 0 && !onlyVertical) {
+        if (playerStartY + verticalLimt < player.transform.position.y) {
+          pos.y += verticalLimt;
           playerStartY = player.transform.position.y;
           StopCoroutine ("HMoveCam");
           StartCoroutine ("HMoveCam", pos);
         }
-        if (playerStartY - horizontalLimit > player.transform.position.y) {
-          pos.y -= horizontalLimit;
+        if (playerStartY - verticalLimt > player.transform.position.y) {
+          pos.y -= verticalLimt;
           playerStartY = player.transform.position.y;
           StopCoroutine ("HMoveCam");
           StartCoroutine ("HMoveCam", pos);
@@ -77,7 +77,7 @@ public class CameraScroll : MonoBehaviour
 
   }
 
-  private IEnumerator HMoveCam(Vector3 pos)
+  private IEnumerator VMoveCam(Vector3 pos)
   {
     float deltaTime = 0;
     float startY = cam.transform.position.y;
@@ -85,7 +85,7 @@ public class CameraScroll : MonoBehaviour
     Vector3 newPos;
     Ray ray;
 
-    while (deltaTime <= hMoveTime) {
+    while (deltaTime <= vMoveTime) {
       if (dir <= 0) {
         ray = cam.camera.ScreenPointToRay (new Vector3 (cam.camera.pixelWidth / 2, cam.camera.pixelHeight));
       } else {
@@ -94,7 +94,7 @@ public class CameraScroll : MonoBehaviour
 
       if (Physics.Raycast (ray)) {
         newPos = cam.transform.position;
-        newPos.y = Mathf.Lerp (startY, pos.y, deltaTime / hMoveTime);
+        newPos.y = Mathf.Lerp (startY, pos.y, deltaTime / vMoveTime);
         cam.transform.position = newPos;
         deltaTime += Time.deltaTime;
       } else {
@@ -104,7 +104,7 @@ public class CameraScroll : MonoBehaviour
     }
   }
 
-  private IEnumerator VMoveCam(Vector3 pos)
+  private IEnumerator HMoveCam(Vector3 pos)
   {
     float dir = cam.transform.position.x - pos.x;
     float deltaX = Mathf.Sign (dir) * -1f;
