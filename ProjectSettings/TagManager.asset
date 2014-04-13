@@ -29,9 +29,9 @@ TagManager:
   - LightTrigger
   - WrathShot
   - WrathBeam
-  - 
-  - 
-  - 
+  - BugBomb
+  - Turret
+  - Bullet
   - GuiItem
   - 
   - Wall
