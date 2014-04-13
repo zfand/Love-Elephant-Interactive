@@ -44,6 +44,12 @@ namespace LoveElephant
     /// </summary>
     public GameObject grappleSpike;
 
+	public AudioClip grapple_shoot;
+	
+	public AudioClip grapple_hit;
+
+	public AudioClip grapple_extend;
+
     /////////////////////////////////////////////////////////////////////////
     ///                     Private                                       ///
     /////////////////////////////////////////////////////////////////////////
@@ -136,6 +142,10 @@ namespace LoveElephant
     {
       //Shoot out rope
       if (Input.GetButtonDown ("Fire1") && state == GrappleState.Off) {
+				Debug.Log ("Shoot");
+		this.GetComponent<AudioSource>().clip = grapple_shoot;
+		this.GetComponent<AudioSource>().Play ();
+
         Shoot ();
       }
 
