@@ -166,6 +166,7 @@ namespace LoveElephant
           StopCoroutine ("GroundReel");
           StartCoroutine ("Reel", Vector3.up);
         }
+		audioSources[2].loop = false;
       }
 
       //let out the line
@@ -173,7 +174,8 @@ namespace LoveElephant
         float ropLen = Vector3.Distance (transform.position, anchor.transform.position);
         if (ropLen <= maxRopeLength) {
           StartCoroutine ("Reel", Vector3.down);
-        }
+		}
+		audioSources[2].loop = false;
       }
 
       //Reel up from ground!
@@ -366,6 +368,13 @@ namespace LoveElephant
       float deltaTime = 0f;
 
       while (deltaTime < reelTime) {
+
+		if (!audioSources[2].isPlaying) {
+		  audioSources[2].loop = true;
+		  audioSources[2].clip = grapple_extend;
+		  audioSources[2].Play ();
+		}
+
         // check to see if we're still swinging
         if (state != GrappleState.Swinging) {
           break;
