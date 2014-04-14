@@ -6,7 +6,7 @@ public class CameraScroll : MonoBehaviour
 
   public GameObject cam;
   public bool onlyVertical = false;
-  public float verticalLimt;
+  public float verticalLimit;
   public float vMoveTime = 0.1f;
   private GameObject player;
   private float playerStartY;
@@ -58,19 +58,19 @@ public class CameraScroll : MonoBehaviour
 
       cam.transform.position = pos;
 
-      //move horizonally
-      if (verticalLimt > 0 && !onlyVertical) {
-        if (playerStartY + verticalLimt < player.transform.position.y) {
-          pos.y += verticalLimt;
+      //move vertically
+      if (verticalLimit > 0 && !onlyVertical) {
+        if (playerStartY + verticalLimit < player.transform.position.y) {
+          pos.y += verticalLimit;
           playerStartY = player.transform.position.y;
-          StopCoroutine ("HMoveCam");
-          StartCoroutine ("HMoveCam", pos);
+          StopCoroutine ("VMoveCam");
+          StartCoroutine ("VMoveCam", pos);
         }
-        if (playerStartY - verticalLimt > player.transform.position.y) {
-          pos.y -= verticalLimt;
+        if (playerStartY - verticalLimit > player.transform.position.y) {
+          pos.y -= verticalLimit;
           playerStartY = player.transform.position.y;
-          StopCoroutine ("HMoveCam");
-          StartCoroutine ("HMoveCam", pos);
+          StopCoroutine ("VMoveCam");
+          StartCoroutine ("VMoveCam", pos);
         }
       }
     }
