@@ -6186,7 +6186,7 @@ MonoBehaviour:
   sloth_charge_zap: {fileID: 8300000, guid: 5ec3dc53edfd7e74a8d7517eed9518ac, type: 3}
   sloth_zap: {fileID: 8300000, guid: 03987ab0d9389a845837f2c96e809f02, type: 3}
   sloth_charge: {fileID: 0}
-  sloth_damage: {fileID: 0}
+  sloth_damage: {fileID: 8300000, guid: fdd29541d4c660243a9bb21ca893fba4, type: 3}
   sloth_melee: {fileID: 8300000, guid: a3f50802748730e40a95ca0b1ca3c28b, type: 3}
   sloth_idle: {fileID: 8300000, guid: 9e84de4b2d09fff408727b34d15b54f9, type: 3}
   sloth_die: {fileID: 8300000, guid: fb63d86054d0acd4281b7fcf4121fded, type: 3}
