@@ -19,6 +19,9 @@ namespace LoveElephant
     private bool isSwinging;
     private Vector3 OriginalSwordPosition;
     private Quaternion OriginalSwordRotation;
+
+	public AudioSource audioSource;
+	public AudioClip player_swing;
   
     void Start()
     {
@@ -56,6 +59,9 @@ namespace LoveElephant
 
     IEnumerator SwingSword(Quaternion _start, Quaternion _end)
     {
+	  audioSource.loop = false;
+	  audioSource.clip = player_swing;
+	  audioSource.Play();
       isSwinging = true;
       sword.SetActive (true);
       /**

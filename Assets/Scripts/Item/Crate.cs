@@ -29,6 +29,7 @@ namespace LoveElephant
     void OnCollisionEnter(Collision hit)
     {
       if (hit.gameObject.tag == "Weapon" || hit.gameObject.tag == "Boss") {
+		GetComponent<AudioSource>().Play ();
         ((MeshExploder)this.GetComponent ("MeshExploder")).Explode (); 
         this.gameObject.SetActive (false);
       }

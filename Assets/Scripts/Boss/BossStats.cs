@@ -69,7 +69,6 @@ namespace LoveElephant
       get { return health > 0f; }
     }
 
-
     // Use this for initialization
     private void Start()
     {
@@ -107,6 +106,8 @@ namespace LoveElephant
     /// </summary>
     public float TakeDamage(float dmg)
     {
+	  if (this.transform.GetComponent<AudioSource>() != null)
+		  GetComponent<AudioSource>().Play();
       dmg /= armor;
       health -= dmg;
 
