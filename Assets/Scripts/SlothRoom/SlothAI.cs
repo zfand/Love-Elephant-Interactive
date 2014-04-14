@@ -5,6 +5,16 @@ namespace LoveElephant
 {
   public class SlothAI : MonoBehaviour
   {
+    
+	public AudioSource[] audioSources;
+	public AudioClip sloth_charge_zap;
+	public AudioClip sloth_zap;
+	public AudioClip sloth_charge;
+	public AudioClip sloth_damage;
+	public AudioClip sloth_melee;
+	public AudioClip sloth_idle;
+	public AudioClip sloth_die;
+
 
     public GameObject player;
     public float chargeForce;
@@ -33,6 +43,9 @@ namespace LoveElephant
     // Use this for initialization
     void Start()
     {
+	  audioSources[0].loop = true;
+	  audioSources[0].clip = sloth_idle;
+	  audioSources[0].Play ();
       anim = GetComponent<Animator> ();
       facing = 1;
       charging = false;
@@ -65,9 +78,13 @@ namespace LoveElephant
             roll = (dist > 30f) ? roll - 65 : roll;
 
             if (roll >= 80) {
+			  audioSources[1].clip = sloth_charge_zap;
+			  audioSources[1].Play ();
               StartCoroutine("Shock");
-            } else if (roll >= 65 && tv != null) {
-				StartCoroutine(Spin());
+			} else if (roll >= 65 && tv != null) {
+			  audioSources[1].clip = sloth_melee;
+			  audioSources[1].Play ();
+			  StartCoroutine(Spin());
             } else {
               rigidbody.constraints = RigidbodyConstraints.FreezeAll;
               anim.SetTrigger ("BeginCharge");
@@ -90,7 +107,10 @@ namespace LoveElephant
             startdying = false;
             this.GetComponentInChildren<SlothBody> ().Die ();
           }
-        } else {
+		} else {
+		  audioSources[0].loop = false;
+		  audioSources[0].clip = sloth_die;
+		  audioSources[0].Play ();
           if (info.IsName ("Dying")) {
             startdying = true;
           }
@@ -180,6 +200,10 @@ namespace LoveElephant
       shockBuild.particleSystem.Play();
       yield return new WaitForSeconds(shockDelayTime);
       shockBuild.particleSystem.Stop();
+
+	  audioSources[1].clip = sloth_zap;
+	  audioSources[1].Play ();
+	
       shock.particleSystem.Play();
       if (Vector3.Distance(shock.transform.position,player.transform.position) <= 4f) {
         player.GetComponent<PlayerStats>().TakeDamage(shockDamage);

@@ -4020,5 +4020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2123102957}
-  horizontalLimit: 0
-  hMoveTime: .100000001
+  onlyVertical: 0
+  verticalLimt: 0
+  vMoveTime: .100000001

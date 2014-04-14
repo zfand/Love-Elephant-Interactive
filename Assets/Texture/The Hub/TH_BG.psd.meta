@@ -44,11 +44,11 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   - buildTarget: Web
-    maxTextureSize: 1024
+    maxTextureSize: 4096
     textureFormat: -1
     compressionQuality: 50
   - buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 4096
     textureFormat: -1
     compressionQuality: 50
   spriteSheet:
