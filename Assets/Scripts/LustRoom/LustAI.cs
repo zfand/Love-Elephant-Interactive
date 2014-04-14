@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using LoveElephant;
 using System.Collections;
 using System.Collections.Generic;
 
 public class LustAI : MonoBehaviour {
 
-	public GameObject ShootPreCumObject;	
+	public GameObject ShootTelegraphObject;	
+	public GameObject DockingParticleObject;
+	private ParticleSystem DockingParticle;
 	public GameObject Player;
 	public GameObject projectileSpawn;
 	public GameObject projectile;
@@ -13,14 +16,20 @@ public class LustAI : MonoBehaviour {
 	public float Speed;
 	public float ProjectileSpeed;
 	public float DiveSpeed;
+	public float DockTime;
+	private float dockTimer;
 	public List<GameObject> WayPoints;
 	public GameObject currentWaypoint;
+	public List<GameObject> DockingStations;
+	private GameObject currentDock;
+	public int MaxCharges = 10;
+	private int Charges;
 
 	private bool atWayPoint = false;
 
 	private float idleCooldown;
 
-	private ParticleSystem ShootPrecum;
+	private ParticleSystem ShootTelegraph;
 
 
 
@@ -33,6 +42,7 @@ public class LustAI : MonoBehaviour {
 	private bool turning = false;
 	private bool shooting = false;
 	private bool stopDiving = false;
+	private bool facePlayer = true;
 
 	private Animator anim;
 	private AnimatorStateInfo animinfo;
@@ -44,21 +54,29 @@ public class LustAI : MonoBehaviour {
 		if(currentWaypoint == null){
 			currentWaypoint = WayPoints[Random.Range (0, WayPoints.Count -1)];
 		}
-		ShootPrecum = ShootPreCumObject.particleSystem;
+		ShootTelegraph = ShootTelegraphObject.particleSystem;
+		DockingParticle = DockingParticleObject.particleSystem;
 		state = LustState.Moving;
 		StartCoroutine(MoveToWaypoint());
 		idleCooldown = Random.Range(IdleMin, IdleMax);
 		anim = this.GetComponent<Animator>();
+		Charges = MaxCharges;
 	}
+
 	
 	// Update is called once per frame
 	void Update () {
 		Random.seed = (int)Time.time;
 		animinfo = anim.GetCurrentAnimatorStateInfo(0);
 
-		
-		if(!FacingPlayer() && !turning){
-			StartCoroutine(FacePlayer());
+		if(facePlayer){
+			if(!FacingPlayer() && !turning){
+				StartCoroutine(FacePlayer());
+			}
+		} else if(state == LustState.Dock){
+			if(currentDock != null && !FacingDock() && !turning){
+				StartCoroutine(FaceObject(currentDock));
+			}
 		}
 		if(!shooting){
 			if(state == LustState.Idle){
@@ -132,8 +150,17 @@ public class LustAI : MonoBehaviour {
 			if(roll > 60){
 				state = LustState.Dive;
 				return;
-			} else if(roll > 20){
-				StartCoroutine(Shoot());
+			} else if(true){//roll > 20){
+				if(Charges > 0){
+					StartCoroutine(Shoot());
+				}
+				else {
+					StartCoroutine (Dock());
+				}
+				return;
+			} else {
+				currentWaypoint = currentWaypoint.GetComponent<LustWaypoint>().getRandomAdjacent();
+				state = LustState.Moving;
 				return;
 			}
 		} else {
@@ -150,9 +177,10 @@ public class LustAI : MonoBehaviour {
 
 	IEnumerator Shoot(){
 		shooting = true;
-		ShootPrecum.Play ();
+		ShootTelegraph.Play ();
+		Charges--;
 
-		while(ShootPrecum.isPlaying){
+		while(ShootTelegraph.isPlaying){
 			yield return 0;
 		}
 		anim.SetTrigger("Shoot");
@@ -172,6 +200,70 @@ public class LustAI : MonoBehaviour {
 		Idle ();
 		
 	}
+
+	IEnumerator Dock(){
+		state = LustState.Dock;
+		facePlayer = false;
+		Moving = true;
+		currentDock = DockingStations[Random.Range((int)0, (int)DockingStations.Count)];
+		float dist = Vector3.Distance(this.transform.position, currentDock.transform.position);
+		while(dist > 0.5){
+			dist = Vector3.Distance(this.transform.position, currentDock.transform.position);
+			this.transform.position = this.transform.position + (Vector3.Normalize(currentDock.transform.position - this.transform.position)*Speed);
+			yield return 0;
+		}
+  		Moving = false;
+		anim.SetTrigger ("Dock");
+		dockTimer = 0;
+		DockingParticle.Play ();
+		while(!animinfo.IsName("DockHold")){
+			yield return 0;
+		}
+		while(animinfo.IsName("DockHold")){
+			yield return 0;
+		}
+		DockingParticle.Stop ();
+		Charges = MaxCharges;
+		facePlayer = true;
+		Idle ();
+	}
+	
+	bool FacingDock(){
+		float diff = this.transform.position.x - currentDock.transform.position.x;
+		if(diff > 0 && this.transform.forward.x > 0){
+			return false;
+		} else if(diff < 0 && this.transform.forward.x < 0){
+			return false;
+		}
+		
+		return true;
+	}
+	
+	
+	
+	IEnumerator FaceObject(GameObject obj)
+	{
+		float interval = 5f;
+		float totalrot = 0;
+		bool rotating = true;
+		Vector3 dest = new Vector3(this.transform.eulerAngles.x, this.transform.eulerAngles.y + 180, this.transform.eulerAngles.z);
+		turning = true;
+		
+		while (rotating) { 
+			totalrot += interval;
+			if (totalrot >= 180) {
+				rotating = false;
+				yield return 0;
+			}
+			transform.Rotate (new Vector3 (0f, interval, 0f));
+			yield return 0;
+		}
+		turning = false;
+		
+		this.transform.eulerAngles = dest;
+	}
+
+
 	bool FacingPlayer(){
 		float diff = this.transform.position.x - Player.transform.position.x;
 		if(diff > 0 && this.transform.forward.x > 0){
@@ -211,6 +303,9 @@ public class LustAI : MonoBehaviour {
 		if(Diving){
 			if(c.gameObject.CompareTag("Player")){
 				stopDiving = true;
+				Player.GetComponent<PlayerStats>().TakeDamage(10);
+				Player.GetComponent<PlayerController>().grounded = true;
+				Player.rigidbody.AddExplosionForce(1000, projectileSpawn.transform.position, 5);
 			} else if(c.gameObject.CompareTag("Wall") ||
 			          c.gameObject.CompareTag("Ceiling") ||
 			          c.gameObject.CompareTag("Floor") ||
