@@ -209,7 +209,7 @@ namespace LoveElephant
         anim.SetBool ("Swing", true);
         grappleSpike.transform.position = hitPos;
       } else if (state == GrappleState.Off) {
-        //grappleSpike.SetActive (false);
+        grappleSpike.SetActive (false);
         lr.enabled = false;
         anim.SetBool ("Swing", false);
       }
