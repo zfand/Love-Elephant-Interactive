@@ -7,8 +7,6 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Preloader.unity
-  - enabled: 0
-    path: Assets/Scenes/The Hub/TH_MainRoom.unity
   - enabled: 1
     path: Assets/Scenes/White Wing/WW_TutOne.unity
   - enabled: 1
@@ -20,12 +18,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/White Wing/WW_TutFive.unity
   - enabled: 1
+    path: Assets/Scenes/White Wing/WW_TutSix.unity
+  - enabled: 1
+    path: Assets/Scenes/White Wing/WW_TutSeven.unity
+  - enabled: 1
     path: Assets/Scenes/White Wing/WW_SlothRoom.unity
-  - enabled: 0
-    path: Assets/Scenes/Green Wing/GW_RightRoom.unity
-  - enabled: 0
-    path: Assets/Scenes/Green Wing/GW_LeftRoom.unity
-  - enabled: 0
-    path: Assets/Scenes/Green Wing/GW_GreedGluttonyRoom.unity
-  - enabled: 0
-    path: Assets/Scenes/Credits.unity
