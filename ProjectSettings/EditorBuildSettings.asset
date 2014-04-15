@@ -22,4 +22,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/White Wing/WW_TutSeven.unity
   - enabled: 1
+    path: Assets/Scenes/White Wing/WW_TutEight.unity
+  - enabled: 1
+    path: Assets/Scenes/White Wing/WW_TutNine.unity
+  - enabled: 1
     path: Assets/Scenes/White Wing/WW_SlothRoom.unity
