@@ -89,6 +89,7 @@ GameObject:
   - 23: {fileID: 25799234}
   - 114: {fileID: 25799231}
   - 82: {fileID: 25799236}
+  - 54: {fileID: 25799237}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -154,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 25799228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.4369278, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!114 &25799233
@@ -258,6 +259,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &25799237
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592158055}
+  m_GameObject: {fileID: 25799228}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1001 &32895868
 Prefab:
   m_ObjectHideFlags: 0
@@ -313,6 +330,7 @@ GameObject:
   - 23: {fileID: 96229750}
   - 114: {fileID: 96229747}
   - 82: {fileID: 96229752}
+  - 54: {fileID: 96229753}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -378,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 96229744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.2925396, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!114 &96229749
@@ -482,6 +500,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &96229753
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 892511094}
+  m_GameObject: {fileID: 96229744}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &116548635
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +601,7 @@ GameObject:
   - 23: {fileID: 164637748}
   - 114: {fileID: 164637747}
   - 82: {fileID: 164637754}
+  - 54: {fileID: 164637755}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -674,7 +709,7 @@ Transform:
   m_GameObject: {fileID: 164637746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.1903038, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &164637754
@@ -736,6 +771,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &164637755
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1230671924}
+  m_GameObject: {fileID: 164637746}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1001 &181298926
 Prefab:
   m_ObjectHideFlags: 0
@@ -871,6 +922,7 @@ GameObject:
   - 23: {fileID: 309543491}
   - 114: {fileID: 309543490}
   - 82: {fileID: 309543497}
+  - 54: {fileID: 309543498}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -978,7 +1030,7 @@ Transform:
   m_GameObject: {fileID: 309543489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.5235128, y: -5.21319628, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &309543497
@@ -1040,6 +1092,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &309543498
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 32895868}
+  m_GameObject: {fileID: 309543489}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1001 &465972609
 Prefab:
   m_ObjectHideFlags: 0
@@ -1167,6 +1235,7 @@ GameObject:
   - 23: {fileID: 553686143}
   - 114: {fileID: 553686140}
   - 82: {fileID: 553686145}
+  - 54: {fileID: 553686146}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -1232,7 +1301,7 @@ Transform:
   m_GameObject: {fileID: 553686137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.6163864, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!114 &553686142
@@ -1336,6 +1405,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &553686146
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 666759694}
+  m_GameObject: {fileID: 553686137}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &605074707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1498,7 @@ GameObject:
   - 23: {fileID: 610164454}
   - 114: {fileID: 610164453}
   - 82: {fileID: 610164460}
+  - 54: {fileID: 610164461}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -1520,7 +1606,7 @@ Transform:
   m_GameObject: {fileID: 610164452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.462204, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &610164460
@@ -1582,6 +1668,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &610164461
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 275533177}
+  m_GameObject: {fileID: 610164452}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &644802688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1699,7 @@ GameObject:
   - 23: {fileID: 644802690}
   - 114: {fileID: 644802689}
   - 82: {fileID: 644802696}
+  - 54: {fileID: 644802697}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -1704,7 +1807,7 @@ Transform:
   m_GameObject: {fileID: 644802688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.36431885, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &644802696
@@ -1766,6 +1869,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &644802697
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1880129479}
+  m_GameObject: {fileID: 644802688}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1001 &666759694
 Prefab:
   m_ObjectHideFlags: 0
@@ -1878,7 +1997,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 1db1c6c9460d4f949882287b46064380, type: 2}
+  - {fileID: 2100000, guid: 437f5304477d8af47b4423020bc4ed22, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -2069,6 +2188,7 @@ GameObject:
   - 23: {fileID: 895173475}
   - 114: {fileID: 895173474}
   - 82: {fileID: 895173481}
+  - 54: {fileID: 895173482}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -2176,7 +2296,7 @@ Transform:
   m_GameObject: {fileID: 895173473}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.26479673, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &895173481
@@ -2238,6 +2358,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &895173482
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1786603955}
+  m_GameObject: {fileID: 895173473}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &906805701
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2480,7 @@ GameObject:
   - 23: {fileID: 929129131}
   - 114: {fileID: 929129130}
   - 82: {fileID: 929129137}
+  - 54: {fileID: 929129138}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -2451,7 +2588,7 @@ Transform:
   m_GameObject: {fileID: 929129129}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.6670723, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &929129137
@@ -2513,6 +2650,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &929129138
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1489815649}
+  m_GameObject: {fileID: 929129129}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &949693943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,6 +2681,7 @@ GameObject:
   - 23: {fileID: 949693945}
   - 114: {fileID: 949693944}
   - 82: {fileID: 949693951}
+  - 54: {fileID: 949693952}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -2635,7 +2789,7 @@ Transform:
   m_GameObject: {fileID: 949693943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .554124832, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &949693951
@@ -2697,6 +2851,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &949693952
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1420883191}
+  m_GameObject: {fileID: 949693943}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &981048083
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2921,7 @@ GameObject:
   - 23: {fileID: 1060581238}
   - 114: {fileID: 1060581237}
   - 82: {fileID: 1060581244}
+  - 54: {fileID: 1060581245}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -2858,7 +3029,7 @@ Transform:
   m_GameObject: {fileID: 1060581236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.44056797, y: -5.21319628, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1060581244
@@ -2920,6 +3091,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1060581245
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1847904247}
+  m_GameObject: {fileID: 1060581236}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1075522225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,6 +3271,7 @@ GameObject:
   - 23: {fileID: 1178064972}
   - 114: {fileID: 1178064971}
   - 82: {fileID: 1178064978}
+  - 54: {fileID: 1178064979}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -3191,7 +3379,7 @@ Transform:
   m_GameObject: {fileID: 1178064970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.48726368, y: -5.21319628, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1178064978
@@ -3253,6 +3441,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1178064979
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 889125541}
+  m_GameObject: {fileID: 1178064970}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1220951896
 GameObject:
   m_ObjectHideFlags: 0
@@ -3334,6 +3538,7 @@ GameObject:
   - 23: {fileID: 1233315664}
   - 114: {fileID: 1233315663}
   - 82: {fileID: 1233315670}
+  - 54: {fileID: 1233315671}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -3441,7 +3646,7 @@ Transform:
   m_GameObject: {fileID: 1233315662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.8127017, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1233315670
@@ -3503,6 +3708,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1233315671
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 876205102}
+  m_GameObject: {fileID: 1233315662}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1333381170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,7 +3753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors:
   - door: {fileID: 1379648263}
-    connectedRoom: WW_RightRoom
+    connectedRoom: WW_TutNine
     playerSpawnPos: SpawnerDoorMid
 --- !u!4 &1333381172
 Transform:
@@ -3722,6 +3943,7 @@ GameObject:
   - 23: {fileID: 1454098127}
   - 114: {fileID: 1454098126}
   - 82: {fileID: 1454098133}
+  - 54: {fileID: 1454098134}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -3829,7 +4051,7 @@ Transform:
   m_GameObject: {fileID: 1454098125}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.653614, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1454098133
@@ -3891,6 +4113,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1454098134
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1800200122}
+  m_GameObject: {fileID: 1454098125}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1488040062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,7 +4169,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 4a571ebc4b67f074ebb2def4efe7b267, type: 2}
+  - {fileID: 2100000, guid: 432bcb636b744264da813a06fdb1a02c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4331,6 +4569,7 @@ GameObject:
   - 23: {fileID: 1795046863}
   - 114: {fileID: 1795046862}
   - 82: {fileID: 1795046869}
+  - 54: {fileID: 1795046870}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -4438,7 +4677,7 @@ Transform:
   m_GameObject: {fileID: 1795046861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.6174812, y: -4.0346036, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1795046869
@@ -4500,6 +4739,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1795046870
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1117592117}
+  m_GameObject: {fileID: 1795046861}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1001 &1800200122
 Prefab:
   m_ObjectHideFlags: 0
@@ -4555,6 +4810,7 @@ GameObject:
   - 23: {fileID: 1815409515}
   - 114: {fileID: 1815409514}
   - 82: {fileID: 1815409521}
+  - 54: {fileID: 1815409522}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -4662,7 +4918,7 @@ Transform:
   m_GameObject: {fileID: 1815409513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.0998974, y: -5.21319628, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1815409521
@@ -4724,6 +4980,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1815409522
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 181298926}
+  m_GameObject: {fileID: 1815409513}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1817262919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,6 +5011,7 @@ GameObject:
   - 23: {fileID: 1817262921}
   - 114: {fileID: 1817262920}
   - 82: {fileID: 1817262927}
+  - 54: {fileID: 1817262928}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -4846,7 +5119,7 @@ Transform:
   m_GameObject: {fileID: 1817262919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.06883192, y: -5.21319628, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1817262927
@@ -4908,6 +5181,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1817262928
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1343722830}
+  m_GameObject: {fileID: 1817262919}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &1835368419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,6 +5374,7 @@ GameObject:
   - 23: {fileID: 1964449903}
   - 114: {fileID: 1964449902}
   - 82: {fileID: 1964449909}
+  - 54: {fileID: 1964449910}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -5192,7 +5482,7 @@ Transform:
   m_GameObject: {fileID: 1964449901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.0772295, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &1964449909
@@ -5254,6 +5544,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &1964449910
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1108434538}
+  m_GameObject: {fileID: 1964449901}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &2002964669
 GameObject:
   m_ObjectHideFlags: 0
@@ -5334,6 +5640,7 @@ GameObject:
   - 23: {fileID: 2006828280}
   - 114: {fileID: 2006828279}
   - 82: {fileID: 2006828286}
+  - 54: {fileID: 2006828287}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -5441,7 +5748,7 @@ Transform:
   m_GameObject: {fileID: 2006828278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.56418276, y: -4.0346036, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &2006828286
@@ -5503,6 +5810,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &2006828287
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 1839507043}
+  m_GameObject: {fileID: 2006828278}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &2013845592
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,6 +5841,7 @@ GameObject:
   - 23: {fileID: 2013845594}
   - 114: {fileID: 2013845593}
   - 82: {fileID: 2013845600}
+  - 54: {fileID: 2013845601}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Crate
@@ -5625,7 +5949,7 @@ Transform:
   m_GameObject: {fileID: 2013845592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.48086929, y: -6.40887022, z: 0}
-  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!82 &2013845600
@@ -5687,6 +6011,22 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!54 &2013845601
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5400000, guid: ed0e41b4af5b03e4faa78950412eac11,
+    type: 2}
+  m_PrefabInternal: {fileID: 183652883}
+  m_GameObject: {fileID: 2013845592}
+  serializedVersion: 2
+  m_Mass: .800000012
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1001 &2111498538
 Prefab:
   m_ObjectHideFlags: 0
