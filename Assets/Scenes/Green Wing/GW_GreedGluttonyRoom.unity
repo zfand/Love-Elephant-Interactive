@@ -3116,7 +3116,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400236, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
   m_PrefabInternal: {fileID: 337634074}
   m_GameObject: {fileID: 273967327}
-  m_LocalRotation: {x: -.653701365, y: .75675261, z: 6.37140911e-05, w: .000260957167}
+  m_LocalRotation: {x: -.653701365, y: .75675267, z: 6.37140911e-05, w: .000260957167}
   m_LocalPosition: {x: -.302437276, y: -6.66133815e-16, z: 1.04083409e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3540,7 +3540,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!135 &417373155
 SphereCollider:
@@ -3646,7 +3646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff385e0c4f9854f399a2e5c5c423b2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 500
   attackDmg: 20
   armor: 1
   lifeSteal: 0
@@ -3732,7 +3732,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400246, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
   m_PrefabInternal: {fileID: 337634074}
   m_GameObject: {fileID: 463901085}
-  m_LocalRotation: {x: .677270472, y: .697411895, z: -.163267136, w: -.16812256}
+  m_LocalRotation: {x: .677270532, y: .697411954, z: -.163267151, w: -.168122575}
   m_LocalPosition: {x: -.170217112, y: -2.58965898e-16, z: 5.09345634e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18434,7 +18434,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -21121,8 +21121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1724664799}
-  horizontalLimit: 0
-  hMoveTime: .100000001
+  onlyVertical: 0
+  verticalLimit: 0
+  vMoveTime: .100000001
 --- !u!4 &1931051121
 Transform:
   m_ObjectHideFlags: 0

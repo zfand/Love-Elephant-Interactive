@@ -20,7 +20,7 @@ namespace LoveElephant
 	void OnGUI () {
 	
 	  DoorConfig door = new DoorConfig();
-	  door.connectedRoom = "WW_TutOne";
+	  door.connectedRoom = "RW_WrathRoom";
 	  door.playerSpawnPos = "SpawnerDoorLeft";
 
 	  GUI.Box(new Rect(Screen.width/2 - 75,Screen.height/2 - 30,150,50), "The Humans Are Dead");
