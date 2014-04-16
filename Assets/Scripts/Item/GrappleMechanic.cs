@@ -78,6 +78,10 @@ namespace LoveElephant
     /// </summary>
     private bool groundReeling;
     /// <summary>
+    /// If the player is currently Reeling
+    /// </summary>
+    private bool reeling;
+    /// <summary>
     /// Reference to the player's Controller
     /// </summary>
     private PlayerController pController;
@@ -109,6 +113,7 @@ namespace LoveElephant
     {    
       state = GrappleState.Off;
       groundReeling = false;
+      reeling = false;
       lr = this.GetComponent<LineRenderer> ();
       if (lr == null) {
         Debug.LogError ("The Hookshot does not have a LineRenderer!");
@@ -165,8 +170,9 @@ namespace LoveElephant
       //Reel Up!
       if (Input.GetButton ("Up") && state == GrappleState.Swinging) {
         float ropLen = Vector3.Distance (transform.parent.position, anchor.transform.position);
-        if (ropLen >= minRopeLength) {
+        if (ropLen >= minRopeLength && !reeling) {
           StopCoroutine ("GroundReel");
+          groundReeling = false;
           StartCoroutine ("Reel", Vector3.up);
         }
         audioSources [2].loop = false;
@@ -175,7 +181,7 @@ namespace LoveElephant
       //let out the line
       else if (Input.GetButton ("Down") && state == GrappleState.Swinging) {
         float ropLen = Vector3.Distance (transform.position, anchor.transform.position);
-        if (ropLen <= maxRopeLength) {
+        if (ropLen <= maxRopeLength && !reeling) {
           StartCoroutine ("Reel", Vector3.down);
         }
         audioSources [2].loop = false;
@@ -283,16 +289,16 @@ namespace LoveElephant
           state = GrappleState.Extending;
           //if we're in the air start swinging
           if (!pController.grounded) {
-            StopCoroutine ("ExtendRop");
+            StopCoroutine ("ExtendRope");
             StartCoroutine ("ExtendRope", GrappleState.Swinging);
           } else {
-            StopCoroutine ("ExtendRop");
+            StopCoroutine ("ExtendRope");
             StartCoroutine ("ExtendRope", GrappleState.Attached);
           }
           //the grapple point is too far away
         } else {
           state = GrappleState.Failed;
-          StopCoroutine ("ExtendRop");
+          StopCoroutine ("ExtendRope");
           StartCoroutine ("ExtendRope", GrappleState.Off);
         } 
       }
@@ -372,10 +378,14 @@ namespace LoveElephant
     /// </summary>
     private IEnumerator Reel(Vector3 dir)
     {
-      joint.autoConfigureConnectedAnchor = false;
       Vector3 startPos = joint.connectedAnchor;
       Vector3 endPos = startPos + dir * yankLen;
       float deltaTime = 0f;
+      if (Mathf.Abs(endPos.y) < 0.5) {
+        yield break;
+      }
+      reeling = true;
+      joint.autoConfigureConnectedAnchor = false;
 
       while (deltaTime < reelTime) {
 
@@ -393,6 +403,7 @@ namespace LoveElephant
         deltaTime += Time.deltaTime;
         yield return 0;
       }
+      reeling = false;
     }
 
     /// <summary>
