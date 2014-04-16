@@ -3254,6 +3254,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.startSize.maxCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400120, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.16725159
@@ -3309,6 +3317,58 @@ Prefab:
     - target: {fileID: 11400000, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
       propertyPath: health
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 19900004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d56da4a90f08d6458d4bbd71e873c1e, type: 2}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: EmissionModule.rate.scalar
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: ShapeModule.radius
+      value: .400000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key0.rgba
+      value: 4280993024
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key1.rgba
+      value: 4280643328
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: RotationModule.curve.scalar
+      value: 1.04719758
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.startSize.maxCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
@@ -12042,7 +12102,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: a7945330da68e7f47b144874e682abcc, type: 2}
+  - {fileID: 2100000, guid: 8d56da4a90f08d6458d4bbd71e873c1e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -12250,29 +12310,19 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - time: 1
-          value: 0
+          value: .5
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 0
+      minMaxState: 3
     startRotation:
       scalar: 0
       maxCurve:
@@ -12313,7 +12363,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .527068496
+    radius: .400000006
     angle: 0
     length: 5
     boxX: 1
@@ -12405,7 +12455,7 @@ ParticleSystem:
   RotationModule:
     enabled: 0
     curve:
-      scalar: .785398185
+      scalar: 1.04719758
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12438,15 +12488,15 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4280993024
         key1:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4280643328
         key2:
           serializedVersion: 2
           rgba: 0
