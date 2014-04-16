@@ -186,11 +186,6 @@ namespace LoveElephant
 
     }
 
-    private void OnTriggerEnter(Collider c)
-    {
-      grounded = true;
-    }
-
     private void OnTriggerExit(Collider c)
     {
       grounded = false;
