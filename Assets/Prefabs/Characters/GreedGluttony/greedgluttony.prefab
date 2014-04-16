@@ -3951,7 +3951,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100236}
-  m_LocalRotation: {x: -.653701305, y: .756752551, z: 6.37140838e-05, w: .000260957138}
+  m_LocalRotation: {x: -.653701365, y: .75675267, z: 6.37140911e-05, w: .000260957167}
   m_LocalPosition: {x: -.302437276, y: -6.66133815e-16, z: 1.04083409e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4010,7 +4010,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100246}
-  m_LocalRotation: {x: .677270472, y: .697411895, z: -.163267136, w: -.16812256}
+  m_LocalRotation: {x: .677270532, y: .697411954, z: -.163267151, w: -.168122575}
   m_LocalPosition: {x: -.170217112, y: -2.58965898e-16, z: 5.09345634e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4516,7 +4516,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!54 &5400004
 Rigidbody:
@@ -4689,7 +4689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff385e0c4f9854f399a2e5c5c423b2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 500
   attackDmg: 20
   armor: 1
   lifeSteal: 0
