@@ -75,9 +75,10 @@ namespace LoveElephant
 			foreach(GameObject g in PipeObjects){
 				Pipes.Add (g.GetComponent<Pipe>());
 			}
-
+			if(player == null){
+				player = GameObject.FindGameObjectWithTag("Player");
+			}
 			shake = CameraObject.GetComponent<CameraShake>();
-			currentPukeValue = MaxPukeValue;
 			//StartCoroutine(StartWalk());
 		}
 
