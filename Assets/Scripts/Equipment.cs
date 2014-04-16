@@ -87,9 +87,11 @@ namespace LoveElephant
         hookShot.transform.parent = this.transform;
       } else if (item.tag == "Weapon") {
         if (weapon != null) {
-          item.transform.position = weapon.transform.position;
+          item.transform.position = weapon.transform.position;	
+			item.transform.localPosition = new Vector3(item.transform.localPosition.x, item.transform.localPosition.y, item.transform.localPosition.z);
           item.transform.rotation = weapon.transform.rotation;
           item.transform.localScale = weapon.transform.localScale;
+		  item.GetComponent<Sword>().ResetValues();
           Unequip (weapon);
         }
         weapon = item;

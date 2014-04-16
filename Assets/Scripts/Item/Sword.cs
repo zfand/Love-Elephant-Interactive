@@ -28,7 +28,9 @@ namespace LoveElephant
       isSwinging = false;
       OriginalSwordPosition = sword.transform.localPosition;
       OriginalSwordRotation = sword.transform.localRotation;
-
+	  if(audioSource == null){
+		audioSource = this.transform.parent.FindChild("Audio 1").audio;
+	  }
       // Setting up the references.
       playerCtrl = transform.parent.gameObject.GetComponent<PlayerController> ();
 
@@ -102,5 +104,10 @@ namespace LoveElephant
       sword.transform.localRotation = OriginalSwordRotation;
       sword.SetActive (false);
     }
+
+	public void ResetValues(){
+		OriginalSwordPosition = sword.transform.localPosition;
+		OriginalSwordRotation = sword.transform.localRotation;
+	}
   }
 }
