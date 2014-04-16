@@ -28,7 +28,7 @@ namespace LoveElephant
   /// </summary>
     public bool
       grounded = false;
-	private bool lastGrounded;
+    private bool lastGrounded;
     private MovementStats mStats;
 
     public MovementStats movementStats {
@@ -58,16 +58,11 @@ namespace LoveElephant
     /// The last input from the user
     /// </summary>
     private float lastInput;
-	
-
-	private Vector3 mouse;
-	
-
-	public Texture2D Reticle;
-
-	public AudioSource[] audioSources;
-	public AudioClip player_run;
-	public AudioClip player_land;
+    private Vector3 mouse;
+    public Texture2D Reticle;
+    public AudioSource[] audioSources;
+    public AudioClip player_run;
+    public AudioClip player_land;
       
     private void Awake()
     {
@@ -88,17 +83,17 @@ namespace LoveElephant
     private void Start()
     {
       mStats = equip.boot.GetComponent<Boot> ().stats;
-	  lastGrounded = true;
+      lastGrounded = true;
       lastInput = 1000f;
     }
   
     // Update is called once per frame
     private void Update()
     {
-	  mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (transform.position - Camera.main.transform.position).magnitude));
+      mouse = Camera.main.ScreenToWorldPoint (new Vector3 (Input.mousePosition.x, Input.mousePosition.y, (transform.position - Camera.main.transform.position).magnitude));
 
       
-	  // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+      // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
       grounded |= Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer ("Player")));
 
       anim.SetBool ("Grounded", grounded);
@@ -112,23 +107,23 @@ namespace LoveElephant
       if (rigidbody.velocity.magnitude > 50) {
         rigidbody.velocity = rigidbody.velocity.normalized * 50;
       }
-		
-	  if (!lastGrounded && grounded && !jump) {
-		audioSources[1].clip = player_land;
-		audioSources[1].Play ();
-	  }
+    
+      if (!lastGrounded && grounded && !jump) {
+        audioSources [1].clip = player_land;
+        audioSources [1].Play ();
+      }
 
-	  lastGrounded = grounded;
+      lastGrounded = grounded;
     }
 
     private void FixedUpdate()
-	{  
-	  
-		
-	  //Flip Facing Direction
-	  if (!FacingMouse(mouse)) {
-	  	FlipFacing ();
-	  }
+    {  
+    
+    
+      //Flip Facing Direction
+      if (!FacingMouse (mouse)) {
+        FlipFacing ();
+      }
 
       if (inputEnabled) {
         float h = Input.GetAxis ("Horizontal");
@@ -141,14 +136,15 @@ namespace LoveElephant
           anim.SetFloat ("Speed", Mathf.Abs (h));
         }
 
-		if (h != 0 && !audioSources[2].isPlaying && grounded) {
-			audioSources[2].loop = true;
-			audioSources[2].clip = player_run;
-			audioSources[2].Play ();
-		} else if (h == 0 || !grounded) {
-	 		audioSources[2].Stop ();
-			audioSources[2].loop = false;
-		}
+        if (h != 0 && !audioSources [2].isPlaying && grounded) {
+          audioSources [2].loop = true;
+          audioSources [2].clip = player_run;
+          audioSources [2].Play ();
+        } else if (h == 0 || !grounded) {
+          audioSources [2].Stop ();
+          audioSources [2].loop = false;
+        }
+
         //Make sure you're not grinding up against a wall
         if (grounded || !isColliding) {
           if (grounded && h == 0) {
@@ -158,7 +154,7 @@ namespace LoveElephant
             if (grounded) {
               rigidbody.AddForce (Vector3.right * h * mStats.moveForce);
             } else if (h != 0) {
-              rigidbody.AddForce ((Vector3.right * h) * (mStats.moveForce/2));
+              rigidbody.AddForce ((Vector3.right * h) * (mStats.moveForce / 2));
             }
           }
           if (Mathf.Abs (rigidbody.velocity.x) > mStats.maxRunSpeed && grounded) {
@@ -182,12 +178,13 @@ namespace LoveElephant
       }
     }
 
-	private bool FacingMouse(Vector3 mouse) {
+    private bool FacingMouse(Vector3 mouse)
+    {
 
-		return (mouse.x >= this.transform.position.x && facingRight) ||
-				(mouse.x < this.transform.position.x && !facingRight);
+      return (mouse.x >= this.transform.position.x && facingRight) ||
+        (mouse.x < this.transform.position.x && !facingRight);
 
-	}
+    }
 
     private void OnTriggerEnter(Collider c)
     {
@@ -200,6 +197,11 @@ namespace LoveElephant
     }
 
     private void OnCollisionEnter(Collision collision)
+    {
+      isColliding = true;
+    }
+
+    private void OnCollisionStay(Collision collision)
     {
       isColliding = true;
     }
@@ -221,10 +223,11 @@ namespace LoveElephant
       //transform.localScale = scale;
     }
 
-	void OnGUI() {
-			float scale = 2;
-			Rect position = new Rect( Input.mousePosition.x - ((Reticle.width*scale) / 2), (Screen.height - Input.mousePosition.y) - ((Reticle.height*scale) / 2), Reticle.width*2 , Reticle.height*2 );
-			GUI.DrawTexture(position, Reticle, ScaleMode.StretchToFill);
-	}
+    void OnGUI()
+    {
+      float scale = 2;
+      Rect position = new Rect (Input.mousePosition.x - ((Reticle.width * scale) / 2), (Screen.height - Input.mousePosition.y) - ((Reticle.height * scale) / 2), Reticle.width * 2, Reticle.height * 2);
+      GUI.DrawTexture (position, Reticle, ScaleMode.StretchToFill);
+    }
   }
 }
