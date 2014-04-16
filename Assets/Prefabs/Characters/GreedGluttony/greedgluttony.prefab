@@ -4462,7 +4462,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100324}
-  m_LocalRotation: {x: 0, y: .382683456, z: 0, w: .923879504}
+  m_LocalRotation: {x: 0, y: .382683486, z: 0, w: .923879564}
   m_LocalPosition: {x: -.190965146, y: .0175911691, z: -.123186924}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -4585,7 +4585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: .100000001
-  DrinkTime: 0
+  DrinkTime: 3
   IdleMax: 200
   IdleMin: 100
   PipeObjects:
@@ -7645,29 +7645,19 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - time: 1
-          value: 0
+          value: .5
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 0
+      minMaxState: 3
     startRotation:
       scalar: 0
       maxCurve:
@@ -7708,7 +7698,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: .527068496
+    radius: .400000006
     angle: 0
     length: 5
     boxX: 1
@@ -7800,7 +7790,7 @@ ParticleSystem:
   RotationModule:
     enabled: 0
     curve:
-      scalar: .785398185
+      scalar: 1.04719758
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -7833,15 +7823,15 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4280993024
         key1:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4280643328
         key2:
           serializedVersion: 2
           rgba: 0
@@ -19706,7 +19696,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: a7945330da68e7f47b144874e682abcc, type: 2}
+  - {fileID: 2100000, guid: 8d56da4a90f08d6458d4bbd71e873c1e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

@@ -27,3 +27,11 @@ EditorBuildSettings:
     path: Assets/Scenes/White Wing/WW_TutNine.unity
   - enabled: 1
     path: Assets/Scenes/White Wing/WW_SlothRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/White Wing/WW_GreenRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Green Wing/GW_RightRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Green Wing/GW_LeftRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/Green Wing/GW_GreedGluttonyRoom.unity

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace LoveElephant
 {
@@ -46,7 +47,7 @@ namespace LoveElephant
     public AudioClip grapple_shoot;
     public AudioClip grapple_hit;
     public AudioClip grapple_extend;
-    public AudioSource[] audioSources;
+    public List<AudioSource> audioSources;
 
     /////////////////////////////////////////////////////////////////////////
     ///                     Private                                       ///
@@ -127,8 +128,14 @@ namespace LoveElephant
       }
       pController = transform.parent.GetComponent<PlayerController> ();
       if (pController == null) {
-        Debug.LogError ("There is no PlayerController Componenetnet on the Parent!");
+        Debug.LogError ("There is no PlayerController Componenent on the Parent!");
       }
+		if(audioSources.Count < 3){
+				audioSources.Add (transform.parent.FindChild("Audio 1").audio);
+				audioSources.Add (transform.parent.FindChild("Audio 2").audio);
+				audioSources.Add (transform.parent.FindChild("Audio 3").audio);
+		}
+	  
     }
 
     private void OnDrawGizmos()
