@@ -207,7 +207,9 @@ namespace LoveElephant
         lr.SetPosition (0, ropePos.position);
         lr.SetPosition (1, hitPos);
         lr.enabled = true;
-        anim.SetBool ("Swing", true);
+        if (state == GrappleState.Swinging) {
+          anim.SetBool ("Swing", true);
+        }
         grappleSpike.transform.position = hitPos;
       } else if (state == GrappleState.Off) {
         grappleSpike.SetActive (false);
