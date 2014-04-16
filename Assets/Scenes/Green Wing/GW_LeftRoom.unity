@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors:
   - door: {fileID: 148806594}
-    connectedRoom: GW_GreedGluttonyRoom
+    connectedRoom: GW_LeftRoomTwo
     playerSpawnPos: SpawnerDoorRight
   - door: {fileID: 1547839226}
     connectedRoom: GW_RightRoom
@@ -2423,8 +2423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1585720337}
-  horizontalLimit: 0
-  hMoveTime: .100000001
+  onlyVertical: 0
+  verticalLimit: 0
+  vMoveTime: .100000001
 --- !u!4 &1392311338
 Transform:
   m_ObjectHideFlags: 0
@@ -4071,7 +4072,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: f3f63960a9b566146a9b80716efbd93b, type: 2}
+  - {fileID: 2100000, guid: 7b1b2d85a9ec99241a57574a3cd606c8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4127,7 +4128,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 870c57c0a2e15214ea8748444b87d03e, type: 2}
+  - {fileID: 2100000, guid: 31928d1fdc3cd32429f19834d879f863, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
