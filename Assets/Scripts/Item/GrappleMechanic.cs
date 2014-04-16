@@ -43,14 +43,10 @@ namespace LoveElephant
     /// The sprite covering the end of the line 
     /// </summary>
     public GameObject grappleSpike;
-
-	public AudioClip grapple_shoot;
-	
-	public AudioClip grapple_hit;
-
-	public AudioClip grapple_extend;
-
-	public AudioSource[] audioSources;
+    public AudioClip grapple_shoot;
+    public AudioClip grapple_hit;
+    public AudioClip grapple_extend;
+    public AudioSource[] audioSources;
 
     /////////////////////////////////////////////////////////////////////////
     ///                     Private                                       ///
@@ -149,7 +145,7 @@ namespace LoveElephant
 
       //Attached
       if (state == GrappleState.Attached) {
-		if (Vector3.Distance (hitPos, transform.parent.position) > maxRopeLength) {
+        if (Vector3.Distance (hitPos, transform.parent.position) > maxRopeLength) {
           StopSwing (true);
         }
       }
@@ -166,7 +162,7 @@ namespace LoveElephant
           StopCoroutine ("GroundReel");
           StartCoroutine ("Reel", Vector3.up);
         }
-		audioSources[2].loop = false;
+        audioSources [2].loop = false;
       }
 
       //let out the line
@@ -174,8 +170,8 @@ namespace LoveElephant
         float ropLen = Vector3.Distance (transform.position, anchor.transform.position);
         if (ropLen <= maxRopeLength) {
           StartCoroutine ("Reel", Vector3.down);
-		}
-		audioSources[2].loop = false;
+        }
+        audioSources [2].loop = false;
       }
 
       //Reel up from ground!
@@ -192,6 +188,11 @@ namespace LoveElephant
         transform.parent.rigidbody.AddForce ((hitPos - transform.parent.position).normalized * force, ForceMode.VelocityChange);
         StopSwing (true);
 
+      }
+
+      //walk off a ledge while attached
+      if (state == GrappleState.Attached && !pController.grounded) {
+        StartSwing ();
       }
 
       //Hit the Ground
@@ -230,7 +231,7 @@ namespace LoveElephant
       }
       //delete joints 
       else if (joint != null) {
-        StopSwing(false);
+        StopSwing (false);
       }
     }
 
@@ -238,7 +239,7 @@ namespace LoveElephant
     /// Called when shoot button is clicked
     /// </summary>
     private void Shoot()
-	{
+    {
       Vector3 clickedPosition = Input.mousePosition;
       //Find the distance the camera is from the play plane
       clickedPosition.z = Camera.main.transform.position.z * -1;
@@ -255,10 +256,10 @@ namespace LoveElephant
           return;
         }
 
-	    audioSources[1].clip = grapple_shoot;
-	    audioSources[1].Play ();
+        audioSources [1].clip = grapple_shoot;
+        audioSources [1].Play ();
         
-		//If the angle is too low
+        //If the angle is too low
         float dot = Vector3.Dot (Vector3.up, (clickedPosition - transform.parent.position).normalized);
         if (dot < 0f) { // 0 is 90 degrees to the left or right
           return;
@@ -266,8 +267,8 @@ namespace LoveElephant
 
         //Ok we're good create the point
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
-				SetAnchorPos (hitPos);
-		
+        SetAnchorPos (hitPos);
+    
         //if the grapple point isn't too far away
         if (distance <= maxRopeLength) {
           state = GrappleState.Extending;
@@ -327,8 +328,8 @@ namespace LoveElephant
       if (state == GrappleState.Failed) {
         StopSwing (true);
       } else {
-		audioSources[0].clip = grapple_hit;
-		audioSources[0].Play ();
+        audioSources [0].clip = grapple_hit;
+        audioSources [0].Play ();
         state = completeState;     
         if (Input.GetButton ("Fire1") && state == GrappleState.Swinging) {
           StartSwing ();
@@ -369,11 +370,11 @@ namespace LoveElephant
 
       while (deltaTime < reelTime) {
 
-		if (!audioSources[2].isPlaying) {
-		  audioSources[2].loop = true;
-		  audioSources[2].clip = grapple_extend;
-		  audioSources[2].Play ();
-		}
+        if (!audioSources [2].isPlaying) {
+          audioSources [2].loop = true;
+          audioSources [2].clip = grapple_extend;
+          audioSources [2].Play ();
+        }
 
         // check to see if we're still swinging
         if (state != GrappleState.Swinging) {
