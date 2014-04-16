@@ -58,6 +58,12 @@ namespace LoveElephant
     /// The last input from the user
     /// </summary>
     private float lastInput;
+	
+
+	private Vector3 mouse;
+	
+
+	public Texture2D Reticle;
 
 	public AudioSource[] audioSources;
 	public AudioClip player_run;
@@ -89,7 +95,10 @@ namespace LoveElephant
     // Update is called once per frame
     private void Update()
     {
-      // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+	  mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, (transform.position - Camera.main.transform.position).magnitude));
+
+      
+	  // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
       grounded |= Physics.Linecast (transform.position, groundCheck.position, ~(1 << LayerMask.NameToLayer ("Player")));
 
       anim.SetBool ("Grounded", grounded);
@@ -113,7 +122,14 @@ namespace LoveElephant
     }
 
     private void FixedUpdate()
-    {
+	{  
+	  
+		
+	  //Flip Facing Direction
+	  if (!FacingMouse(mouse)) {
+	  	FlipFacing ();
+	  }
+
       if (inputEnabled) {
         float h = Input.GetAxis ("Horizontal");
         if (Mathf.Abs (h) < Mathf.Abs (lastInput)) {
@@ -133,12 +149,6 @@ namespace LoveElephant
 	 		audioSources[2].Stop ();
 			audioSources[2].loop = false;
 		}
-
-        //Flip Facing Direction
-        if (h > 0 && !facingRight || h < 0 && facingRight) {
-          FlipFacing ();
-        }
-
         //Make sure you're not grinding up against a wall
         if (grounded || !isColliding) {
           if (grounded && h == 0) {
@@ -172,6 +182,13 @@ namespace LoveElephant
       }
     }
 
+	private bool FacingMouse(Vector3 mouse) {
+
+		return (mouse.x >= this.transform.position.x && facingRight) ||
+				(mouse.x < this.transform.position.x && !facingRight);
+
+	}
+
     private void OnTriggerEnter(Collider c)
     {
       grounded = true;
@@ -203,5 +220,11 @@ namespace LoveElephant
       scale.x *= -1;
       //transform.localScale = scale;
     }
+
+	void OnGUI() {
+			float scale = 2;
+			Rect position = new Rect( Input.mousePosition.x - ((Reticle.width*scale) / 2), (Screen.height - Input.mousePosition.y) - ((Reticle.height*scale) / 2), Reticle.width*2 , Reticle.height*2 );
+			GUI.DrawTexture(position, Reticle, ScaleMode.StretchToFill);
+	}
   }
 }
