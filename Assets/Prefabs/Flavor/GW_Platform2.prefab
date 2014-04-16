@@ -38,7 +38,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.57000005, y: .370000005, z: .200000003}
+  m_Size: {x: 1.57000005, y: .370000005, z: 1}
   m_Center: {x: 0, y: .639999986, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
