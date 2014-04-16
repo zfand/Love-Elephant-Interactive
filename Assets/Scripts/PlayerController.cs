@@ -133,7 +133,12 @@ namespace LoveElephant
           anim.SetFloat ("Speed", 0);
         } else {
           lastInput = h;
-          anim.SetFloat ("Speed", Mathf.Abs (h));
+		  if((h < 0 && !facingRight) ||
+			 (h > 0 && facingRight)) {
+				anim.SetFloat ("Speed", Mathf.Abs(h));	
+		  } else {
+			 anim.SetFloat ("Speed", -1*Mathf.Abs(h));
+		  }
         }
 
         if (h != 0 && !audioSources [2].isPlaying && grounded) {
