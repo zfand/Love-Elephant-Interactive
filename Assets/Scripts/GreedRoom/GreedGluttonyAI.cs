@@ -18,9 +18,12 @@ namespace LoveElephant
 		public GameObject DroolObject;
 		public GameObject VomitObject;
 		public GameObject DrinkSplashObj;
+		public GameObject GreedFireObj;
 		public GameObject Stomp;
+		public GameObject greed;
 
 		private ParticleSystem DrinkSplash;
+		private ParticleSystem GreedFire;
 		public List<GameObject> PukeSpots;
 
 
@@ -31,12 +34,14 @@ namespace LoveElephant
 		private float idleCooldown;
 		private float MaxPukeValue = 100f;
 		private float currentPukeValue = 0f;
+		private Color enragedColor = new Color(255, 90, 90);
 		Animator anim;
 		bool Moving;
 		bool Rotating;
 		bool Drinking;
 		bool Vomiting = false;
 		bool waitingforstomp = false;
+		bool Enraged = false;
 
 		bool dying = false;
 		public GameObject Destination;
@@ -69,6 +74,7 @@ namespace LoveElephant
 			anim = GetComponent<Animator> ();
 			Drool = DroolObject.particleSystem;	
 			DrinkSplash = DrinkSplashObj.particleSystem;
+			GreedFire = GreedFireObj.particleSystem;
 			state = GGState.Idle;
 			FaceRight = transform.forward.x  > 0;
 
@@ -85,6 +91,15 @@ namespace LoveElephant
 
 		// Update is called once per frame
 		void Update () {
+			if(!Enraged && greed == null){
+				Enraged = true;
+				GreedFire.Play ();
+				Speed *= 2;
+				IdleMax = IdleMax/2;
+				IdleMin = IdleMin/2;
+				this.renderer.material.color = Color.red;
+				Debug.Log ("Yolo");
+			}
 			animinfo = anim.GetCurrentAnimatorStateInfo(0);
 			if(!dying){
 				rigidbody.AddForce(-Vector3.up * 10000f);
@@ -177,6 +192,10 @@ namespace LoveElephant
 			Quaternion orig_rotation = neck.rotation;
 			float rotatespeed = 0.2f;
 			float max_rotate = 80f;
+			if(faceRight){
+				rotatespeed *= -1;
+				max_rotate *= -1;
+			}
 			float currentrotate = 0f;
 			while(currentPukeValue > 0f){
 				currentPukeValue -= 0.25f;
@@ -185,7 +204,7 @@ namespace LoveElephant
 				} else if(currentrotate >= max_rotate){
 					rotatespeed = -1 * (Mathf.Abs (rotatespeed));
 				}
-				currentrotate += rotatespeed;
+				currentrotate += Mathf.Abs(rotatespeed);
 				vomitcopy.transform.Rotate (Vector3.forward, -rotatespeed, Space.World);
 				//vomitcopy.transform.Rotate (Vector3.up, 5, Space.World);
 				yield return 0;
@@ -340,11 +359,15 @@ namespace LoveElephant
 			} else {
 				possible.Add ("Puke", 30f);
 			}
-			if(pipesopen){
+			if(pipesopen && !Enraged){
 				possible.Add("Drink", 50f);
 				possible.Add ("Attack", 50f);
 			} else {
-				possible.Add ("Attack", 70f);
+				if(Enraged){
+					possible.Add ("Attack", 100f);
+				}else {
+					possible.Add ("Attack", 70f);
+				}
 			}
 
 			float chance = Random.Range(0, 100);

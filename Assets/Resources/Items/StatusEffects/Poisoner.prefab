@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04643fd426e7dc4498070416a2cde5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DamageTimes: 5
-  DamagePer: 5
+  DamageTimes: 4
+  DamagePer: 2
   TicksBetweenDamage: 60
 --- !u!198 &19800000
 ParticleSystem:
