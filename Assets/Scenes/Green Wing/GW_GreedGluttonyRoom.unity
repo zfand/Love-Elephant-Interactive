@@ -11295,7 +11295,7 @@ CapsuleCollider:
   m_Radius: .75
   m_Height: 3.20000005
   m_Direction: 1
-  m_Center: {x: -.340000004, y: -.25, z: .540000021}
+  m_Center: {x: -.340000004, y: -.310000002, z: .540000021}
 --- !u!1 &1001870858
 GameObject:
   m_ObjectHideFlags: 0
@@ -17268,6 +17268,14 @@ Prefab:
       propertyPath: PukeSpots.Array.data[1]
       value: 
       objectReference: {fileID: 1044204128}
+    - target: {fileID: 13600004, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: m_Center.y
+      value: -.310000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 13600000, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
+      propertyPath: m_Center.y
+      value: -.300000012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eef3cbb98881f6d4485c02cbbc771929, type: 2}
   m_RootGameObject: {fileID: 1574516314}

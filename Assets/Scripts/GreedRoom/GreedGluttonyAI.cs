@@ -36,6 +36,7 @@ namespace LoveElephant
 		bool Rotating;
 		bool Drinking;
 		bool Vomiting = false;
+		bool waitingforstomp = false;
 
 		bool dying = false;
 		public GameObject Destination;
@@ -128,17 +129,29 @@ namespace LoveElephant
 			} 
 
 			if(c.collider.gameObject.CompareTag("Floor") && state == GGState.Attack){
-					if((animinfo.IsName("StabAttack") || animinfo.IsName("AttackOver"))){
-						if(c.contacts[0].thisCollider.name == "f_leg6" || c.contacts[0].thisCollider.name == "f_leg3"){
-							shake.Shake();
-							foreach(Pipe p in Pipes){
-								p.Open();
-							}
-							StartCoroutine(StompDamage());
-						}
+				if((animinfo.IsName("StabAttack") || animinfo.IsName("AttackOver"))){
+					if(!waitingforstomp){
+						StartCoroutine(WaitForStompToEnd());
 					}
 				}
 			}
+		}
+
+		IEnumerator WaitForStompToEnd(){
+			waitingforstomp = true;
+			bool waiting = true;
+			while(!animinfo.IsName ("AttackOver") && 
+			      !animinfo.IsName ("Idle") && 
+			      !(animinfo.IsName("StabAttack") && anim.IsInTransition(0))){
+				yield return 0;
+			}
+			shake.Shake();
+			foreach(Pipe p in Pipes){
+				p.Open();
+			}
+			waitingforstomp = false;
+			StartCoroutine(StompDamage());
+		}
 
 		IEnumerator StompDamage(){
 
