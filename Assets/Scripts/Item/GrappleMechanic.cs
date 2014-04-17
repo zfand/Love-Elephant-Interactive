@@ -204,7 +204,7 @@ namespace LoveElephant
       }
 
       //walk off a ledge while attached
-      if (state == GrappleState.Attached && !pController.grounded) {
+      if (state == GrappleState.Attached && !pController.grounded && !groundReeling) {
         StartSwing ();
       }
 
