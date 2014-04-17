@@ -67,6 +67,19 @@ namespace LoveElephant
 		bool ResetGG = false;
 		GGState state;
 		GGState nextState;
+
+		//public List<AudioSource> audiosources; 
+
+		public AudioSource SFX;
+		public AudioSource IdleSound;
+		public AudioSource DrinkingSound;
+		public AudioClip StompSound;
+		public AudioClip Puke;
+		public AudioClip Death;
+		public AudioClip TakeDamage;
+		
+
+
 		// Use this for initialization
 		void Start () {
 			Random.seed = (int)Time.time;
@@ -160,6 +173,8 @@ namespace LoveElephant
 			      !(animinfo.IsName("StabAttack") && anim.IsInTransition(0))){
 				yield return 0;
 			}
+			SFX.clip = StompSound;
+			SFX.Play ();
 			shake.Shake();
 			foreach(Pipe p in Pipes){
 				p.Open();
@@ -181,7 +196,7 @@ namespace LoveElephant
 			Stomp.SetActive(false);
 		}
 
-		IEnumerator VomitLoop(){
+		IEnumerator VomitLoop() {
 			Vomiting = true;
 			GameObject vomitcopy = GameObject.Instantiate(VomitObject, VomitObject.transform.position, VomitObject.transform.rotation) as GameObject;
 			
@@ -197,6 +212,9 @@ namespace LoveElephant
 				max_rotate *= -1;
 			}
 			float currentrotate = 0f;
+			SFX.loop = true;
+			SFX.clip = Puke;
+			SFX.Play ();
 			while(currentPukeValue > 0f){
 				currentPukeValue -= 0.25f;
 				if(currentrotate <= 0f){
@@ -209,6 +227,9 @@ namespace LoveElephant
 				//vomitcopy.transform.Rotate (Vector3.up, 5, Space.World);
 				yield return 0;
 			}			
+
+			SFX.Stop ();
+			SFX.loop = false;
 			Vomiting = false;
 			vomit.Stop ();
 			vomitcopy.transform.parent = null;
@@ -232,6 +253,13 @@ namespace LoveElephant
 			//	}
 			//}
 
+		}
+
+		void OnTriggerEnter(Collider c){
+			if(c.gameObject.CompareTag("Weapon")){
+				SFX.clip = TakeDamage;
+				SFX.Play ();
+			}
 		}
 
 
@@ -280,12 +308,14 @@ namespace LoveElephant
 			Drinking = true;
 			currentPukeValue = 0;
 			DrinkSplash.Play ();
+			DrinkingSound.Play ();
 			while (currentPukeValue < MaxPukeValue){// && currentDrinkTime < DrinkTime){
 				//currentPukeValue += PukeChargeRate;
 				//currentDrinkTime += Time.deltaTime;
 				currentPukeValue += 0.25f;
 				yield return 0;
 			}
+			DrinkingSound.Stop ();
 			Drinking = false;
 			Idle ();
 			Drool.Play ();
@@ -468,6 +498,8 @@ namespace LoveElephant
 		{
 			dying = true;
 			anim.SetTrigger ("Die");
+			SFX.clip = Death;
+			SFX.Play ();
 		}
 	}
 
