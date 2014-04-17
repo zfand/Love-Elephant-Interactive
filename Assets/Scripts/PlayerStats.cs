@@ -26,6 +26,10 @@ namespace LoveElephant
     // Update is called once per frame
     void Update()
     {
+			//listen to kill player
+			if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.K)){
+				TakeDamage(Mathf.Infinity);
+			}
   
     }
 
