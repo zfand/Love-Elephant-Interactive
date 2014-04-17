@@ -113,7 +113,8 @@ namespace LoveElephant
 
       if (!alive && dropLoot) {
         Vector3 keydrop = new Vector3 (this.transform.position.x, this.transform.position.y + 2, 0f);
-        Instantiate (drop, keydrop, Quaternion.identity);
+        GameObject newdrop = Instantiate (drop, keydrop, Quaternion.identity) as GameObject;
+				newdrop.rigidbody.AddExplosionForce(300, keydrop, 2);
         dropLoot = false;
       }
       return dmg;
