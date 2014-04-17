@@ -1328,7 +1328,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.85000002, y: .289999992, z: .200000003}
+  m_Size: {x: 1.85000002, y: .289999992, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1187398378
 SpriteRenderer:
@@ -2258,7 +2258,7 @@ AudioSource:
   m_GameObject: {fileID: 1998189826}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: f58c6f2c88928bd4694588893b2431d2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ffd1d33ebe0e8c349bb09435ec72973e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .5
   m_Pitch: 1
