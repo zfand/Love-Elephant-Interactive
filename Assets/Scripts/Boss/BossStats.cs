@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 
@@ -52,6 +53,7 @@ namespace LoveElephant
     /// </summary>
     private Material mat;
     private Material[] extraMat;
+
     /// <summary>
     /// The original color of the mat
     /// </summary>
@@ -68,7 +70,7 @@ namespace LoveElephant
     public bool alive {
       get { return health > 0f; }
     }
-
+		private bool dying = false;
     // Use this for initialization
     private void Start()
     {
@@ -111,7 +113,8 @@ namespace LoveElephant
       dmg /= armor;
       health -= dmg;
 
-      if (!alive && dropLoot) {
+      if (!alive && dropLoot && !dying) {
+				dying = true;
         Vector3 keydrop = new Vector3 (this.transform.position.x, this.transform.position.y + 2, 0f);
         GameObject newdrop = Instantiate (drop, keydrop, Quaternion.identity) as GameObject;
 				newdrop.rigidbody.AddExplosionForce(300, keydrop, 2);

@@ -6304,7 +6304,7 @@ MonoBehaviour:
   armor: 1
   lifeSteal: 0
   flashTime: .25
-  drop: {fileID: 100008, guid: 165c091b311479c4ab3b5b596b3178f8, type: 2}
+  drop: {fileID: 100000, guid: fb84f472ba6581f4f862a84d6f9a0b2a, type: 2}
   dropLoot: 0
   attacking: 0
   mesh: {fileID: 13700022}
