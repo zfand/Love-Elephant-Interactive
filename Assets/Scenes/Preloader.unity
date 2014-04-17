@@ -1595,6 +1595,8 @@ MonoBehaviour:
   grapple_shoot: {fileID: 8300000, guid: f00206f5302f753428ffc93071facf57, type: 3}
   grapple_hit: {fileID: 8300000, guid: a172f5ab11fb8a044b3bfa83fc9b854d, type: 3}
   grapple_extend: {fileID: 8300000, guid: 95dc675320cebf34f820540d39aa8680, type: 3}
+  grapple_miss: {fileID: 8300000, guid: c07131004a44b9a43a9baf458b908d1a, type: 3}
+  grapple_fail: {fileID: 8300000, guid: 1aa3b8ee62c768742aebced8261150f8, type: 3}
   audioSources:
   - {fileID: 571345506}
   - {fileID: 1585680055}

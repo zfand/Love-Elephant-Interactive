@@ -4626,7 +4626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors:
   - door: {fileID: 1535828955}
-    connectedRoom: GW_LeftRoom
+    connectedRoom: Credits
     playerSpawnPos: SpawnerDoorLeft
 --- !u!4 &398502662
 Transform:
