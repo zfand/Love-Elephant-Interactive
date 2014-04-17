@@ -104,7 +104,6 @@ namespace LoveElephant
       Vector3 newScale = new Vector3 ((0.6f * (health / maxHealth)), .1f, .1f);
       healthBar.transform.localScale = newScale;
       invincible = true;
-      Color originalColor = mat.color;
       Color fadeColor = originalColor;
       fadeColor.a = 0.5f;
 
