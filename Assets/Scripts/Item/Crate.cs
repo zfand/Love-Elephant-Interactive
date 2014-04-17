@@ -31,8 +31,14 @@ namespace LoveElephant
       if (hit.gameObject.tag == "Weapon" || hit.gameObject.tag == "Boss") {
 		GetComponent<AudioSource>().Play ();
         ((MeshExploder)this.GetComponent ("MeshExploder")).Explode (); 
-        this.gameObject.SetActive (false);
+		this.gameObject.renderer.enabled = false;
+		StartCoroutine (breakCrate());
       }
     }
+
+	IEnumerator breakCrate() {
+  	  yield return new WaitForSeconds(1f);
+	  Destroy (this.gameObject);
+	}
   }
 }
