@@ -4698,7 +4698,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -4756,7 +4756,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -4814,7 +4814,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -5095,8 +5095,8 @@ MonoBehaviour:
   armor: 1
   lifeSteal: 0
   flashTime: .25
-  drop: {fileID: 0}
-  dropLoot: 0
+  drop: {fileID: 100000, guid: 84460d6670a523a4881331ba68aa767b, type: 2}
+  dropLoot: 1
   attacking: 0
   mesh: {fileID: 13700002}
   extraMeshs:
