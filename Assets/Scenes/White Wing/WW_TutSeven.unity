@@ -826,7 +826,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.85000002, y: .289999962, z: .200000003}
+  m_Size: {x: 1.85000002, y: .289999962, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &893232133
 SpriteRenderer:
@@ -1726,7 +1726,7 @@ AudioSource:
   m_GameObject: {fileID: 2031885546}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: f58c6f2c88928bd4694588893b2431d2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a62ebd35fd0b6a741ab2077c1f41c76d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .5
   m_Pitch: 1
@@ -1950,7 +1950,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.85000002, y: .289999992, z: .200000003}
+  m_Size: {x: 1.85000002, y: .289999992, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &2104680032
 SpriteRenderer:
