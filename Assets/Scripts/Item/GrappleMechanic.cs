@@ -46,7 +46,9 @@ namespace LoveElephant
     public GameObject grappleSpike;
     public AudioClip grapple_shoot;
     public AudioClip grapple_hit;
-    public AudioClip grapple_extend;
+	public AudioClip grapple_extend;
+	public AudioClip grapple_miss;
+	public AudioClip grapple_fail;
     public List<AudioSource> audioSources;
 
     /////////////////////////////////////////////////////////////////////////
@@ -267,9 +269,7 @@ namespace LoveElephant
       //Hit!
       if (hit.collider) {
         //If the Object isn't grapplable
-        if ((hit.collider.gameObject.tag == "Untagged")) {
-          return;
-        }
+
 
         audioSources [1].clip = grapple_shoot;
         audioSources [1].Play ();
@@ -288,7 +288,11 @@ namespace LoveElephant
         if (distance <= maxRopeLength) {
           state = GrappleState.Extending;
           //if we're in the air start swinging
-          if (!pController.grounded) {
+		  if ((hit.collider.gameObject.tag == "Untagged") ||
+		      hit.collider.gameObject.CompareTag("Crate")) {
+				StopCoroutine ("ExtendRope");
+				StartCoroutine ("ExtendRope", GrappleState.Off);
+		  } else if (!pController.grounded) {
             StopCoroutine ("ExtendRope");
             StartCoroutine ("ExtendRope", GrappleState.Swinging);
           } else {
@@ -299,7 +303,7 @@ namespace LoveElephant
         } else {
           state = GrappleState.Failed;
           StopCoroutine ("ExtendRope");
-          StartCoroutine ("ExtendRope", GrappleState.Off);
+          StartCoroutine (ExtendRope(GrappleState.Off));
         } 
       }
     }
@@ -319,7 +323,7 @@ namespace LoveElephant
     /// <summary>
     /// Extends the rope out of the player
     /// </summary>
-    private IEnumerator ExtendRope(GrappleState completeState)
+	private IEnumerator ExtendRope(GrappleState completeState)
     {
       float deltaTime = 0f;
       Vector3 startPos = ropePos.position;
@@ -341,11 +345,19 @@ namespace LoveElephant
         yield return 0;
       }
       if (state == GrappleState.Failed) {
+		audioSources [0].clip = grapple_miss;
+		audioSources [0].Play ();
         StopSwing (true);
       } else {
-        audioSources [0].clip = grapple_hit;
-        audioSources [0].Play ();
-        state = completeState;     
+		state = completeState; 
+		if(state == GrappleState.Off || state == GrappleState.Failed){
+			audioSources [0].clip = grapple_fail;
+			audioSources [0].Play ();
+		} else {
+			audioSources [0].clip = grapple_hit;
+			audioSources [0].Play ();
+		}
+
         if (Input.GetButton ("Fire1") && state == GrappleState.Swinging) {
           StartSwing ();
         }
