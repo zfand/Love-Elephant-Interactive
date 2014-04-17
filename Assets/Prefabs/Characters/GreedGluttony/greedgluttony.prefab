@@ -5051,7 +5051,7 @@ MonoBehaviour:
   armor: 1
   lifeSteal: 0
   flashTime: .25
-  drop: {fileID: 100000, guid: 475a5c273c0337043925552e62b7f4ad, type: 2}
+  drop: {fileID: 100000, guid: 84460d6670a523a4881331ba68aa767b, type: 2}
   dropLoot: 0
   attacking: 0
   mesh: {fileID: 13700000}
@@ -5095,7 +5095,7 @@ MonoBehaviour:
   armor: 1
   lifeSteal: 0
   flashTime: .25
-  drop: {fileID: 100000, guid: 84460d6670a523a4881331ba68aa767b, type: 2}
+  drop: {fileID: 100002, guid: 4ecc668c07da5f643be2419a5664e7fa, type: 2}
   dropLoot: 1
   attacking: 0
   mesh: {fileID: 13700002}
