@@ -269,16 +269,15 @@ namespace LoveElephant
       //Hit!
       if (hit.collider) {
         //If the Object isn't grapplable
-
-
-        audioSources [1].clip = grapple_shoot;
-        audioSources [1].Play ();
         
         //If the angle is too low
         float dot = Vector3.Dot (Vector3.up, (clickedPosition - transform.parent.position).normalized);
         if (dot < 0f) { // 0 is 90 degrees to the left or right
           return;
-        }
+		}
+
+		audioSources [1].clip = grapple_shoot;
+		audioSources [1].Play ();
 
         //Ok we're good create the point
         hitPos = new Vector3 (hit.point.x, hit.point.y, 0);
